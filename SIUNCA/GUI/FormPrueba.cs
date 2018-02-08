@@ -16,5 +16,23 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmProfesor form = new frmProfesor();
+            form.Show(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmSecretarioAcademico form = new frmSecretarioAcademico();
+            form.Show(this);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Login form = new Login();
+            form.Show(this);
+        }
     }
 }

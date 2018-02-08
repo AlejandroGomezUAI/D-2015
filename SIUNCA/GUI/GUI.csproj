@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmSecretarioAcademico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSecretarioAcademico.designer.cs">
+      <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,36 @@
     <Compile Include="UserControlProfesor\UCNotas.designer.cs">
       <DependentUpon>UCNotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCAlumnos.Designer.cs">
+      <DependentUpon>UCAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCCursos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCCursos.Designer.cs">
+      <DependentUpon>UCCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCMaterias.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCMaterias.designer.cs">
+      <DependentUpon>UCMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlSecretarioAcademico\UCPlanDeEstudio.designer.cs">
+      <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormPrueba.resx">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSecretarioAcademico.resx">
+      <DependentUpon>frmSecretarioAcademico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProfesor.resx">
       <DependentUpon>frmProfesor.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +134,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlProfesor\UCNotas.resx">
       <DependentUpon>UCNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCAlumnos.resx">
+      <DependentUpon>UCAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCMaterias.resx">
+      <DependentUpon>UCMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCPlanDeEstudio.resx">
+      <DependentUpon>UCPlanDeEstudio.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

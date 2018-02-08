@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI.UserControlProfesor
+namespace GUI.UserControlSecretarioAcademico
 {
-    public partial class UCAsistencia : UserControl
+    public partial class UCCursos : UserControl
     {
-        public UCAsistencia()
+        public UCCursos()
         {
             InitializeComponent();
         }
-
-       
     }
 }

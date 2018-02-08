@@ -62,6 +62,11 @@ namespace GUI
             arrastrarForm(e, ref x, ref y);
         }
 
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// Metodo para arrastrar el form desde cualquier parte del loguin
         /// </summary>
