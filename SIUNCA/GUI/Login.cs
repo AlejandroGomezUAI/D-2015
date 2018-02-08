@@ -12,6 +12,9 @@ namespace GUI
 {
     public partial class Login : Form
     {
+        //variables para la funcion arrastrarForm(e, x , y)
+        int x = 0, y = 0;
+
         public Login()
         {
             InitializeComponent();
@@ -22,17 +25,6 @@ namespace GUI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        //private void btnMaximizar_Click(object sender, EventArgs e)
-        //{
-        //    if (this.WindowState == FormWindowState.Maximized)
-        //    {
-        //        this.WindowState = FormWindowState.Normal;
-        //    }
-        //    else
-        //    {
-        //        this.WindowState = FormWindowState.Maximized;
-        //    }
-        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -49,9 +41,45 @@ namespace GUI
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            //aca va la validacion de usuario y contraseña para instanciar
+            //el form correspondiente
+        }
+
+        private void Login_MouseMove(object sender, MouseEventArgs e)
+        {
+            arrastrarForm(e, ref x, ref y);
+        }
+
+        private void panelFooter_MouseMove(object sender, MouseEventArgs e)
+        {
+            arrastrarForm(e, ref x, ref y);
+        }
+
+        private void panelHeader_MouseMove(object sender, MouseEventArgs e)
+        {
+            arrastrarForm(e, ref x, ref y);
+        }
+
+        /// <summary>
+        /// Metodo para arrastrar el form desde cualquier parte del loguin
+        /// </summary>
+        /// <param name="e">evento MouseEventArgs</param>
+        /// <param name="x">valor por referencia del eje horizontal</param>
+        /// <param name="y">valor por referencia del eje vertical</param>
+        public void arrastrarForm(MouseEventArgs e, ref int x, ref int y)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                x = e.X;
+                y = e.Y;
+            }
+            else
+            {
+                Left = Left + (e.X - x);
+                Top = Top + (e.Y - y);
+            }
         }
     }
 }
