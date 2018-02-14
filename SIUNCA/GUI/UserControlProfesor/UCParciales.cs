@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI.UserControlProfesor
 {
-    public partial class UCNotas : UserControl
+    public partial class UCParciales : UserControl
     {
-        public UCNotas()
+        public UCParciales()
         {
             InitializeComponent();
         }

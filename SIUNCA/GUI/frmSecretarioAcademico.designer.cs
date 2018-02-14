@@ -63,7 +63,7 @@ namespace GUI
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(203, 513);
+            this.panelMenu.Size = new System.Drawing.Size(203, 736);
             this.panelMenu.TabIndex = 0;
             // 
             // btnAlumnos
@@ -152,7 +152,6 @@ namespace GUI
             this.panelHeader1.Name = "panelHeader1";
             this.panelHeader1.Size = new System.Drawing.Size(856, 30);
             this.panelHeader1.TabIndex = 1;
-   //         this.panelHeader1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader1_Paint);
             // 
             // btnMinimizar
             // 
@@ -236,15 +235,15 @@ namespace GUI
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(203, 91);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(856, 422);
-            this.panelContenedor.TabIndex = 3;
+            this.panelContenedor.Size = new System.Drawing.Size(856, 645);
+            this.panelContenedor.TabIndex = 8;
             // 
             // frmSecretarioAcademico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1059, 513);
+            this.ClientSize = new System.Drawing.Size(1059, 736);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelHeader2);
             this.Controls.Add(this.panelHeader1);
@@ -272,13 +271,13 @@ namespace GUI
         private System.Windows.Forms.Panel panelHeader2;
         private System.Windows.Forms.Button btnPlanDeEstudio;
         private System.Windows.Forms.Button btnMaterias;
-        private System.Windows.Forms.Panel panelContenedor;      
         private System.Windows.Forms.Panel slideMenu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAlumnos;
         private System.Windows.Forms.Button btnCursos;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }
 

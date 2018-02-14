@@ -72,17 +72,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControlProfesor\UCAsistencia.cs">
+    <Compile Include="UserControlProfesor\UCAsistencias.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCAsistencia.designer.cs">
-      <DependentUpon>UCAsistencia.cs</DependentUpon>
+    <Compile Include="UserControlProfesor\UCAsistencias.designer.cs">
+      <DependentUpon>UCAsistencias.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlProfesor\UCNotas.cs">
+    <Compile Include="UserControlProfesor\UCFinales.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlProfesor\UCNotas.designer.cs">
-      <DependentUpon>UCNotas.cs</DependentUpon>
+    <Compile Include="UserControlProfesor\UCFinales.Designer.cs">
+      <DependentUpon>UCFinales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCParciales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCParciales.designer.cs">
+      <DependentUpon>UCParciales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCRecuperatorios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProfesor\UCRecuperatorios.Designer.cs">
+      <DependentUpon>UCRecuperatorios.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlSecretarioAcademico\UCAlumnos.cs">
       <SubType>UserControl</SubType>
@@ -129,11 +141,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControlProfesor\UCAsistencia.resx">
-      <DependentUpon>UCAsistencia.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
+      <DependentUpon>UCAsistencias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlProfesor\UCNotas.resx">
-      <DependentUpon>UCNotas.cs</DependentUpon>
+    <EmbeddedResource Include="UserControlProfesor\UCFinales.resx">
+      <DependentUpon>UCFinales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCParciales.resx">
+      <DependentUpon>UCParciales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProfesor\UCRecuperatorios.resx">
+      <DependentUpon>UCRecuperatorios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlSecretarioAcademico\UCAlumnos.resx">
       <DependentUpon>UCAlumnos.cs</DependentUpon>

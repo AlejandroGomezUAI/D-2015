@@ -32,10 +32,12 @@ namespace GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfesor));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnFinales = new System.Windows.Forms.Button();
+            this.btnRecuperatorios = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.slideMenu = new System.Windows.Forms.Panel();
-            this.btnNotas = new System.Windows.Forms.Button();
-            this.btnAsistencia = new System.Windows.Forms.Button();
+            this.btnParciales = new System.Windows.Forms.Button();
+            this.btnAsistencias = new System.Windows.Forms.Button();
             this.panelHeader1 = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
@@ -43,7 +45,7 @@ namespace GUI
             this.panelHeader2 = new System.Windows.Forms.Panel();
             this.lblNombreProfesor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelHeader1.SuspendLayout();
@@ -53,16 +55,46 @@ namespace GUI
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
+            this.panelMenu.Controls.Add(this.btnFinales);
+            this.panelMenu.Controls.Add(this.btnRecuperatorios);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.slideMenu);
-            this.panelMenu.Controls.Add(this.btnNotas);
-            this.panelMenu.Controls.Add(this.btnAsistencia);
+            this.panelMenu.Controls.Add(this.btnParciales);
+            this.panelMenu.Controls.Add(this.btnAsistencias);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(203, 513);
             this.panelMenu.TabIndex = 0;
             this.panelMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseMove);
+            // 
+            // btnFinales
+            // 
+            this.btnFinales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnFinales.FlatAppearance.BorderSize = 0;
+            this.btnFinales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinales.Location = new System.Drawing.Point(0, 273);
+            this.btnFinales.Name = "btnFinales";
+            this.btnFinales.Size = new System.Drawing.Size(188, 44);
+            this.btnFinales.TabIndex = 6;
+            this.btnFinales.Text = "Finales";
+            this.btnFinales.UseVisualStyleBackColor = false;
+            this.btnFinales.Click += new System.EventHandler(this.btnFinales_Click);
+            // 
+            // btnRecuperatorios
+            // 
+            this.btnRecuperatorios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnRecuperatorios.FlatAppearance.BorderSize = 0;
+            this.btnRecuperatorios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecuperatorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecuperatorios.Location = new System.Drawing.Point(0, 223);
+            this.btnRecuperatorios.Name = "btnRecuperatorios";
+            this.btnRecuperatorios.Size = new System.Drawing.Size(188, 44);
+            this.btnRecuperatorios.TabIndex = 5;
+            this.btnRecuperatorios.Text = "Recuperatorios";
+            this.btnRecuperatorios.UseVisualStyleBackColor = false;
+            this.btnRecuperatorios.Click += new System.EventHandler(this.btnRecuperatorios_Click);
             // 
             // label1
             // 
@@ -83,33 +115,33 @@ namespace GUI
             this.slideMenu.Size = new System.Drawing.Size(15, 44);
             this.slideMenu.TabIndex = 2;
             // 
-            // btnNotas
+            // btnParciales
             // 
-            this.btnNotas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnNotas.FlatAppearance.BorderSize = 0;
-            this.btnNotas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotas.Location = new System.Drawing.Point(0, 173);
-            this.btnNotas.Name = "btnNotas";
-            this.btnNotas.Size = new System.Drawing.Size(188, 44);
-            this.btnNotas.TabIndex = 4;
-            this.btnNotas.Text = "Notas";
-            this.btnNotas.UseVisualStyleBackColor = false;
-            this.btnNotas.Click += new System.EventHandler(this.btnNotas_Click);
+            this.btnParciales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnParciales.FlatAppearance.BorderSize = 0;
+            this.btnParciales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnParciales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParciales.Location = new System.Drawing.Point(0, 173);
+            this.btnParciales.Name = "btnParciales";
+            this.btnParciales.Size = new System.Drawing.Size(188, 44);
+            this.btnParciales.TabIndex = 4;
+            this.btnParciales.Text = "Parciales";
+            this.btnParciales.UseVisualStyleBackColor = false;
+            this.btnParciales.Click += new System.EventHandler(this.btnParciales_Click);
             // 
-            // btnAsistencia
+            // btnAsistencias
             // 
-            this.btnAsistencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnAsistencia.FlatAppearance.BorderSize = 0;
-            this.btnAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsistencia.Location = new System.Drawing.Point(0, 123);
-            this.btnAsistencia.Name = "btnAsistencia";
-            this.btnAsistencia.Size = new System.Drawing.Size(188, 44);
-            this.btnAsistencia.TabIndex = 3;
-            this.btnAsistencia.Text = "Asistencia";
-            this.btnAsistencia.UseVisualStyleBackColor = false;
-            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
+            this.btnAsistencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnAsistencias.FlatAppearance.BorderSize = 0;
+            this.btnAsistencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsistencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsistencias.Location = new System.Drawing.Point(0, 123);
+            this.btnAsistencias.Name = "btnAsistencias";
+            this.btnAsistencias.Size = new System.Drawing.Size(188, 44);
+            this.btnAsistencias.TabIndex = 3;
+            this.btnAsistencias.Text = "Asistencias";
+            this.btnAsistencias.UseVisualStyleBackColor = false;
+            this.btnAsistencias.Click += new System.EventHandler(this.btnAsistencias_Click);
             // 
             // panelHeader1
             // 
@@ -171,7 +203,7 @@ namespace GUI
             this.panelHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.panelHeader2.Controls.Add(this.lblNombreProfesor);
             this.panelHeader2.Controls.Add(this.label2);
-            this.panelHeader2.Controls.Add(this.button3);
+            this.panelHeader2.Controls.Add(this.btnLogOut);
             this.panelHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader2.Location = new System.Drawing.Point(203, 30);
             this.panelHeader2.Name = "panelHeader2";
@@ -199,18 +231,19 @@ namespace GUI
             this.label2.TabIndex = 6;
             this.label2.Text = "Profesor: ";
             // 
-            // button3
+            // btnLogOut
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(751, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "LogOut";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(751, 15);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(80, 29);
+            this.btnLogOut.TabIndex = 5;
+            this.btnLogOut.Text = "LogOut";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // panelContenedor
             // 
@@ -251,16 +284,18 @@ namespace GUI
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panelHeader2;
-        private System.Windows.Forms.Button btnAsistencia;
-        private System.Windows.Forms.Button btnNotas;
+        private System.Windows.Forms.Button btnAsistencias;
+        private System.Windows.Forms.Button btnParciales;
         private System.Windows.Forms.Panel panelContenedor;
-        private UCAsistencia UCAsistencia;
-        private UCNotas UCNotas;
+        private UCAsistencias UCAsistencia;
+        private UCParciales UCNotas;
         private System.Windows.Forms.Panel slideMenu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblNombreProfesor;
+        private System.Windows.Forms.Button btnRecuperatorios;
+        private System.Windows.Forms.Button btnFinales;
     }
 }
 

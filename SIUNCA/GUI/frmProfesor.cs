@@ -10,13 +10,15 @@ namespace GUI
         int x = 0, y = 0;
 
         //instancias necesarias para el metodo seleccionaUserontrol(UserControl)
-        UCAsistencia ucasistencia = new UCAsistencia();
-        UCNotas ucnotas = new UCNotas();
+        UCAsistencias ucasistencias = new UCAsistencias();
+        UCParciales ucparciales = new UCParciales();
+        UCRecuperatorios ucrecuperatorios = new UCRecuperatorios();
+        UCFinales ucfinales = new UCFinales();
 
         public frmProfesor()
         {
             InitializeComponent();
-            seleccionarUserControl(ucasistencia);
+            seleccionarUserControl(ucasistencias);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,22 +45,38 @@ namespace GUI
         }
 
 
-        private void btnAsistencia_Click(object sender, EventArgs e)
-        {
-            
-            moverSlider(btnAsistencia.Height, btnAsistencia.Top);
+        private void btnAsistencias_Click(object sender, EventArgs e)
+        {            
+            moverSlider(btnAsistencias.Height, btnAsistencias.Top);
            
-            seleccionarUserControl(ucasistencia);
+            seleccionarUserControl(ucasistencias);
         }
 
-        private void btnNotas_Click(object sender, EventArgs e)
+        private void btnParciales_Click(object sender, EventArgs e)
+        {            
+            moverSlider(btnParciales.Height, btnParciales.Top);
+            
+            seleccionarUserControl(ucparciales);
+        }
+
+        private void btnRecuperatorios_Click(object sender, EventArgs e)
         {
-            
-            moverSlider(btnNotas.Height, btnNotas.Top);
-            
-            seleccionarUserControl(ucnotas);
+            moverSlider(btnRecuperatorios.Height, btnRecuperatorios.Top);
+
+            seleccionarUserControl(ucrecuperatorios);
         }
 
+        private void btnFinales_Click(object sender, EventArgs e)
+        {
+            moverSlider(btnFinales.Height, btnFinales.Top);
+
+            seleccionarUserControl(ucfinales);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+          
+        }
 
 
         private void panelHeader2_MouseMove(object sender, MouseEventArgs e)

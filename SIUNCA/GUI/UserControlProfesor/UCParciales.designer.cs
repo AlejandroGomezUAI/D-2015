@@ -1,6 +1,6 @@
 ﻿namespace GUI.UserControlProfesor
 {
-    partial class UCNotas
+    partial class UCParciales
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

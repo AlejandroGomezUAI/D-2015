@@ -1,6 +1,6 @@
 ﻿namespace GUI.UserControlProfesor
 {
-    partial class UCAsistencia
+    partial class UCRecuperatorios
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -34,21 +34,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(318, 200);
+            this.label1.Location = new System.Drawing.Point(380, 192);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 20);
+            this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Listado de asistencias";
+            this.label1.Text = "Recuperatorios";
             // 
-            // UCAsistencia
+            // UCRecuperatorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Name = "UCAsistencia";
+            this.Name = "UCRecuperatorios";
             this.Size = new System.Drawing.Size(856, 422);
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
