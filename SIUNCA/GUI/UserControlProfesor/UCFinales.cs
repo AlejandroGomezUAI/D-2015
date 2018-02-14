@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI.UserControlProfesor
 {
-    public partial class UCAsistencia : UserControl
+    public partial class UCFinales : UserControl
     {
-        public UCAsistencia()
+        public UCFinales()
         {
             InitializeComponent();
         }
-
-       
     }
 }
