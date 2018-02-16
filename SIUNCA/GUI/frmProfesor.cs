@@ -137,6 +137,6 @@ namespace GUI
         {
             panelContenedor.Controls.Clear();
             panelContenedor.Controls.Add(uc);
-        }
+        }        
     }
 }
