@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BIZ.Carrera">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Carrera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.PlanDeEstudio">
+    <Position X="3.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgIAAAAgAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlanDeEstudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesPlanDeEstudio">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAEAgAAAAAAEABAAAAAACAAIAAAAAAAgAA=</HashCode>
+      <FileName>DetallesPlanDeEstudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Curso">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAggAAAAAAAAAAgAICAAAAAAABAAIgAA=</HashCode>
+      <FileName>Curso.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.MateriaConCorrelativas">
+    <Position X="3.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAoAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MateriaConCorrelativas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesCorrelativa">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAgAAABgAA=</HashCode>
+      <FileName>DetallesCorrelativa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Materias">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Materias.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Alumno">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAACAAAAgEgAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Alumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.DetallesAlumnoMateriaCC">
+    <Position X="3.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAQAQAAAAgAIAAAAAAAAAAAAAAAAAAAABAAQgAg=</HashCode>
+      <FileName>DetallesAlumnoMateriaCC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Profesor">
+    <Position X="7.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAEACAAhAAAIAEAAgAAAAAAAQAAAAA=</HashCode>
+      <FileName>Profesor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Asistencia">
+    <Position X="7.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAgEAAAAAEAAAAAAAAAAAIAAAAAAQAAg=</HashCode>
+      <FileName>Asistencia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.MateriaCC_Profesor">
+    <Position X="9.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MateriaCC_Profesor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Promedio">
+    <Position X="12.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Promedio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BIZ.Bitacora">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAQAAAAAAE=</HashCode>
+      <FileName>Bitacora.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
