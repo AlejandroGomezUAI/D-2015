@@ -7,88 +7,13 @@ namespace BIZ
 {
     public class Asistencia
     {
-        public int Ausente
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int Ausente { get; set; }
+        public int Estado { get; set; }
+        public int Fecha { get; set; }
+        public int IdAsistencia { get; set; }
+        public int IdMateriaCC { get; set; }
+        public int LegajoAlumno { get; set; }
+        public int Presente { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int Estado
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Fecha
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int IdAsistencia
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int IdMateriaCC
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int LegajoAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Presente
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

@@ -7,40 +7,9 @@ namespace BIZ
 {
     public class MateriaConCorrelativas
     {
-        public int Horas
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int Horas { get; set; }
+        public int IdMateriaCC { get; set; }
+        public int Nombre { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int IdMateriaCC
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Nombre
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

@@ -7,28 +7,10 @@ namespace BIZ
 {
     public class Carrera
     {
-        public int IdCarrera
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Nombre
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public int IdCarrera { get; set; }
+        public int Nombre { get; set; }
+        public List<Curso> Curso { get; set; }
+        public List<Alumno> Alumno { get; set; }
+        public List<PlanDeEstudio> PlanDeEstudio { get; set; }
     }
 }

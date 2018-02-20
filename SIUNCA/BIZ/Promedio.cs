@@ -7,52 +7,10 @@ namespace BIZ
 {
     public class Promedio
     {
-        public int IdMateriaCC
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int IdMateriaCC { get; set; }
+        public int IdPromedio { get; set; }
+        public int LegajoAlumno { get; set; }
+        public int NotaPromedio { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int IdPromedio
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int LegajoAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NotaPromedio
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

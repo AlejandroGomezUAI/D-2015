@@ -7,76 +7,16 @@ namespace BIZ
 {
     public class Alumno
     {
-        public int Apellido
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int Apellido { get; set; }
+        public int Email { get; set; }
+        public int IdCarrera { get; set; }
+        public int LegajoAlumno { get; set; }
+        public int NombreAlumno { get; set; }
+        public int Sexo { get; set; }
+        public List<Asistencia> Asistencia { get; set; }
+        public List<Evaluacion> Evaluacion { get; set; }
+        public Promedio Promedio { get; set; }
+        public List<AlumnoMateria> AlumnoMateria { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int Email
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int IdCarrera
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int LegajoAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NombreAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Sexo
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

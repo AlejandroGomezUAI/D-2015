@@ -41,14 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumno.cs" />
+    <Compile Include="AlumnoMateria.cs" />
     <Compile Include="Asistencia.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Carrera.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="DetallesAlumnoMateriaCC.cs" />
     <Compile Include="DetallesCorrelativa.cs" />
     <Compile Include="DetallesPlanDeEstudio.cs" />
+    <Compile Include="Evaluacion.cs" />
     <Compile Include="MateriaCC_Profesor.cs" />
     <Compile Include="MateriaConCorrelativas.cs" />
     <Compile Include="Materias.cs" />

@@ -7,28 +7,8 @@ namespace BIZ
 {
     public class Materias
     {
-        public int IdMateria
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int IdMateria { get; set; }
+        public int Nombre { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int Nombre
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

@@ -7,124 +7,15 @@ namespace BIZ
 {
     public class DetallesAlumnoMateriaCC
     {
-        public int Año
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int ApellidoAlumno { get; set; }
+        public int Estado { get; set; }
+        public int IdDetallesAlumnoMateriaCC { get; set; }
+        public int IdMateriaCC { get; set; }
+        public int LegajoAlumno { get; set; }
+        public int NombreAlumno { get; set; }
+        public int NombreCarrera { get; set; }
+        public int NombreMateria { get; set; }
+        public int Turno { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int ApellidoAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Estado
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int IdDetallesAlumnoMateriaCC
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int IdMateriaCC
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int LegajoAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NombreAlumno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NombreCarrera
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NombreMateria
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Turno
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

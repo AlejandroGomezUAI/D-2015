@@ -7,52 +7,10 @@ namespace BIZ
 {
     public class PlanDeEstudio
     {
-        public int IdCarrera
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int IdCarrera { get; set; }
+        public int IdPlanDeEstudio { get; set; }
+        public int Nombre { get; set; }
+        public int NombreCarrera { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int IdPlanDeEstudio
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Nombre
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int NombreCarrera
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

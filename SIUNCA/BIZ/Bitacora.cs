@@ -7,52 +7,10 @@ namespace BIZ
 {
     public class Bitacora
     {
-        public int ChangedOn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int ChangedOn { get; set; }
+        public int ChangedBy { get; set; }
+        public int CreatedBy { get; set; }
+        public int CreatedOn { get; set; }
 
-            set
-            {
-            }
-        }
-
-        public int ChangedBy
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int CreatedBy
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int CreatedOn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }
