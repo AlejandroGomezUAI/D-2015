@@ -9,8 +9,8 @@ namespace BIZ
     {
         public int ChangedOn { get; set; }
         public int ChangedBy { get; set; }
-        public int CreatedBy { get; set; }
         public int CreatedOn { get; set; }
+        public int CreatedBy { get; set; }
 
     }
 }
