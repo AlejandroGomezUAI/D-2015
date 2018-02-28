@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class Asistencia
+    public class Asistencia : Bitacora
     {
         public int Ausente { get; set; }
         public int Estado { get; set; }

@@ -6,6 +6,7 @@ namespace GUI
 {
     public partial class frmProfesor : Form
     {
+        //asd
         //variables para la funcion arrastrarForm(e, x, y)
         int x = 0, y = 0;
 

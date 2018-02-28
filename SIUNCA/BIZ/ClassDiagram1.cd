@@ -33,21 +33,21 @@
       <FileName>Curso.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BIZ.MateriaConCorrelativas">
+  <Class Name="BIZ.MateriaConCorrelativas" HideInheritanceLine="true">
     <Position X="3.5" Y="6" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAoAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MateriaConCorrelativas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BIZ.DetallesCorrelativa">
+  <Class Name="BIZ.DetallesCorrelativa" HideInheritanceLine="true">
     <Position X="7" Y="5.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAgAAABgAA=</HashCode>
       <FileName>DetallesCorrelativa.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BIZ.Materias">
+  <Class Name="BIZ.Materias" HideInheritanceLine="true">
     <Position X="4.75" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
@@ -69,7 +69,7 @@
       <Property Name="AlumnoMateria" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BIZ.DetallesAlumnoMateriaCC">
+  <Class Name="BIZ.DetallesAlumnoMateriaCC" HideInheritanceLine="true">
     <Position X="3.5" Y="8" Width="2" />
     <TypeIdentifier>
       <HashCode>gAAAAAQAQAAAAgAIAAAAAAAAAAAAAAAAAAAABAAQgAg=</HashCode>
@@ -86,7 +86,7 @@
       <Property Name="MateriaCC_Profesor1" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BIZ.Asistencia">
+  <Class Name="BIZ.Asistencia" HideInheritanceLine="true">
     <Position X="7.75" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAQAAgEAAAAAEAAAAAAAAAAAIAAAAAAQAAg=</HashCode>
@@ -114,14 +114,14 @@
       <FileName>Bitacora.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BIZ.Evaluacion">
+  <Class Name="BIZ.Evaluacion" HideInheritanceLine="true">
     <Position X="10.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAgEIAQAAA=</HashCode>
       <FileName>Evaluacion.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BIZ.AlumnoMateria">
+  <Class Name="BIZ.AlumnoMateria" HideInheritanceLine="true">
     <Position X="1.75" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAgAAAQAAg=</HashCode>

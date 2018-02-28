@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class Promedio
+    public class Promedio : Bitacora
     {
         public int IdMateriaCC { get; set; }
         public int IdPromedio { get; set; }

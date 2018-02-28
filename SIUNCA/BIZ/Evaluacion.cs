@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class Evaluacion
+    public class Evaluacion : Bitacora
     {
         public double Nota { get; set; }
         public string TipoNota { get; set; }
