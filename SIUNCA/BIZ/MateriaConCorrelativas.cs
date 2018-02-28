@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class MateriaConCorrelativas
+    public class MateriaConCorrelativas : Bitacora
     {
         public int Horas { get; set; }
         public int IdMateriaCC { get; set; }

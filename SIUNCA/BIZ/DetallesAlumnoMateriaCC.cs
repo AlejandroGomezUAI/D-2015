@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BIZ
 {
-    public class DetallesAlumnoMateriaCC
+    public class DetallesAlumnoMateriaCC : Bitacora
     {
         public int ApellidoAlumno { get; set; }
         public int Estado { get; set; }
