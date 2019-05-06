@@ -15,7 +15,7 @@ namespace BLL
             DetalleCorrelativaDAO unDetalleCorrelativaDAO = new DetalleCorrelativaDAO();           
             ListaCorrelativas = unDetalleCorrelativaDAO.TraerTodo(unaMateriaCC);
          
-
+            //comentando
             return ListaCorrelativas;
         }
 
