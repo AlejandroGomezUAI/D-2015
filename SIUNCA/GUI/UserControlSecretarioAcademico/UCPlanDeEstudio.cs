@@ -39,6 +39,22 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
+        private void ComboMaterias1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarMaterias();
+        }
+
+        private void CargarMaterias()
+        {
+            
+                GestorMateriaCC unGM = new GestorMateriaCC();
+                ComboMaterias1.DataSource = null;
+               // ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
+                ComboMaterias1.DisplayMember = "Nombre";
+            
+
+        }
+
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
             CargarCorrelativas();
@@ -57,5 +73,7 @@ namespace GUI.UserControlSecretarioAcademico
             // dgCorrelativas.Columns("NombreMateriaCC").HeaderText = "Materia consultada";
             // dgCorrelativas.Columns("NombreMateria").HeaderText = "Correlativa";
         }
+
+        
     }
 }

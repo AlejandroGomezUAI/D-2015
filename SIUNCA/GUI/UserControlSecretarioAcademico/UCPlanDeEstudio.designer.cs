@@ -265,6 +265,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMaterias1.Name = "ComboMaterias1";
             this.ComboMaterias1.Size = new System.Drawing.Size(121, 28);
             this.ComboMaterias1.TabIndex = 8;
+            this.ComboMaterias1.SelectedIndexChanged += new System.EventHandler(this.ComboMaterias1_SelectedIndexChanged);
             // 
             // textBox5
             // 
