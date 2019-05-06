@@ -17,6 +17,11 @@ namespace GUI.UserControlSecretarioAcademico
         public UCPlanDeEstudio()
         {
             InitializeComponent();
+           
+            CargarCarreras();
+            CargarMaterias();
+
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void ComboMaterias1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarMaterias();
+           // CargarMaterias();
         }
 
         private void CargarMaterias()
@@ -49,7 +54,7 @@ namespace GUI.UserControlSecretarioAcademico
             
                 GestorMateriaCC unGM = new GestorMateriaCC();
                 ComboMaterias1.DataSource = null;
-               // ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
+                ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
                 ComboMaterias1.DisplayMember = "Nombre";
             
 
@@ -57,7 +62,23 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
-            CargarCorrelativas();
+            //CargarCorrelativas();
+           // CargarCarreras();
+        }
+
+     
+        private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  CargarCarreras();
+
+        }
+
+        private void CargarCarreras()
+        {
+            GestorCarrera unGC = new GestorCarrera();
+            ComboBox3.DataSource = null;
+            ComboBox3.DataSource = unGC.TraerListaCarreras();
+            ComboBox3.DisplayMember = "Nombre";
         }
 
         private void CargarCorrelativas()
@@ -74,6 +95,6 @@ namespace GUI.UserControlSecretarioAcademico
             // dgCorrelativas.Columns("NombreMateria").HeaderText = "Correlativa";
         }
 
-        
+       
     }
 }

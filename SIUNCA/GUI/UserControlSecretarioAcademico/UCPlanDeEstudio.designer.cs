@@ -46,7 +46,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.ComboBox3 = new System.Windows.Forms.ComboBox();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -91,7 +91,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.comboBox3);
+            this.tabPage1.Controls.Add(this.ComboBox3);
             this.tabPage1.Controls.Add(this.ComboMaterias1);
             this.tabPage1.Controls.Add(this.textBox5);
             this.tabPage1.Controls.Add(this.textBox4);
@@ -250,13 +250,14 @@ namespace GUI.UserControlSecretarioAcademico
             this.label2.TabIndex = 12;
             this.label2.Text = "Nombre del plan";
             // 
-            // comboBox3
+            // ComboBox3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(213, 94);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 28);
-            this.comboBox3.TabIndex = 11;
+            this.ComboBox3.FormattingEnabled = true;
+            this.ComboBox3.Location = new System.Drawing.Point(213, 94);
+            this.ComboBox3.Name = "ComboBox3";
+            this.ComboBox3.Size = new System.Drawing.Size(121, 28);
+            this.ComboBox3.TabIndex = 11;
+            this.ComboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBox3_SelectedIndexChanged);
             // 
             // ComboMaterias1
             // 
@@ -340,7 +341,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox ComboBox3;
         private System.Windows.Forms.ComboBox ComboMaterias1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
