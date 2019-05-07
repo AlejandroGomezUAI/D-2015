@@ -59,6 +59,8 @@ namespace DAL
             }
         }
 
+
+        
         public List<MateriaConCorrelativas> TraerTodo()
         {
             List<MateriaConCorrelativas> resultado;
@@ -67,7 +69,6 @@ namespace DAL
             try
             {
                 resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas", new List<Parametro>());
-                // sos un gil
                 // resultado = unaConexion.EjecutarTupla(Of MateriaConCorrelativas)("SELECT * FROM MateriaConCorrelativas", New List(Of Parametro))
                 return resultado;
             }
@@ -75,16 +76,16 @@ namespace DAL
             {
                 // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
                 //Interaction.MsgBox("error al traer materias con correlativas");
-                 MessageBox.Show("Error al traer materias", ex.Message.ToString());
-                
-                 throw new ApplicationException("ERROOOOORR TRAER MATERIAS", ex);
-                
+                MessageBox.Show("Error al traer materias", ex.Message.ToString());
+                return null;
+                //throw new ApplicationException("ERROOOOORR TRAER MATERIAS", ex);
             }
             finally
             {
                 unaConexion.ConexionFinalizar();
             }
         }
+    
         public List<MateriaConCorrelativas> TraerTodo(Carrera UnaCarrera)
         {
             List<MateriaConCorrelativas> resultado;
