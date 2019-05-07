@@ -19,7 +19,7 @@ namespace GUI.UserControlSecretarioAcademico
             InitializeComponent();
            
             CargarCarreras();
-            CargarMaterias();
+            CargarMateriasCC();
 
 
         }
@@ -49,7 +49,7 @@ namespace GUI.UserControlSecretarioAcademico
            // CargarMaterias();
         }
 
-        private void CargarMaterias()
+        private void CargarMateriasCC()
         {
             
                 GestorMateriaCC unGM = new GestorMateriaCC();
@@ -62,7 +62,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
-            //CargarCorrelativas();
+            CargarCorrelativas();
            // CargarCarreras();
         }
 
@@ -93,6 +93,20 @@ namespace GUI.UserControlSecretarioAcademico
             // dgCorrelativas.Columns("IdMateriaCC").Visible = false;
             // dgCorrelativas.Columns("NombreMateriaCC").HeaderText = "Materia consultada";
             // dgCorrelativas.Columns("NombreMateria").HeaderText = "Correlativa";
+            dgCorrelativas.Columns.Remove("IdMateriaCC");
+            dgCorrelativas.Columns.Remove("IdMateria");
+            dgCorrelativas.Columns.Remove("IdDetallesCorrelativa");
+            dgCorrelativas.Columns.Remove("ChangedBy");
+            dgCorrelativas.Columns.Remove("ChangedOn");
+            dgCorrelativas.Columns.Remove("CreatedOn");
+            dgCorrelativas.Columns.Remove("CreatedBy");
+
+            dgCorrelativas.Columns[0].HeaderText = "Correlativas";
+            dgCorrelativas.Columns[1].HeaderText = "Materia consultada";
+
+            dgCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+
         }
 
        

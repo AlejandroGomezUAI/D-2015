@@ -173,6 +173,9 @@ namespace GUI.UserControlSecretarioAcademico
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Obligatoria",
+            "Opcional"});
             this.comboBox2.Location = new System.Drawing.Point(213, 191);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 28);
@@ -183,7 +186,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelativas.Location = new System.Drawing.Point(526, 94);
             this.dgCorrelativas.Name = "dgCorrelativas";
-            this.dgCorrelativas.Size = new System.Drawing.Size(240, 91);
+            this.dgCorrelativas.Size = new System.Drawing.Size(272, 91);
             this.dgCorrelativas.TabIndex = 19;
             // 
             // label8
