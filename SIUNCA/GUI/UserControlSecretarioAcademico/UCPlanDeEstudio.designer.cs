@@ -71,6 +71,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(854, 638);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.Tag = "";
             // 
             // tabPage1
             // 
@@ -98,6 +99,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Controls.Add(this.txtCargaHoraria);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -318,7 +320,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar plan de estudio";
+            this.tabPage2.Text = "Asignar Correlativas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // UCPlanDeEstudio

@@ -180,6 +180,11 @@ namespace GUI.UserControlSecretarioAcademico
         private void Button1_Click_1(object sender, EventArgs e)
         {
             //frmCorrelativas.Show();
+            tabPage2.Show();
+            tabPage2.Focus();
+            tabPage2.Select();
+
+            
         }
     }
 }
