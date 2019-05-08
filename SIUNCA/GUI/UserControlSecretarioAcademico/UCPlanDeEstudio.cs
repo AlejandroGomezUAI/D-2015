@@ -14,6 +14,9 @@ namespace GUI.UserControlSecretarioAcademico
 {
     public partial class UCPlanDeEstudio : UserControl
     {
+
+        List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
+
         public UCPlanDeEstudio()
         {
             InitializeComponent();
@@ -109,6 +112,74 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-       
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            {
+                DetallesPlanDeEstudio unDetallePE = new DetallesPlanDeEstudio();
+                MateriaConCorrelativas UnaMateria;
+
+                UnaMateria = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
+
+               // unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC.ToString();
+                unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC;
+                //unDetallePE.NumeroMateria = txtNumeroMateria.Text;
+                unDetallePE.NumeroMateria = int.Parse(txtNumeroMateria.Text);               
+                //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString;
+                //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem;
+                unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString();
+                unDetallePE.NombreMateria = ComboMaterias1.Text;
+                unDetallePE.Año = int.Parse(txtAño.Text);
+                unDetallePE.CargaHoraria = int.Parse(txtCargaHoraria.Text);
+
+                PEDetalles.Add(unDetallePE);
+
+                dgPEMaterias.DataSource = null;
+                dgPEMaterias.DataSource = PEDetalles;
+                //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
+                //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
+                //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
+                dgPEMaterias.Columns.Remove("IdPlanDeEstudio");
+                dgPEMaterias.Columns.Remove("IdPlanDetalles");
+                dgPEMaterias.Columns.Remove("IdMateriaCC");
+                dgPEMaterias.Columns.Remove("ChangedBy");
+                dgPEMaterias.Columns.Remove("ChangedOn");
+                dgPEMaterias.Columns.Remove("CreatedOn");
+                dgPEMaterias.Columns.Remove("CreatedBy");
+
+                dgPEMaterias.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                dgPEMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            }
+
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            PEDetalles.Remove((DetallesPlanDeEstudio)dgPEMaterias.CurrentRow.DataBoundItem);
+            dgPEMaterias.DataSource = null;
+            dgPEMaterias.DataSource = PEDetalles;
+            dgPEMaterias.Columns.Remove("IdPlanDeEstudio");
+            dgPEMaterias.Columns.Remove("IdPlanDetalles");
+            dgPEMaterias.Columns.Remove("IdMateriaCC");
+            dgPEMaterias.Columns.Remove("ChangedBy");
+            dgPEMaterias.Columns.Remove("ChangedOn");
+            dgPEMaterias.Columns.Remove("CreatedOn");
+            dgPEMaterias.Columns.Remove("CreatedBy");
+
+            dgPEMaterias.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgPEMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
+            //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
+            //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            //frmCorrelativas.Show();
+        }
     }
 }

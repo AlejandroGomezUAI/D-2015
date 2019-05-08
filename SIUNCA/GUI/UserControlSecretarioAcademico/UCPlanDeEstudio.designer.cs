@@ -34,10 +34,10 @@ namespace GUI.UserControlSecretarioAcademico
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgPEMaterias = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ComboObligatoriedad = new System.Windows.Forms.ComboBox();
             this.dgCorrelativas = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -48,15 +48,15 @@ namespace GUI.UserControlSecretarioAcademico
             this.label2 = new System.Windows.Forms.Label();
             this.ComboBox3 = new System.Windows.Forms.ComboBox();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAño = new System.Windows.Forms.TextBox();
+            this.txtNumeroMateria = new System.Windows.Forms.TextBox();
+            this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,10 +79,10 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.dgPEMaterias);
             this.tabPage1.Controls.Add(this.btnConsultarCorrelativas);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.ComboObligatoriedad);
             this.tabPage1.Controls.Add(this.dgCorrelativas);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
@@ -93,9 +93,9 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.ComboBox3);
             this.tabPage1.Controls.Add(this.ComboMaterias1);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.txtAño);
+            this.tabPage1.Controls.Add(this.txtNumeroMateria);
+            this.tabPage1.Controls.Add(this.txtCargaHoraria);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -127,6 +127,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.button4.TabIndex = 27;
             this.button4.Text = "Agregar materia";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Button4_Click_1);
             // 
             // button5
             // 
@@ -138,14 +139,15 @@ namespace GUI.UserControlSecretarioAcademico
             this.button5.TabIndex = 26;
             this.button5.Text = "Quitar materia";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
-            // dataGridView2
+            // dgPEMaterias
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(49, 321);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(536, 263);
-            this.dataGridView2.TabIndex = 23;
+            this.dgPEMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPEMaterias.Location = new System.Drawing.Point(49, 321);
+            this.dgPEMaterias.Name = "dgPEMaterias";
+            this.dgPEMaterias.Size = new System.Drawing.Size(536, 263);
+            this.dgPEMaterias.TabIndex = 23;
             // 
             // btnConsultarCorrelativas
             // 
@@ -169,17 +171,18 @@ namespace GUI.UserControlSecretarioAcademico
             this.button1.TabIndex = 21;
             this.button1.Text = "Asignar correlativas a una materia";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
-            // comboBox2
+            // ComboObligatoriedad
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.ComboObligatoriedad.FormattingEnabled = true;
+            this.ComboObligatoriedad.Items.AddRange(new object[] {
             "Obligatoria",
             "Opcional"});
-            this.comboBox2.Location = new System.Drawing.Point(213, 191);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 28);
-            this.comboBox2.TabIndex = 20;
+            this.ComboObligatoriedad.Location = new System.Drawing.Point(213, 191);
+            this.ComboObligatoriedad.Name = "ComboObligatoriedad";
+            this.ComboObligatoriedad.Size = new System.Drawing.Size(121, 28);
+            this.ComboObligatoriedad.TabIndex = 20;
             // 
             // dgCorrelativas
             // 
@@ -271,26 +274,26 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMaterias1.TabIndex = 8;
             this.ComboMaterias1.SelectedIndexChanged += new System.EventHandler(this.ComboMaterias1_SelectedIndexChanged);
             // 
-            // textBox5
+            // txtAño
             // 
-            this.textBox5.Location = new System.Drawing.Point(213, 225);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
-            this.textBox5.TabIndex = 5;
+            this.txtAño.Location = new System.Drawing.Point(213, 225);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(100, 26);
+            this.txtAño.TabIndex = 5;
             // 
-            // textBox4
+            // txtNumeroMateria
             // 
-            this.textBox4.Location = new System.Drawing.Point(213, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
-            this.textBox4.TabIndex = 4;
+            this.txtNumeroMateria.Location = new System.Drawing.Point(213, 289);
+            this.txtNumeroMateria.Name = "txtNumeroMateria";
+            this.txtNumeroMateria.Size = new System.Drawing.Size(100, 26);
+            this.txtNumeroMateria.TabIndex = 4;
             // 
-            // textBox3
+            // txtCargaHoraria
             // 
-            this.textBox3.Location = new System.Drawing.Point(213, 257);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 26);
-            this.textBox3.TabIndex = 3;
+            this.txtCargaHoraria.Location = new System.Drawing.Point(213, 257);
+            this.txtCargaHoraria.Name = "txtCargaHoraria";
+            this.txtCargaHoraria.Size = new System.Drawing.Size(100, 26);
+            this.txtCargaHoraria.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -327,7 +330,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();
             this.ResumeLayout(false);
 
@@ -346,18 +349,18 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ComboBox3;
         private System.Windows.Forms.ComboBox ComboMaterias1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAño;
+        private System.Windows.Forms.TextBox txtNumeroMateria;
+        private System.Windows.Forms.TextBox txtCargaHoraria;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgPEMaterias;
         private System.Windows.Forms.Button btnConsultarCorrelativas;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ComboObligatoriedad;
         private System.Windows.Forms.DataGridView dgCorrelativas;
     }
 }
