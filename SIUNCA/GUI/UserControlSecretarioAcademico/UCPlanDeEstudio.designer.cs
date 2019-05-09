@@ -57,7 +57,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgCorrelatividades = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
@@ -68,7 +68,7 @@ namespace GUI.UserControlSecretarioAcademico
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -330,7 +330,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.dgCorrelatividades);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.ComboMateriasCC);
@@ -377,14 +377,14 @@ namespace GUI.UserControlSecretarioAcademico
             this.button7.Text = "Quitar correlativa";
             this.button7.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // dgCorrelatividades
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.LightSkyBlue;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(165, 160);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(404, 237);
-            this.dataGridView2.TabIndex = 43;
+            this.dgCorrelatividades.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgCorrelatividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCorrelatividades.Location = new System.Drawing.Point(165, 160);
+            this.dgCorrelatividades.Name = "dgCorrelatividades";
+            this.dgCorrelatividades.Size = new System.Drawing.Size(404, 237);
+            this.dgCorrelatividades.TabIndex = 43;
             // 
             // label9
             // 
@@ -442,7 +442,7 @@ namespace GUI.UserControlSecretarioAcademico
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,7 +476,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgCorrelatividades;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox ComboMateriasCC;

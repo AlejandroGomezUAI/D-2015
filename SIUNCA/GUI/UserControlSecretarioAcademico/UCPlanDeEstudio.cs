@@ -16,6 +16,7 @@ namespace GUI.UserControlSecretarioAcademico
     {
 
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
+        List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
 
         public UCPlanDeEstudio()
         {
@@ -187,7 +188,38 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            {
+                DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
+                Materias unaMateria;
+                // Dim UnaMateriaCC As MateriaConCorrelativas
 
+                unaMateria = (Materias)ComboCorrelativas.SelectedItem;
+                unaMateria.Nombre = ComboCorrelativas.Text;
+
+                unDetalleCorrelativa.IdMateria = unaMateria.IdMateria;
+                unDetalleCorrelativa.NombreMateria = unaMateria.Nombre;
+                unDetalleCorrelativa.NombreMateriaCC = ComboMateriasCC.Text;
+
+
+                CorrelativasDetalles.Add(unDetalleCorrelativa);
+
+
+                dgCorrelatividades.DataSource = null;
+                dgCorrelatividades.DataSource = CorrelativasDetalles;
+
+
+                //dgCorrelativas.Columns[1].HeaderText = "Materia seleccionada";
+                //dgCorrelativas.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+                //dgCorrelativas.Columns[0].HeaderText = "Materia seleccionada";
+                //dgCorrelativas.Columns[1].HeaderText = "Correlativa asignada";
+                //dgPEMaterias.Columns.Remove("IdDetallesCorrelativa");
+                //dgPEMaterias.Columns.Remove("IdMateriaCC");
+                //dgPEMaterias.Columns.Remove("IdMateria");
+                //dgPEMaterias.Columns.Remove("ChangedBy");
+                //dgPEMaterias.Columns.Remove("ChangedOn");
+                //dgPEMaterias.Columns.Remove("CreatedOn");
+                //dgPEMaterias.Columns.Remove("CreatedBy");
+            }
         }
 
         private void CargarMaterias()
