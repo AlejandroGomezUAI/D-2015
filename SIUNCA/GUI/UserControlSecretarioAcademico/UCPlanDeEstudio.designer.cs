@@ -379,6 +379,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // dgCorrelatividades
             // 
+            this.dgCorrelatividades.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgCorrelatividades.BackgroundColor = System.Drawing.Color.LightSkyBlue;
             this.dgCorrelatividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelatividades.Location = new System.Drawing.Point(165, 160);

@@ -207,18 +207,19 @@ namespace GUI.UserControlSecretarioAcademico
                 dgCorrelatividades.DataSource = null;
                 dgCorrelatividades.DataSource = CorrelativasDetalles;
 
+                dgCorrelatividades.Columns.Remove("IdMateria");
+                dgCorrelatividades.Columns.Remove("IdMateriaCC");
+                dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
+                dgCorrelatividades.Columns.Remove("CreatedOn");
+                dgCorrelatividades.Columns.Remove("CreatedBy");
+                dgCorrelatividades.Columns.Remove("ChangedBy");
+                dgCorrelatividades.Columns.Remove("ChangedOn");
+                
 
-                //dgCorrelativas.Columns[1].HeaderText = "Materia seleccionada";
-                //dgCorrelativas.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
-                //dgCorrelativas.Columns[0].HeaderText = "Materia seleccionada";
-                //dgCorrelativas.Columns[1].HeaderText = "Correlativa asignada";
-                //dgPEMaterias.Columns.Remove("IdDetallesCorrelativa");
-                //dgPEMaterias.Columns.Remove("IdMateriaCC");
-                //dgPEMaterias.Columns.Remove("IdMateria");
-                //dgPEMaterias.Columns.Remove("ChangedBy");
-                //dgPEMaterias.Columns.Remove("ChangedOn");
-                //dgPEMaterias.Columns.Remove("CreatedOn");
-                //dgPEMaterias.Columns.Remove("CreatedBy");
+                dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
+                dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+
+                
             }
         }
 
