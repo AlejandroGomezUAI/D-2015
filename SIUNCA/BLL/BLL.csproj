@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="GestorCarrera.cs" />
     <Compile Include="GestorDetallesCorrelativa.cs" />
+    <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

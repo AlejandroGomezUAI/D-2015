@@ -54,10 +54,21 @@ namespace GUI.UserControlSecretarioAcademico
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
+            this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -315,13 +326,108 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.ComboMateriasCC);
+            this.tabPage2.Controls.Add(this.ComboCorrelativas);
+            this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignar Correlativas";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(165, 415);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(404, 77);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "Guardar correlatividades";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(589, 160);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(179, 42);
+            this.button3.TabIndex = 49;
+            this.button3.Text = "Agregar correlativa";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button7.Location = new System.Drawing.Point(589, 218);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(179, 42);
+            this.button7.TabIndex = 48;
+            this.button7.Text = "Quitar correlativa";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(165, 160);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(404, 237);
+            this.dataGridView2.TabIndex = 43;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(161, 86);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(162, 20);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "Seleccione materia";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(360, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(209, 20);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "Seleccione su correlativa";
+            // 
+            // ComboMateriasCC
+            // 
+            this.ComboMateriasCC.FormattingEnabled = true;
+            this.ComboMateriasCC.Location = new System.Drawing.Point(202, 109);
+            this.ComboMateriasCC.Name = "ComboMateriasCC";
+            this.ComboMateriasCC.Size = new System.Drawing.Size(121, 28);
+            this.ComboMateriasCC.TabIndex = 35;
+            // 
+            // ComboCorrelativas
+            // 
+            this.ComboCorrelativas.FormattingEnabled = true;
+            this.ComboCorrelativas.Location = new System.Drawing.Point(448, 112);
+            this.ComboCorrelativas.Name = "ComboCorrelativas";
+            this.ComboCorrelativas.Size = new System.Drawing.Size(121, 28);
+            this.ComboCorrelativas.TabIndex = 34;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(35, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(219, 20);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Asignación de correlativas";
             // 
             // UCPlanDeEstudio
             // 
@@ -334,6 +440,9 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,5 +473,14 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox ComboObligatoriedad;
         private System.Windows.Forms.DataGridView dgCorrelativas;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox ComboMateriasCC;
+        private System.Windows.Forms.ComboBox ComboCorrelativas;
+        private System.Windows.Forms.Label label16;
     }
 }

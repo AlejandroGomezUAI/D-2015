@@ -45,6 +45,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DetalleCorrelativaDAO.cs" />
     <Compile Include="MateriaConCorrelativaDAO.cs" />
+    <Compile Include="MateriaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ namespace GUI.UserControlSecretarioAcademico
            
             CargarCarreras();
             CargarMateriasCC();
-
+            CargarMaterias();
 
         }
 
@@ -49,30 +49,27 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void ComboMaterias1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // CargarMaterias();
+           
         }
 
         private void CargarMateriasCC()
         {
             
-                GestorMateriaCC unGM = new GestorMateriaCC();
-                ComboMaterias1.DataSource = null;
-                ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
-                ComboMaterias1.DisplayMember = "Nombre";
-            
+            GestorMateriaCC unGM = new GestorMateriaCC();
+            ComboMaterias1.DataSource = null;
+            ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
+            ComboMaterias1.DisplayMember = "Nombre";
 
         }
 
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
             CargarCorrelativas();
-           // CargarCarreras();
         }
 
      
         private void ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //  CargarCarreras();
 
         }
 
@@ -180,11 +177,29 @@ namespace GUI.UserControlSecretarioAcademico
         private void Button1_Click_1(object sender, EventArgs e)
         {
             //frmCorrelativas.Show();
-            tabPage2.Show();
-            tabPage2.Focus();
-            tabPage2.Select();
+            //tabPage2.Show();
+            //tabPage2.Focus();
+            //tabPage2.Select();
+            tabControl1.SelectedIndex = 1;
 
-            
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarMaterias()
+        {
+            GestorMateria unGM = new GestorMateria();
+            ComboMateriasCC.DataSource = null;
+            ComboMateriasCC.DataSource = unGM.TraerListaMaterias();
+            ComboMateriasCC.DisplayMember = "Nombre";
+
+            ComboCorrelativas.DataSource = null;
+            ComboCorrelativas.DataSource = unGM.TraerListaMaterias();
+            ComboCorrelativas.DisplayMember = "Nombre";
         }
     }
 }
