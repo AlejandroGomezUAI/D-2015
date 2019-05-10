@@ -16,7 +16,7 @@ namespace DAL
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
-            listaDeParametros.Add(new Parametro("Nombre", UnaMateriaCC.Nombre));
+            listaDeParametros.Add(new Parametro("Nombre", Convert.ToString(UnaMateriaCC.Nombre)));
 
 
             // listaDeParametros.Add(New Parametro("Horas", unaMateriaCC.horas))
