@@ -353,6 +353,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.button2.TabIndex = 50;
             this.button2.Text = "Guardar correlatividades";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click_1);
             // 
             // button3
             // 

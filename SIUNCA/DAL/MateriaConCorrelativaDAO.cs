@@ -25,7 +25,7 @@ namespace DAL
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas VALUES (@Nombre)", listaDeParametros);
+                unaConexion.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas (Nombre) VALUES (@Nombre)", listaDeParametros);
 
                 int IdMateriaCC = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdMateriaCC) FROM MateriaConCorrelativas", new List<Parametro>());
 
@@ -42,7 +42,7 @@ namespace DAL
 
                     item.IdMateriaCC = IdMateriaCC;
 
-                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesCorrelativa VALUES(@IdMateria, @IdMateriaCC, @NombreMateria, @NombreMateriaCC)", listaParametrosCD);
+                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesCorrelativa (IdMateria, IdMateriaCC, NombreMateria, NombreMateriaCC) VALUES (@IdMateria, @IdMateriaCC, @NombreMateria, @NombreMateriaCC)", listaParametrosCD);
                 }
 
                 unaConexion.TransaccionAceptar();
@@ -51,7 +51,7 @@ namespace DAL
             {
                 unaConexion.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
-                throw new ApplicationException("Host name could not be obtained", x);
+                MessageBox.Show("error guardando correlatividad");
             }
             finally
             {

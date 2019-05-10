@@ -23,7 +23,7 @@ namespace DAL
             catch (Exception ex)
             {
                 //MsgBox("error al traer correlativas");
-                MessageBox.Show("error al traer correlativas de la materia seleccionada");
+                MessageBox.Show("error al traer correlativas de la materia seleccionada", ex.ToString());
                 return null;
             }
             finally

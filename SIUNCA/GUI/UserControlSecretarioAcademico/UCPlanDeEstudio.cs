@@ -17,6 +17,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
         List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
+        MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
 
         public UCPlanDeEstudio()
         {
@@ -233,6 +234,25 @@ namespace GUI.UserControlSecretarioAcademico
             ComboCorrelativas.DataSource = null;
             ComboCorrelativas.DataSource = unGM.TraerListaMaterias();
             ComboCorrelativas.DisplayMember = "Nombre";
+        }
+
+        private void Button2_Click_1(object sender, EventArgs e)
+        {
+
+
+            UnaMateriaCC.Nombre = ComboMateriasCC.SelectedItem.ToString();
+
+            try
+            {
+                GestorMateriaCC GestorMateriaCC = new GestorMateriaCC();
+                GestorMateriaCC.CrearMateriaConCorrelativa(UnaMateriaCC, CorrelativasDetalles);
+                //MessageBox.Show("materia con correlativa guardada.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar Materia con correlativa.");
+            }
+
         }
     }
 }
