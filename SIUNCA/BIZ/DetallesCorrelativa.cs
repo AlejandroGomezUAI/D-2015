@@ -10,8 +10,8 @@ namespace BIZ
         public int IdDetallesCorrelativa { get; set; }
         public int IdMateria { get; set; }
         public int IdMateriaCC { get; set; }
-        public int NombreMateria { get; set; }
-        public int NombreMateriaCC { get; set; }
+        public string NombreMateria { get; set; }
+        public string NombreMateriaCC { get; set; }
 
     }
 }
