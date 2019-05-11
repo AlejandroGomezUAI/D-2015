@@ -7,14 +7,18 @@ namespace BIZ
 {
     public class DetallesPlanDeEstudio : Bitacora
     {
+        public int IdPlanDeEstudio { get; set; }
+        public int NumeroMateria { get; set; }
+        public string NombreMateria { get; set; }
         public int Año { get; set; }
+        public string Obligatoriedad { get; set; }
         public int CargaHoraria { get; set; }
         public int IdMateriaCC { get; set; }
-        public int IdPlanDeEstudio { get; set; }
+        
         public int IdPlanDetalles { get; set; }
-        public int NombreMateria { get; set; }
-        public int NumeroMateria { get; set; }
-        public int Obligatoriedad { get; set; }
+        
+        
+        
 
     }
 }

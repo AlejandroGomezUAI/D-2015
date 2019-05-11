@@ -7,9 +7,8 @@ namespace BIZ
 {
     public class MateriaConCorrelativas : Bitacora
     {
-        public int Horas { get; set; }
         public int IdMateriaCC { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
 
     }
 }
