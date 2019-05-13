@@ -129,6 +129,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.button6.TabIndex = 28;
             this.button6.Text = "Guardar plan de estudio";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button4
             // 

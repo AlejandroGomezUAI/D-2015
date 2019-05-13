@@ -18,6 +18,9 @@ namespace GUI.UserControlSecretarioAcademico
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
         List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
+        Carrera UnaCarrera = new Carrera();
+        PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
+
 
         public UCPlanDeEstudio()
         {
@@ -241,6 +244,8 @@ namespace GUI.UserControlSecretarioAcademico
 
 
             UnaMateriaCC.Nombre = ComboMateriasCC.SelectedItem.ToString();
+            //UnaMateriaCC = ComboMateriasCC.SelectedItem;
+            
 
             try
             {
@@ -253,6 +258,29 @@ namespace GUI.UserControlSecretarioAcademico
                 MessageBox.Show("Error al guardar Materia con correlativa.");
             }
 
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            // unPlanDeEstudio.HorasTotales = Total
+
+
+            UnaCarrera = (Carrera)ComboBox3.SelectedItem;
+            unPlanDeEstudio.IdCarrera = UnaCarrera.IdCarrera;
+            //unPlanDeEstudio.NombreCarrera = ComboBox3.SelectedItem.Nombre;
+            unPlanDeEstudio.NombreCarrera = ComboBox3.SelectedItem.ToString();
+            unPlanDeEstudio.Nombre = textBox1.Text;
+
+            try
+            {
+                GestorPlanDeEstudio GestorPE = new GestorPlanDeEstudio();
+                GestorPE.CrearPlanDeEstudio(unPlanDeEstudio, PEDetalles);
+                //Interaction.MsgBox("Plan de estudio guardado.");
+            }
+            catch (Exception ex)
+            {
+                //Interaction.MsgBox("Error al guardar el Plan de estudio.");
+            }
         }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="GestorDetallesCorrelativa.cs" />
     <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />
+    <Compile Include="GestorPlanDeEstudio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
