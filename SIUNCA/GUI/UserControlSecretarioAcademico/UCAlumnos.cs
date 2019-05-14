@@ -21,5 +21,10 @@ namespace GUI.UserControlSecretarioAcademico
         {
 
         }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

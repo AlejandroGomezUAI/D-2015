@@ -157,6 +157,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // dgPEMaterias
             // 
+            this.dgPEMaterias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgPEMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPEMaterias.Location = new System.Drawing.Point(49, 321);
             this.dgPEMaterias.Name = "dgPEMaterias";
@@ -200,6 +201,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // dgCorrelativas
             // 
+            this.dgCorrelativas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelativas.Location = new System.Drawing.Point(526, 94);
             this.dgCorrelativas.Name = "dgCorrelativas";
