@@ -52,10 +52,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void ComboMaterias1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
+     
 
         private void CargarMateriasCC()
         {
@@ -243,8 +240,7 @@ namespace GUI.UserControlSecretarioAcademico
         {
 
 
-            UnaMateriaCC.Nombre = ComboMateriasCC.SelectedItem.ToString();
-            //UnaMateriaCC = ComboMateriasCC.SelectedItem;
+            UnaMateriaCC.Nombre = ((Materias)ComboMateriasCC.SelectedItem).Nombre;
             
 
             try
@@ -267,8 +263,7 @@ namespace GUI.UserControlSecretarioAcademico
 
             UnaCarrera = (Carrera)ComboBox3.SelectedItem;
             unPlanDeEstudio.IdCarrera = UnaCarrera.IdCarrera;
-            //unPlanDeEstudio.NombreCarrera = ComboBox3.SelectedItem.Nombre;
-            unPlanDeEstudio.NombreCarrera = ComboBox3.SelectedItem.ToString();
+            unPlanDeEstudio.NombreCarrera = ((Carrera)ComboBox3.SelectedItem).Nombre;
             unPlanDeEstudio.Nombre = textBox1.Text;
 
             try
@@ -281,6 +276,13 @@ namespace GUI.UserControlSecretarioAcademico
             {
                 //Interaction.MsgBox("Error al guardar el Plan de estudio.");
             }
+        }
+
+        private void ComboMaterias1_Click(object sender, EventArgs e)
+        {
+            
+                CargarMateriasCC();
+            
         }
     }
 }
