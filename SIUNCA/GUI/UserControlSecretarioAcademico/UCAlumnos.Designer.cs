@@ -33,7 +33,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.txtAño = new System.Windows.Forms.TextBox();
             this.txtNumeroMateria = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,6 +65,8 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ComboNombre = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,11 +92,13 @@
             // tabPage1
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-            this.tabPage1.BackColor = System.Drawing.Color.SkyBlue;
+            this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.tabPage1.Controls.Add(this.ComboNombre);
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.txtNombre);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button6);
@@ -114,7 +118,7 @@
             this.tabPage1.Controls.Add(this.ComboMaterias1);
             this.tabPage1.Controls.Add(this.txtAño);
             this.tabPage1.Controls.Add(this.txtNumeroMateria);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtLegajo);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -153,12 +157,12 @@
             this.label10.TabIndex = 32;
             this.label10.Text = "Nombre";
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(199, 256);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(107, 26);
-            this.textBox2.TabIndex = 31;
+            this.txtNombre.Location = new System.Drawing.Point(199, 256);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(107, 26);
+            this.txtNombre.TabIndex = 31;
             // 
             // dateTimePicker1
             // 
@@ -341,12 +345,12 @@
             this.txtNumeroMateria.Size = new System.Drawing.Size(107, 26);
             this.txtNumeroMateria.TabIndex = 4;
             // 
-            // textBox1
+            // txtLegajo
             // 
-            this.textBox1.Location = new System.Drawing.Point(198, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 26);
-            this.textBox1.TabIndex = 1;
+            this.txtLegajo.Location = new System.Drawing.Point(198, 62);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(107, 26);
+            this.txtLegajo.TabIndex = 1;
             // 
             // label1
             // 
@@ -462,6 +466,26 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(311, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 26);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // ComboNombre
+            // 
+            this.ComboNombre.FormattingEnabled = true;
+            this.ComboNombre.Location = new System.Drawing.Point(45, 236);
+            this.ComboNombre.Name = "ComboNombre";
+            this.ComboNombre.Size = new System.Drawing.Size(128, 28);
+            this.ComboNombre.TabIndex = 37;
+            // 
             // UCAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,7 +528,7 @@
         private System.Windows.Forms.ComboBox ComboMaterias1;
         private System.Windows.Forms.TextBox txtAño;
         private System.Windows.Forms.TextBox txtNumeroMateria;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button2;
@@ -519,8 +543,11 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox ComboNombre;
     }
 }
