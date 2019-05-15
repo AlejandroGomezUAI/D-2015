@@ -53,7 +53,7 @@ namespace GUI.UserControlSecretarioAcademico
 
             ComboNombre.DataSource = null;
             ComboNombre.DataSource = unGAlumno.TraerAlumno(UnAlumno);
-            ComboNombre.DisplayMember = "NombreAlumno";
+            ComboNombre.DisplayMember = "Nombre";
         }
         //private void CargarApellidoAlumno()
         //{
