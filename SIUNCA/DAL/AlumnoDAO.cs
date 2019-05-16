@@ -37,7 +37,7 @@ namespace DAL
             }
             return resultado;
         }
-        public void GuardarAsignacionAlumnoAMaterias(List<DetallesAlumnoMateriaCC> AlumnoMateriaDetalles)
+        public void GuardarAsignacionAlumnoAMaterias(List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
         }
         public void Crear(object unAlumno)

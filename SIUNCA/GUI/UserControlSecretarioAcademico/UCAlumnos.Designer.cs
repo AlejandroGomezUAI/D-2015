@@ -40,7 +40,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dgPEMaterias = new System.Windows.Forms.DataGridView();
+            this.dgAlumMat = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.dgCorrelativas = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
@@ -103,7 +103,7 @@
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.dgPEMaterias);
+            this.tabPage1.Controls.Add(this.dgAlumMat);
             this.tabPage1.Controls.Add(this.btnConsultarCorrelativas);
             this.tabPage1.Controls.Add(this.dgCorrelativas);
             this.tabPage1.Controls.Add(this.label8);
@@ -222,6 +222,7 @@
             this.button4.TabIndex = 27;
             this.button4.Text = "Asignar materia";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button5
             // 
@@ -234,14 +235,14 @@
             this.button5.Text = "Quitar materia";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // dgPEMaterias
+            // dgAlumMat
             // 
-            this.dgPEMaterias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgPEMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPEMaterias.Location = new System.Drawing.Point(49, 321);
-            this.dgPEMaterias.Name = "dgPEMaterias";
-            this.dgPEMaterias.Size = new System.Drawing.Size(376, 263);
-            this.dgPEMaterias.TabIndex = 23;
+            this.dgAlumMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAlumMat.Location = new System.Drawing.Point(49, 321);
+            this.dgAlumMat.Name = "dgAlumMat";
+            this.dgAlumMat.Size = new System.Drawing.Size(376, 263);
+            this.dgAlumMat.TabIndex = 23;
             // 
             // btnConsultarCorrelativas
             // 
@@ -490,7 +491,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -506,7 +507,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dgPEMaterias;
+        private System.Windows.Forms.DataGridView dgAlumMat;
         private System.Windows.Forms.Button btnConsultarCorrelativas;
         private System.Windows.Forms.DataGridView dgCorrelativas;
         private System.Windows.Forms.Label label8;

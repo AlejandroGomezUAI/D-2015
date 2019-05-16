@@ -20,7 +20,7 @@ namespace BLL
 
 
 
-        public void AsignarAlumnoAMaterias(List<DetallesAlumnoMateriaCC> AlumnoMateriaDetalles)
+        public void AsignarAlumnoAMaterias(List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
             AlumnoDAO unAlumnoDAO = new AlumnoDAO();
 
