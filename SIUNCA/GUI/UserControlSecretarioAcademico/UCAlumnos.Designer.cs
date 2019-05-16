@@ -30,10 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ComboNombre = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
@@ -49,10 +50,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ComboBox3 = new System.Windows.Forms.ComboBox();
+            this.ComboCarrera = new System.Windows.Forms.ComboBox();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.txtAño = new System.Windows.Forms.TextBox();
-            this.txtNumeroMateria = new System.Windows.Forms.TextBox();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -65,8 +65,7 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ComboNombre = new System.Windows.Forms.ComboBox();
+            this.ComboApellido = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,12 +92,12 @@
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.tabPage1.Controls.Add(this.ComboApellido);
             this.tabPage1.Controls.Add(this.ComboNombre);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.txtNombre);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button6);
@@ -114,10 +113,9 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.ComboBox3);
+            this.tabPage1.Controls.Add(this.ComboCarrera);
             this.tabPage1.Controls.Add(this.ComboMaterias1);
             this.tabPage1.Controls.Add(this.txtAño);
-            this.tabPage1.Controls.Add(this.txtNumeroMateria);
             this.tabPage1.Controls.Add(this.txtLegajo);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,6 +125,26 @@
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
+            // 
+            // ComboNombre
+            // 
+            this.ComboNombre.FormattingEnabled = true;
+            this.ComboNombre.Location = new System.Drawing.Point(177, 248);
+            this.ComboNombre.Name = "ComboNombre";
+            this.ComboNombre.Size = new System.Drawing.Size(128, 28);
+            this.ComboNombre.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(311, 62);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 26);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button8
             // 
@@ -156,13 +174,6 @@
             this.label10.Size = new System.Drawing.Size(71, 20);
             this.label10.TabIndex = 32;
             this.label10.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(199, 256);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(107, 26);
-            this.txtNombre.TabIndex = 31;
             // 
             // dateTimePicker1
             // 
@@ -315,13 +326,13 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Legajo Alumno";
             // 
-            // ComboBox3
+            // ComboCarrera
             // 
-            this.ComboBox3.FormattingEnabled = true;
-            this.ComboBox3.Location = new System.Drawing.Point(198, 94);
-            this.ComboBox3.Name = "ComboBox3";
-            this.ComboBox3.Size = new System.Drawing.Size(128, 28);
-            this.ComboBox3.TabIndex = 11;
+            this.ComboCarrera.FormattingEnabled = true;
+            this.ComboCarrera.Location = new System.Drawing.Point(198, 94);
+            this.ComboCarrera.Name = "ComboCarrera";
+            this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
+            this.ComboCarrera.TabIndex = 11;
             // 
             // ComboMaterias1
             // 
@@ -337,13 +348,6 @@
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(107, 26);
             this.txtAño.TabIndex = 5;
-            // 
-            // txtNumeroMateria
-            // 
-            this.txtNumeroMateria.Location = new System.Drawing.Point(198, 289);
-            this.txtNumeroMateria.Name = "txtNumeroMateria";
-            this.txtNumeroMateria.Size = new System.Drawing.Size(107, 26);
-            this.txtNumeroMateria.TabIndex = 4;
             // 
             // txtLegajo
             // 
@@ -466,25 +470,13 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // button1
+            // ComboApellido
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(311, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 26);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // ComboNombre
-            // 
-            this.ComboNombre.FormattingEnabled = true;
-            this.ComboNombre.Location = new System.Drawing.Point(45, 236);
-            this.ComboNombre.Name = "ComboNombre";
-            this.ComboNombre.Size = new System.Drawing.Size(128, 28);
-            this.ComboNombre.TabIndex = 37;
+            this.ComboApellido.FormattingEnabled = true;
+            this.ComboApellido.Location = new System.Drawing.Point(177, 287);
+            this.ComboApellido.Name = "ComboApellido";
+            this.ComboApellido.Size = new System.Drawing.Size(128, 28);
+            this.ComboApellido.TabIndex = 38;
             // 
             // UCAlumnos
             // 
@@ -524,10 +516,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox ComboBox3;
+        private System.Windows.Forms.ComboBox ComboCarrera;
         private System.Windows.Forms.ComboBox ComboMaterias1;
         private System.Windows.Forms.TextBox txtAño;
-        private System.Windows.Forms.TextBox txtNumeroMateria;
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -543,11 +534,11 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox ComboNombre;
+        private System.Windows.Forms.ComboBox ComboApellido;
     }
 }

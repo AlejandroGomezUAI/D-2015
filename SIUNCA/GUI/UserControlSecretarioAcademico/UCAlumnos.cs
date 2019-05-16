@@ -35,11 +35,7 @@ namespace GUI.UserControlSecretarioAcademico
                 CargarNombreAlumno();
                 //CargarApellidoAlumno();
 
-                // ejemplo de alumno
-                //ComboNombre.Text = "Juan";
-                //ComboApellido.Text = "Perez";
-                //ComboPlan.Text = "Sistemas16a";
-                //CargarCarreraDelAlumno();
+                CargarCarreraDelAlumno();
             }
         }
 
@@ -54,17 +50,22 @@ namespace GUI.UserControlSecretarioAcademico
             ComboNombre.DataSource = null;
             ComboNombre.DataSource = unGAlumno.TraerAlumno(UnAlumno);
             ComboNombre.DisplayMember = "Nombre";
-        }
-        //private void CargarApellidoAlumno()
-        //{
-        //    GestorAlumno unGAlumno = new GestorAlumno();
-        //    Alumno UnAlumno = new Alumno();
-        //    UnAlumno.LegajoAlumno = txtLegajo.Text;
 
-        //    ComboApellido.DataSource = null;
-        //    ComboApellido.DataSource = unGAlumno.TraerAlumno(UnAlumno);
-        //    ComboApellido.DisplayMember = "Apellido";
-        //}
+            ComboApellido.DataSource = null;
+            ComboApellido.DataSource = unGAlumno.TraerAlumno(UnAlumno);
+            ComboApellido.DisplayMember = "Apellido";
+        }
+        private void CargarCarreraDelAlumno()
+        {
+            Alumno UnAlumno = new Alumno();
+            GestorCarrera unGC = new GestorCarrera();
+
+            UnAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
+
+            ComboCarrera.DataSource = null;
+            ComboCarrera.DataSource = unGC.TraerCarrera(UnAlumno);
+            ComboCarrera.DisplayMember = "Nombre";
+        }
 
 
 

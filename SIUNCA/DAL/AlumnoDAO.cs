@@ -20,7 +20,7 @@ namespace DAL
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("LegajoAlumno", UnAlumno.LegajoAlumno));
-                resultado = unaConexion.EjecutarTupla<Alumno>("SELECT Nombre FROM Alumno where LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Alumno>("SELECT Nombre, Apellido FROM Alumno WHERE LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
                 
                 
             }            
