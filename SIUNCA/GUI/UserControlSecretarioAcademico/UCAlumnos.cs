@@ -40,6 +40,7 @@ namespace GUI.UserControlSecretarioAcademico
 
                 CargarCarreraDelAlumno();
                 CargarMateriasDeCarrera();
+
             }
         }
 
@@ -69,15 +70,20 @@ namespace GUI.UserControlSecretarioAcademico
             ComboCarrera.DataSource = null;
             ComboCarrera.DataSource = unGC.TraerCarrera(UnAlumno);
             ComboCarrera.DisplayMember = "Nombre";
+
+
+
+          
         }
 
         private void CargarMateriasDeCarrera()
         {
-            
+
             GestorMateriaCC UnGMCC = new GestorMateriaCC();
             Carrera UnaCarrera = new Carrera();
 
-            UnaCarrera.IdCarrera = ((Carrera)ComboCarrera.SelectedItem).IdCarrera;
+
+            UnaCarrera.Nombre = ((Carrera)ComboCarrera.SelectedItem).Nombre;
 
             ComboMaterias1.DataSource = null;
             ComboMaterias1.DataSource = UnGMCC.TraerListaMateriasCC(UnaCarrera);
@@ -121,20 +127,26 @@ namespace GUI.UserControlSecretarioAcademico
             dgAlumMat.DataSource = ListAlumnoMateriaCC;
 
 
-            dgCorrelatividades.Columns.Remove("IdMateriaCC");
-            dgCorrelatividades.Columns.Remove("IdAlumno_Materia");
-            dgCorrelatividades.Columns.Remove("CreatedOn");
-            dgCorrelatividades.Columns.Remove("CreatedBy");
-            dgCorrelatividades.Columns.Remove("ChangedBy");
-            dgCorrelatividades.Columns.Remove("ChangedOn");
+            // dgCorrelatividades.Columns.Remove("IdMateriaCC");
+            //dgCorrelatividades.Columns.Remove("IdAlumno_Materia");
+            //dgCorrelatividades.Columns.Remove("CreatedOn");
+            //dgCorrelatividades.Columns.Remove("CreatedBy");
+            //dgCorrelatividades.Columns.Remove("ChangedBy");
+            //dgCorrelatividades.Columns.Remove("ChangedOn");
 
 
-            dgCorrelatividades.Columns["LegajoAlumno"].HeaderText = "Legajo Alumno";
-            dgCorrelatividades.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
-            dgCorrelatividades.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
-            dgCorrelatividades.Columns["NombreCarrera"].HeaderText = "Carrera seleccionada";
-            dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Materia asignada";
+            //dgCorrelatividades.Columns["LegajoAlumno"].HeaderText = "Legajo Alumno";
+            //dgCorrelatividades.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
+            //dgCorrelatividades.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
+            //dgCorrelatividades.Columns["NombreCarrera"].HeaderText = "Carrera seleccionada";
+            //dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Materia asignada";
 
         }
+
+        //private void ComboMaterias1_Click(object sender, EventArgs e)
+        //{
+        //    CargarMateriasDeCarrera();
+        //    MessageBox.Show("hola");
+        //}
     }
 }

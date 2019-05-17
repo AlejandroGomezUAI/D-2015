@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ComboApellido = new System.Windows.Forms.ComboBox();
             this.ComboNombre = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.ComboApellido = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -125,6 +125,14 @@
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
+            // 
+            // ComboApellido
+            // 
+            this.ComboApellido.FormattingEnabled = true;
+            this.ComboApellido.Location = new System.Drawing.Point(177, 287);
+            this.ComboApellido.Name = "ComboApellido";
+            this.ComboApellido.Size = new System.Drawing.Size(128, 28);
+            this.ComboApellido.TabIndex = 38;
             // 
             // ComboNombre
             // 
@@ -470,14 +478,6 @@
             this.label16.Size = new System.Drawing.Size(219, 20);
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
-            // 
-            // ComboApellido
-            // 
-            this.ComboApellido.FormattingEnabled = true;
-            this.ComboApellido.Location = new System.Drawing.Point(177, 287);
-            this.ComboApellido.Name = "ComboApellido";
-            this.ComboApellido.Size = new System.Drawing.Size(128, 28);
-            this.ComboApellido.TabIndex = 38;
             // 
             // UCAlumnos
             // 
