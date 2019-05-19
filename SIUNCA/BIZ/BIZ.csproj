@@ -47,6 +47,7 @@
     <Compile Include="Carrera.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Alumno_MateriaCC.cs" />
+    <Compile Include="DetallesAlumnoMateriaCC.cs" />
     <Compile Include="DetallesCorrelativa.cs" />
     <Compile Include="DetallesPlanDeEstudio.cs" />
     <Compile Include="Evaluacion.cs" />
