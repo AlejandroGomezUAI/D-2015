@@ -86,7 +86,7 @@ namespace DAL
             }
         }
     
-        public List<MateriaConCorrelativas> TraerTodo(Alumno UnaCarrera)
+        public List<MateriaConCorrelativas> TraerTodo(Carrera UnaCarrera)
         {
             List<MateriaConCorrelativas> resultado;
             Conexion unaConexion = new Conexion("config.xml");

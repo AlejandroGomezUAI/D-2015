@@ -36,7 +36,7 @@ namespace DAL
 
         public List<Carrera> TraerTodo(Alumno UnAlumno)
         {
-            List<Alumno> resultado;
+            List<Carrera> resultado;
             Conexion unaConexion = new Conexion("config.xml");
             unaConexion.ConexionIniciar();
             try
@@ -57,7 +57,7 @@ namespace DAL
             {
                 unaConexion.ConexionFinalizar();
             }
-            return resultado;
+            //return resultado;
         }
     }
 
