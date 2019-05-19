@@ -36,6 +36,7 @@
             this.btnSelMateriaAsistencia = new System.Windows.Forms.Button();
             this.cboMateriaAsist = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnModificarAsist = new System.Windows.Forms.Button();
             this.btnGuardarAsist = new System.Windows.Forms.Button();
             this.btnCancelarAsist = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -43,7 +44,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSelMateriaAsist = new System.Windows.Forms.Button();
             this.cboMateriaRegAsist = new System.Windows.Forms.ComboBox();
-            this.btnModificarAsist = new System.Windows.Forms.Button();
             this.TCAsistencias.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,6 +142,16 @@
             this.tabPage2.Text = "Registrar asistencias";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnModificarAsist
+            // 
+            this.btnModificarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarAsist.Location = new System.Drawing.Point(530, 409);
+            this.btnModificarAsist.Name = "btnModificarAsist";
+            this.btnModificarAsist.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarAsist.TabIndex = 12;
+            this.btnModificarAsist.Text = "Modificar";
+            this.btnModificarAsist.UseVisualStyleBackColor = true;
+            // 
             // btnGuardarAsist
             // 
             this.btnGuardarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -151,6 +161,7 @@
             this.btnGuardarAsist.TabIndex = 11;
             this.btnGuardarAsist.Text = "Guardar";
             this.btnGuardarAsist.UseVisualStyleBackColor = true;
+            this.btnGuardarAsist.Click += new System.EventHandler(this.btnGuardarAsist_Click);
             // 
             // btnCancelarAsist
             // 
@@ -211,16 +222,6 @@
             this.cboMateriaRegAsist.Name = "cboMateriaRegAsist";
             this.cboMateriaRegAsist.Size = new System.Drawing.Size(148, 21);
             this.cboMateriaRegAsist.TabIndex = 1;
-            // 
-            // btnModificarAsist
-            // 
-            this.btnModificarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarAsist.Location = new System.Drawing.Point(530, 409);
-            this.btnModificarAsist.Name = "btnModificarAsist";
-            this.btnModificarAsist.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarAsist.TabIndex = 12;
-            this.btnModificarAsist.Text = "Modificar";
-            this.btnModificarAsist.UseVisualStyleBackColor = true;
             // 
             // UCAsistencias
             // 

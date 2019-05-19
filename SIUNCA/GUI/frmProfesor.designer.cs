@@ -64,7 +64,7 @@ namespace GUI
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(203, 513);
+            this.panelMenu.Size = new System.Drawing.Size(203, 566);
             this.panelMenu.TabIndex = 0;
             this.panelMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseMove);
             // 
@@ -152,7 +152,7 @@ namespace GUI
             this.panelHeader1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader1.Location = new System.Drawing.Point(203, 0);
             this.panelHeader1.Name = "panelHeader1";
-            this.panelHeader1.Size = new System.Drawing.Size(856, 30);
+            this.panelHeader1.Size = new System.Drawing.Size(848, 30);
             this.panelHeader1.TabIndex = 1;
             this.panelHeader1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader1_MouseMove);
             // 
@@ -163,7 +163,7 @@ namespace GUI
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(751, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(743, 2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(28, 26);
             this.btnMinimizar.TabIndex = 3;
@@ -177,7 +177,7 @@ namespace GUI
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMaximizar.Image")));
-            this.btnMaximizar.Location = new System.Drawing.Point(785, 2);
+            this.btnMaximizar.Location = new System.Drawing.Point(777, 2);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(26, 26);
             this.btnMaximizar.TabIndex = 3;
@@ -191,7 +191,7 @@ namespace GUI
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(817, 3);
+            this.btnClose.Location = new System.Drawing.Point(809, 3);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(27, 25);
             this.btnClose.TabIndex = 2;
@@ -207,7 +207,7 @@ namespace GUI
             this.panelHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader2.Location = new System.Drawing.Point(203, 30);
             this.panelHeader2.Name = "panelHeader2";
-            this.panelHeader2.Size = new System.Drawing.Size(856, 61);
+            this.panelHeader2.Size = new System.Drawing.Size(848, 61);
             this.panelHeader2.TabIndex = 2;
             this.panelHeader2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader2_MouseMove);
             // 
@@ -247,10 +247,11 @@ namespace GUI
             // 
             // panelContenedor
             // 
+            this.panelContenedor.AutoSize = true;
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(203, 91);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(856, 422);
+            this.panelContenedor.Size = new System.Drawing.Size(848, 475);
             this.panelContenedor.TabIndex = 3;
             // 
             // frmProfesor
@@ -258,7 +259,7 @@ namespace GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1059, 513);
+            this.ClientSize = new System.Drawing.Size(1051, 566);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.panelHeader2);
             this.Controls.Add(this.panelHeader1);
@@ -273,6 +274,7 @@ namespace GUI
             this.panelHeader2.ResumeLayout(false);
             this.panelHeader2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

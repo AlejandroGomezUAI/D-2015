@@ -57,6 +57,7 @@ namespace DAL
             {
                 unaConexion.ConexionFinalizar();
             }
+            //return resultado;
         }
     }
 

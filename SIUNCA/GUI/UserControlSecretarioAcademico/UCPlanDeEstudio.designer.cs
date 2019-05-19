@@ -129,6 +129,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.button6.TabIndex = 28;
             this.button6.Text = "Guardar plan de estudio";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button4
             // 
@@ -156,6 +157,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // dgPEMaterias
             // 
+            this.dgPEMaterias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgPEMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPEMaterias.Location = new System.Drawing.Point(49, 321);
             this.dgPEMaterias.Name = "dgPEMaterias";
@@ -199,6 +201,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             // dgCorrelativas
             // 
+            this.dgCorrelativas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelativas.Location = new System.Drawing.Point(526, 94);
             this.dgCorrelativas.Name = "dgCorrelativas";
@@ -285,7 +288,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMaterias1.Name = "ComboMaterias1";
             this.ComboMaterias1.Size = new System.Drawing.Size(121, 28);
             this.ComboMaterias1.TabIndex = 8;
-            this.ComboMaterias1.SelectedIndexChanged += new System.EventHandler(this.ComboMaterias1_SelectedIndexChanged);
+            this.ComboMaterias1.Click += new System.EventHandler(this.ComboMaterias1_Click);
             // 
             // txtAño
             // 

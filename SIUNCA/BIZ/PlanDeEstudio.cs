@@ -9,8 +9,8 @@ namespace BIZ
     {
         public int IdCarrera { get; set; }
         public int IdPlanDeEstudio { get; set; }
-        public int Nombre { get; set; }
-        public int NombreCarrera { get; set; }
+        public string Nombre { get; set; }
+        public string NombreCarrera { get; set; }
 
     }
 }

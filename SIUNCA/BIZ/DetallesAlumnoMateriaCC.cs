@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BIZ
 {
@@ -16,6 +17,5 @@ namespace BIZ
         public int NombreCarrera { get; set; }
         public int NombreMateria { get; set; }
         public int Turno { get; set; }
-
     }
 }

@@ -16,8 +16,8 @@ namespace DAL
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
-            listaDeParametros.Add(new Parametro("Nombre", Convert.ToString(UnaMateriaCC.Nombre)));
-
+            //listaDeParametros.Add(new Parametro("Nombre", Convert.ToString(UnaMateriaCC.Nombre)));
+            listaDeParametros.Add(new Parametro("Nombre", UnaMateriaCC.Nombre));
 
             // listaDeParametros.Add(New Parametro("Horas", unaMateriaCC.horas))
 
@@ -47,7 +47,7 @@ namespace DAL
 
                 unaConexion.TransaccionAceptar();
             }
-            catch (Exception x)
+            catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
@@ -96,9 +96,9 @@ namespace DAL
                 List<Parametro> listaParametrosCD = new List<Parametro>();
 
 
-                listaParametrosCD.Add(new Parametro("IdCarrera", UnaCarrera.IdCarrera));
+                listaParametrosCD.Add(new Parametro("Nombre", UnaCarrera.Nombre));
 
-                resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("Select m.Nombre, m.IdMateriaCC from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.IdCarrera = (@IdCarrera)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("Select m.Nombre, m.IdMateriaCC from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.Nombre = (@Nombre)", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
