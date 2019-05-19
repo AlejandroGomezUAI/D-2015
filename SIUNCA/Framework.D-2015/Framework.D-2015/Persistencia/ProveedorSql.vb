@@ -1,11 +1,9 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 
 Namespace Persistencia
 
     Public Class ProveedorSql
-
-
-
         Implements IProveedorBD
 
         Private _sqlConnection As SqlConnection
@@ -18,9 +16,18 @@ Namespace Persistencia
             Me._catalogo = catalogo
         End Sub
 
+        Public Sub New()
+
+        End Sub
+
+        ''' <summary>
+        ''' Metodo que obtiene la cadena de conexion (servidor, nombreBD, etc) desde el archivo
+        ''' app.config para iniciar la conexion a la BD
+        ''' </summary>
         Public Sub ConexionIniciar() Implements IProveedorBD.ConexionIniciar
 
-            _sqlConnection = New SqlConnection(Me.ObtenerCadenaConexion(_servidor, _catalogo))
+            Dim ObtenerConnectionString As String = ConfigurationManager.ConnectionStrings("default").ToString()
+            _sqlConnection = New SqlConnection(ObtenerConnectionString) ''Me.ObtenerCadenaConexion(_servidor, _catalogo))
             _sqlConnection.Open()
 
         End Sub

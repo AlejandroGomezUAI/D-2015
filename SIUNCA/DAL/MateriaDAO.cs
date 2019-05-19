@@ -16,6 +16,7 @@ namespace DAL
         {
             List<Materias> resultado;
             Conexion unaConexion = new Conexion("config.xml");
+            //var unaConexion = new ProveedorSql();
             unaConexion.ConexionIniciar();
             try
             {

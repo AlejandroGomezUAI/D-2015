@@ -47,7 +47,7 @@ namespace DAL
 
                 unaConexion.TransaccionAceptar();
             }
-            catch (Exception x)
+            catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
@@ -86,7 +86,7 @@ namespace DAL
             }
         }
     
-        public List<MateriaConCorrelativas> TraerTodo(Carrera UnaCarrera)
+        public List<MateriaConCorrelativas> TraerTodo(Alumno UnaCarrera)
         {
             List<MateriaConCorrelativas> resultado;
             Conexion unaConexion = new Conexion("config.xml");

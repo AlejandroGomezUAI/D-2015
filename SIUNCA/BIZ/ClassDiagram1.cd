@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="BIZ.Carrera">
-    <Position X="1.75" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAgAAAAAgAAAAAAAABAAAAAABAAAAAA=</HashCode>
-      <FileName>Carrera.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Curso" />
-      <Property Name="Alumno" />
-      <Property Name="PlanDeEstudio" />
-    </ShowAsCollectionAssociation>
-  </Class>
   <Class Name="BIZ.PlanDeEstudio">
     <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
@@ -36,7 +24,7 @@
   <Class Name="BIZ.MateriaConCorrelativas" HideInheritanceLine="true">
     <Position X="3.5" Y="6" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAoAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MateriaConCorrelativas.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,21 +41,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Materias.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="BIZ.Alumno">
-    <Position X="0.5" Y="8" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAAQQAAAADAAAAgEgAAAAAgAAAAAAAAAAAAAAAAQAAA=</HashCode>
-      <FileName>Alumno.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Promedio" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="Asistencia" />
-      <Property Name="Evaluacion" />
-      <Property Name="AlumnoMateria" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="BIZ.DetallesAlumnoMateriaCC" HideInheritanceLine="true">
     <Position X="3.5" Y="8" Width="2" />
@@ -130,6 +103,14 @@
     <ShowAsAssociation>
       <Property Name="Materias" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="BIZ.Carrera">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAgACAAAgAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Carrera.cs</FileName>
+      <NewMemberFileName>Alumno.cs</NewMemberFileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

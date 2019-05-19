@@ -10,7 +10,7 @@ namespace BIZ
         public int IdCarrera { get; set; }
         public String  Nombre { get; set; }
         public List<Curso> Curso { get; set; }
-        public List<Alumno> Alumno { get; set; }
+        public List<Alumno> Alumnos { get; set; }
         public List<PlanDeEstudio> PlanDeEstudio { get; set; }
     }
 }

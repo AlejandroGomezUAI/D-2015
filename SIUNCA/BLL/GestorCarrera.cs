@@ -20,9 +20,9 @@ namespace BLL
                 return ListaCarrera;
             }
 
-            public List<Carrera> TraerCarrera(Alumno UnAlumno)
+            public List<Alumno> TraerCarrera(Alumno UnAlumno)
             {
-                List<Carrera> unaCarrera = new List<Carrera>();
+                List<Alumno> unaCarrera = new List<Alumno>();
                 CarreraDAO unaCarreraDAO = new CarreraDAO();
                 unaCarrera = unaCarreraDAO.TraerTodo(UnAlumno);
                 return unaCarrera;
