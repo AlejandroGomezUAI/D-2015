@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorAlumno.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="GestorCarrera.cs" />
     <Compile Include="GestorDetallesCorrelativa.cs" />
     <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />
+    <Compile Include="GestorPlanDeEstudio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

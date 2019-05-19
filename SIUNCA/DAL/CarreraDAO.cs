@@ -34,7 +34,7 @@ namespace DAL
 
        
 
-        public List<Alumno> TraerTodo(Alumno UnAlumno)
+        public List<Carrera> TraerTodo(Alumno UnAlumno)
         {
             List<Alumno> resultado;
             Conexion unaConexion = new Conexion("config.xml");
@@ -45,7 +45,7 @@ namespace DAL
 
                 listaParametrosCD.Add(new Parametro("LegajoAlumno", UnAlumno.LegajoAlumno));
 
-                resultado = unaConexion.EjecutarTupla<Alumno>("Select c.* from Carrera c Inner join Alumno a on a.IdCarrera = c.IdCarrera where a.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Carrera>("Select c.* from Carrera c Inner join Alumno a on a.IdCarrera = c.IdCarrera where a.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
@@ -57,6 +57,7 @@ namespace DAL
             {
                 unaConexion.ConexionFinalizar();
             }
+            return resultado;
         }
     }
 

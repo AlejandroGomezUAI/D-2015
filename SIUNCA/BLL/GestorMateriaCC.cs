@@ -18,6 +18,14 @@ namespace BLL
             return ListaMateriasCC;
         }
 
+        public List<MateriaConCorrelativas> TraerListaMateriasCC(Carrera UnaCarrera)
+        {
+            List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            ListaMateriasCC = unaMateriaCCDAO.TraerTodo(UnaCarrera);
+            return ListaMateriasCC;
+        }
+
         public void CrearMateriaConCorrelativa(MateriaConCorrelativas UnaMateriaCC, List<DetallesCorrelativa> CorrelativasDetalles)
         {
             // If CorrelativasDetalles.Exists Then
