@@ -164,12 +164,13 @@
             this.button8.TabIndex = 35;
             this.button8.Text = "Consultar correlativas";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(526, 295);
+            this.dataGridView1.Location = new System.Drawing.Point(526, 92);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(272, 141);
             this.dataGridView1.TabIndex = 33;
@@ -249,7 +250,7 @@
             this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAlumMat.Location = new System.Drawing.Point(49, 321);
             this.dgAlumMat.Name = "dgAlumMat";
-            this.dgAlumMat.Size = new System.Drawing.Size(376, 263);
+            this.dgAlumMat.Size = new System.Drawing.Size(437, 263);
             this.dgAlumMat.TabIndex = 23;
             // 
             // btnConsultarCorrelativas
@@ -267,7 +268,7 @@
             // 
             this.dgCorrelativas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCorrelativas.Location = new System.Drawing.Point(526, 94);
+            this.dgCorrelativas.Location = new System.Drawing.Point(526, 297);
             this.dgCorrelativas.Name = "dgCorrelativas";
             this.dgCorrelativas.Size = new System.Drawing.Size(272, 139);
             this.dgCorrelativas.TabIndex = 19;

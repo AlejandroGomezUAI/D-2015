@@ -103,7 +103,7 @@ namespace GUI.UserControlSecretarioAcademico
 
 
             unDetAlumnoMatCC.IdMateriaCC = UnaMateria.IdMateriaCC;
-            unDetAlumnoMatCC.NombreMateria = ComboMaterias1.SelectedItem.ToString();
+            unDetAlumnoMatCC.NombreMateria = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
             unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
             unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
             unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
@@ -126,20 +126,55 @@ namespace GUI.UserControlSecretarioAcademico
             dgAlumMat.DataSource = null;
             dgAlumMat.DataSource = ListAlumnoMateriaCC;
 
+            //dgAlumMat.Columns.Remove("IdDetallesMateriaCC");
+            dgAlumMat.Columns.Remove("IdMateriaCC");
+            dgAlumMat.Columns.Remove("IdAlumno_Materia");
+            dgAlumMat.Columns.Remove("CreatedOn");
+            dgAlumMat.Columns.Remove("CreatedBy");
+            dgAlumMat.Columns.Remove("ChangedBy");
+            dgAlumMat.Columns.Remove("ChangedOn");
 
-            // dgCorrelatividades.Columns.Remove("IdMateriaCC");
-            //dgCorrelatividades.Columns.Remove("IdAlumno_Materia");
-            //dgCorrelatividades.Columns.Remove("CreatedOn");
-            //dgCorrelatividades.Columns.Remove("CreatedBy");
-            //dgCorrelatividades.Columns.Remove("ChangedBy");
-            //dgCorrelatividades.Columns.Remove("ChangedOn");
+            dgAlumMat.Columns["LegajoAlumno"].HeaderText = "Legajo";
+            dgAlumMat.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
+            dgAlumMat.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
+            dgAlumMat.Columns["NombreCarrera"].HeaderText = "Carrera";
+            dgAlumMat.Columns["NombreMateria"].HeaderText = "Materia asignada";
 
 
-            //dgCorrelatividades.Columns["LegajoAlumno"].HeaderText = "Legajo Alumno";
-            //dgCorrelatividades.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
-            //dgCorrelatividades.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
-            //dgCorrelatividades.Columns["NombreCarrera"].HeaderText = "Carrera seleccionada";
-            //dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Materia asignada";
+
+            dgAlumMat.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgAlumMat.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            CargarCorrelativas();
+        }
+        private void CargarCorrelativas()
+        {
+            MateriaConCorrelativas unaMateriaCC;
+            GestorDetallesCorrelativa unGDC = new GestorDetallesCorrelativa();
+            unaMateriaCC = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
+            dgCorrelativas.DataSource = null;
+            dgCorrelativas.DataSource = unGDC.TraerListaCorrelativas(unaMateriaCC);
+            // dgCorrelativas.Columns("IdDetallesCorrelativa").Visible = false;            
+            // dgCorrelativas.Columns("IdMateria").Visible = false;
+            // dgCorrelativas.Columns("IdMateriaCC").Visible = false;
+            // dgCorrelativas.Columns("NombreMateriaCC").HeaderText = "Materia consultada";
+            // dgCorrelativas.Columns("NombreMateria").HeaderText = "Correlativa";
+            dgCorrelativas.Columns.Remove("IdMateriaCC");
+            dgCorrelativas.Columns.Remove("IdMateria");
+            dgCorrelativas.Columns.Remove("IdDetallesCorrelativa");
+            dgCorrelativas.Columns.Remove("ChangedBy");
+            dgCorrelativas.Columns.Remove("ChangedOn");
+            dgCorrelativas.Columns.Remove("CreatedOn");
+            dgCorrelativas.Columns.Remove("CreatedBy");
+
+            dgCorrelativas.Columns[0].HeaderText = "Correlativas";
+            dgCorrelativas.Columns[1].HeaderText = "Materia consultada";
+
+            dgCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
 
         }
 

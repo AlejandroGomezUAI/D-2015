@@ -8,7 +8,7 @@ namespace BIZ
     public class Alumno_MateriaCC  : Bitacora
 
     {
-        public int IdDetallesAlumnoMateriaCC { get; set; }
+        public int IdAlumno_Materia { get; set; }
         public int IdMateriaCC { get; set; }
         public int LegajoAlumno { get; set; }
         public string Estado { get; set; }
