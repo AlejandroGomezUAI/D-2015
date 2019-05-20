@@ -178,6 +178,19 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
+        private void BtnConsultarCorrelativas_Click(object sender, EventArgs e)
+        {
+            ConsultarAprobadas();
+        }
+        private void ConsultarAprobadas()
+        {
+            Alumno unAlumno = new Alumno();
+            GestorDetallesAlumnoMateria unGDC = new GestorDetallesAlumnoMateria();
+            unAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
+            dgCorrelativas.DataSource = null;
+            dgCorrelativas.DataSource = unGDC.TraerMateriasAprobadas(unAlumno);
+
+        }
         //private void ComboMaterias1_Click(object sender, EventArgs e)
         //{
         //    CargarMateriasDeCarrera();

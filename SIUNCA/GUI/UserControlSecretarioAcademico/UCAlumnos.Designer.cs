@@ -263,6 +263,7 @@
             this.btnConsultarCorrelativas.TabIndex = 22;
             this.btnConsultarCorrelativas.Text = "Consultar aprobadas";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
+            this.btnConsultarCorrelativas.Click += new System.EventHandler(this.BtnConsultarCorrelativas_Click);
             // 
             // dgCorrelativas
             // 
