@@ -103,10 +103,10 @@ namespace GUI.UserControlSecretarioAcademico
 
 
             unDetAlumnoMatCC.IdMateriaCC = UnaMateria.IdMateriaCC;
-            unDetAlumnoMatCC.NombreMateria = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
-            unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
-            unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
-            unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
+            //unDetAlumnoMatCC.NombreMateria = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
+            //unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
+            //unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
+            //unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
             unDetAlumnoMatCC.Estado = "Desaprobado";
             unDetAlumnoMatCC.LegajoAlumno = int.Parse(txtLegajo.Text);
             //unDetAlumnoMatCC.Turno = ComboTurno.Text;
@@ -187,8 +187,8 @@ namespace GUI.UserControlSecretarioAcademico
             Alumno unAlumno = new Alumno();
             GestorDetallesAlumnoMateria unGDC = new GestorDetallesAlumnoMateria();
             unAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
-            dgCorrelativas.DataSource = null;
-            dgCorrelativas.DataSource = unGDC.TraerMateriasAprobadas(unAlumno);
+            dgAprobadas.DataSource = null;
+            dgAprobadas.DataSource = unGDC.TraerMateriasAprobadas(unAlumno);
 
         }
         //private void ComboMaterias1_Click(object sender, EventArgs e)

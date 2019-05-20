@@ -9,8 +9,8 @@ namespace BIZ
 
     {
         public int IdAlumno_Materia { get; set; }
-        public int IdMateriaCC { get; set; }
         public int LegajoAlumno { get; set; }
+        public int IdMateriaCC { get; set; }
         public string Estado { get; set; }
         public string NombreAlumno { get; set; }
         public string ApellidoAlumno { get; set; }
