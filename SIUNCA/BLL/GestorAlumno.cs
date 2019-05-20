@@ -32,11 +32,30 @@ namespace BLL
         }
 
 
-        public List<Alumno> traerAlumnos(Alumno unAlumno)
+        public List<Alumno> TraerAlumno(Alumno UnAlumno)
         {
-            throw new NotImplementedException();
-        
+            List<Alumno> ListaAlumno = new List<Alumno>();
+            AlumnoDAO UnAlumnoDAO = new AlumnoDAO();
+            ListaAlumno = UnAlumnoDAO.TraerTodo(UnAlumno);
+            return ListaAlumno;
         }
+
+        public void AsignarAlumnoAMaterias(List<Alumno_MateriaCC> AlumnoMateriaDetalles)
+        {
+            AlumnoDAO unAlumnoDAO = new AlumnoDAO();
+
+            unAlumnoDAO.GuardarAsignacionAlumnoAMaterias(AlumnoMateriaDetalles);
+        }
+
+        public void Crear(object unAlumno)
+        {
+        }
+        public void Modificar(object unAlumno)
+        {
+        }
+        public void Eliminar(object unAlumno)
+        {
+        }       
 
     }
 }

@@ -27,8 +27,10 @@ Namespace Persistencia
         Public Sub ConexionIniciar() Implements IProveedorBD.ConexionIniciar
 
             Dim ObtenerConnectionString As String = ConfigurationManager.ConnectionStrings("default").ToString()
-            _sqlConnection = New SqlConnection(ObtenerConnectionString) ''Me.ObtenerCadenaConexion(_servidor, _catalogo))
+            ''_sqlConnection = New SqlConnection(ObtenerConnectionString) ''Me.ObtenerCadenaConexion(_servidor, _catalogo))
+            _sqlConnection = New SqlConnection(Me.ObtenerCadenaConexion(_servidor, _catalogo))
             _sqlConnection.Open()
+
 
         End Sub
 
