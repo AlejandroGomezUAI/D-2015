@@ -15,7 +15,7 @@ namespace BIZ
         public string NombreAlumno { get; set; }
         public string ApellidoAlumno { get; set; }
         public string NombreCarrera { get; set; }
-        public string NombreMateria { get; set; }
+        public string Nombre { get; set; }
         //public int Turno { get; set; }
     }
 }

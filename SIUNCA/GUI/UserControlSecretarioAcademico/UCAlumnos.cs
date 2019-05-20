@@ -190,6 +190,17 @@ namespace GUI.UserControlSecretarioAcademico
             dgAprobadas.DataSource = null;
             dgAprobadas.DataSource = unGDC.TraerMateriasAprobadas(unAlumno);
 
+            dgAprobadas.Columns.Remove("IdMateriaCC");
+            dgAprobadas.Columns.Remove("LegajoAlumno");
+            dgAprobadas.Columns.Remove("IdAlumno_Materia");
+            dgAprobadas.Columns.Remove("NombreAlumno");
+            dgAprobadas.Columns.Remove("ApellidoAlumno");
+            dgAprobadas.Columns.Remove("NombreCarrera");
+            dgAprobadas.Columns.Remove("ChangedBy");
+            dgAprobadas.Columns.Remove("ChangedOn");
+            dgAprobadas.Columns.Remove("CreatedOn");
+            dgAprobadas.Columns.Remove("CreatedBy");
+
         }
         //private void ComboMaterias1_Click(object sender, EventArgs e)
         //{
