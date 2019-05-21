@@ -40,6 +40,10 @@ namespace BLL
             UnaMateriaCCDAO.Insertar(UnaMateriaCC, CorrelativasDetalles);
         }
 
+
+      
+
+
         public void Modificar(MateriaConCorrelativas unaMatera)
         {
         }

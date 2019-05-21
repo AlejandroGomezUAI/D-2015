@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AlumnoDAO.cs" />
     <Compile Include="CarreraDAO.cs" />
+    <Compile Include="CursoDAO.cs" />
     <Compile Include="DetalleAlumnoMateriaDAO.cs" />
     <Compile Include="DetalleCorrelativaDAO.cs" />
     <Compile Include="MateriaConCorrelativaDAO.cs" />

@@ -18,11 +18,11 @@ namespace GUI.UserControlSecretarioAcademico
         {
             InitializeComponent();
         }
-        
-    List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
-    
 
-    private void UCAlumnos_Load(object sender, EventArgs e)
+        List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
+
+
+        private void UCAlumnos_Load(object sender, EventArgs e)
         {
 
         }
@@ -73,7 +73,7 @@ namespace GUI.UserControlSecretarioAcademico
 
 
 
-          
+
         }
 
         private void CargarMateriasDeCarrera()
@@ -202,6 +202,31 @@ namespace GUI.UserControlSecretarioAcademico
             dgAprobadas.Columns.Remove("CreatedBy");
 
         }
+
+      
+
+        private void TraerFechasInicioCursos()
+        {
+            GestorCurso UnCurso = new GestorCurso();
+            MateriaConCorrelativas unaMateria = new MateriaConCorrelativas();
+
+
+            unaMateria.IdMateriaCC = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).IdMateriaCC;
+
+            ComboFechasInicioCurso.DataSource = null;
+            ComboFechasInicioCurso.DataSource = UnCurso.TraerFechasInicioCursos(unaMateria);
+            
+            //ComboFechasInicioCurso.DisplayMember = "FechaInicio";
+            //dateTimePicker1.Show = UnCurso.TraerFechasInicioCursos(unaMateria);
+        }
+
+        private void ComboFechasInicioCurso_Click(object sender, EventArgs e)
+        {
+            TraerFechasInicioCursos();
+        }
+
+      
+
         //private void ComboMaterias1_Click(object sender, EventArgs e)
         //{
         //    CargarMateriasDeCarrera();
