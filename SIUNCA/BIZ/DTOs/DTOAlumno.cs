@@ -11,8 +11,9 @@ namespace BIZ.DTOs
         public int LegajoAlumno { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public int IdMateriaCC { get; set; }
-        public string Materia { get; set; }
+        public string Ausente { get; set; }
+        public string Presente { get; set; }
         public string Estado { get; set; }
+        public int IdMAteriaCC { get; set; }
     }
 }

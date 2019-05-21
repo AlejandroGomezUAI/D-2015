@@ -31,10 +31,11 @@ namespace DAL
             try
             {
                 //cambie mayusculass
-                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, matcor.IdMateriaCC, matcor.Nombre, almatcc.Estado  from Alumno as alu inner join Alumno_MateriaCC as almatcc
+                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, asist.Ausente, asist.Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
                                                             on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
-                                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC
-                                                            where matcor.Nombre = @Nombre", listaParametrosCD);
+                                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
+                                                            on alu.LegajoAlumno = asist.LegajoAlumno
+                                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
