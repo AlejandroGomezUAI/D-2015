@@ -229,9 +229,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.DodgerBlue;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(339, 227);
+            this.button4.Location = new System.Drawing.Point(339, 254);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 42);
+            this.button4.Size = new System.Drawing.Size(147, 28);
             this.button4.TabIndex = 27;
             this.button4.Text = "Asignar materia";
             this.button4.UseVisualStyleBackColor = false;
@@ -241,9 +241,9 @@
             // 
             this.button5.BackColor = System.Drawing.Color.DodgerBlue;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(339, 275);
+            this.button5.Location = new System.Drawing.Point(339, 287);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 42);
+            this.button5.Size = new System.Drawing.Size(147, 30);
             this.button5.TabIndex = 26;
             this.button5.Text = "Quitar materia";
             this.button5.UseVisualStyleBackColor = false;
