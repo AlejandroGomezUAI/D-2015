@@ -214,6 +214,7 @@
             this.btnSelMateriaAsist.TabIndex = 1;
             this.btnSelMateriaAsist.Text = "Seleccionar";
             this.btnSelMateriaAsist.UseVisualStyleBackColor = true;
+            this.btnSelMateriaAsist.Click += new System.EventHandler(this.btnSelMateriaAsist_Click);
             // 
             // cboMateriaRegAsist
             // 

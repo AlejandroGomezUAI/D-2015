@@ -27,6 +27,11 @@ namespace GUI.UserControlProfesor
             cargarActaDeasistencias();
         }
 
+        private void btnSelMateriaAsist_Click(object sender, EventArgs e)
+        {
+            cargarListaAlumnos();
+        }
+
         private void btnGuardarAsist_Click(object sender, EventArgs e)
         {
             
@@ -61,21 +66,36 @@ namespace GUI.UserControlProfesor
             this.dgvListadoAlumnos.DataSource = null;
             this.dgvListadoAlumnos.DataSource = alumnos;
 
-           // this.dgvListadoAlumnos.Columns
+            //oculta columna IdMateriaCC
+            this.dgvListadoAlumnos.Columns[6].Visible = false;
+            //Modifica el nombre de las columnas
+            this.dgvListadoAlumnos.Columns[0].HeaderText = "Legajo";
+            this.dgvListadoAlumnos.Columns[3].HeaderText = "Ausentes";
+            this.dgvListadoAlumnos.Columns[4].HeaderText = "Presentes";
         }
 
         /// <summary>
         /// carga el listado de alumnos para registrar las faltas
         /// </summary>
-        //void cargarListaAlumnos()
-        //{
-        //    var gestoralumno = new GestorAlumno();
+        void cargarListaAlumnos()
+        {
+            var gestoralumno = new GestorAlumno();
+            var alumnos = gestoralumno.traerAlumnos(this.cboMateriaRegAsist.Text);
+            
+            this.dgvRegistrarAsist.DataSource = null;
+            this.dgvRegistrarAsist.DataSource = alumnos;
 
-        //    var alumnos = gestoralumno.traerAlumnos();
+            //oculta columna IdMateriaCC, Estado, Ausentes y Presentes
+            this.dgvRegistrarAsist.Columns[3].Visible = false;
+            this.dgvRegistrarAsist.Columns[4].Visible = false;
+            this.dgvRegistrarAsist.Columns[5].Visible = false;
+            this.dgvRegistrarAsist.Columns[6].Visible = false;
+                        
+            //Modifica el nombre de la columna LegajoAlumno
+            this.dgvRegistrarAsist.Columns[0].HeaderText = "Legajo";
+            
+        }
 
-        //    this.dgvRegistrarAsist = null; 
-        //    this.dgvRegistrarAsist.DataSource = alumnos;
-        //}
-
+        
     }
 }
