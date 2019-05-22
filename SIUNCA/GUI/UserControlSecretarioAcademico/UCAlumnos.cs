@@ -149,18 +149,10 @@ namespace GUI.UserControlSecretarioAcademico
 
 
             //resto 1
-            int resultado;
-            resta = int.Parse(ComboCuposMax.Text) - 1;
-            txtCupos.Text = resta.ToString();
-            if (resta < 50)
-            {
-                resultado = Convert.ToInt32(txtCupos.Text) - 1;
-                txtCupos.Text = resultado.ToString();
-            }
-            else
-            {
-                txtCupos.Text = resta.ToString();
-            }
+            //int resultado;
+            resta = int.Parse(ComboCupos.Text) - 1;
+            ComboCupos.Text = resta.ToString();
+            
            
             
         }
@@ -257,7 +249,10 @@ namespace GUI.UserControlSecretarioAcademico
                 ComboCuposMax.DataSource = null;
                 ComboCuposMax.DataSource = UnGCurso.TraerCuposMaxCurso(uncurso);
                 ComboCuposMax.DisplayMember = "CuposMax";
-
+                ComboCupos.DataSource = null;
+                ComboCupos.DataSource = UnGCurso.TraerCuposMaxCurso(uncurso);
+                ComboCupos.DisplayMember = "CuposMax";
+               
                 //resta = ((Curso)ComboCuposMax.SelectedValue).CuposMax - 1;
 
             }
