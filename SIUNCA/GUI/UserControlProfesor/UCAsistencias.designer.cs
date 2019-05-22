@@ -117,6 +117,7 @@
             this.btnSelMateriaAsistencia.TabIndex = 1;
             this.btnSelMateriaAsistencia.Text = "Seleccionar";
             this.btnSelMateriaAsistencia.UseVisualStyleBackColor = true;
+            this.btnSelMateriaAsistencia.Click += new System.EventHandler(this.btnSelMateriaAsistencia_Click);
             // 
             // cboMateriaAsist
             // 
@@ -213,6 +214,7 @@
             this.btnSelMateriaAsist.TabIndex = 1;
             this.btnSelMateriaAsist.Text = "Seleccionar";
             this.btnSelMateriaAsist.UseVisualStyleBackColor = true;
+            this.btnSelMateriaAsist.Click += new System.EventHandler(this.btnSelMateriaAsist_Click);
             // 
             // cboMateriaRegAsist
             // 
