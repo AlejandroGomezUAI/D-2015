@@ -215,6 +215,7 @@ namespace GUI.UserControlSecretarioAcademico
 
             ComboFechasInicioCurso.DataSource = null;
             ComboFechasInicioCurso.DataSource = UnCurso.TraerFechasInicioCursos(unaMateria);
+            ComboFechasInicioCurso.DisplayMember = "FechaInicio";
             
             //ComboFechasInicioCurso.DisplayMember = "FechaInicio";
             //dateTimePicker1.Show = UnCurso.TraerFechasInicioCursos(unaMateria);
