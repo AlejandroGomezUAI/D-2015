@@ -8,7 +8,7 @@ namespace BIZ
     public class Curso : Bitacora
     {
         public int Aula { get; set; }
-        public int Cupos { get; set; }
+        public int CuposMax { get; set; }
         public DateTime FechaInicio { get; set; }
         public int IdCarrera { get; set; }
         public int IdCurso { get; set; }

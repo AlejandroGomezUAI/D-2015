@@ -17,5 +17,13 @@ namespace BLL
             ListaCursos = unCursoDAO.TraerTodo(unaMateria);
             return ListaCursos;
         }
+
+        public List<Curso> TraerCuposMaxCurso(Curso uncurso)
+        {
+            List<Curso> ListaCursos = new List<Curso>();
+            CursoDAO unCursoDAO = new CursoDAO();
+            ListaCursos = unCursoDAO.TraerCuposCurso(uncurso);
+            return ListaCursos;
+        }
     }
 }

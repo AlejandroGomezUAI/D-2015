@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ComboCuposMax = new System.Windows.Forms.ComboBox();
+            this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
             this.ComboApellido = new System.Windows.Forms.ComboBox();
             this.ComboNombre = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -37,7 +39,6 @@
             this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -66,8 +67,7 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtCupos = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
@@ -94,7 +94,8 @@
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.txtCupos);
+            this.tabPage1.Controls.Add(this.ComboCuposMax);
             this.tabPage1.Controls.Add(this.ComboFechasInicioCurso);
             this.tabPage1.Controls.Add(this.ComboApellido);
             this.tabPage1.Controls.Add(this.ComboNombre);
@@ -103,7 +104,6 @@
             this.tabPage1.Controls.Add(this.dgAprobadas);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
-            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button5);
@@ -129,6 +129,24 @@
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
+            // 
+            // ComboCuposMax
+            // 
+            this.ComboCuposMax.Enabled = false;
+            this.ComboCuposMax.FormattingEnabled = true;
+            this.ComboCuposMax.Location = new System.Drawing.Point(366, 210);
+            this.ComboCuposMax.Name = "ComboCuposMax";
+            this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
+            this.ComboCuposMax.TabIndex = 41;
+            // 
+            // ComboFechasInicioCurso
+            // 
+            this.ComboFechasInicioCurso.FormattingEnabled = true;
+            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(370, 140);
+            this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
+            this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
+            this.ComboFechasInicioCurso.TabIndex = 39;
+            this.ComboFechasInicioCurso.Click += new System.EventHandler(this.ComboFechasInicioCurso_Click);
             // 
             // ComboApellido
             // 
@@ -201,17 +219,6 @@
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePicker1.Size = new System.Drawing.Size(139, 22);
             this.dateTimePicker1.TabIndex = 30;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Obligatoria",
-            "Opcional"});
-            this.comboBox1.Location = new System.Drawing.Point(303, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(57, 28);
-            this.comboBox1.TabIndex = 29;
             // 
             // button6
             // 
@@ -485,26 +492,12 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // ComboFechasInicioCurso
+            // txtCupos
             // 
-            this.ComboFechasInicioCurso.FormattingEnabled = true;
-            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(370, 140);
-            this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
-            this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
-            this.ComboFechasInicioCurso.TabIndex = 39;
-            this.ComboFechasInicioCurso.Click += new System.EventHandler(this.ComboFechasInicioCurso_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Enabled = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Obligatoria",
-            "Opcional"});
-            this.comboBox2.Location = new System.Drawing.Point(366, 210);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(57, 28);
-            this.comboBox2.TabIndex = 41;
+            this.txtCupos.Location = new System.Drawing.Point(301, 210);
+            this.txtCupos.Name = "txtCupos";
+            this.txtCupos.Size = new System.Drawing.Size(59, 26);
+            this.txtCupos.TabIndex = 42;
             // 
             // UCAlumnos
             // 
@@ -562,13 +555,13 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataGridView dgAprobadas;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox ComboNombre;
         private System.Windows.Forms.ComboBox ComboApellido;
         private System.Windows.Forms.ComboBox ComboFechasInicioCurso;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ComboCuposMax;
+        private System.Windows.Forms.TextBox txtCupos;
     }
 }

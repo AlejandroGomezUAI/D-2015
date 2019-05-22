@@ -20,6 +20,8 @@ namespace GUI.UserControlSecretarioAcademico
         }
 
         List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
+        int resta = 0;
+        int suma = 0;
 
 
         private void UCAlumnos_Load(object sender, EventArgs e)
@@ -103,10 +105,10 @@ namespace GUI.UserControlSecretarioAcademico
 
 
             unDetAlumnoMatCC.IdMateriaCC = UnaMateria.IdMateriaCC;
-            //unDetAlumnoMatCC.NombreMateria = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
-            //unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
-            //unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
-            //unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
+            unDetAlumnoMatCC.Nombre = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
+            unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
+            unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
+            unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
             unDetAlumnoMatCC.Estado = "Desaprobado";
             unDetAlumnoMatCC.LegajoAlumno = int.Parse(txtLegajo.Text);
             //unDetAlumnoMatCC.Turno = ComboTurno.Text;
@@ -138,12 +140,29 @@ namespace GUI.UserControlSecretarioAcademico
             dgAlumMat.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
             dgAlumMat.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
             dgAlumMat.Columns["NombreCarrera"].HeaderText = "Carrera";
-            dgAlumMat.Columns["NombreMateria"].HeaderText = "Materia asignada";
+            dgAlumMat.Columns["Nombre"].HeaderText = "Materia asignada";
 
 
 
             dgAlumMat.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
             dgAlumMat.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+
+
+            //resto 1
+            int resultado;
+            resta = int.Parse(ComboCuposMax.Text) - 1;
+            txtCupos.Text = resta.ToString();
+            if (resta < 50)
+            {
+                resultado = Convert.ToInt32(txtCupos.Text) - 1;
+                txtCupos.Text = resultado.ToString();
+            }
+            else
+            {
+                txtCupos.Text = resta.ToString();
+            }
+           
+            
         }
 
         private void Button8_Click(object sender, EventArgs e)
@@ -203,30 +222,62 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-      
+        private void ComboFechasInicioCurso_Click(object sender, EventArgs e)
+        {
+            TraerFechasInicioCursos();
+            TraerCuposMaxCurso();
+          
+        }
 
         private void TraerFechasInicioCursos()
         {
-            GestorCurso UnCurso = new GestorCurso();
+            GestorCurso UnGCurso = new GestorCurso();
             MateriaConCorrelativas unaMateria = new MateriaConCorrelativas();
 
 
             unaMateria.IdMateriaCC = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).IdMateriaCC;
 
             ComboFechasInicioCurso.DataSource = null;
-            ComboFechasInicioCurso.DataSource = UnCurso.TraerFechasInicioCursos(unaMateria);
+            ComboFechasInicioCurso.DataSource = UnGCurso.TraerFechasInicioCursos(unaMateria);
             ComboFechasInicioCurso.DisplayMember = "FechaInicio";
             
             //ComboFechasInicioCurso.DisplayMember = "FechaInicio";
             //dateTimePicker1.Show = UnCurso.TraerFechasInicioCursos(unaMateria);
         }
 
-        private void ComboFechasInicioCurso_Click(object sender, EventArgs e)
+        private void TraerCuposMaxCurso()
         {
-            TraerFechasInicioCursos();
+            GestorCurso UnGCurso = new GestorCurso();
+            Curso uncurso = new Curso();
+
+            try
+            {
+                uncurso.IdCurso = ((Curso)ComboFechasInicioCurso.SelectedItem).IdCurso;
+
+                ComboCuposMax.DataSource = null;
+                ComboCuposMax.DataSource = UnGCurso.TraerCuposMaxCurso(uncurso);
+                ComboCuposMax.DisplayMember = "CuposMax";
+
+                //resta = ((Curso)ComboCuposMax.SelectedValue).CuposMax - 1;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No hay cursos", ex.ToString());
+                
+            }
+            
+
         }
 
-      
+        private void ComboCupos_Click(object sender, EventArgs e)
+        {
+            //Restar 1 a cuposmax
+
+        }
+
+
 
         //private void ComboMaterias1_Click(object sender, EventArgs e)
         //{
