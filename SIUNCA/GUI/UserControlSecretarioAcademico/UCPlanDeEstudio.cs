@@ -159,6 +159,8 @@ namespace GUI.UserControlSecretarioAcademico
 
                     dgPEMaterias.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
                     dgPEMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+
+                    label10.Visible = true;
                 }
             }
             catch (Exception ex)

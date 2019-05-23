@@ -63,6 +63,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
@@ -88,6 +89,7 @@ namespace GUI.UserControlSecretarioAcademico
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.SkyBlue;
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button5);
@@ -434,6 +436,18 @@ namespace GUI.UserControlSecretarioAcademico
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(445, 295);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(356, 16);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "**Asegurese de agregar las correlativas correspondientes";
+            this.label10.Visible = false;
+            // 
             // UCPlanDeEstudio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -487,5 +501,6 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.ComboBox ComboMateriasCC;
         private System.Windows.Forms.ComboBox ComboCorrelativas;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label10;
     }
 }
