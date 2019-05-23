@@ -118,41 +118,55 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button4_Click_1(object sender, EventArgs e)
         {
+            try
             {
-                DetallesPlanDeEstudio unDetallePE = new DetallesPlanDeEstudio();
-                MateriaConCorrelativas UnaMateria;
+                {
+                    DetallesPlanDeEstudio unDetallePE = new DetallesPlanDeEstudio();
+                    MateriaConCorrelativas UnaMateria;
 
-                UnaMateria = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
+                    UnaMateria = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
 
-               // unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC.ToString();
-                unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC;
-                //unDetallePE.NumeroMateria = txtNumeroMateria.Text;
-                unDetallePE.NumeroMateria = int.Parse(txtNumeroMateria.Text);               
-                //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString;
-                //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem;
-                unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString();
-                unDetallePE.NombreMateria = ComboMaterias1.Text;
-                unDetallePE.Año = int.Parse(txtAño.Text);
-                unDetallePE.CargaHoraria = int.Parse(txtCargaHoraria.Text);
+                    // unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC.ToString();
+                    unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC;
+                    //unDetallePE.NumeroMateria = txtNumeroMateria.Text;
+                    unDetallePE.NumeroMateria = int.Parse(txtNumeroMateria.Text);
+                    //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString;
+                    //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem;
+                    unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString();
+                    unDetallePE.NombreMateria = ComboMaterias1.Text;
+                    unDetallePE.Año = int.Parse(txtAño.Text);
+                    unDetallePE.CargaHoraria = int.Parse(txtCargaHoraria.Text);
 
-                PEDetalles.Add(unDetallePE);
+                    PEDetalles.Add(unDetallePE);
 
-                dgPEMaterias.DataSource = null;
-                dgPEMaterias.DataSource = PEDetalles;
-                //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
-                //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
-                //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
-                dgPEMaterias.Columns.Remove("IdPlanDeEstudio");
-                dgPEMaterias.Columns.Remove("IdPlanDetalles");
-                dgPEMaterias.Columns.Remove("IdMateriaCC");
-                dgPEMaterias.Columns.Remove("ChangedBy");
-                dgPEMaterias.Columns.Remove("ChangedOn");
-                dgPEMaterias.Columns.Remove("CreatedOn");
-                dgPEMaterias.Columns.Remove("CreatedBy");
+                    dgPEMaterias.DataSource = null;
+                    dgPEMaterias.DataSource = PEDetalles;
+                    //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
+                    //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
+                    //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
+                    dgPEMaterias.Columns.Remove("IdPlanDeEstudio");
+                    dgPEMaterias.Columns.Remove("IdPlanDetalles");
+                    dgPEMaterias.Columns.Remove("IdMateriaCC");
+                    dgPEMaterias.Columns.Remove("ChangedBy");
+                    dgPEMaterias.Columns.Remove("ChangedOn");
+                    dgPEMaterias.Columns.Remove("CreatedOn");
+                    dgPEMaterias.Columns.Remove("CreatedBy");
 
-                dgPEMaterias.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-                dgPEMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                    //dgPEMaterias.Columns["NombreMateriaCC"].HeaderText = "Nombre materia";
+                    dgPEMaterias.Columns["NombreMateria"].HeaderText = "Nombre materia";
+                    dgPEMaterias.Columns["CargaHoraria"].HeaderText = "Carga Horaria";
+                    dgPEMaterias.Columns["NumeroMateria"].HeaderText = "Numero de materia";
+
+                    dgPEMaterias.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                    dgPEMaterias.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Faltan campos");
+                //throw ex;
+            }
+            
 
         }
 
@@ -268,13 +282,20 @@ namespace GUI.UserControlSecretarioAcademico
 
             try
             {
+                if (unPlanDeEstudio.Nombre=="")
+                {
+                    MessageBox.Show("Falta nombre del plan.");
+                    throw new Exception("Nombre del plan en blanco");
+                }
                 GestorPlanDeEstudio GestorPE = new GestorPlanDeEstudio();
                 GestorPE.CrearPlanDeEstudio(unPlanDeEstudio, PEDetalles);
+                MessageBox.Show("Se registró el Plan de estudio.");
                 //Interaction.MsgBox("Plan de estudio guardado.");
             }
             catch (Exception ex)
             {
                 //Interaction.MsgBox("Error al guardar el Plan de estudio.");
+                MessageBox.Show("Error al guardar el Plan de estudio.");
             }
         }
 
