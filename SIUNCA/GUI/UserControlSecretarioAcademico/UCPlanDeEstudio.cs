@@ -137,6 +137,12 @@ namespace GUI.UserControlSecretarioAcademico
                     unDetallePE.Año = int.Parse(txtAño.Text);
                     unDetallePE.CargaHoraria = int.Parse(txtCargaHoraria.Text);
 
+
+                    //VALIDO REPETIDOS
+                    ExisteEnLista(txtNumeroMateria.Text, dgPEMaterias);
+
+
+
                     PEDetalles.Add(unDetallePE);
 
                     dgPEMaterias.DataSource = null;
@@ -170,6 +176,30 @@ namespace GUI.UserControlSecretarioAcademico
             }
             
 
+        }
+
+        //FUNCION Q VALIDA REPETIDOS
+        public Boolean ExisteEnLista(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["NumeroMateria"].Value);
+                if (Rol == verificar)
+                {
+                    labelMensaje.Text = "Ya existe la Variedad";
+                    existe = true;
+                    MessageBox.Show("Numero de materia repetido");
+                    throw new Exception("Numero de materia repetido");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
         }
 
         private void Button5_Click(object sender, EventArgs e)
