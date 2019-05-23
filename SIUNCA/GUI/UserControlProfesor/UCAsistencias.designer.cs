@@ -44,6 +44,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSelMateriaAsist = new System.Windows.Forms.Button();
             this.cboMateriaRegAsist = new System.Windows.Forms.ComboBox();
+            this.Ausente = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Presente = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TCAsistencias.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -188,6 +190,9 @@
             // dgvRegistrarAsist
             // 
             this.dgvRegistrarAsist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistrarAsist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ausente,
+            this.Presente});
             this.dgvRegistrarAsist.Location = new System.Drawing.Point(22, 30);
             this.dgvRegistrarAsist.Name = "dgvRegistrarAsist";
             this.dgvRegistrarAsist.Size = new System.Drawing.Size(518, 319);
@@ -224,6 +229,16 @@
             this.cboMateriaRegAsist.Name = "cboMateriaRegAsist";
             this.cboMateriaRegAsist.Size = new System.Drawing.Size(148, 21);
             this.cboMateriaRegAsist.TabIndex = 1;
+            // 
+            // Ausente
+            // 
+            this.Ausente.HeaderText = "Ausente";
+            this.Ausente.Name = "Ausente";
+            // 
+            // Presente
+            // 
+            this.Presente.HeaderText = "Presente";
+            this.Presente.Name = "Presente";
             // 
             // UCAsistencias
             // 
@@ -263,5 +278,7 @@
         private System.Windows.Forms.Button btnSelMateriaAsist;
         private System.Windows.Forms.ComboBox cboMateriaRegAsist;
         private System.Windows.Forms.Button btnModificarAsist;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Ausente;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Presente;
     }
 }

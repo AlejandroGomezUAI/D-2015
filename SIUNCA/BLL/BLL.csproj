@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorAlumno.cs" />
+    <Compile Include="GestorAsistencia.cs" />
     <Compile Include="GestorCarrera.cs" />
     <Compile Include="GestorCurso.cs" />
     <Compile Include="GestorDetallesAlumnoMateria.cs" />
