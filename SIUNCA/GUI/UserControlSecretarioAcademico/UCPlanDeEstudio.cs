@@ -429,30 +429,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            do
-            {
-                foreach (DataGridViewRow row in dgCorrelatividades.Rows)
-                {
-                    try
-                    {
-                        dgCorrelatividades.Rows.Remove(row);
-                        dgCorrelatividades.DataSource = null;
-                        dgCorrelatividades.DataSource = CorrelativasDetalles;
-                        dgCorrelatividades.Columns.Remove("IdMateriaCC");
-                        dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
-                        dgCorrelatividades.Columns.Remove("IdMateria");
-
-                        dgCorrelatividades.Columns.Remove("ChangedBy");
-                        dgCorrelatividades.Columns.Remove("ChangedOn");
-                        dgCorrelatividades.Columns.Remove("CreatedOn");
-                        dgCorrelatividades.Columns.Remove("CreatedBy");
-
-                        dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
-                        dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
-                    }
-                    catch (Exception) { }
-                }
-            } while (dgCorrelatividades.Rows.Count > 1);
+          
         }
     }
 }
