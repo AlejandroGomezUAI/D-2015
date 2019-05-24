@@ -272,6 +272,16 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
+        private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
         //private void ComboMaterias1_Click(object sender, EventArgs e)

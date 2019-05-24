@@ -269,41 +269,72 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            try
             {
-                DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
-                Materias unaMateria;
-                // Dim UnaMateriaCC As MateriaConCorrelativas
+                {
+                    DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
+                    Materias unaMateria;
+                    // Dim UnaMateriaCC As MateriaConCorrelativas
 
-                unaMateria = (Materias)ComboCorrelativas.SelectedItem;
-                unaMateria.Nombre = ComboCorrelativas.Text;
+                    unaMateria = (Materias)ComboCorrelativas.SelectedItem;
+                    unaMateria.Nombre = ComboCorrelativas.Text;
 
-                unDetalleCorrelativa.IdMateria = unaMateria.IdMateria;
-                unDetalleCorrelativa.NombreMateria = unaMateria.Nombre;
-                unDetalleCorrelativa.NombreMateriaCC = ComboMateriasCC.Text;
+                    unDetalleCorrelativa.IdMateria = unaMateria.IdMateria;
+                    unDetalleCorrelativa.NombreMateria = unaMateria.Nombre;
+                    unDetalleCorrelativa.NombreMateriaCC = ComboMateriasCC.Text;
+
+                    ValidoExistente2(ComboCorrelativas.Text, dgCorrelatividades);
+
+                    CorrelativasDetalles.Add(unDetalleCorrelativa);
 
 
-                CorrelativasDetalles.Add(unDetalleCorrelativa);
+                    dgCorrelatividades.DataSource = null;
+                    dgCorrelatividades.DataSource = CorrelativasDetalles;
+
+                    dgCorrelatividades.Columns.Remove("IdMateria");
+                    dgCorrelatividades.Columns.Remove("IdMateriaCC");
+                    dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
+                    dgCorrelatividades.Columns.Remove("CreatedOn");
+                    dgCorrelatividades.Columns.Remove("CreatedBy");
+                    dgCorrelatividades.Columns.Remove("ChangedBy");
+                    dgCorrelatividades.Columns.Remove("ChangedOn");
 
 
-                dgCorrelatividades.DataSource = null;
-                dgCorrelatividades.DataSource = CorrelativasDetalles;
+                    dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
+                    dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
 
-                dgCorrelatividades.Columns.Remove("IdMateria");
-                dgCorrelatividades.Columns.Remove("IdMateriaCC");
-                dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
-                dgCorrelatividades.Columns.Remove("CreatedOn");
-                dgCorrelatividades.Columns.Remove("CreatedBy");
-                dgCorrelatividades.Columns.Remove("ChangedBy");
-                dgCorrelatividades.Columns.Remove("ChangedOn");
-                
 
-                dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
-                dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
-
-                
+                }
             }
-        }
+            catch (Exception)
+            {
 
+                MessageBox.Show("error al agregar al listado");
+            }
+           
+        }
+        public Boolean ValidoExistente2(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["NombreMateria"].Value);
+                if (Rol == verificar)
+                {
+                    //labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Nombre de correlativa repetido");
+                    throw new Exception("Nombre de correlativa repetido");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    //labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
+        }
         private void CargarMaterias()
         {
             GestorMateria unGM = new GestorMateria();
@@ -394,6 +425,34 @@ namespace GUI.UserControlSecretarioAcademico
             //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
             //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
             //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
+        }
+
+        private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            do
+            {
+                foreach (DataGridViewRow row in dgCorrelatividades.Rows)
+                {
+                    try
+                    {
+                        dgCorrelatividades.Rows.Remove(row);
+                        dgCorrelatividades.DataSource = null;
+                        dgCorrelatividades.DataSource = CorrelativasDetalles;
+                        dgCorrelatividades.Columns.Remove("IdMateriaCC");
+                        dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
+                        dgCorrelatividades.Columns.Remove("IdMateria");
+
+                        dgCorrelatividades.Columns.Remove("ChangedBy");
+                        dgCorrelatividades.Columns.Remove("ChangedOn");
+                        dgCorrelatividades.Columns.Remove("CreatedOn");
+                        dgCorrelatividades.Columns.Remove("CreatedBy");
+
+                        dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
+                        dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+                    }
+                    catch (Exception) { }
+                }
+            } while (dgCorrelatividades.Rows.Count > 1);
         }
     }
 }
