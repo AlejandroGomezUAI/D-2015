@@ -128,9 +128,9 @@ namespace GUI.UserControlSecretarioAcademico
             this.labelMensaje.AutoSize = true;
             this.labelMensaje.Location = new System.Drawing.Point(615, 424);
             this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(143, 20);
+            this.labelMensaje.Size = new System.Drawing.Size(14, 20);
             this.labelMensaje.TabIndex = 30;
-            this.labelMensaje.Text = "NUM REPETIDO";
+            this.labelMensaje.Text = " ";
             // 
             // label10
             // 

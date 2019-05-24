@@ -149,6 +149,11 @@ namespace GUI.UserControlSecretarioAcademico
                         MessageBox.Show("Debe seleccionar bien la obligatoriedad.");
                         throw new Exception("error campo obligatoridad");
                     }
+                    if (int.Parse(txtCargaHoraria.Text) > 20)
+                    {
+                        MessageBox.Show("Carga Horaria mayor a 20hs");
+                        throw new Exception("Error en la carga horaria");
+                    }
 
 
 
@@ -358,7 +363,7 @@ namespace GUI.UserControlSecretarioAcademico
             {
                 GestorMateriaCC GestorMateriaCC = new GestorMateriaCC();
                 GestorMateriaCC.CrearMateriaConCorrelativa(UnaMateriaCC, CorrelativasDetalles);
-                //MessageBox.Show("materia con correlativa guardada.");
+                MessageBox.Show("materia con correlativa guardada.");
             }
             catch (Exception ex)
             {
