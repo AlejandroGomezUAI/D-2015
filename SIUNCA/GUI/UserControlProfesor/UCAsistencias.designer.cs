@@ -41,11 +41,12 @@
             this.btnCancelarAsist = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvRegistrarAsist = new System.Windows.Forms.DataGridView();
+            this.Asistencia = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnSelMateriaAsist = new System.Windows.Forms.Button();
             this.cboMateriaRegAsist = new System.Windows.Forms.ComboBox();
-            this.Ausente = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Presente = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblFechaActual = new System.Windows.Forms.Label();
             this.TCAsistencias.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -132,6 +133,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblFechaActual);
+            this.tabPage2.Controls.Add(this.lblFecha);
             this.tabPage2.Controls.Add(this.btnModificarAsist);
             this.tabPage2.Controls.Add(this.btnGuardarAsist);
             this.tabPage2.Controls.Add(this.btnCancelarAsist);
@@ -191,12 +194,20 @@
             // 
             this.dgvRegistrarAsist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistrarAsist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ausente,
-            this.Presente});
+            this.Asistencia});
             this.dgvRegistrarAsist.Location = new System.Drawing.Point(22, 30);
             this.dgvRegistrarAsist.Name = "dgvRegistrarAsist";
             this.dgvRegistrarAsist.Size = new System.Drawing.Size(518, 319);
             this.dgvRegistrarAsist.TabIndex = 0;
+            // 
+            // Asistencia
+            // 
+            this.Asistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Asistencia.HeaderText = "Asistencia";
+            this.Asistencia.Items.AddRange(new object[] {
+            "Presente",
+            "Ausente"});
+            this.Asistencia.Name = "Asistencia";
             // 
             // groupBox4
             // 
@@ -230,15 +241,23 @@
             this.cboMateriaRegAsist.Size = new System.Drawing.Size(148, 21);
             this.cboMateriaRegAsist.TabIndex = 1;
             // 
-            // Ausente
+            // lblFecha
             // 
-            this.Ausente.HeaderText = "Ausente";
-            this.Ausente.Name = "Ausente";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(676, 10);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(37, 13);
+            this.lblFecha.TabIndex = 13;
+            this.lblFecha.Text = "Fecha";
             // 
-            // Presente
+            // lblFechaActual
             // 
-            this.Presente.HeaderText = "Presente";
-            this.Presente.Name = "Presente";
+            this.lblFechaActual.AutoSize = true;
+            this.lblFechaActual.Location = new System.Drawing.Point(719, 10);
+            this.lblFechaActual.Name = "lblFechaActual";
+            this.lblFechaActual.Size = new System.Drawing.Size(35, 13);
+            this.lblFechaActual.TabIndex = 14;
+            this.lblFechaActual.Text = "label1";
             // 
             // UCAsistencias
             // 
@@ -253,6 +272,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoAlumnos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarAsist)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -278,7 +298,8 @@
         private System.Windows.Forms.Button btnSelMateriaAsist;
         private System.Windows.Forms.ComboBox cboMateriaRegAsist;
         private System.Windows.Forms.Button btnModificarAsist;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Ausente;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Presente;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Asistencia;
+        private System.Windows.Forms.Label lblFechaActual;
+        private System.Windows.Forms.Label lblFecha;
     }
 }
