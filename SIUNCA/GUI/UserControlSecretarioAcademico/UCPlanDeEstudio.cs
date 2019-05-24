@@ -132,6 +132,7 @@ namespace GUI.UserControlSecretarioAcademico
                     unDetallePE.NumeroMateria = int.Parse(txtNumeroMateria.Text);
                     //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString;
                     //unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem;
+                    
                     unDetallePE.Obligatoriedad = ComboObligatoriedad.SelectedItem.ToString();
                     unDetallePE.NombreMateria = ComboMaterias1.Text;
                     unDetallePE.Año = int.Parse(txtAño.Text);
@@ -140,6 +141,15 @@ namespace GUI.UserControlSecretarioAcademico
 
                     //VALIDO REPETIDOS
                     ExisteEnLista(txtNumeroMateria.Text, dgPEMaterias);
+                    ExisteEnListaNombre(ComboMaterias1.Text, dgPEMaterias);
+
+                    //
+                    if (ComboObligatoriedad.Text != "Obligatoria" & ComboObligatoriedad.Text != "Opcional")
+                    {
+                        MessageBox.Show("Debe seleccionar bien la obligatoriedad.");
+                        throw new Exception("error campo obligatoridad");
+                    }
+
 
 
 
@@ -187,7 +197,7 @@ namespace GUI.UserControlSecretarioAcademico
                 String verificar = Convert.ToString(row.Cells["NumeroMateria"].Value);
                 if (Rol == verificar)
                 {
-                    labelMensaje.Text = "Ya existe la Variedad";
+                    labelMensaje.Text = "Ya existe";
                     existe = true;
                     MessageBox.Show("Numero de materia repetido");
                     throw new Exception("Numero de materia repetido");
@@ -201,6 +211,30 @@ namespace GUI.UserControlSecretarioAcademico
             }
             return existe;
         }
+
+        public Boolean ExisteEnListaNombre(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["NombreMateria"].Value);
+                if (Rol == verificar)
+                {
+                    labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Nombre de materia repetido");                    
+                    throw new Exception("Nombre de materia repetido");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
+        }
+
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -336,6 +370,30 @@ namespace GUI.UserControlSecretarioAcademico
             
                 CargarMateriasCC();
             
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            CorrelativasDetalles.Remove((DetallesCorrelativa)dgCorrelatividades.CurrentRow.DataBoundItem);
+            dgCorrelatividades.DataSource = null;
+            dgCorrelatividades.DataSource = CorrelativasDetalles;
+            //dgCorrelatividades.Columns.Remove("IdPlanDeEstudio");
+            //dgCorrelatividades.Columns.Remove("IdPlanDetalles");
+            dgCorrelatividades.Columns.Remove("IdMateriaCC");
+            dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
+            dgCorrelatividades.Columns.Remove("IdMateria");
+            
+            dgCorrelatividades.Columns.Remove("ChangedBy");
+            dgCorrelatividades.Columns.Remove("ChangedOn");
+            dgCorrelatividades.Columns.Remove("CreatedOn");
+            dgCorrelatividades.Columns.Remove("CreatedBy");
+
+            dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
+            dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+
+            //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
+            //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
+            //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
         }
     }
 }
