@@ -49,6 +49,7 @@
     <Compile Include="Alumno_MateriaCC.cs" />
     <Compile Include="DetallesAlumnoMateriaCC.cs" />
     <Compile Include="DetallesCorrelativa.cs" />
+    <Compile Include="DetallesDetMatPlanCorrPlan.cs" />
     <Compile Include="DetallesPlanDeEstudio.cs" />
     <Compile Include="DTOs\DTOAlumno.cs" />
     <Compile Include="Evaluacion.cs" />
