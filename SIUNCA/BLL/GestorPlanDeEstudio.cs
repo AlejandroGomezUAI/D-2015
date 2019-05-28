@@ -23,5 +23,14 @@ namespace BLL
             PlanDeEstudioDAO UnPEDAO = new PlanDeEstudioDAO();
             UnPEDAO.Insertar(unPlanDeEstudio, PEDetalles);
         }
+
+        public List<PlanDeEstudio> TraerListaPlanes()
+        {
+            List<PlanDeEstudio> ListaPlanes = new List<PlanDeEstudio>();
+            PlanDeEstudioDAO unPlanDAO = new PlanDeEstudioDAO();
+            ListaPlanes = unPlanDAO.TraerTodo();
+
+            return ListaPlanes;
+        }
     }
 }

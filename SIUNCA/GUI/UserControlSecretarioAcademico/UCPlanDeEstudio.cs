@@ -28,6 +28,7 @@ namespace GUI.UserControlSecretarioAcademico
            
             CargarCarreras();
             CargarMateriasCC();
+            CargarPlanes();
             CargarMaterias();
 
         }
@@ -52,7 +53,13 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-     
+        private void CargarPlanes()
+        {
+            GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
+            ComboPEcorr.DataSource = null;
+            ComboPEcorr.DataSource = unGPE.TraerListaPlanes();
+            ComboPEcorr.DisplayMember = "Nombre";
+        }
 
         private void CargarMateriasCC()
         {
@@ -279,7 +286,7 @@ namespace GUI.UserControlSecretarioAcademico
                 {
                     DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
                     Materias unaMateria;
-                    // Dim UnaMateriaCC As MateriaConCorrelativas
+                    
 
                     unaMateria = (Materias)ComboCorrelativas.SelectedItem;
                     unaMateria.Nombre = ComboCorrelativas.Text;
@@ -342,14 +349,36 @@ namespace GUI.UserControlSecretarioAcademico
         }
         private void CargarMaterias()
         {
-            GestorMateria unGM = new GestorMateria();
+
+            PlanDeEstudio unPE;
+            GestorPEDetalle unGDetPE = new GestorPEDetalle();
+            unPE = (PlanDeEstudio)ComboPEcorr.SelectedItem;
+            ComboCorrelativas.DataSource = null;
+            ComboCorrelativas.DataSource = unGDetPE.TraerListaPEDetalles(unPE);
+
+            ComboCorrelativas.DisplayMember = "Nombre";
+
+            //PlanDeEstudio unPE2;
+            //GestorPEDetalle unGDetPE2 = new GestorPEDetalle();
+            //unPE = (PlanDeEstudio)ComboPEcorr.SelectedItem;
             ComboMateriasCC.DataSource = null;
-            ComboMateriasCC.DataSource = unGM.TraerListaMaterias();
+            ComboMateriasCC.DataSource = unGDetPE.TraerListaPEDetalles(unPE);
+
             ComboMateriasCC.DisplayMember = "Nombre";
 
-            ComboCorrelativas.DataSource = null;
-            ComboCorrelativas.DataSource = unGM.TraerListaMaterias();
-            ComboCorrelativas.DisplayMember = "Nombre";
+            
+            /////
+
+            //GestorPEDetalle unGPEDet = new GestorPEDetalle();
+            //ComboMateriasCC.DataSource = null;
+            //ComboMateriasCC.DataSource = unGPEDet.TraerListaPEDetalles();
+            
+
+            //ComboCorrelativas.DataSource = null;
+            //ComboCorrelativas.DataSource = unGPEDet.TraerListaPEDetalles();
+            //ComboCorrelativas.DisplayMember = "Nombre";
+
+            //tengo que traer detalleplandeestudio
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -435,6 +464,13 @@ namespace GUI.UserControlSecretarioAcademico
         private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
         {
           
+        }
+
+        
+
+        private void ComboPEcorr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarMaterias();
         }
     }
 }

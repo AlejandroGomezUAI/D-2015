@@ -58,6 +58,28 @@ namespace DAL
             {
                 unaConexion.ConexionFinalizar();
             }
+
+            
+        }
+        public List<PlanDeEstudio> TraerTodo()
+        {
+            List<PlanDeEstudio> resultado;
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
+            try
+            {
+                resultado = unaConexion.EjecutarTupla<PlanDeEstudio>("SELECT IdPlanDeEstudio, Nombre FROM PlanDeEstudio", new List<Parametro>());
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
         }
     }
 }

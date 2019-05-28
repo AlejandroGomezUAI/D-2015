@@ -65,6 +65,8 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
@@ -355,6 +357,8 @@ namespace GUI.UserControlSecretarioAcademico
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.ComboPEcorr);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.button7);
@@ -461,6 +465,24 @@ namespace GUI.UserControlSecretarioAcademico
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(288, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(228, 20);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Seleccione Plan de Estudio";
+            // 
+            // ComboPEcorr
+            // 
+            this.ComboPEcorr.FormattingEnabled = true;
+            this.ComboPEcorr.Location = new System.Drawing.Point(330, 49);
+            this.ComboPEcorr.Name = "ComboPEcorr";
+            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
+            this.ComboPEcorr.TabIndex = 51;
+            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
+            // 
             // UCPlanDeEstudio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -516,5 +538,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelMensaje;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox ComboPEcorr;
     }
 }
