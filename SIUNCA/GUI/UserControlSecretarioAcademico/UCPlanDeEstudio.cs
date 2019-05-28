@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIZ;
 using BLL;
+using BIZ.DTOs;
 
 namespace GUI.UserControlSecretarioAcademico
 {
@@ -17,6 +18,8 @@ namespace GUI.UserControlSecretarioAcademico
 
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
         List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
+        List<DetallesDetMatPlanCorrPlan> DetallesDetMatPlanCorrPlan = new List<DetallesDetMatPlanCorrPlan>();
+            List<DTODetallesCorrPlan> DTODetallesCorrPlan = new List<DTODetallesCorrPlan>();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
         Carrera UnaCarrera = new Carrera();
         PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
@@ -284,36 +287,75 @@ namespace GUI.UserControlSecretarioAcademico
             try
             {
                 {
-                    DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
-                    Materias unaMateria;
-                    
+                    //DetallesCorrelativa unDetalleCorrelativa = new DetallesCorrelativa();
+                    //Materias unaMateria;
 
-                    unaMateria = (Materias)ComboCorrelativas.SelectedItem;
+
+                    //unaMateria = (Materias)ComboCorrelativas.SelectedItem;
+                    //unaMateria.Nombre = ComboCorrelativas.Text;
+
+                    //unDetalleCorrelativa.IdMateria = unaMateria.IdMateria;
+                    //unDetalleCorrelativa.NombreMateria = unaMateria.Nombre;
+                    //unDetalleCorrelativa.NombreMateriaCC = ComboMateriasCC.Text;
+
+                    //ValidoExistente2(ComboCorrelativas.Text, dgCorrelatividades);
+
+                    //CorrelativasDetalles.Add(unDetalleCorrelativa);
+
+
+                    //dgCorrelatividades.DataSource = null;
+                    //dgCorrelatividades.DataSource = CorrelativasDetalles;
+
+                    //dgCorrelatividades.Columns.Remove("IdMateria");
+                    //dgCorrelatividades.Columns.Remove("IdMateriaCC");
+                    //dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
+                    //dgCorrelatividades.Columns.Remove("CreatedOn");
+                    //dgCorrelatividades.Columns.Remove("CreatedBy");
+                    //dgCorrelatividades.Columns.Remove("ChangedBy");
+                    //dgCorrelatividades.Columns.Remove("ChangedOn");
+
+
+                    //dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
+                    //dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+
+                    DTODetallesCorrPlan unDMPCP = new DTODetallesCorrPlan();
+                    MateriaConCorrelativas unaMateria;
+                    MateriaConCorrelativas unaMateria2;
+
+                    unaMateria = (MateriaConCorrelativas)ComboCorrelativas.SelectedItem;
                     unaMateria.Nombre = ComboCorrelativas.Text;
 
-                    unDetalleCorrelativa.IdMateria = unaMateria.IdMateria;
-                    unDetalleCorrelativa.NombreMateria = unaMateria.Nombre;
-                    unDetalleCorrelativa.NombreMateriaCC = ComboMateriasCC.Text;
+                    unaMateria2 = (MateriaConCorrelativas)ComboMateriasCC.SelectedItem;
+                    unaMateria2.Nombre = ComboMateriasCC.Text;
 
-                    ValidoExistente2(ComboCorrelativas.Text, dgCorrelatividades);
+                    unDMPCP.IdPlanDetalles = unaMateria.IdMateriaCC;
+                    unDMPCP.IdPlanDetalles2 = unaMateria2.IdMateriaCC;
+                    unDMPCP.NombreMateria = unaMateria.Nombre;
+                    unDMPCP.NombreMateria = ComboMateriasCC.Text;
+                    unDMPCP.NombreMateria2 = unaMateria2.Nombre;                    
+                    unDMPCP.NombreMateria2 = ComboCorrelativas.Text;
+                    //unDMPCP.NombreMateriaCC = ComboMateriasCC.Text;
 
-                    CorrelativasDetalles.Add(unDetalleCorrelativa);
+                    //ValidoExistente2(ComboCorrelativas.Text, dgCorrelatividades);
+
+                    DTODetallesCorrPlan.Add(unDMPCP);
 
 
                     dgCorrelatividades.DataSource = null;
-                    dgCorrelatividades.DataSource = CorrelativasDetalles;
-
-                    dgCorrelatividades.Columns.Remove("IdMateria");
-                    dgCorrelatividades.Columns.Remove("IdMateriaCC");
-                    dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
-                    dgCorrelatividades.Columns.Remove("CreatedOn");
-                    dgCorrelatividades.Columns.Remove("CreatedBy");
-                    dgCorrelatividades.Columns.Remove("ChangedBy");
-                    dgCorrelatividades.Columns.Remove("ChangedOn");
+                    dgCorrelatividades.DataSource = DTODetallesCorrPlan;                    
+                    
 
 
-                    dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
-                    dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+                    dgCorrelatividades.Columns.Remove("IdIdDetallesDetMatPlanCorrPlan");
+                    dgCorrelatividades.Columns.Remove("NumeroMateria");
+                    dgCorrelatividades.Columns.Remove("NumeroMateria2");
+                    dgCorrelatividades.Columns.Remove("Obligatoriedad");
+                    dgCorrelatividades.Columns.Remove("CargaHoraria");
+
+
+
+                    dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Materia seleccionada";
+                    dgCorrelatividades.Columns["NombreMateria2"].HeaderText = "Correlativa asignada";
 
 
                 }
