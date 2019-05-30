@@ -18,8 +18,9 @@ namespace GUI.UserControlSecretarioAcademico
 
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
         List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
-        List<DetallesDetMatPlanCorrPlan> DetallesDetMatPlanCorrPlan = new List<DetallesDetMatPlanCorrPlan>();
-            List<DTODetallesCorrPlan> DTODetallesCorrPlan = new List<DTODetallesCorrPlan>();
+        List<DetallesDetMatPlanCorrPlan> DetallesDMPCP = new List<DetallesDetMatPlanCorrPlan>();
+        DetallesDetMatPlanCorrPlan UnDetalleCorrPlanMatPlan = new DetallesDetMatPlanCorrPlan();
+        List<DTODetallesCorrPlan> DTODetallesCorrPlan = new List<DTODetallesCorrPlan>();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
         Carrera UnaCarrera = new Carrera();
         PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
@@ -319,20 +320,21 @@ namespace GUI.UserControlSecretarioAcademico
                     //dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
 
                     DTODetallesCorrPlan unDMPCP = new DTODetallesCorrPlan();
-                    MateriaConCorrelativas unaMateria;
-                    MateriaConCorrelativas unaMateria2;
 
-                    unaMateria = (MateriaConCorrelativas)ComboCorrelativas.SelectedItem;
-                    unaMateria.Nombre = ComboCorrelativas.Text;
+                    DTODetallesCorrPlan unDTO;
+                    DTODetallesCorrPlan unDTO2;
 
-                    unaMateria2 = (MateriaConCorrelativas)ComboMateriasCC.SelectedItem;
-                    unaMateria2.Nombre = ComboMateriasCC.Text;
+                    unDTO = (DTODetallesCorrPlan)ComboCorrelativas.SelectedItem;
+                    unDTO.Nombre = ComboCorrelativas.Text;
 
-                    unDMPCP.IdPlanDetalles = unaMateria.IdMateriaCC;
-                    unDMPCP.IdPlanDetalles2 = unaMateria2.IdMateriaCC;
-                    unDMPCP.NombreMateria = unaMateria.Nombre;
-                    unDMPCP.NombreMateria = ComboMateriasCC.Text;
-                    unDMPCP.NombreMateria2 = unaMateria2.Nombre;                    
+                    unDTO2 = (DTODetallesCorrPlan)ComboMateriasCC.SelectedItem;
+                    unDTO2.Nombre = ComboMateriasCC.Text;
+
+                    unDMPCP.IdPlanDetalles = unDTO.IdMateriaCC;
+                    unDMPCP.IdPlanDetalles2 = unDTO2.IdMateriaCC;
+                    unDMPCP.Nombre = unDTO.Nombre;
+                    unDMPCP.Nombre = ComboMateriasCC.Text;
+                    unDMPCP.NombreMateria2 = unDTO2.Nombre;                    
                     unDMPCP.NombreMateria2 = ComboCorrelativas.Text;
                     //unDMPCP.NombreMateriaCC = ComboMateriasCC.Text;
 
@@ -354,7 +356,7 @@ namespace GUI.UserControlSecretarioAcademico
 
 
 
-                    dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Materia seleccionada";
+                    dgCorrelatividades.Columns["Nombre"].HeaderText = "Materia seleccionada";
                     dgCorrelatividades.Columns["NombreMateria2"].HeaderText = "Correlativa asignada";
 
 
@@ -364,6 +366,7 @@ namespace GUI.UserControlSecretarioAcademico
             {
 
                 MessageBox.Show("error al agregar al listado");
+                throw;
             }
            
         }
@@ -425,15 +428,33 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
+            //UnaMateriaCC.Nombre = ((Materias)ComboMateriasCC.SelectedItem).Nombre;
 
+            //try
+            //{
+            //    GestorMateriaCC GestorMateriaCC = new GestorMateriaCC();
+            //    GestorMateriaCC.CrearMateriaConCorrelativa(UnaMateriaCC, CorrelativasDetalles);
+            //    MessageBox.Show("materia con correlativa guardada.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error al guardar Materia con correlativa.");
+            //}
 
-            UnaMateriaCC.Nombre = ((Materias)ComboMateriasCC.SelectedItem).Nombre;
+            UnDetalleCorrPlanMatPlan.IdPlanDetalles = ((DTODetallesCorrPlan)ComboCorrelativas.SelectedItem).IdPlanDetalles;
+            UnDetalleCorrPlanMatPlan.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMateriasCC.SelectedItem).IdPlanDetalles;
+
+            //como guardar el listado en una tabla?
+
+            //uso el dto?
+
+            //Guardo correlativas mediante combobox sin DG
+
             
-
             try
             {
-                GestorMateriaCC GestorMateriaCC = new GestorMateriaCC();
-                GestorMateriaCC.CrearMateriaConCorrelativa(UnaMateriaCC, CorrelativasDetalles);
+                GestorDetMatPlanCorrPlan GestorDMPCP = new GestorDetMatPlanCorrPlan();
+                GestorDetMatPlanCorrPlan.CrearMateriaConCorrelativa(DetallesDMPCP);
                 MessageBox.Show("materia con correlativa guardada.");
             }
             catch (Exception ex)

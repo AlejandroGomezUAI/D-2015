@@ -48,6 +48,7 @@
     <Compile Include="DetalleAlumnoMateriaDAO.cs" />
     <Compile Include="DetalleCorrelativaDAO.cs" />
     <Compile Include="DetPEDAO.cs" />
+    <Compile Include="GestorDetMatPlanCorrPlanDAO.cs" />
     <Compile Include="MateriaConCorrelativaDAO.cs" />
     <Compile Include="MateriaDAO.cs" />
     <Compile Include="PlanDeEstudioDAO.cs" />

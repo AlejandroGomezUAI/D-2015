@@ -7,14 +7,15 @@ using BIZ;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
 using System.Collections;
+using BIZ.DTOs;
 
 namespace DAL
 {
     public class DetPEDAO
     {
-        public List<MateriaConCorrelativas> TraerTodo(PlanDeEstudio unPE)
+        public List<DTODetallesCorrPlan> TraerTodo(PlanDeEstudio unPE)
         {
-            List<MateriaConCorrelativas> resultado = new List<MateriaConCorrelativas>();
+            List<DTODetallesCorrPlan> resultado = new List<DTODetallesCorrPlan>();
             Conexion unaConexion = new Conexion("config.xml");
             unaConexion.ConexionIniciar();
             try
@@ -22,7 +23,7 @@ namespace DAL
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("IdPlanDeEstudio", unPE.IdPlanDeEstudio));
                 //resultado = unaConexion.EjecutarTupla<DetallesPlanDeEstudio>("SELECT MateriaConCorrelativas.Nombre, MateriaConCorrelativas.IdMateriaCC FROM MateriaConCorrelativas INNER JOIN DetallesPlanDeEstudio on DetallesPlanDeEstudio.IdMateriaCC = MateriaConCorrelativas.IdMateriaCC AND DetallesPlanDeEstudio.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
-                resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("SELECT MCC.Nombre, MCC.IdMateriaCC FROM MateriaConCorrelativas as MCC INNER JOIN DetallesPlanDeEstudio as DPE ON DPE.IdMateriaCC = MCC.IdMateriaCC INNER JOIN PlanDeEstudio as PE ON PE.IdPlanDeEstudio = DPE.IdPlanDeEstudio WHERE PE.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT MCC.Nombre, MCC.IdMateriaCC FROM MateriaConCorrelativas as MCC INNER JOIN DetallesPlanDeEstudio as DPE ON DPE.IdMateriaCC = MCC.IdMateriaCC INNER JOIN PlanDeEstudio as PE ON PE.IdPlanDeEstudio = DPE.IdPlanDeEstudio WHERE PE.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
             }
             catch (Exception ex)
             {

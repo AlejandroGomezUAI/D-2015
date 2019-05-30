@@ -13,7 +13,7 @@ namespace BIZ.DTOs
         public int IdPlanDetalles2 { get; set; }
         public int NumeroMateria { get; set; }
         public int NumeroMateria2 { get; set; }
-        public string NombreMateria { get; set; }
+        public string Nombre { get; set; }
         public string NombreMateria2 { get; set; }
         public int Año { get; set; }
         public string Obligatoriedad { get; set; }

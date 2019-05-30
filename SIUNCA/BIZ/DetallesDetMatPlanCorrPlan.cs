@@ -8,7 +8,7 @@ namespace BIZ
 {
     public class DetallesDetMatPlanCorrPlan : Bitacora
     {
-      public int IdIdDetallesDetMatPlanCorrPlan { get; set; }
+      public int IdDetallesDetMatPlanCorrPlan { get; set; }
       public int IdPlanDetalles { get; set; }
       public int IdPlanDetalles2 { get; set; }      
     
