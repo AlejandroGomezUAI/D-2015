@@ -348,7 +348,7 @@ namespace GUI.UserControlSecretarioAcademico
                     
 
 
-                    dgCorrelatividades.Columns.Remove("IdIdDetallesDetMatPlanCorrPlan");
+                    dgCorrelatividades.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
                     dgCorrelatividades.Columns.Remove("NumeroMateria");
                     dgCorrelatividades.Columns.Remove("NumeroMateria2");
                     dgCorrelatividades.Columns.Remove("Obligatoriedad");
@@ -454,7 +454,7 @@ namespace GUI.UserControlSecretarioAcademico
             try
             {
                 GestorDetMatPlanCorrPlan GestorDMPCP = new GestorDetMatPlanCorrPlan();
-                GestorDetMatPlanCorrPlan.CrearMateriaConCorrelativa(DetallesDMPCP);
+                GestorDetMatPlanCorrPlan.CrearDetMatPlanCorrPlan(DetallesDMPCP);
                 MessageBox.Show("materia con correlativa guardada.");
             }
             catch (Exception ex)

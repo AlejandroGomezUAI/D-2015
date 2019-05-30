@@ -26,7 +26,7 @@ namespace BLL
         //    return ListaMateriasCC;
         //}
 
-        static public void CrearMateriaConCorrelativa(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
+        static public void CrearDetMatPlanCorrPlan(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
         {
             // If CorrelativasDetalles.Exists Then
             // End If

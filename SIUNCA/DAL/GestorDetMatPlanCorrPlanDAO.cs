@@ -12,7 +12,7 @@ namespace DAL
 {
     public class GestorDetMatPlanCorrPlanDAO
     {
-        public void Insertar( List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
+        public void Insertar(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
@@ -26,7 +26,7 @@ namespace DAL
                 unaConexion.TransaccionIniciar();
                 //unaConexion.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas (Nombre) VALUES (@Nombre)", listaDeParametros);
 
-                //int IdPlanDetalles = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDetalles) FROM DetallesPlanDeEstudio", new List<Parametro>());
+                int IdDetallesDetMatPlanCorrPlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdDetallesDetMatPlanCorrPlan) FROM DetallesDetMatPlanCorrPlan", new List<Parametro>());
 
 
                 foreach (var item in DetallesMPCP)
@@ -34,11 +34,11 @@ namespace DAL
                     List<Parametro> listaParametrosCD = new List<Parametro>();
 
 
-                    //listaParametrosCD.Add(new Parametro("IdMateriaCC", IdPlanDetalles));
+                    listaParametrosCD.Add(new Parametro("IdMateriaCC", IdDetallesDetMatPlanCorrPlan));
                     listaParametrosCD.Add(new Parametro("IdPlanDetalles", item.IdPlanDetalles));
                     listaParametrosCD.Add(new Parametro("IdPlanDetalles2", item.IdPlanDetalles2));
 
-                    //item.IdPlanDetalles = IdPlanDetalles;
+                    item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
 
                     unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaParametrosCD);
                 }
@@ -49,7 +49,8 @@ namespace DAL
             {
                 unaConexion.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
-                MessageBox.Show("error guardando correlatividad");
+                MessageBox.Show("error guardando MPCP");
+                throw ;
             }
             finally
             {
