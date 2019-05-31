@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using BIZ.DTOs;
 
 namespace BLL
 {
@@ -26,18 +27,18 @@ namespace BLL
         //    return ListaMateriasCC;
         //}
 
-        static public void CrearDetMatPlanCorrPlan(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
+        static public void CrearDetMatPlanCorrPlan(DTODetallesCorrPlan unDTODMPCP, List<DTODetallesCorrPlan> DetallesMPCP)
         {
             // If CorrelativasDetalles.Exists Then
             // End If
 
-            GuardarCorrelativas(DetallesMPCP);
+            GuardarCorrelativas(unDTODMPCP, DetallesMPCP);
         }
 
-        static private void GuardarCorrelativas(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
+        static private void GuardarCorrelativas(DTODetallesCorrPlan unDTODMPCP, List<DTODetallesCorrPlan> DetallesMPCP)
         {
             GestorDetMatPlanCorrPlanDAO UnaMateriaCCDAO = new GestorDetMatPlanCorrPlanDAO();
-            UnaMateriaCCDAO.Insertar(DetallesMPCP);
+            UnaMateriaCCDAO.Insertar(unDTODMPCP, DetallesMPCP);
         }
 
 

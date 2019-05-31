@@ -6,42 +6,42 @@ using System.Threading.Tasks;
 using BIZ;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
+using BIZ.DTOs;
 
 
 namespace DAL
 {
     public class GestorDetMatPlanCorrPlanDAO
     {
-        public void Insertar(List<DetallesDetMatPlanCorrPlan> DetallesMPCP)
+        public void Insertar(DTODetallesCorrPlan unDTODMPCP, List<DTODetallesCorrPlan> DTODetallesMPCP)
         {
             Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
-            //listaDeParametros.Add(new Parametro("Nombre", Convert.ToString(UnaMateriaCC.Nombre)));
-            //listaDeParametros.Add(new Parametro("IdPlanDetalles", unDetPE.IdPlanDetalles));
-            //listaDeParametros.Add(new Parametro("IdPlanDetalles2", unDetPE2.IdPlanDetalles));           
+            listaDeParametros.Add(new Parametro("IdPlanDetalles", unDTODMPCP.IdPlanDetalles));
+            listaDeParametros.Add(new Parametro("IdPlanDetalles2", unDTODMPCP.IdPlanDetalles2));
+            
 
             try
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                //unaConexion.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas (Nombre) VALUES (@Nombre)", listaDeParametros);
+                unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaDeParametros);
 
-                int IdDetallesDetMatPlanCorrPlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdDetallesDetMatPlanCorrPlan) FROM DetallesDetMatPlanCorrPlan", new List<Parametro>());
-
-
-                foreach (var item in DetallesMPCP)
-                {
-                    List<Parametro> listaParametrosCD = new List<Parametro>();
+                //int IdDetallesDetMatPlanCorrPlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdDetallesDetMatPlanCorrPlan) FROM DetallesDetMatPlanCorrPlan", new List<Parametro>());
 
 
-                    listaParametrosCD.Add(new Parametro("IdMateriaCC", IdDetallesDetMatPlanCorrPlan));
-                    listaParametrosCD.Add(new Parametro("IdPlanDetalles", item.IdPlanDetalles));
-                    listaParametrosCD.Add(new Parametro("IdPlanDetalles2", item.IdPlanDetalles2));
+                //foreach (var item in DTODetallesMPCP)
+                //{
+                //    List<Parametro> listaParametrosCD = new List<Parametro>();
 
-                    item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+                //    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
+                //    listaParametrosCD.Add(new Parametro("IdPlanDetalles", item.IdPlanDetalles));
+                //    listaParametrosCD.Add(new Parametro("IdPlanDetalles2", item.IdPlanDetalles2));
 
-                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaParametrosCD);
-                }
+                //    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+
+                //    unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaParametrosCD);
+                //}
 
                 unaConexion.TransaccionAceptar();
             }

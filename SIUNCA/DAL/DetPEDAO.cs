@@ -23,7 +23,7 @@ namespace DAL
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("IdPlanDeEstudio", unPE.IdPlanDeEstudio));
                 //resultado = unaConexion.EjecutarTupla<DetallesPlanDeEstudio>("SELECT MateriaConCorrelativas.Nombre, MateriaConCorrelativas.IdMateriaCC FROM MateriaConCorrelativas INNER JOIN DetallesPlanDeEstudio on DetallesPlanDeEstudio.IdMateriaCC = MateriaConCorrelativas.IdMateriaCC AND DetallesPlanDeEstudio.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT MCC.Nombre, MCC.IdMateriaCC FROM MateriaConCorrelativas as MCC INNER JOIN DetallesPlanDeEstudio as DPE ON DPE.IdMateriaCC = MCC.IdMateriaCC INNER JOIN PlanDeEstudio as PE ON PE.IdPlanDeEstudio = DPE.IdPlanDeEstudio WHERE PE.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT MCC.Nombre, MCC.IdMateriaCC, IdPlanDetalles FROM MateriaConCorrelativas as MCC INNER JOIN DetallesPlanDeEstudio as DPE ON DPE.IdMateriaCC = MCC.IdMateriaCC INNER JOIN PlanDeEstudio as PE ON PE.IdPlanDeEstudio = DPE.IdPlanDeEstudio WHERE PE.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
             }
             catch (Exception ex)
             {

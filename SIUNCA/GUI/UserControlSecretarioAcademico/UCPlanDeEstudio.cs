@@ -21,6 +21,7 @@ namespace GUI.UserControlSecretarioAcademico
         List<DetallesDetMatPlanCorrPlan> DetallesDMPCP = new List<DetallesDetMatPlanCorrPlan>();
         DetallesDetMatPlanCorrPlan UnDetalleCorrPlanMatPlan = new DetallesDetMatPlanCorrPlan();
         List<DTODetallesCorrPlan> DTODetallesCorrPlan = new List<DTODetallesCorrPlan>();
+        DTODetallesCorrPlan unDTODMPCP = new DTODetallesCorrPlan();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
         Carrera UnaCarrera = new Carrera();
         PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
@@ -441,20 +442,13 @@ namespace GUI.UserControlSecretarioAcademico
             //    MessageBox.Show("Error al guardar Materia con correlativa.");
             //}
 
-            UnDetalleCorrPlanMatPlan.IdPlanDetalles = ((DTODetallesCorrPlan)ComboCorrelativas.SelectedItem).IdPlanDetalles;
-            UnDetalleCorrPlanMatPlan.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMateriasCC.SelectedItem).IdPlanDetalles;
-
-            //como guardar el listado en una tabla?
-
-            //uso el dto?
-
-            //Guardo correlativas mediante combobox sin DG
-
+            unDTODMPCP.IdPlanDetalles = ((DTODetallesCorrPlan)ComboCorrelativas.SelectedItem).IdPlanDetalles;
+            unDTODMPCP.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMateriasCC.SelectedItem).IdPlanDetalles;
             
             try
             {
                 GestorDetMatPlanCorrPlan GestorDMPCP = new GestorDetMatPlanCorrPlan();
-                GestorDetMatPlanCorrPlan.CrearDetMatPlanCorrPlan(DetallesDMPCP);
+                GestorDetMatPlanCorrPlan.CrearDetMatPlanCorrPlan(unDTODMPCP, DTODetallesCorrPlan);
                 MessageBox.Show("materia con correlativa guardada.");
             }
             catch (Exception ex)

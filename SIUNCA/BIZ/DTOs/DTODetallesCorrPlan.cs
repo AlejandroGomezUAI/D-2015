@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BIZ.DTOs
 {
-    public class DTODetallesCorrPlan
+    public class DTODetallesCorrPlan : Bitacora
     {
         public int IdDetallesDetMatPlanCorrPlan { get; set; }
         public int IdPlanDetalles { get; set; }
