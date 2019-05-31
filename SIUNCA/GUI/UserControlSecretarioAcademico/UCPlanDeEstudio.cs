@@ -331,11 +331,11 @@ namespace GUI.UserControlSecretarioAcademico
                     unDTO2 = (DTODetallesCorrPlan)ComboMateriasCC.SelectedItem;
                     unDTO2.Nombre = ComboMateriasCC.Text;
 
-                    unDMPCP.IdPlanDetalles = unDTO.IdMateriaCC;
-                    unDMPCP.IdPlanDetalles2 = unDTO2.IdMateriaCC;
+                    unDMPCP.IdPlanDetalles = unDTO.IdPlanDetalles;
+                    unDMPCP.IdPlanDetalles2 = unDTO2.IdPlanDetalles;
                     unDMPCP.Nombre = unDTO.Nombre;
                     unDMPCP.Nombre = ComboMateriasCC.Text;
-                    unDMPCP.NombreMateria2 = unDTO2.Nombre;                    
+                    unDMPCP.NombreMateria2 = unDTO2.NombreMateria2;                    
                     unDMPCP.NombreMateria2 = ComboCorrelativas.Text;
                     //unDMPCP.NombreMateriaCC = ComboMateriasCC.Text;
 

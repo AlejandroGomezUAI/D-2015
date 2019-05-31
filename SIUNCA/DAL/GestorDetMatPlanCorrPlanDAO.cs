@@ -25,23 +25,23 @@ namespace DAL
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaDeParametros);
+                //unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaDeParametros);
 
                 //int IdDetallesDetMatPlanCorrPlan = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdDetallesDetMatPlanCorrPlan) FROM DetallesDetMatPlanCorrPlan", new List<Parametro>());
 
 
-                //foreach (var item in DTODetallesMPCP)
-                //{
-                //    List<Parametro> listaParametrosCD = new List<Parametro>();
+                foreach (var item in DTODetallesMPCP)
+                {
+                    List<Parametro> listaParametrosCD = new List<Parametro>();
 
-                //    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
-                //    listaParametrosCD.Add(new Parametro("IdPlanDetalles", item.IdPlanDetalles));
-                //    listaParametrosCD.Add(new Parametro("IdPlanDetalles2", item.IdPlanDetalles2));
+                    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
+                    listaParametrosCD.Add(new Parametro("IdPlanDetalles", item.IdPlanDetalles));
+                    listaParametrosCD.Add(new Parametro("IdPlanDetalles2", item.IdPlanDetalles2));
 
-                //    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+                    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
 
-                //    unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaParametrosCD);
-                //}
+                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesDetMatPlanCorrPlan (IdPlanDetalles, IdPlanDetalles2) VALUES (@IdPlanDetalles, @IdPlanDetalles2)", listaParametrosCD);
+                }
 
                 unaConexion.TransaccionAceptar();
             }
