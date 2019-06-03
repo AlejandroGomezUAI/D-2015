@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BIZ;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
-
+using BIZ.DTOs;
 
 namespace DAL
 {
@@ -61,14 +61,14 @@ namespace DAL
 
 
         
-        public List<MateriaConCorrelativas> TraerTodo()
+        public List<DTODetallesCorrPlan> TraerTodo()
         {
-            List<MateriaConCorrelativas> resultado;
+            List<DTODetallesCorrPlan> resultado;
             Conexion unaConexion = new Conexion("config.xml");
             unaConexion.ConexionIniciar();
             try
             {
-                resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT m.IdMateriaCC, dpe.IdPlanDetalles, Nombre FROM MateriaConCorrelativas as m inner join DetallesPlanDeEstudio as dpe on m.IdMateriaCC = dpe.IdMateriaCC ", new List<Parametro>());
                 // resultado = unaConexion.EjecutarTupla(Of MateriaConCorrelativas)("SELECT * FROM MateriaConCorrelativas", New List(Of Parametro))
                 return resultado;
             }

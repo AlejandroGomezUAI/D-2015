@@ -11,22 +11,7 @@ namespace BLL
 {
     public class GestorDetMatPlanCorrPlan
     {
-        //public List<MateriaConCorrelativas> TraerListaMateriasCC()
-        //{
-        //    List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
-        //    MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
-        //    ListaMateriasCC = unaMateriaCCDAO.TraerTodo();
-        //    return ListaMateriasCC;
-        //}
-
-        //public List<MateriaConCorrelativas> TraerListaMateriasCC(Carrera UnaCarrera)
-        //{
-        //    List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
-        //    MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
-        //    ListaMateriasCC = unaMateriaCCDAO.TraerTodo(UnaCarrera);
-        //    return ListaMateriasCC;
-        //}
-
+        
         static public void CrearDetMatPlanCorrPlan(DTODetallesCorrPlan unDTODMPCP, List<DTODetallesCorrPlan> DetallesMPCP)
         {
             // If CorrelativasDetalles.Exists Then
@@ -37,9 +22,20 @@ namespace BLL
 
         static private void GuardarCorrelativas(DTODetallesCorrPlan unDTODMPCP, List<DTODetallesCorrPlan> DetallesMPCP)
         {
-            GestorDetMatPlanCorrPlanDAO UnaMateriaCCDAO = new GestorDetMatPlanCorrPlanDAO();
+            DetMatPlanCorrPlanDAO UnaMateriaCCDAO = new DetMatPlanCorrPlanDAO();
             UnaMateriaCCDAO.Insertar(unDTODMPCP, DetallesMPCP);
         }
+
+        public List<DTODetallesCorrPlan> TraerListaCorrelativas(DTODetallesCorrPlan unDTO)
+        {
+            List<DTODetallesCorrPlan> ListaCorrelativas = new List<DTODetallesCorrPlan>();
+            DetMatPlanCorrPlanDAO unDetalleCorrelativaDAO = new DetMatPlanCorrPlanDAO();
+            ListaCorrelativas = unDetalleCorrelativaDAO.TraerTodo(unDTO);
+
+            //comentando
+            return ListaCorrelativas;
+        }
+
 
 
     }
