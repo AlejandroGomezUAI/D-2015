@@ -131,8 +131,8 @@ namespace GUI.UserControlSecretarioAcademico
             dgCorrelativas.Columns.Remove("CreatedOn");
             dgCorrelativas.Columns.Remove("CreatedBy");
 
-            dgCorrelativas.Columns[0].HeaderText = "Correlativas";
-            dgCorrelativas.Columns[1].HeaderText = "Materia consultada";
+            //dgCorrelativas.Columns[0].HeaderText = "Correlativas";
+            //dgCorrelativas.Columns[1].HeaderText = "Correlativas";
 
             dgCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
             dgCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
