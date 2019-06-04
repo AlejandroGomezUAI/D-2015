@@ -18,8 +18,8 @@ namespace GUI.UserControlSecretarioAcademico
 
         List<DetallesPlanDeEstudio> PEDetalles = new List<DetallesPlanDeEstudio>();
         List<DetallesCorrelativa> CorrelativasDetalles = new List<DetallesCorrelativa>();
-        List<DetallesDetMatPlanCorrPlan> DetallesDMPCP = new List<DetallesDetMatPlanCorrPlan>();
-        DetallesDetMatPlanCorrPlan UnDetalleCorrPlanMatPlan = new DetallesDetMatPlanCorrPlan();
+        //List<DetallesDetMatPlanCorrPlan> DetallesDMPCP = new List<DetallesDetMatPlanCorrPlan>();
+        //DetallesDetMatPlanCorrPlan UnDetalleCorrPlanMatPlan = new DetallesDetMatPlanCorrPlan();
         List<DTODetallesCorrPlan> DTODetallesCorrPlan = new List<DTODetallesCorrPlan>();
         DTODetallesCorrPlan unDTODMPCP = new DTODetallesCorrPlan();
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
@@ -66,17 +66,20 @@ namespace GUI.UserControlSecretarioAcademico
             ComboPEcorr.DataSource = null;
             ComboPEcorr.DataSource = unGPE.TraerListaPlanes();
             ComboPEcorr.DisplayMember = "Nombre";
+
+            ComboConsultaPlan.DataSource = null;
+            ComboConsultaPlan.DataSource = unGPE.TraerListaPlanes();
+            ComboConsultaPlan.DisplayMember = "Nombre";
         }
 
         private void CargarMateriasCC()
-        {
-            
+        {            
             GestorMateriaCC unGM = new GestorMateriaCC();
             ComboMaterias1.DataSource = null;
             ComboMaterias1.DataSource = unGM.TraerListaMateriasCC();
             ComboMaterias1.DisplayMember = "Nombre";
-
         }
+
 
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
@@ -99,43 +102,37 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void CargarCorrelativas()
         {
-            MateriaConCorrelativas unaMateriaCC;
-            //GestorDetallesCorrelativa unGDC = new GestorDetallesCorrelativa();
-            //unaMateriaCC = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
-            //dgCorrelativas.DataSource = null;
-            // dgCorrelativas.DataSource = unGDC.TraerListaCorrelativas(unaMateriaCC);
-
-            //dgCorrelativas.Columns.Remove("IdMateriaCC");
-            //dgCorrelativas.Columns.Remove("IdMateria");
-            //dgCorrelativas.Columns.Remove("IdDetallesCorrelativa");
-            //dgCorrelativas.Columns.Remove("ChangedBy");
-            //dgCorrelativas.Columns.Remove("ChangedOn");
-            //dgCorrelativas.Columns.Remove("CreatedOn");
-            //dgCorrelativas.Columns.Remove("CreatedBy");
-
             DTODetallesCorrPlan unDTOMPCP;
             GestorDetMatPlanCorrPlan unGDTOMPCP = new GestorDetMatPlanCorrPlan();
-            unDTOMPCP = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;
-            
+            unDTOMPCP = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;            
 
             //select nombre from materias ij dpe ij ddmpcp where m.idmateria = @dto.idmateria  (TRAIGO DTO)
             unDTOMPCP.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).IdPlanDetalles;
-            dgCorrelativas.DataSource = null;
-            dgCorrelativas.DataSource = unGDTOMPCP.TraerListaCorrelativas(unDTOMPCP);
+            unDTOMPCP.NombreMateria2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).Nombre;
+            //unDTOMPCP.IdPlanDeEstudio = ((DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem).Nombre;
+            dgConsultaCorrelativas.DataSource = null;
+            dgConsultaCorrelativas.DataSource = unGDTOMPCP.TraerListaCorrelativas(unDTOMPCP);
 
-            //dgCorrelativas.Columns.Remove("IdMateriaCC");
-            //dgCorrelativas.Columns.Remove("IdMateria");
-            //dgCorrelativas.Columns.Remove("IdDetallesCorrelativa");
-            dgCorrelativas.Columns.Remove("ChangedBy");
-            dgCorrelativas.Columns.Remove("ChangedOn");
-            dgCorrelativas.Columns.Remove("CreatedOn");
-            dgCorrelativas.Columns.Remove("CreatedBy");
+            dgConsultaCorrelativas.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
+            dgConsultaCorrelativas.Columns.Remove("IdPlanDetalles");
+            dgConsultaCorrelativas.Columns.Remove("IdPlanDetalles2");
+            dgConsultaCorrelativas.Columns.Remove("NumeroMateria");
+            dgConsultaCorrelativas.Columns.Remove("NumeroMateria2");
+            dgConsultaCorrelativas.Columns.Remove("Año");
+            dgConsultaCorrelativas.Columns.Remove("Obligatoriedad");
+            dgConsultaCorrelativas.Columns.Remove("CargaHoraria");
+            dgConsultaCorrelativas.Columns.Remove("IdMateriaCC");
 
-            //dgCorrelativas.Columns[0].HeaderText = "Correlativas";
-            //dgCorrelativas.Columns[1].HeaderText = "Correlativas";
+            dgConsultaCorrelativas.Columns.Remove("ChangedBy");
+            dgConsultaCorrelativas.Columns.Remove("ChangedOn");
+            dgConsultaCorrelativas.Columns.Remove("CreatedOn");
+            dgConsultaCorrelativas.Columns.Remove("CreatedBy");
 
-            dgCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-            dgCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgConsultaCorrelativas.Columns[0].HeaderText = "Correlativas";
+            dgConsultaCorrelativas.Columns[1].HeaderText = "Materia Seleccionada";
+
+            dgConsultaCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            dgConsultaCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
 
         }
 
@@ -150,9 +147,9 @@ namespace GUI.UserControlSecretarioAcademico
             {
                 {
                     DetallesPlanDeEstudio unDetallePE = new DetallesPlanDeEstudio();
-                    MateriaConCorrelativas UnaMateria;
+                    DTODetallesCorrPlan UnaMateria;
 
-                    UnaMateria = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
+                    UnaMateria = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;
 
                     // unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC.ToString();
                     unDetallePE.IdMateriaCC = UnaMateria.IdMateriaCC;
@@ -182,9 +179,7 @@ namespace GUI.UserControlSecretarioAcademico
                         MessageBox.Show("Carga Horaria mayor a 20hs");
                         throw new Exception("Error en la carga horaria");
                     }
-
-
-
+                                       
 
                     PEDetalles.Add(unDetallePE);
 
@@ -381,26 +376,40 @@ namespace GUI.UserControlSecretarioAcademico
         private void CargarMaterias()
         {
 
-            PlanDeEstudio unPE;
+            DTODetallesCorrPlan unPE;
             GestorPEDetalle unGDetPE = new GestorPEDetalle();
-            unPE = (PlanDeEstudio)ComboPEcorr.SelectedItem;
+            unPE = (DTODetallesCorrPlan)ComboPEcorr.SelectedItem;
             ComboCorrelativas.DataSource = null;
             ComboCorrelativas.DataSource = unGDetPE.TraerListaPEDetalles(unPE);
 
             ComboCorrelativas.DisplayMember = "Nombre";
 
-            //PlanDeEstudio unPE2;
-            //GestorPEDetalle unGDetPE2 = new GestorPEDetalle();
-            //unPE = (PlanDeEstudio)ComboPEcorr.SelectedItem;
+            //
             ComboMateriasCC.DataSource = null;
             ComboMateriasCC.DataSource = unGDetPE.TraerListaPEDetalles(unPE);
 
             ComboMateriasCC.DisplayMember = "Nombre";
 
-            
-            /////
+            ///// TAB CPNSULTAR CORRELATIVAS
+            DTODetallesCorrPlan unPE2;
+           
+            unPE2 = (DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem;
+            ComboConsultaMateria.DataSource = null;
+            //ComboConsultaMateria.DataSource = unGDetPE.TraerListaPEDetalles(unPE2);
 
-            
+            ComboConsultaMateria.DisplayMember = "Nombre";
+
+        }
+
+        private void CargarMaterias2()
+        {
+            DTODetallesCorrPlan unPE2;
+            GestorPEDetalle unGDetPE = new GestorPEDetalle();
+            unPE2 = (DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem;
+            ComboConsultaMateria.DataSource = null;
+            ComboConsultaMateria.DataSource = unGDetPE.TraerListaPEDetalles(unPE2);
+
+            ComboConsultaMateria.DisplayMember = "Nombre";
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -472,26 +481,19 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            CorrelativasDetalles.Remove((DetallesCorrelativa)dgCorrelatividades.CurrentRow.DataBoundItem);
+            DTODetallesCorrPlan.Remove((DTODetallesCorrPlan)dgCorrelatividades.CurrentRow.DataBoundItem);
             dgCorrelatividades.DataSource = null;
-            dgCorrelatividades.DataSource = CorrelativasDetalles;
-            //dgCorrelatividades.Columns.Remove("IdPlanDeEstudio");
-            //dgCorrelatividades.Columns.Remove("IdPlanDetalles");
-            dgCorrelatividades.Columns.Remove("IdMateriaCC");
-            dgCorrelatividades.Columns.Remove("IdDetallesCorrelativa");
-            dgCorrelatividades.Columns.Remove("IdMateria");
-            
-            dgCorrelatividades.Columns.Remove("ChangedBy");
-            dgCorrelatividades.Columns.Remove("ChangedOn");
-            dgCorrelatividades.Columns.Remove("CreatedOn");
-            dgCorrelatividades.Columns.Remove("CreatedBy");
+            dgCorrelatividades.DataSource = DTODetallesCorrPlan;
 
-            dgCorrelatividades.Columns["NombreMateriaCC"].HeaderText = "Materia seleccionada";
-            dgCorrelatividades.Columns["NombreMateria"].HeaderText = "Correlativa asignada";
+            dgCorrelatividades.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
+            dgCorrelatividades.Columns.Remove("NumeroMateria");
+            dgCorrelatividades.Columns.Remove("NumeroMateria2");
+            dgCorrelatividades.Columns.Remove("Obligatoriedad");
+            dgCorrelatividades.Columns.Remove("CargaHoraria");
 
-            //dgPEMaterias.Columns("IdPlanDeEstudio").Visible = false;
-            //dgPEMaterias.Columns("IdPlanDetalles").Visible = false;
-            //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
+            dgCorrelatividades.Columns["Nombre"].HeaderText = "Materia seleccionada";
+            dgCorrelatividades.Columns["NombreMateria2"].HeaderText = "Correlativa asignada";
+
         }
 
         private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
@@ -504,6 +506,16 @@ namespace GUI.UserControlSecretarioAcademico
         private void ComboPEcorr_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarMaterias();
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            CargarCorrelativas();
+        }
+
+        private void ComboConsultaPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarMaterias2();
         }
     }
 }

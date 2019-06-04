@@ -56,6 +56,8 @@ namespace GUI.UserControlSecretarioAcademico
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -65,20 +67,29 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ComboConsultaPlan = new System.Windows.Forms.ComboBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.dgConsultaCorrelativas = new System.Windows.Forms.DataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ComboConsultaMateria = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPEMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgConsultaCorrelativas)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -375,6 +386,24 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignar Correlativas";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(288, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(228, 20);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Seleccione Plan de Estudio";
+            // 
+            // ComboPEcorr
+            // 
+            this.ComboPEcorr.FormattingEnabled = true;
+            this.ComboPEcorr.Location = new System.Drawing.Point(330, 49);
+            this.ComboPEcorr.Name = "ComboPEcorr";
+            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
+            this.ComboPEcorr.TabIndex = 51;
+            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
+            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
@@ -465,23 +494,88 @@ namespace GUI.UserControlSecretarioAcademico
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // label11
+            // tabPage3
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(288, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(228, 20);
-            this.label11.TabIndex = 52;
-            this.label11.Text = "Seleccione Plan de Estudio";
+            this.tabPage3.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.ComboConsultaPlan);
+            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.dgConsultaCorrelativas);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.ComboConsultaMateria);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(846, 605);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Consultar Correlativas";
             // 
-            // ComboPEcorr
+            // label12
             // 
-            this.ComboPEcorr.FormattingEnabled = true;
-            this.ComboPEcorr.Location = new System.Drawing.Point(330, 49);
-            this.ComboPEcorr.Name = "ComboPEcorr";
-            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
-            this.ComboPEcorr.TabIndex = 51;
-            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(287, 44);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(228, 20);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Seleccione Plan de Estudio";
+            // 
+            // ComboConsultaPlan
+            // 
+            this.ComboConsultaPlan.FormattingEnabled = true;
+            this.ComboConsultaPlan.Location = new System.Drawing.Point(329, 67);
+            this.ComboConsultaPlan.Name = "ComboConsultaPlan";
+            this.ComboConsultaPlan.Size = new System.Drawing.Size(121, 28);
+            this.ComboConsultaPlan.TabIndex = 51;
+            this.ComboConsultaPlan.SelectedIndexChanged += new System.EventHandler(this.ComboConsultaPlan_SelectedIndexChanged);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button9.Location = new System.Drawing.Point(633, 174);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(179, 42);
+            this.button9.TabIndex = 49;
+            this.button9.Text = "Consultar";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.Button9_Click);
+            // 
+            // dgConsultaCorrelativas
+            // 
+            this.dgConsultaCorrelativas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgConsultaCorrelativas.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+            this.dgConsultaCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgConsultaCorrelativas.Location = new System.Drawing.Point(196, 174);
+            this.dgConsultaCorrelativas.Name = "dgConsultaCorrelativas";
+            this.dgConsultaCorrelativas.Size = new System.Drawing.Size(404, 335);
+            this.dgConsultaCorrelativas.TabIndex = 43;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(288, 103);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(162, 20);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "Seleccione materia";
+            // 
+            // ComboConsultaMateria
+            // 
+            this.ComboConsultaMateria.FormattingEnabled = true;
+            this.ComboConsultaMateria.Location = new System.Drawing.Point(329, 126);
+            this.ComboConsultaMateria.Name = "ComboConsultaMateria";
+            this.ComboConsultaMateria.Size = new System.Drawing.Size(121, 28);
+            this.ComboConsultaMateria.TabIndex = 35;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(35, 26);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(236, 20);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Consulta de correlatividades";
             // 
             // UCPlanDeEstudio
             // 
@@ -497,6 +591,9 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgConsultaCorrelativas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,5 +637,13 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Label labelMensaje;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ComboPEcorr;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ComboConsultaPlan;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.DataGridView dgConsultaCorrelativas;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox ComboConsultaMateria;
+        private System.Windows.Forms.Label label17;
     }
 }

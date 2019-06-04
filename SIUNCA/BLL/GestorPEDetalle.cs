@@ -11,7 +11,7 @@ namespace BLL
 {
     public class GestorPEDetalle
     {
-        public List<DTODetallesCorrPlan> TraerListaPEDetalles(PlanDeEstudio unPE)
+        public List<DTODetallesCorrPlan> TraerListaPEDetalles(DTODetallesCorrPlan unPE)
         {
             List<DTODetallesCorrPlan> ListaPEdet = new List<DTODetallesCorrPlan>();
             DetPEDAO unDETPEDAO = new DetPEDAO();

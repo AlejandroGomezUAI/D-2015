@@ -7,6 +7,7 @@ using BIZ;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
 using System.Collections;
+using BIZ.DTOs;
 
 namespace DAL
 {
@@ -61,14 +62,14 @@ namespace DAL
 
             
         }
-        public List<PlanDeEstudio> TraerTodo()
+        public List<DTODetallesCorrPlan> TraerTodo()
         {
-            List<PlanDeEstudio> resultado;
+            List<DTODetallesCorrPlan> resultado;
             Conexion unaConexion = new Conexion("config.xml");
             unaConexion.ConexionIniciar();
             try
             {
-                resultado = unaConexion.EjecutarTupla<PlanDeEstudio>("SELECT IdPlanDeEstudio, Nombre FROM PlanDeEstudio", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT IdPlanDeEstudio, Nombre FROM PlanDeEstudio", new List<Parametro>());
                 return resultado;
             }
             catch (Exception ex)

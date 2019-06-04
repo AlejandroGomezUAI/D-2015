@@ -13,7 +13,7 @@ namespace DAL
 {
     public class DetPEDAO
     {
-        public List<DTODetallesCorrPlan> TraerTodo(PlanDeEstudio unPE)
+        public List<DTODetallesCorrPlan> TraerTodo(DTODetallesCorrPlan unPE)
         {
             List<DTODetallesCorrPlan> resultado = new List<DTODetallesCorrPlan>();
             Conexion unaConexion = new Conexion("config.xml");

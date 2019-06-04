@@ -19,6 +19,7 @@ namespace BIZ.DTOs
         public string Obligatoriedad { get; set; }
         public int CargaHoraria { get; set; }
         public int IdMateriaCC { get; set; }
+        public int IdPlanDeEstudio { get; set; }
 
 
     }

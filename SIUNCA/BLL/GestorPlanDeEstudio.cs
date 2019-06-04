@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using BIZ.DTOs;
 
 namespace BLL
 {
@@ -24,9 +25,9 @@ namespace BLL
             UnPEDAO.Insertar(unPlanDeEstudio, PEDetalles);
         }
 
-        public List<PlanDeEstudio> TraerListaPlanes()
+        public List<DTODetallesCorrPlan> TraerListaPlanes()
         {
-            List<PlanDeEstudio> ListaPlanes = new List<PlanDeEstudio>();
+            List<DTODetallesCorrPlan> ListaPlanes = new List<DTODetallesCorrPlan>();
             PlanDeEstudioDAO unPlanDAO = new PlanDeEstudioDAO();
             ListaPlanes = unPlanDAO.TraerTodo();
 
