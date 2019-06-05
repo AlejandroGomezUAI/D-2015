@@ -30,13 +30,14 @@ namespace GUI.UserControlSecretarioAcademico
         public UCPlanDeEstudio()
         {
             InitializeComponent();
-
-           //ucPlanDeEstudio
+            CargarPlanes();
+            //ucPlanDeEstudio
             CargarCarreras();
+            
             CargarMateriasCC();
             
             //ucAsignarCorr
-            CargarPlanes();
+            //CargarPlanes();
             CargarMaterias();
         }
 
@@ -389,15 +390,6 @@ namespace GUI.UserControlSecretarioAcademico
             ComboMateriasCC.DataSource = unGDetPE.TraerListaPEDetalles(unPE);
 
             ComboMateriasCC.DisplayMember = "Nombre";
-
-            ///// TAB CPNSULTAR CORRELATIVAS
-            DTODetallesCorrPlan unPE2;
-           
-            unPE2 = (DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem;
-            ComboConsultaMateria.DataSource = null;
-            //ComboConsultaMateria.DataSource = unGDetPE.TraerListaPEDetalles(unPE2);
-
-            ComboConsultaMateria.DisplayMember = "Nombre";
 
         }
 
