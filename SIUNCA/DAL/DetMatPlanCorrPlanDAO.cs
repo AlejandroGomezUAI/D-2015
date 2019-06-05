@@ -67,7 +67,8 @@ namespace DAL
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("IdPlanDetalles2", unDTO.IdPlanDetalles2));
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("select mcc.Nombre, dmpcp.IdPlanDetalles, IdPlanDetalles2 from MateriaConCorrelativas mcc inner join DetallesPlanDeEstudio dpe on mcc.IdMateriaCC = dpe.IdMateriaCC inner join DetallesDetMatPlanCorrPlan dmpcp on dpe.IdPlanDetalles = dmpcp.IdPlanDetalles where dmpcp.IdPlanDetalles2 = (@IdPlanDetalles2)", listaParametrosCD);
+                listaParametrosCD.Add(new Parametro("IdPlanDeEstudio", unDTO.IdPlanDeEstudio));
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("select mcc.Nombre, dmpcp.IdPlanDetalles, IdPlanDetalles2, pe.IdPlanDeEstudio, pe.Nombre as NombrePlan from MateriaConCorrelativas mcc inner join DetallesPlanDeEstudio dpe on mcc.IdMateriaCC = dpe.IdMateriaCC inner join PlanDeEstudio pe on dpe.IdPlanDeEstudio = pe.IdPlanDeEstudio inner join DetallesDetMatPlanCorrPlan dmpcp on dpe.IdPlanDetalles = dmpcp.IdPlanDetalles where dmpcp.IdPlanDetalles2 = (@IdPlanDetalles2) and dpe.IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)

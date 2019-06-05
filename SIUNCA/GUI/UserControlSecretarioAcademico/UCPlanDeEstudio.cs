@@ -84,7 +84,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void btnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
-            CargarCorrelativas();
+            tabControl1.SelectedIndex = 2;
         }
 
      
@@ -108,11 +108,12 @@ namespace GUI.UserControlSecretarioAcademico
             unDTOMPCP = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;            
 
             //select nombre from materias ij dpe ij ddmpcp where m.idmateria = @dto.idmateria  (TRAIGO DTO)
-            unDTOMPCP.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).IdPlanDetalles;
-            unDTOMPCP.NombreMateria2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).Nombre;
-            //unDTOMPCP.IdPlanDeEstudio = ((DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem).Nombre;
+            unDTOMPCP.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboConsultaMateria.SelectedItem).IdPlanDetalles;
+            unDTOMPCP.NombreMateria2 = ((DTODetallesCorrPlan)ComboConsultaMateria.SelectedItem).Nombre;
+            unDTOMPCP.IdPlanDeEstudio = ((DTODetallesCorrPlan)ComboConsultaPlan.SelectedItem).IdPlanDeEstudio;
             dgConsultaCorrelativas.DataSource = null;
             dgConsultaCorrelativas.DataSource = unGDTOMPCP.TraerListaCorrelativas(unDTOMPCP);
+
 
             dgConsultaCorrelativas.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
             dgConsultaCorrelativas.Columns.Remove("IdPlanDetalles");
@@ -123,6 +124,8 @@ namespace GUI.UserControlSecretarioAcademico
             dgConsultaCorrelativas.Columns.Remove("Obligatoriedad");
             dgConsultaCorrelativas.Columns.Remove("CargaHoraria");
             dgConsultaCorrelativas.Columns.Remove("IdMateriaCC");
+            dgConsultaCorrelativas.Columns.Remove("NombreMateria2");
+            dgConsultaCorrelativas.Columns.Remove("IdPlanDeEstudio");
 
             dgConsultaCorrelativas.Columns.Remove("ChangedBy");
             dgConsultaCorrelativas.Columns.Remove("ChangedOn");
@@ -130,10 +133,10 @@ namespace GUI.UserControlSecretarioAcademico
             dgConsultaCorrelativas.Columns.Remove("CreatedBy");
 
             dgConsultaCorrelativas.Columns[0].HeaderText = "Correlativas";
-            dgConsultaCorrelativas.Columns[1].HeaderText = "Materia Seleccionada";
+            dgConsultaCorrelativas.Columns[1].HeaderText = "Plan";
 
-            dgConsultaCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-            dgConsultaCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            //dgConsultaCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            //dgConsultaCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
 
         }
 

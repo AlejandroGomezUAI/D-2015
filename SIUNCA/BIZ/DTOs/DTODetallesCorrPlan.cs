@@ -20,6 +20,7 @@ namespace BIZ.DTOs
         public int CargaHoraria { get; set; }
         public int IdMateriaCC { get; set; }
         public int IdPlanDeEstudio { get; set; }
+        public string NombrePlan { get; set; }
 
 
     }
