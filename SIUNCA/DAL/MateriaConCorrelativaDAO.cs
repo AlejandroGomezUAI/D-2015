@@ -86,9 +86,9 @@ namespace DAL
             }
         }
     
-        public List<MateriaConCorrelativas> TraerTodo(Carrera UnaCarrera)
+        public List<DTODetallesCorrPlan> TraerTodo(Carrera UnaCarrera)
         {
-            List<MateriaConCorrelativas> resultado;
+            List<DTODetallesCorrPlan> resultado;
             Conexion unaConexion = new Conexion("config.xml");
             unaConexion.ConexionIniciar();
             try
@@ -98,7 +98,7 @@ namespace DAL
 
                 listaParametrosCD.Add(new Parametro("Nombre", UnaCarrera.Nombre));
 
-                resultado = unaConexion.EjecutarTupla<MateriaConCorrelativas>("Select m.Nombre, m.IdMateriaCC from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.Nombre = (@Nombre)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("Select m.Nombre, m.IdMateriaCC, d.IdPlanDetalles from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.Nombre = (@Nombre)", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)

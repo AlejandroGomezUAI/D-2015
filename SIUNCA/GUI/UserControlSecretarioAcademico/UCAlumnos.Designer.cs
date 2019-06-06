@@ -69,6 +69,8 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
@@ -95,6 +97,8 @@
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.ComboPEcorr);
             this.tabPage1.Controls.Add(this.ComboCupos);
             this.tabPage1.Controls.Add(this.txtCupos);
             this.tabPage1.Controls.Add(this.ComboCuposMax);
@@ -127,7 +131,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
@@ -419,7 +423,7 @@
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignar Correlativas";
@@ -493,7 +497,6 @@
             this.ComboMateriasCC.Name = "ComboMateriasCC";
             this.ComboMateriasCC.Size = new System.Drawing.Size(121, 28);
             this.ComboMateriasCC.TabIndex = 35;
-            //this.ComboMateriasCC.SelectedIndexChanged += new System.EventHandler(this.ComboMateriasCC_SelectedIndexChanged);
             // 
             // ComboCorrelativas
             // 
@@ -511,6 +514,24 @@
             this.label16.Size = new System.Drawing.Size(219, 20);
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(412, 34);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(228, 20);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Seleccione Plan de Estudio";
+            // 
+            // ComboPEcorr
+            // 
+            this.ComboPEcorr.FormattingEnabled = true;
+            this.ComboPEcorr.Location = new System.Drawing.Point(645, 31);
+            this.ComboPEcorr.Name = "ComboPEcorr";
+            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
+            this.ComboPEcorr.TabIndex = 53;
+            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
             // 
             // UCAlumnos
             // 
@@ -577,5 +598,7 @@
         private System.Windows.Forms.ComboBox ComboCuposMax;
         private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.ComboBox ComboCupos;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox ComboPEcorr;
     }
 }

@@ -23,9 +23,9 @@ namespace BLL
             return ListaMateriasCC;
         }
         
-        public List<MateriaConCorrelativas> TraerListaMateriasCC(Carrera UnaCarrera)
+        public List<DTODetallesCorrPlan> TraerListaMateriasCC(Carrera UnaCarrera)
         {
-            List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            List<DTODetallesCorrPlan> ListaMateriasCC = new List<DTODetallesCorrPlan>();
             MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
             ListaMateriasCC = unaMateriaCCDAO.TraerTodo(UnaCarrera);
             return ListaMateriasCC;

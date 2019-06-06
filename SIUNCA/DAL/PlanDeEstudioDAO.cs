@@ -82,5 +82,32 @@ namespace DAL
                 unaConexion.ConexionFinalizar();
             }
         }
+
+        public List<DTODetallesCorrPlan> TraerTodo(Alumno UnAlumno, Carrera unaCarrera)
+        {
+            List<DTODetallesCorrPlan> resultado;
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
+            try
+            {
+                List<Parametro> listaParametrosCD = new List<Parametro>();
+
+                listaParametrosCD.Add(new Parametro("LegajoAlumno", UnAlumno.LegajoAlumno));
+                listaParametrosCD.Add(new Parametro("IdCarrera", unaCarrera.IdCarrera));
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT pe.Nombre, pe.IdPlanDeEstudio from PlanDeEstudio pe INNER JOIN Carrera c on pe.IdCarrera = c.IdCarrera INNER JOIN Alumno a on a.IdCarrera = c.IdCarrera where a.LegajoAlumno = (@LegajoAlumno) and c.IdCarrera = (@IdCarrera)", listaParametrosCD);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+            return resultado;
+        }
+
     }
 }

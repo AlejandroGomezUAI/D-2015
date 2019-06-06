@@ -33,5 +33,13 @@ namespace BLL
 
             return ListaPlanes;
         }
+
+        public List<DTODetallesCorrPlan> TraerListaPlanes(Alumno UnAlumno, Carrera unaCarrera)
+        {
+            List<DTODetallesCorrPlan> ListaCarrera = new List<DTODetallesCorrPlan>();
+            PlanDeEstudioDAO unaCarreraDAO = new PlanDeEstudioDAO();
+            ListaCarrera = unaCarreraDAO.TraerTodo(UnAlumno, unaCarrera);
+            return ListaCarrera;
+        }
     }
 }
