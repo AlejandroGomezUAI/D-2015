@@ -41,12 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorAlumno.cs" />
+    <Compile Include="GestorAsistencia.cs" />
     <Compile Include="GestorCarrera.cs" />
     <Compile Include="GestorCurso.cs" />
     <Compile Include="GestorDetallesAlumnoMateria.cs" />
     <Compile Include="GestorDetallesCorrelativa.cs" />
+    <Compile Include="GestorDetMatPlanCorrPlan.cs" />
     <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />
+    <Compile Include="GestorPEDetalle.cs" />
     <Compile Include="GestorPlanDeEstudio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

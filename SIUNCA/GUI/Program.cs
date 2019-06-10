@@ -18,6 +18,7 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmProfesor());
             Application.Run(new frmSecretarioAcademico());
+            //
         }
     }
 }

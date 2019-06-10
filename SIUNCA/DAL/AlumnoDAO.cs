@@ -31,11 +31,18 @@ namespace DAL
             try
             {
                 //cambie mayusculass
-                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, asist.Ausente, asist.Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
+                //resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, asist.Ausente, asist.Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
+                //                                            on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
+                //                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
+                //                                            on alu.LegajoAlumno = asist.LegajoAlumno
+                //                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
+
+                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente as int)) as varchar) Ausente, CAST(SUM(CAST(asist.Presente as int)) as varchar) Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
                                                             on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
                                                             on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
                                                             on alu.LegajoAlumno = asist.LegajoAlumno
-                                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
+                                                            where matcor.Nombre = @Nombre
+                                                            group by alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)

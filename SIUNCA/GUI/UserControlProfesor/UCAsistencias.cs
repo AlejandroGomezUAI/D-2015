@@ -18,8 +18,10 @@ namespace GUI.UserControlProfesor
         public UCAsistencias()
         {
             InitializeComponent();
-            
+
             cargarCboMaterias();
+
+            this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)
@@ -30,13 +32,14 @@ namespace GUI.UserControlProfesor
         private void btnSelMateriaAsist_Click(object sender, EventArgs e)
         {
             cargarListaAlumnos();
+
         }
 
         private void btnGuardarAsist_Click(object sender, EventArgs e)
         {
-            
-        }      
-        
+            guardarRegistroAsistencia();
+        }
+
         /// <summary>
         /// Carga el ComboBox con las materias registradas en la BD
         /// </summary>
@@ -72,6 +75,8 @@ namespace GUI.UserControlProfesor
             this.dgvListadoAlumnos.Columns[0].HeaderText = "Legajo";
             this.dgvListadoAlumnos.Columns[3].HeaderText = "Ausentes";
             this.dgvListadoAlumnos.Columns[4].HeaderText = "Presentes";
+
+            colorFilaActaDeAsistencia();
         }
 
         /// <summary>
@@ -81,21 +86,86 @@ namespace GUI.UserControlProfesor
         {
             var gestoralumno = new GestorAlumno();
             var alumnos = gestoralumno.traerAlumnos(this.cboMateriaRegAsist.Text);
-            
+
             this.dgvRegistrarAsist.DataSource = null;
             this.dgvRegistrarAsist.DataSource = alumnos;
 
-            //oculta columna IdMateriaCC, Estado, Ausentes y Presentes
-            this.dgvRegistrarAsist.Columns[3].Visible = false;
+
+            //Modifica el nombre de la columna LegajoAlumno
+            this.dgvRegistrarAsist.Columns[1].HeaderText = "Legajo";
+
+            //oculta columna Ausentes, Presentes,  Estado, IdMAteriaCC 
             this.dgvRegistrarAsist.Columns[4].Visible = false;
             this.dgvRegistrarAsist.Columns[5].Visible = false;
             this.dgvRegistrarAsist.Columns[6].Visible = false;
-                        
-            //Modifica el nombre de la columna LegajoAlumno
-            this.dgvRegistrarAsist.Columns[0].HeaderText = "Legajo";
-            
+            this.dgvRegistrarAsist.Columns[7].Visible = false;
+
+            colorFilaRegistrarAsistencia();
         }
 
-        
+        void guardarRegistroAsistencia()
+        {
+
+            var listadoAsistencia = new List<Asistencia>();
+
+            foreach (DataGridViewRow row in this.dgvRegistrarAsist.Rows)
+            {
+                var asistencia = new Asistencia();
+
+                asistencia.LegajoAlumno = (int)row.Cells["LegajoAlumno"].Value;
+                asistencia.IdMateriaCC = (int)row.Cells["IdMAteriaCC"].Value;
+
+                if (row.Cells["Asistencia"].Value.ToString() == "Presente")
+                {
+                    asistencia.Presente = "1";
+                    asistencia.Ausente = "0";
+                    MessageBox.Show(row.Cells["Asistencia"].Value.ToString());
+                }
+                else
+                {
+                    asistencia.Presente = "0";
+                    asistencia.Ausente = "1";
+                    MessageBox.Show(row.Cells["Asistencia"].Value.ToString());
+                }
+
+                asistencia.Fecha = DateTime.Today;
+
+                listadoAsistencia.Add(asistencia);
+            }
+
+            var gestorAsistencia = new GestorAsistencia();
+
+            gestorAsistencia.guardarAsistencia(listadoAsistencia);
+        }
+
+        /// <summary>
+        /// Cambia el color de una fila si las celdas de la columna "Ausente" son mayor igual a 4
+        /// </summary>
+        void colorFilaActaDeAsistencia()
+        {
+            for (int i = 0; i < dgvListadoAlumnos.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvListadoAlumnos.Rows[i].Cells["Ausente"].Value.ToString()) >= 4)
+                {
+                    dgvListadoAlumnos.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Cambia el color de una fila si las celdas de la columna "Ausente" son mayor igual a 4,
+        /// tambien desactiva la celda para que no se puedan agregar asistencias
+        /// </summary>
+        void colorFilaRegistrarAsistencia()
+        {
+            for (int i = 0; i < dgvRegistrarAsist.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dgvRegistrarAsist.Rows[i].Cells["Ausente"].Value.ToString()) >= 4)
+                {
+                    dgvRegistrarAsist.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                    dgvRegistrarAsist.Rows[i].ReadOnly = true;
+                }
+            }
+        }
     }
 }

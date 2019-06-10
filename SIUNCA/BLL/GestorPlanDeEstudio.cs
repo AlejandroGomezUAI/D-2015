@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using BIZ.DTOs;
 
 namespace BLL
 {
@@ -22,6 +23,23 @@ namespace BLL
         {
             PlanDeEstudioDAO UnPEDAO = new PlanDeEstudioDAO();
             UnPEDAO.Insertar(unPlanDeEstudio, PEDetalles);
+        }
+
+        public List<DTODetallesCorrPlan> TraerListaPlanes()
+        {
+            List<DTODetallesCorrPlan> ListaPlanes = new List<DTODetallesCorrPlan>();
+            PlanDeEstudioDAO unPlanDAO = new PlanDeEstudioDAO();
+            ListaPlanes = unPlanDAO.TraerTodo();
+
+            return ListaPlanes;
+        }
+
+        public List<DTODetallesCorrPlan> TraerListaPlanes(Alumno UnAlumno, Carrera unaCarrera)
+        {
+            List<DTODetallesCorrPlan> ListaCarrera = new List<DTODetallesCorrPlan>();
+            PlanDeEstudioDAO unaCarreraDAO = new PlanDeEstudioDAO();
+            ListaCarrera = unaCarreraDAO.TraerTodo(UnAlumno, unaCarrera);
+            return ListaCarrera;
         }
     }
 }
