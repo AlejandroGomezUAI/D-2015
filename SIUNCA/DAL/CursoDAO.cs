@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIZ;
 using Framework.D_2015.Persistencia;
+using BIZ.DTOs;
 
 namespace DAL
 {
     public class CursoDAO
     {
-        public List<Curso> TraerTodo(MateriaConCorrelativas unaMateria)
+        public List<Curso> TraerTodo(DTODetallesCorrPlan unaMateria)
         {
             List<Curso> resultado = new List<Curso>();
             Conexion unaConexion = new Conexion("config.xml");

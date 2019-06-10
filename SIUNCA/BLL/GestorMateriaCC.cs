@@ -5,22 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using BIZ.DTOs;
 
 namespace BLL
 {
     public class GestorMateriaCC
     {
-        public List<MateriaConCorrelativas> TraerListaMateriasCC()
+        public List<DTODetallesCorrPlan> TraerListaMateriasCC()
         {
-            List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            //List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            //MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            //ListaMateriasCC = unaMateriaCCDAO.TraerTodo();
+            //return ListaMateriasCC;
+            List<DTODetallesCorrPlan> ListaMateriasCC = new List<DTODetallesCorrPlan>();
             MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
             ListaMateriasCC = unaMateriaCCDAO.TraerTodo();
             return ListaMateriasCC;
         }
-
-        public List<MateriaConCorrelativas> TraerListaMateriasCC(Carrera UnaCarrera)
+        
+        public List<DTODetallesCorrPlan> TraerListaMateriasCC(Carrera UnaCarrera)
         {
-            List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            List<DTODetallesCorrPlan> ListaMateriasCC = new List<DTODetallesCorrPlan>();
             MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
             ListaMateriasCC = unaMateriaCCDAO.TraerTodo(UnaCarrera);
             return ListaMateriasCC;

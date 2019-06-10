@@ -45,7 +45,7 @@ namespace DAL
 
                 listaParametrosCD.Add(new Parametro("LegajoAlumno", UnAlumno.LegajoAlumno));
 
-                resultado = unaConexion.EjecutarTupla<Carrera>("SELECT c.Nombre from Carrera c INNER JOIN Alumno a on a.IdCarrera = c.IdCarrera where a.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Carrera>("SELECT c.Nombre, c.IdCarrera from Carrera c INNER JOIN Alumno a on a.IdCarrera = c.IdCarrera where a.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
 
             }
             catch (Exception ex)

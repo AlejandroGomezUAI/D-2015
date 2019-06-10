@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIZ;
 using BLL;
+using BIZ.DTOs;
 
 namespace GUI.UserControlSecretarioAcademico
 {
@@ -17,6 +18,7 @@ namespace GUI.UserControlSecretarioAcademico
         public UCAlumnos()
         {
             InitializeComponent();
+           // CargarPlanes();
         }
 
         List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
@@ -33,6 +35,14 @@ namespace GUI.UserControlSecretarioAcademico
         {
 
         }
+        private void CargarPlanes()
+        {
+            GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
+            ComboPEcorr.DataSource = null;
+            ComboPEcorr.DataSource = unGPE.TraerListaPlanes();
+            ComboPEcorr.DisplayMember = "Nombre";
+            
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -42,6 +52,7 @@ namespace GUI.UserControlSecretarioAcademico
 
                 CargarCarreraDelAlumno();
                 CargarMateriasDeCarrera();
+                CargarPlanAlumno();
 
             }
         }
@@ -73,9 +84,19 @@ namespace GUI.UserControlSecretarioAcademico
             ComboCarrera.DataSource = unGC.TraerCarrera(UnAlumno);
             ComboCarrera.DisplayMember = "Nombre";
 
+        }
+        private void CargarPlanAlumno()
+        {
+            Alumno unAlumno = new Alumno();
+            Carrera unaCarrera = new Carrera();
+            GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
 
+            unAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
+            unaCarrera.IdCarrera = ((Carrera)ComboCarrera.SelectedItem).IdCarrera;
 
-
+            ComboPEcorr.DataSource = null;
+            ComboPEcorr.DataSource = unGPE.TraerListaPlanes(unAlumno, unaCarrera);
+            ComboPEcorr.DisplayMember = "Nombre";
         }
 
         private void CargarMateriasDeCarrera()
@@ -95,66 +116,96 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Alumno_MateriaCC unDetAlumnoMatCC = new Alumno_MateriaCC();
+                DTODetallesCorrPlan UnaMateria;
+                Carrera UnaCarrera;
 
-            Alumno_MateriaCC unDetAlumnoMatCC = new Alumno_MateriaCC();
-            MateriaConCorrelativas UnaMateria;
-            Carrera UnaCarrera;
-
-            UnaMateria = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
-            UnaCarrera = (Carrera)ComboCarrera.SelectedItem;
-
-
-            unDetAlumnoMatCC.IdMateriaCC = UnaMateria.IdMateriaCC;
-            unDetAlumnoMatCC.Nombre = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).Nombre;
-            unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
-            unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
-            unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
-            unDetAlumnoMatCC.Estado = "Desaprobado";
-            unDetAlumnoMatCC.LegajoAlumno = int.Parse(txtLegajo.Text);
-            //unDetAlumnoMatCC.Turno = ComboTurno.Text;
-
-            ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
+                UnaMateria = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;
+                UnaCarrera = (Carrera)ComboCarrera.SelectedItem;
 
 
-            Alumno UnAlumno = new Alumno();
-            GestorCarrera unGC = new GestorCarrera();
+                unDetAlumnoMatCC.IdMateriaCC = UnaMateria.IdMateriaCC;
+                unDetAlumnoMatCC.Nombre = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).Nombre;
+                unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
+                unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
+                unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
+                unDetAlumnoMatCC.Estado = "Desaprobado";
+                unDetAlumnoMatCC.LegajoAlumno = int.Parse(txtLegajo.Text);
+                //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
-            UnAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
-
-            ComboCarrera.DataSource = null;
-            ComboCarrera.DataSource = unGC.TraerCarrera(UnAlumno);
-            ComboCarrera.DisplayMember = "Nombre";
-
-            dgAlumMat.DataSource = null;
-            dgAlumMat.DataSource = ListAlumnoMateriaCC;
-
-            //dgAlumMat.Columns.Remove("IdDetallesMateriaCC");
-            dgAlumMat.Columns.Remove("IdMateriaCC");
-            dgAlumMat.Columns.Remove("IdAlumno_Materia");
-            dgAlumMat.Columns.Remove("CreatedOn");
-            dgAlumMat.Columns.Remove("CreatedBy");
-            dgAlumMat.Columns.Remove("ChangedBy");
-            dgAlumMat.Columns.Remove("ChangedOn");
-
-            dgAlumMat.Columns["LegajoAlumno"].HeaderText = "Legajo";
-            dgAlumMat.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
-            dgAlumMat.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
-            dgAlumMat.Columns["NombreCarrera"].HeaderText = "Carrera";
-            dgAlumMat.Columns["Nombre"].HeaderText = "Materia asignada";
+                ExisteEnLista(ComboMaterias1.Text, dgAlumMat);
+                ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
 
 
+                Alumno UnAlumno = new Alumno();
+                GestorCarrera unGC = new GestorCarrera();
 
-            dgAlumMat.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-            dgAlumMat.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                UnAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
+
+                ComboCarrera.DataSource = null;
+                ComboCarrera.DataSource = unGC.TraerCarrera(UnAlumno);
+                ComboCarrera.DisplayMember = "Nombre";
+
+                dgAlumMat.DataSource = null;
+                dgAlumMat.DataSource = ListAlumnoMateriaCC;
+
+                //dgAlumMat.Columns.Remove("IdDetallesMateriaCC");
+                dgAlumMat.Columns.Remove("IdMateriaCC");
+                dgAlumMat.Columns.Remove("IdAlumno_Materia");
+                dgAlumMat.Columns.Remove("CreatedOn");
+                dgAlumMat.Columns.Remove("CreatedBy");
+                dgAlumMat.Columns.Remove("ChangedBy");
+                dgAlumMat.Columns.Remove("ChangedOn");
+
+                dgAlumMat.Columns["LegajoAlumno"].HeaderText = "Legajo";
+                dgAlumMat.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
+                dgAlumMat.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
+                dgAlumMat.Columns["NombreCarrera"].HeaderText = "Carrera";
+                dgAlumMat.Columns["Nombre"].HeaderText = "Materia asignada";
 
 
+
+                dgAlumMat.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+                dgAlumMat.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar");                
+            }
+           
             //resto 1
             //int resultado;
-            resta = int.Parse(ComboCupos.Text) - 1;
-            ComboCupos.Text = resta.ToString();
-            
+            //resta = int.Parse(ComboCupos.Text) - 1;
+            //ComboCupos.Text = resta.ToString();          
            
             
+        }
+
+        //FUNCION Q VALIDA REPETIDOS
+        public Boolean ExisteEnLista(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["Nombre"].Value);
+                if (Rol == verificar)
+                {
+                    //labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Materia repetida");
+                    throw new Exception("Materia repetida");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    //labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
         }
 
         private void Button8_Click(object sender, EventArgs e)
@@ -163,29 +214,40 @@ namespace GUI.UserControlSecretarioAcademico
         }
         private void CargarCorrelativas()
         {
-            MateriaConCorrelativas unaMateriaCC;
-            GestorDetallesCorrelativa unGDC = new GestorDetallesCorrelativa();
-            unaMateriaCC = (MateriaConCorrelativas)ComboMaterias1.SelectedItem;
+            DTODetallesCorrPlan unDTOMPCP;
+            GestorDetMatPlanCorrPlan unGDTOMPCP = new GestorDetMatPlanCorrPlan();
+            unDTOMPCP = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;
+
+            //select nombre from materias ij dpe ij ddmpcp where m.idmateria = @dto.idmateria  (TRAIGO DTO)
+            unDTOMPCP.IdPlanDetalles2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).IdPlanDetalles;
+            unDTOMPCP.NombreMateria2 = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).Nombre;
+            unDTOMPCP.IdPlanDeEstudio = ((DTODetallesCorrPlan)ComboPEcorr.SelectedItem).IdPlanDeEstudio;
             dgCorrelativas.DataSource = null;
-            dgCorrelativas.DataSource = unGDC.TraerListaCorrelativas(unaMateriaCC);
-            // dgCorrelativas.Columns("IdDetallesCorrelativa").Visible = false;            
-            // dgCorrelativas.Columns("IdMateria").Visible = false;
-            // dgCorrelativas.Columns("IdMateriaCC").Visible = false;
-            // dgCorrelativas.Columns("NombreMateriaCC").HeaderText = "Materia consultada";
-            // dgCorrelativas.Columns("NombreMateria").HeaderText = "Correlativa";
+            dgCorrelativas.DataSource = unGDTOMPCP.TraerListaCorrelativas(unDTOMPCP);
+
+
+            dgCorrelativas.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
+            dgCorrelativas.Columns.Remove("IdPlanDetalles");
+            dgCorrelativas.Columns.Remove("IdPlanDetalles2");
+            dgCorrelativas.Columns.Remove("NumeroMateria");
+            dgCorrelativas.Columns.Remove("NumeroMateria2");
+            dgCorrelativas.Columns.Remove("Año");
+            dgCorrelativas.Columns.Remove("Obligatoriedad");
+            dgCorrelativas.Columns.Remove("CargaHoraria");
             dgCorrelativas.Columns.Remove("IdMateriaCC");
-            dgCorrelativas.Columns.Remove("IdMateria");
-            dgCorrelativas.Columns.Remove("IdDetallesCorrelativa");
+            dgCorrelativas.Columns.Remove("NombreMateria2");
+            dgCorrelativas.Columns.Remove("IdPlanDeEstudio");
+
             dgCorrelativas.Columns.Remove("ChangedBy");
             dgCorrelativas.Columns.Remove("ChangedOn");
             dgCorrelativas.Columns.Remove("CreatedOn");
             dgCorrelativas.Columns.Remove("CreatedBy");
 
             dgCorrelativas.Columns[0].HeaderText = "Correlativas";
-            dgCorrelativas.Columns[1].HeaderText = "Materia consultada";
+            dgCorrelativas.Columns[1].HeaderText = "Plan";
 
-            dgCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
-            dgCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            //dgConsultaCorrelativas.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
+            //dgConsultaCorrelativas.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
 
         }
 
@@ -216,18 +278,27 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void ComboFechasInicioCurso_Click(object sender, EventArgs e)
         {
-            TraerFechasInicioCursos();
-            TraerCuposMaxCurso();
-          
+            try
+            {
+                TraerFechasInicioCursos();
+                TraerCuposMaxCurso();
+            }
+            
+            catch (Exception ex)
+            {                
+                MessageBox.Show("No hay cursos", ex.ToString());
+
+            }         
+   
         }
 
         private void TraerFechasInicioCursos()
         {
             GestorCurso UnGCurso = new GestorCurso();
-            MateriaConCorrelativas unaMateria = new MateriaConCorrelativas();
+            DTODetallesCorrPlan unaMateria = new DTODetallesCorrPlan();
 
 
-            unaMateria.IdMateriaCC = ((MateriaConCorrelativas)ComboMaterias1.SelectedItem).IdMateriaCC;
+            unaMateria.IdMateriaCC = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).IdMateriaCC;
 
             ComboFechasInicioCurso.DataSource = null;
             ComboFechasInicioCurso.DataSource = UnGCurso.TraerFechasInicioCursos(unaMateria);
@@ -242,8 +313,7 @@ namespace GUI.UserControlSecretarioAcademico
             GestorCurso UnGCurso = new GestorCurso();
             Curso uncurso = new Curso();
 
-            try
-            {
+           
                 uncurso.IdCurso = ((Curso)ComboFechasInicioCurso.SelectedItem).IdCurso;
 
                 ComboCuposMax.DataSource = null;
@@ -253,15 +323,7 @@ namespace GUI.UserControlSecretarioAcademico
                 ComboCupos.DataSource = UnGCurso.TraerCuposMaxCurso(uncurso);
                 ComboCupos.DisplayMember = "CuposMax";
                
-                //resta = ((Curso)ComboCuposMax.SelectedValue).CuposMax - 1;
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("No hay cursos", ex.ToString());
-                
-            }
+                //resta = ((Curso)ComboCuposMax.SelectedValue).CuposMax - 1;          
             
 
         }
@@ -272,7 +334,8 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
+        private void 
+            _SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -282,6 +345,36 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
+        private void ComboPEcorr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarMaterias2();
+        }
+        private void CargarMaterias2()
+        {
+            DTODetallesCorrPlan unPE2;
+            GestorPEDetalle unGDetPE2 = new GestorPEDetalle();
+            unPE2 = (DTODetallesCorrPlan)ComboPEcorr.SelectedItem;
+            ComboMaterias1.DataSource = null;
+            ComboMaterias1.DataSource = unGDetPE2.TraerListaPEDetalles(unPE2);
+
+            ComboMaterias1.DisplayMember = "Nombre";
+        }
+
+        private void ComboMaterias1_DropDownClosed(object sender, EventArgs e)
+        {
+            try
+            {
+                TraerFechasInicioCursos();
+                TraerCuposMaxCurso();
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("No hay cursos", ex.ToString());
+
+            }
+        }
 
 
         //private void ComboMaterias1_Click(object sender, EventArgs e)
