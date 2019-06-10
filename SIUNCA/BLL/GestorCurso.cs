@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using DAL;
+using BIZ.DTOs;
 
 namespace BLL
 {
     public class GestorCurso
     {
-        public List<Curso> TraerFechasInicioCursos(MateriaConCorrelativas unaMateria)
+        public List<Curso> TraerFechasInicioCursos(DTODetallesCorrPlan unaMateria)
         {
             List<Curso> ListaCursos = new List<Curso>();
             CursoDAO unCursoDAO = new CursoDAO();

@@ -229,6 +229,7 @@ namespace GUI.UserControlSecretarioAcademico
                 String verificar = Convert.ToString(row.Cells["NumeroMateria"].Value);
                 if (Rol == verificar)
                 {
+                    labelMensaje.Visible = true;
                     labelMensaje.Text = "Ya existe";
                     existe = true;
                     MessageBox.Show("Numero de materia repetido");
@@ -237,6 +238,7 @@ namespace GUI.UserControlSecretarioAcademico
                 }
                 else
                 {
+                    labelMensaje.Visible = true;
                     existe = false;
                     labelMensaje.Text = "Agregado";
                 }

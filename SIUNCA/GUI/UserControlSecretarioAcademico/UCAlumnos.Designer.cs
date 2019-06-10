@@ -81,6 +81,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -105,7 +106,6 @@
             this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tabPage1.Controls.Add(this.ComboCuposMax);
             this.tabPage1.Controls.Add(this.ComboFechasInicioCurso);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dgAprobadas);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label8);
@@ -114,7 +114,6 @@
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.txtLegajo);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
@@ -163,7 +162,7 @@
             // ComboFechasInicioCurso
             // 
             this.ComboFechasInicioCurso.FormattingEnabled = true;
-            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(236, 143);
+            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(236, 136);
             this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
             this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
             this.ComboFechasInicioCurso.TabIndex = 39;
@@ -189,9 +188,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(311, 36);
+            this.button1.Location = new System.Drawing.Point(302, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 26);
+            this.button1.Size = new System.Drawing.Size(86, 33);
             this.button1.TabIndex = 36;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = false;
@@ -370,6 +369,7 @@
             this.ComboMaterias1.Name = "ComboMaterias1";
             this.ComboMaterias1.Size = new System.Drawing.Size(121, 28);
             this.ComboMaterias1.TabIndex = 8;
+            this.ComboMaterias1.DropDownClosed += new System.EventHandler(this.ComboMaterias1_DropDownClosed);
             // 
             // txtAño
             // 
@@ -380,9 +380,9 @@
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(198, 36);
+            this.txtLegajo.Location = new System.Drawing.Point(201, 9);
             this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(107, 26);
+            this.txtLegajo.Size = new System.Drawing.Size(95, 26);
             this.txtLegajo.TabIndex = 1;
             // 
             // tabPage2
@@ -493,6 +493,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.txtAño);
             this.groupBox1.Controls.Add(this.ComboCupos);
@@ -505,7 +506,6 @@
             this.groupBox1.Controls.Add(this.dgAlumMat);
             this.groupBox1.Controls.Add(this.dgCorrelativas);
             this.groupBox1.Controls.Add(this.btnConsultarCorrelativas);
-            this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Location = new System.Drawing.Point(15, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(821, 593);
@@ -515,6 +515,9 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.txtLegajo);
             this.panel1.Location = new System.Drawing.Point(19, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(409, 45);
@@ -522,6 +525,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.ComboCarrera);
             this.panel2.Location = new System.Drawing.Point(19, 73);
             this.panel2.Name = "panel2";
@@ -530,6 +534,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.ComboNombre);
             this.panel3.Controls.Add(this.ComboApellido);
             this.panel3.Location = new System.Drawing.Point(19, 248);
@@ -539,6 +544,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.ComboMaterias1);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label3);
@@ -567,6 +573,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
