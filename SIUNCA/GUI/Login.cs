@@ -45,6 +45,7 @@ namespace GUI
         {
             //aca va la validacion de usuario y contraseña para instanciar
             //el form correspondiente
+
         }
 
         private void Login_MouseMove(object sender, MouseEventArgs e)

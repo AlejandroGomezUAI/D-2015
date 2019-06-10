@@ -119,13 +119,11 @@ namespace GUI.UserControlProfesor
                 {
                     asistencia.Presente = "1";
                     asistencia.Ausente = "0";
-                    MessageBox.Show(row.Cells["Asistencia"].Value.ToString());
                 }
                 else
                 {
                     asistencia.Presente = "0";
                     asistencia.Ausente = "1";
-                    MessageBox.Show(row.Cells["Asistencia"].Value.ToString());
                 }
 
                 asistencia.Fecha = DateTime.Today;
