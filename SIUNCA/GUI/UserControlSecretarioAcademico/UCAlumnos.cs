@@ -321,13 +321,13 @@ namespace GUI.UserControlSecretarioAcademico
         }
         private void CargarMaterias2()
         {
-            //DTODetallesCorrPlan unPE2;
-            //GestorPEDetalle unGDetPE = new GestorPEDetalle();
-            //unPE2 = (DTODetallesCorrPlan)ComboPEcorr.SelectedItem;
-            //ComboMaterias1.DataSource = null;
-            //ComboMaterias1.DataSource = unGDetPE.TraerListaPEDetalles(unPE2);
+            DTODetallesCorrPlan unPE2;
+            GestorPEDetalle unGDetPE2 = new GestorPEDetalle();
+            unPE2 = (DTODetallesCorrPlan)ComboPEcorr.SelectedItem;
+            ComboMaterias1.DataSource = null;
+            ComboMaterias1.DataSource = unGDetPE2.TraerListaPEDetalles(unPE2);
 
-            //ComboMaterias1.DisplayMember = "Nombre";
+            ComboMaterias1.DisplayMember = "Nombre";
         }
 
 
