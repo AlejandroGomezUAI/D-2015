@@ -141,6 +141,37 @@ namespace GUI.UserControlSecretarioAcademico
                 ConsultarAprobadas();
                 ExisteEnListaAprobados(ComboMaterias1.Text, dgAprobadas);
 
+                //Valido que esten las correlativas aprobadas
+                //ExisteEnListaCorrelativas(ComboMaterias1.Text, dgCorrelativas);
+
+
+
+                ////
+                ///
+                /// comparo dos dg
+                //foreach (DataGridViewRow row in dgCorrelativas.Rows)
+                //{
+                //    foreach (DataGridViewColumn column in dgCorrelativas.Columns)
+                //    {
+
+                //        string cell1 = Convert.ToString(row.Cells[column.Index].Value);
+                //        string cell2 = Convert.ToString(dgAprobadas.Rows[row.Index].Cells[column.Index].Value);
+
+                //        if (cell1 != cell2)
+                //        {
+                //            MessageBox.Show("difrentetes");
+                //         break;
+                //        }
+                //        else
+                //        {
+                //            MessageBox.Show("LOS ARCHIVOS SON IGUALES");
+                //        }
+
+
+                //    }
+                //}
+                //////
+                ///
 
                 ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
 
@@ -224,7 +255,7 @@ namespace GUI.UserControlSecretarioAcademico
                 {
                     //labelMensaje.Text = "Ya existe";
                     existe = true;
-                    MessageBox.Show("Materia que intenta agregar ya esta aprobada");
+                    MessageBox.Show("Materia que intenta agregar ya esta aprobada o esta siendo cursada");
                     throw new Exception("Materia repetida");
                     break;
                 }
@@ -237,9 +268,15 @@ namespace GUI.UserControlSecretarioAcademico
             return existe;
         }
 
+        //FUNCION Q VALIDA REPETIDOS
+       
+        
+
+
         private void Button8_Click(object sender, EventArgs e)
         {
             CargarCorrelativas();
+
         }
         private void CargarCorrelativas()
         {
@@ -404,6 +441,9 @@ namespace GUI.UserControlSecretarioAcademico
 
             }
         }
+
+        
+
 
 
         //private void ComboMaterias1_Click(object sender, EventArgs e)
