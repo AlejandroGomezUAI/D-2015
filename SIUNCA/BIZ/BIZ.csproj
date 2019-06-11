@@ -61,6 +61,7 @@
     <Compile Include="Profesor.cs" />
     <Compile Include="Promedio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Framework.D-2015\Framework.D-2015\Framework.D-2015.vbproj">

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BIZ;
+using Framework.D_2015;
+using BLL;
 
 namespace GUI
 {
@@ -18,6 +21,7 @@ namespace GUI
         public Login()
         {
             InitializeComponent();
+            lblError.Visible = false;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -43,8 +47,32 @@ namespace GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //aca va la validacion de usuario y contraseña para instanciar
-            //el form correspondiente
+            var usuario = new Usuario();
+            usuario.email = txtUsuario.Text;
+            usuario.password = txtContraseña.Text;
+            usuario.rol = cboRol.Text;
+
+            var gestorUsuario = new GestorUsuario();
+            var resultadoUser = gestorUsuario.traerUsuario(usuario);
+
+            if (resultadoUser == 1)
+            {
+                //###########################################################
+                //Este form es para el secretario academico
+                //frmSecretarioAcademico frmsa = new frmSecretarioAcademico();
+                //frmsa.Show();
+                //###########################################################
+                //Este es el del profesor
+                frmProfesor frmp = new frmProfesor();
+                frmp.Show();
+                this.Hide();
+            }
+            else
+            {
+                lblError.Visible = true;
+                lblError.Text = "Usuario o contraseña incorrecto";
+            }
+           
         }
 
         private void Login_MouseMove(object sender, MouseEventArgs e)
