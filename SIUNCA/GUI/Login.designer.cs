@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cboRol = new System.Windows.Forms.ComboBox();
             this.panelFooter = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -224,12 +225,24 @@
             this.panelFooter.TabIndex = 8;
             this.panelFooter.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelFooter_MouseMove);
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(142, 375);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(42, 16);
+            this.lblError.TabIndex = 9;
+            this.lblError.Text = "Error";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(502, 598);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.cboRol);
             this.Controls.Add(this.label4);
@@ -269,5 +282,6 @@
         private System.Windows.Forms.ComboBox cboRol;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelFooter;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BIZ;
 using BIZ.DTOs;
-using DAL;
 using Framework.D_2015.Persistencia;
 using System.Windows.Forms;
 

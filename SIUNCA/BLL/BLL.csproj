@@ -51,6 +51,7 @@
     <Compile Include="GestorMateriaCC.cs" />
     <Compile Include="GestorPEDetalle.cs" />
     <Compile Include="GestorPlanDeEstudio.cs" />
+    <Compile Include="GestorUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
