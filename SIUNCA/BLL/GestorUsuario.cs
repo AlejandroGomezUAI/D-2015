@@ -23,13 +23,24 @@ namespace BLL
             var password = listaUsuario.Select(x => x.password).FirstOrDefault();
             var rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
 
-            if (email == usuario.email && password == usuario.password && rol == usuario.rol)
+
+            //rol profesor
+            //if (email == usuario.email && password == usuario.password && rol == usuario.rol)
+            if (email == usuario.email && password == usuario.password && rol == "Profesor")
             {
                 return res;
             }
             else
             {
-                return 0;
+                if (email == usuario.email && password == usuario.password && rol == "Administrativo")
+                {
+                    res = 2;
+                    return res;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }
