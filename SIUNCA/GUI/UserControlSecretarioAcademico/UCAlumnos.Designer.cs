@@ -30,34 +30,39 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
-            this.ComboCupos = new System.Windows.Forms.ComboBox();
             this.ComboCuposMax = new System.Windows.Forms.ComboBox();
             this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
-            this.ComboApellido = new System.Windows.Forms.ComboBox();
-            this.ComboNombre = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dgAlumMat = new System.Windows.Forms.DataGridView();
-            this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
-            this.dgCorrelativas = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ComboCarrera = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
-            this.txtAño = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ComboPEcorr = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.txtAño = new System.Windows.Forms.TextBox();
+            this.ComboCupos = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ComboCarrera = new System.Windows.Forms.ComboBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ComboNombre = new System.Windows.Forms.ComboBox();
+            this.ComboApellido = new System.Windows.Forms.ComboBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dgAlumMat = new System.Windows.Forms.DataGridView();
+            this.dgCorrelativas = new System.Windows.Forms.DataGridView();
+            this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -68,23 +73,18 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -123,33 +123,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(228, 20);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Seleccione Plan de Estudio";
-            // 
-            // ComboPEcorr
-            // 
-            this.ComboPEcorr.FormattingEnabled = true;
-            this.ComboPEcorr.Location = new System.Drawing.Point(22, 35);
-            this.ComboPEcorr.Name = "ComboPEcorr";
-            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
-            this.ComboPEcorr.TabIndex = 53;
-            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
-            // 
-            // ComboCupos
-            // 
-            this.ComboCupos.Enabled = false;
-            this.ComboCupos.FormattingEnabled = true;
-            this.ComboCupos.Location = new System.Drawing.Point(291, 204);
-            this.ComboCupos.Name = "ComboCupos";
-            this.ComboCupos.Size = new System.Drawing.Size(57, 28);
-            this.ComboCupos.TabIndex = 43;
-            // 
             // ComboCuposMax
             // 
             this.ComboCuposMax.Enabled = false;
@@ -168,46 +141,6 @@
             this.ComboFechasInicioCurso.TabIndex = 39;
             this.ComboFechasInicioCurso.Click += new System.EventHandler(this.ComboFechasInicioCurso_Click);
             // 
-            // ComboApellido
-            // 
-            this.ComboApellido.FormattingEnabled = true;
-            this.ComboApellido.Location = new System.Drawing.Point(202, 33);
-            this.ComboApellido.Name = "ComboApellido";
-            this.ComboApellido.Size = new System.Drawing.Size(128, 28);
-            this.ComboApellido.TabIndex = 38;
-            // 
-            // ComboNombre
-            // 
-            this.ComboNombre.FormattingEnabled = true;
-            this.ComboNombre.Location = new System.Drawing.Point(202, 3);
-            this.ComboNombre.Name = "ComboNombre";
-            this.ComboNombre.Size = new System.Drawing.Size(128, 28);
-            this.ComboNombre.TabIndex = 37;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(302, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 33);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Location = new System.Drawing.Point(685, 337);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(111, 139);
-            this.button8.TabIndex = 35;
-            this.button8.Text = "Consultar correlativas";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.Button8_Click);
-            // 
             // dgAprobadas
             // 
             this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
@@ -225,71 +158,6 @@
             this.label10.Size = new System.Drawing.Size(71, 20);
             this.label10.TabIndex = 32;
             this.label10.Text = "Nombre";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(500, 503);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(296, 67);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Guardar asignaciones";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(19, 500);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(212, 70);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Asignar materia";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(237, 500);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(191, 70);
-            this.button5.TabIndex = 26;
-            this.button5.Text = "Quitar materia";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // dgAlumMat
-            // 
-            this.dgAlumMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAlumMat.Location = new System.Drawing.Point(19, 318);
-            this.dgAlumMat.Name = "dgAlumMat";
-            this.dgAlumMat.Size = new System.Drawing.Size(409, 179);
-            this.dgAlumMat.TabIndex = 23;
-            // 
-            // btnConsultarCorrelativas
-            // 
-            this.btnConsultarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnConsultarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(685, 187);
-            this.btnConsultarCorrelativas.Name = "btnConsultarCorrelativas";
-            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(111, 141);
-            this.btnConsultarCorrelativas.TabIndex = 22;
-            this.btnConsultarCorrelativas.Text = "Consultar aprobadas";
-            this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
-            this.btnConsultarCorrelativas.Click += new System.EventHandler(this.BtnConsultarCorrelativas_Click);
-            // 
-            // dgCorrelativas
-            // 
-            this.dgCorrelativas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCorrelativas.Location = new System.Drawing.Point(453, 337);
-            this.dgCorrelativas.Name = "dgCorrelativas";
-            this.dgCorrelativas.Size = new System.Drawing.Size(224, 139);
-            this.dgCorrelativas.TabIndex = 19;
             // 
             // label8
             // 
@@ -336,15 +204,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Apellido";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(227, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Materia (con correlatividad)";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -354,13 +213,39 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Legajo Alumno";
             // 
-            // ComboCarrera
+            // groupBox1
             // 
-            this.ComboCarrera.FormattingEnabled = true;
-            this.ComboCarrera.Location = new System.Drawing.Point(201, 16);
-            this.ComboCarrera.Name = "ComboCarrera";
-            this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
-            this.ComboCarrera.TabIndex = 11;
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.txtAño);
+            this.groupBox1.Controls.Add(this.ComboCupos);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.button8);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.dgAlumMat);
+            this.groupBox1.Controls.Add(this.dgCorrelativas);
+            this.groupBox1.Controls.Add(this.btnConsultarCorrelativas);
+            this.groupBox1.Location = new System.Drawing.Point(15, 5);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(821, 593);
+            this.groupBox1.TabIndex = 55;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Asignacion de alumno a materias";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.ComboMaterias1);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.ComboPEcorr);
+            this.panel4.Location = new System.Drawing.Point(453, 25);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(343, 133);
+            this.panel4.TabIndex = 45;
             // 
             // ComboMaterias1
             // 
@@ -371,12 +256,54 @@
             this.ComboMaterias1.TabIndex = 8;
             this.ComboMaterias1.DropDownClosed += new System.EventHandler(this.ComboMaterias1_DropDownClosed);
             // 
-            // txtAño
+            // label11
             // 
-            this.txtAño.Location = new System.Drawing.Point(241, 169);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(107, 26);
-            this.txtAño.TabIndex = 5;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(228, 20);
+            this.label11.TabIndex = 54;
+            this.label11.Text = "Seleccione Plan de Estudio";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(162, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Seleccione Materia";
+            // 
+            // ComboPEcorr
+            // 
+            this.ComboPEcorr.FormattingEnabled = true;
+            this.ComboPEcorr.Location = new System.Drawing.Point(22, 35);
+            this.ComboPEcorr.Name = "ComboPEcorr";
+            this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
+            this.ComboPEcorr.TabIndex = 53;
+            this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.txtLegajo);
+            this.panel1.Location = new System.Drawing.Point(19, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(409, 45);
+            this.panel1.TabIndex = 44;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(302, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 33);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // txtLegajo
             // 
@@ -384,6 +311,142 @@
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(95, 26);
             this.txtLegajo.TabIndex = 1;
+            // 
+            // txtAño
+            // 
+            this.txtAño.Location = new System.Drawing.Point(241, 169);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(107, 26);
+            this.txtAño.TabIndex = 5;
+            // 
+            // ComboCupos
+            // 
+            this.ComboCupos.Enabled = false;
+            this.ComboCupos.FormattingEnabled = true;
+            this.ComboCupos.Location = new System.Drawing.Point(291, 204);
+            this.ComboCupos.Name = "ComboCupos";
+            this.ComboCupos.Size = new System.Drawing.Size(57, 28);
+            this.ComboCupos.TabIndex = 43;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.ComboCarrera);
+            this.panel2.Location = new System.Drawing.Point(19, 73);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(409, 169);
+            this.panel2.TabIndex = 45;
+            // 
+            // ComboCarrera
+            // 
+            this.ComboCarrera.FormattingEnabled = true;
+            this.ComboCarrera.Location = new System.Drawing.Point(201, 16);
+            this.ComboCarrera.Name = "ComboCarrera";
+            this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
+            this.ComboCarrera.TabIndex = 11;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button8.Location = new System.Drawing.Point(685, 337);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(111, 139);
+            this.button8.TabIndex = 35;
+            this.button8.Text = "Consultar correlativas";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.ComboNombre);
+            this.panel3.Controls.Add(this.ComboApellido);
+            this.panel3.Location = new System.Drawing.Point(19, 248);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(409, 64);
+            this.panel3.TabIndex = 46;
+            // 
+            // ComboNombre
+            // 
+            this.ComboNombre.FormattingEnabled = true;
+            this.ComboNombre.Location = new System.Drawing.Point(202, 3);
+            this.ComboNombre.Name = "ComboNombre";
+            this.ComboNombre.Size = new System.Drawing.Size(128, 28);
+            this.ComboNombre.TabIndex = 37;
+            // 
+            // ComboApellido
+            // 
+            this.ComboApellido.FormattingEnabled = true;
+            this.ComboApellido.Location = new System.Drawing.Point(202, 33);
+            this.ComboApellido.Name = "ComboApellido";
+            this.ComboApellido.Size = new System.Drawing.Size(128, 28);
+            this.ComboApellido.TabIndex = 38;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Location = new System.Drawing.Point(500, 503);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(296, 67);
+            this.button6.TabIndex = 28;
+            this.button6.Text = "Guardar asignaciones";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(19, 500);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(212, 70);
+            this.button4.TabIndex = 27;
+            this.button4.Text = "Asignar materia";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Location = new System.Drawing.Point(237, 500);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(191, 70);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Quitar materia";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // dgAlumMat
+            // 
+            this.dgAlumMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAlumMat.Location = new System.Drawing.Point(19, 318);
+            this.dgAlumMat.Name = "dgAlumMat";
+            this.dgAlumMat.Size = new System.Drawing.Size(409, 179);
+            this.dgAlumMat.TabIndex = 23;
+            // 
+            // dgCorrelativas
+            // 
+            this.dgCorrelativas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCorrelativas.Location = new System.Drawing.Point(453, 337);
+            this.dgCorrelativas.Name = "dgCorrelativas";
+            this.dgCorrelativas.Size = new System.Drawing.Size(224, 139);
+            this.dgCorrelativas.TabIndex = 19;
+            // 
+            // btnConsultarCorrelativas
+            // 
+            this.btnConsultarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnConsultarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(685, 187);
+            this.btnConsultarCorrelativas.Name = "btnConsultarCorrelativas";
+            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(111, 141);
+            this.btnConsultarCorrelativas.TabIndex = 22;
+            this.btnConsultarCorrelativas.Text = "Consultar aprobadas";
+            this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
+            this.btnConsultarCorrelativas.Click += new System.EventHandler(this.BtnConsultarCorrelativas_Click);
             // 
             // tabPage2
             // 
@@ -491,69 +554,6 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.txtAño);
-            this.groupBox1.Controls.Add(this.ComboCupos);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.dgAlumMat);
-            this.groupBox1.Controls.Add(this.dgCorrelativas);
-            this.groupBox1.Controls.Add(this.btnConsultarCorrelativas);
-            this.groupBox1.Location = new System.Drawing.Point(15, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(821, 593);
-            this.groupBox1.TabIndex = 55;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Asignacion de alumno a materias";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.txtLegajo);
-            this.panel1.Location = new System.Drawing.Point(19, 22);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 45);
-            this.panel1.TabIndex = 44;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.ComboCarrera);
-            this.panel2.Location = new System.Drawing.Point(19, 73);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 169);
-            this.panel2.TabIndex = 45;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.ComboNombre);
-            this.panel3.Controls.Add(this.ComboApellido);
-            this.panel3.Location = new System.Drawing.Point(19, 248);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(409, 64);
-            this.panel3.TabIndex = 46;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.ComboMaterias1);
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.ComboPEcorr);
-            this.panel4.Location = new System.Drawing.Point(453, 25);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(343, 133);
-            this.panel4.TabIndex = 45;
-            // 
             // UCAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -566,19 +566,19 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }

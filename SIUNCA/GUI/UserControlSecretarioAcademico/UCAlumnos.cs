@@ -136,6 +136,12 @@ namespace GUI.UserControlSecretarioAcademico
                 //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
                 ExisteEnLista(ComboMaterias1.Text, dgAlumMat);
+
+                //traigo al dgAprobadas y verifico que la materia que quiero agregar no este "Aprobada"
+                ConsultarAprobadas();
+                ExisteEnListaAprobados(ComboMaterias1.Text, dgAprobadas);
+
+
                 ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
 
 
@@ -196,6 +202,29 @@ namespace GUI.UserControlSecretarioAcademico
                     //labelMensaje.Text = "Ya existe";
                     existe = true;
                     MessageBox.Show("Materia repetida");
+                    throw new Exception("Materia repetida");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    //labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
+        }
+        //FUNCION Q VALIDA REPETIDOS
+        public Boolean ExisteEnListaAprobados(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["Nombre"].Value);
+                if (Rol == verificar)
+                {
+                    //labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Materia que intenta agregar ya esta aprobada");
                     throw new Exception("Materia repetida");
                     break;
                 }
