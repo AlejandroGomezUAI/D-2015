@@ -73,6 +73,7 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
@@ -118,7 +119,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
@@ -147,6 +148,7 @@
             this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAprobadas.Location = new System.Drawing.Point(468, 192);
             this.dgAprobadas.Name = "dgAprobadas";
+            this.dgAprobadas.RowHeadersWidth = 57;
             this.dgAprobadas.Size = new System.Drawing.Size(224, 141);
             this.dgAprobadas.TabIndex = 33;
             // 
@@ -238,6 +240,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.btnExisteCorrEnAprobadas);
             this.panel4.Controls.Add(this.ComboMaterias1);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label3);
@@ -288,16 +291,16 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtLegajo);
-            this.panel1.Location = new System.Drawing.Point(19, 22);
+            this.panel1.Location = new System.Drawing.Point(19, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 45);
+            this.panel1.Size = new System.Drawing.Size(409, 41);
             this.panel1.TabIndex = 44;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(302, 6);
+            this.button1.Location = new System.Drawing.Point(301, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 33);
             this.button1.TabIndex = 36;
@@ -424,6 +427,7 @@
             this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAlumMat.Location = new System.Drawing.Point(19, 318);
             this.dgAlumMat.Name = "dgAlumMat";
+            this.dgAlumMat.RowHeadersWidth = 57;
             this.dgAlumMat.Size = new System.Drawing.Size(409, 179);
             this.dgAlumMat.TabIndex = 23;
             // 
@@ -433,6 +437,7 @@
             this.dgCorrelativas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelativas.Location = new System.Drawing.Point(453, 337);
             this.dgCorrelativas.Name = "dgCorrelativas";
+            this.dgCorrelativas.RowHeadersWidth = 57;
             this.dgCorrelativas.Size = new System.Drawing.Size(224, 139);
             this.dgCorrelativas.TabIndex = 19;
             // 
@@ -462,7 +467,7 @@
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignar Correlativas";
@@ -508,6 +513,7 @@
             this.dgCorrelatividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgCorrelatividades.Location = new System.Drawing.Point(165, 160);
             this.dgCorrelatividades.Name = "dgCorrelatividades";
+            this.dgCorrelatividades.RowHeadersWidth = 57;
             this.dgCorrelatividades.Size = new System.Drawing.Size(404, 237);
             this.dgCorrelatividades.TabIndex = 43;
             // 
@@ -553,6 +559,18 @@
             this.label16.Size = new System.Drawing.Size(219, 20);
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
+            // 
+            // btnExisteCorrEnAprobadas
+            // 
+            this.btnExisteCorrEnAprobadas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExisteCorrEnAprobadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExisteCorrEnAprobadas.Location = new System.Drawing.Point(230, 93);
+            this.btnExisteCorrEnAprobadas.Name = "btnExisteCorrEnAprobadas";
+            this.btnExisteCorrEnAprobadas.Size = new System.Drawing.Size(86, 33);
+            this.btnExisteCorrEnAprobadas.TabIndex = 37;
+            this.btnExisteCorrEnAprobadas.Text = "Buscar";
+            this.btnExisteCorrEnAprobadas.UseVisualStyleBackColor = false;
+            this.btnExisteCorrEnAprobadas.Click += new System.EventHandler(this.BtnExisteCorrEnAprobadas_Click);
             // 
             // UCAlumnos
             // 
@@ -631,5 +649,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnExisteCorrEnAprobadas;
     }
 }

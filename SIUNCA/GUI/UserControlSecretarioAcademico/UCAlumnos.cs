@@ -146,33 +146,6 @@ namespace GUI.UserControlSecretarioAcademico
 
 
 
-                ////
-                ///
-                /// comparo dos dg
-                //foreach (DataGridViewRow row in dgCorrelativas.Rows)
-                //{
-                //    foreach (DataGridViewColumn column in dgCorrelativas.Columns)
-                //    {
-
-                //        string cell1 = Convert.ToString(row.Cells[column.Index].Value);
-                //        string cell2 = Convert.ToString(dgAprobadas.Rows[row.Index].Cells[column.Index].Value);
-
-                //        if (cell1 != cell2)
-                //        {
-                //            MessageBox.Show("difrentetes");
-                //         break;
-                //        }
-                //        else
-                //        {
-                //            MessageBox.Show("LOS ARCHIVOS SON IGUALES");
-                //        }
-
-
-                //    }
-                //}
-                //////
-                ///
-
                 ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
 
 
@@ -219,6 +192,26 @@ namespace GUI.UserControlSecretarioAcademico
             //ComboCupos.Text = resta.ToString();          
            
             
+        }
+
+        public void ExisteEnDgAprobadas()
+        {
+            // comparo dos dg
+            //string Valor;
+            //Valor = this.TxtIdProducto.Text;
+            //bool existe = this.dgAprobadas.Rows.Cast<DataGridViewRow>.Any((x)Convert.ToString(x.Cells("Column3").Value) = Valor);
+
+            //if (!existe)
+            //{
+
+            //    //Agregar registro'
+
+            //}
+            //else
+            //{
+
+            //    //Acciones a realizar si existe'
+            //}
         }
 
         //FUNCION Q VALIDA REPETIDOS
@@ -442,7 +435,12 @@ namespace GUI.UserControlSecretarioAcademico
             }
         }
 
-        
+        private void BtnExisteCorrEnAprobadas_Click(object sender, EventArgs e)
+        {
+            ExisteEnDgAprobadas();
+        }
+
+
 
 
 
