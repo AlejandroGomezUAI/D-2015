@@ -141,9 +141,8 @@ namespace GUI.UserControlSecretarioAcademico
                 ConsultarAprobadas();
                 ExisteEnListaAprobados(ComboMaterias1.Text, dgAprobadas);
 
-                //Valido que esten las correlativas aprobadas
-                //ExisteEnListaCorrelativas(ComboMaterias1.Text, dgCorrelativas);
-
+                //Valido que esten las correlativas aprobadas                
+                ExisteEnDgAprobadas();
 
 
                 ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
@@ -196,22 +195,43 @@ namespace GUI.UserControlSecretarioAcademico
 
         public void ExisteEnDgAprobadas()
         {
-            // comparo dos dg
-            //string Valor;
-            //Valor = this.TxtIdProducto.Text;
-            //bool existe = this.dgAprobadas.Rows.Cast<DataGridViewRow>.Any((x)Convert.ToString(x.Cells("Column3").Value) = Valor);
 
-            //if (!existe)
-            //{
+            if (dgAprobadas.RowCount > 0)
+            {
+                // Primero averigua si el registro existe:
+                bool existe = false;
 
-            //    //Agregar registro'
-
-            //}
-            //else
-            //{
-
-            //    //Acciones a realizar si existe'
-            //}
+                for (int i = 0; i < dgAprobadas.RowCount; i++)
+                {
+                    for (int j = 0; j < dgCorrelativas.RowCount; j++)
+                    {
+                        if (dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() == dgCorrelativas.Rows[j].Cells[0].Value.ToString())
+                        {
+                            MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " en dgAprobada");
+                            existe = true;
+                            break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
+                        }
+                    }
+                    existe = false;
+                }
+                // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+                if (existe == false)
+                {
+                    
+                        if (dgCorrelativas.RowCount == 0)
+                        {
+                            MessageBox.Show("esta materia no tiene correlativas");
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Una de las materias correlativas no esta aprobada");
+                           
+                        }
+                                     
+                    //dgAprobadas.Rows.Add(id_prod, nombre, cant);
+                }
+            }
         }
 
         //FUNCION Q VALIDA REPETIDOS
@@ -423,8 +443,10 @@ namespace GUI.UserControlSecretarioAcademico
         {
             try
             {
+                CargarCorrelativas();
                 TraerFechasInicioCursos();
                 TraerCuposMaxCurso();
+                
             }
 
             catch (Exception ex)
@@ -440,7 +462,7 @@ namespace GUI.UserControlSecretarioAcademico
             ExisteEnDgAprobadas();
         }
 
-
+        
 
 
 

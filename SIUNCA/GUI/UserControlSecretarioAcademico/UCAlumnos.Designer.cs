@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,7 +74,6 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
@@ -119,7 +119,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar alumno a materia";
@@ -249,6 +249,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(343, 133);
             this.panel4.TabIndex = 45;
+            // 
+            // btnExisteCorrEnAprobadas
+            // 
+            this.btnExisteCorrEnAprobadas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExisteCorrEnAprobadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExisteCorrEnAprobadas.Location = new System.Drawing.Point(230, 93);
+            this.btnExisteCorrEnAprobadas.Name = "btnExisteCorrEnAprobadas";
+            this.btnExisteCorrEnAprobadas.Size = new System.Drawing.Size(86, 33);
+            this.btnExisteCorrEnAprobadas.TabIndex = 37;
+            this.btnExisteCorrEnAprobadas.Text = "Buscar";
+            this.btnExisteCorrEnAprobadas.UseVisualStyleBackColor = false;
+            this.btnExisteCorrEnAprobadas.Click += new System.EventHandler(this.BtnExisteCorrEnAprobadas_Click);
             // 
             // ComboMaterias1
             // 
@@ -467,7 +479,7 @@
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignar Correlativas";
@@ -559,18 +571,6 @@
             this.label16.Size = new System.Drawing.Size(219, 20);
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
-            // 
-            // btnExisteCorrEnAprobadas
-            // 
-            this.btnExisteCorrEnAprobadas.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnExisteCorrEnAprobadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExisteCorrEnAprobadas.Location = new System.Drawing.Point(230, 93);
-            this.btnExisteCorrEnAprobadas.Name = "btnExisteCorrEnAprobadas";
-            this.btnExisteCorrEnAprobadas.Size = new System.Drawing.Size(86, 33);
-            this.btnExisteCorrEnAprobadas.TabIndex = 37;
-            this.btnExisteCorrEnAprobadas.Text = "Buscar";
-            this.btnExisteCorrEnAprobadas.UseVisualStyleBackColor = false;
-            this.btnExisteCorrEnAprobadas.Click += new System.EventHandler(this.BtnExisteCorrEnAprobadas_Click);
             // 
             // UCAlumnos
             // 
