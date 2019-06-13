@@ -106,7 +106,6 @@
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
             this.tabPage1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.tabPage1.Controls.Add(this.ComboCuposMax);
-            this.tabPage1.Controls.Add(this.ComboFechasInicioCurso);
             this.tabPage1.Controls.Add(this.dgAprobadas);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label8);
@@ -136,7 +135,7 @@
             // ComboFechasInicioCurso
             // 
             this.ComboFechasInicioCurso.FormattingEnabled = true;
-            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(236, 136);
+            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(258, 55);
             this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
             this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
             this.ComboFechasInicioCurso.TabIndex = 39;
@@ -219,7 +218,6 @@
             // 
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.txtAño);
             this.groupBox1.Controls.Add(this.ComboCupos);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.button8);
@@ -329,7 +327,7 @@
             // 
             // txtAño
             // 
-            this.txtAño.Location = new System.Drawing.Point(241, 169);
+            this.txtAño.Location = new System.Drawing.Point(279, 95);
             this.txtAño.Name = "txtAño";
             this.txtAño.Size = new System.Drawing.Size(107, 26);
             this.txtAño.TabIndex = 5;
@@ -347,6 +345,8 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.ComboCarrera);
+            this.panel2.Controls.Add(this.ComboFechasInicioCurso);
+            this.panel2.Controls.Add(this.txtAño);
             this.panel2.Location = new System.Drawing.Point(19, 73);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(409, 169);
@@ -355,7 +355,7 @@
             // ComboCarrera
             // 
             this.ComboCarrera.FormattingEnabled = true;
-            this.ComboCarrera.Location = new System.Drawing.Point(201, 16);
+            this.ComboCarrera.Location = new System.Drawing.Point(258, 14);
             this.ComboCarrera.Name = "ComboCarrera";
             this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
             this.ComboCarrera.TabIndex = 11;
@@ -585,12 +585,12 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelativas)).EndInit();

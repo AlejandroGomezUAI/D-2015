@@ -195,40 +195,41 @@ namespace GUI.UserControlSecretarioAcademico
 
         public void ExisteEnDgAprobadas()
         {
-
             if (dgAprobadas.RowCount > 0)
             {
                 // Primero averigua si el registro existe:
                 bool existe = false;
-
-                for (int i = 0; i < dgAprobadas.RowCount; i++)
+                int i;
+                for ( i = 0; i < dgAprobadas.RowCount; i++)
                 {
                     for (int j = 0; j < dgCorrelativas.RowCount; j++)
                     {
                         if (dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() == dgCorrelativas.Rows[j].Cells[0].Value.ToString())
                         {
-                            MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " en dgAprobada");
+                            MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " esta en dgAprobada");
                             existe = true;
                             break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
                         }
-                    }
-                    existe = false;
+                    }                    
+                    existe = false;                  
+                   
                 }
+               
                 // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
                 if (existe == false)
                 {
-                    
-                        if (dgCorrelativas.RowCount == 0)
-                        {
-                            MessageBox.Show("esta materia no tiene correlativas");
-                            
-                        }
-                        else
-                        {
-                            MessageBox.Show("Una de las materias correlativas no esta aprobada");
-                           
-                        }
-                                     
+
+                    if (dgCorrelativas.RowCount == 0)
+                    {
+                        MessageBox.Show("esta materia no tiene correlativas");
+
+                    }
+                    else
+                    {                        
+                        MessageBox.Show("Una de las materias correlativas no esta aprobada");
+                        throw new Exception();
+                        //MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " no esta en dgAprobada");
+                    }                                     
                     //dgAprobadas.Rows.Add(id_prod, nombre, cant);
                 }
             }

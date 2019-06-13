@@ -159,6 +159,9 @@
     <EmbeddedResource Include="UserControlSecretarioAcademico\UCAlumnos.resx">
       <DependentUpon>UCAlumnos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControlSecretarioAcademico\UCCursos.resx">
+      <DependentUpon>UCCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlSecretarioAcademico\UCMaterias.resx">
       <DependentUpon>UCMaterias.cs</DependentUpon>
     </EmbeddedResource>
