@@ -33,11 +33,13 @@ namespace GUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace GUI
                 //frmsa.Show();
                 //###########################################################
                 //Este es el del profesor
-                frmProfesor frmp = new frmProfesor();
+                frmProfesor frmp = new frmProfesor(gestorUsuario.username);
                 frmp.Show();
                 this.Hide();
             }
@@ -72,7 +74,6 @@ namespace GUI
                 lblError.Visible = true;
                 lblError.Text = "Usuario o contraseña incorrecto";
             }
-           
         }
 
         private void Login_MouseMove(object sender, MouseEventArgs e)

@@ -20,6 +20,14 @@ namespace GUI
         {
             InitializeComponent();
             seleccionarUserControl(ucasistencias);
+            lblNombreProfesor.Visible = false;
+        }
+
+        public frmProfesor(string nombreProfesor)
+        {
+            InitializeComponent();
+            seleccionarUserControl(ucasistencias);
+            this.lblNombreProfesor.Text = nombreProfesor;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -76,7 +84,9 @@ namespace GUI
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-          
+            Login frmLogin = new Login();
+            frmLogin.Show();
+            this.Hide();
         }
 
 
