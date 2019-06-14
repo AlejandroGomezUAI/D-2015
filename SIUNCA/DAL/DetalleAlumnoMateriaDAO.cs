@@ -20,7 +20,7 @@ namespace DAL
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
-                resultado = unaConexion.EjecutarTupla<Alumno_MateriaCC>("SELECT MateriaConCorrelativas.Nombre, Alumno_MateriaCC.Estado FROM MateriaConCorrelativas INNER JOIN Alumno_MateriaCC on Alumno_MateriaCC.IdMateriaCC = MateriaConCorrelativas.IdMateriaCC INNER JOIN Alumno on Alumno.LegajoAlumno = Alumno_MateriaCC.LegajoAlumno WHERE Alumno_MateriaCC.Estado = 'Aprobado' AND Alumno.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Alumno_MateriaCC>("SELECT MateriaConCorrelativas.Nombre, Estado FROM MateriaConCorrelativas INNER JOIN Alumno_MateriaCC on Alumno_MateriaCC.IdMateriaCC = MateriaConCorrelativas.IdMateriaCC INNER JOIN Alumno on Alumno.LegajoAlumno = Alumno_MateriaCC.LegajoAlumno WHERE Estado = 'Aprobado' or Estado = 'Cursando' AND Alumno.LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
                 
             }
             catch (Exception ex)

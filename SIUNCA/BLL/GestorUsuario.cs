@@ -10,6 +10,8 @@ namespace BLL
 {
     public class GestorUsuario
     {
+        public string username { get; set; }
+
         public int traerUsuario(Usuario usuario)
         {
             var listaUsuario = new List<Usuario>();
@@ -23,13 +25,26 @@ namespace BLL
             var password = listaUsuario.Select(x => x.password).FirstOrDefault();
             var rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
 
-            if (email == usuario.email && password == usuario.password && rol == usuario.rol)
+            //esta propiedad es para cargar el nombre del profesor en el rfmProfesor ni bien se logea
+            username = listaUsuario.Select(x => x.username).FirstOrDefault();
+
+            //rol profesor
+            //if (email == usuario.email && password == usuario.password && rol == usuario.rol)
+            if (email == usuario.email && password == usuario.password && rol == "Profesor")
             {
                 return res;
             }
             else
             {
-                return 0;
+                if (email == usuario.email && password == usuario.password && rol == "Administrativo")
+                {
+                    res = 2;
+                    return res;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

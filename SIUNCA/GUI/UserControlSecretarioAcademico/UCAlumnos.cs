@@ -136,6 +136,15 @@ namespace GUI.UserControlSecretarioAcademico
                 //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
                 ExisteEnLista(ComboMaterias1.Text, dgAlumMat);
+
+                //traigo al dgAprobadas y verifico que la materia que quiero agregar no este "Aprobada"
+                ConsultarAprobadas();
+                ExisteEnListaAprobados(ComboMaterias1.Text, dgAprobadas);
+
+                //Valido que esten las correlativas aprobadas                
+                ExisteEnDgAprobadas();
+
+
                 ListAlumnoMateriaCC.Add(unDetAlumnoMatCC);
 
 
@@ -184,6 +193,48 @@ namespace GUI.UserControlSecretarioAcademico
             
         }
 
+        public void ExisteEnDgAprobadas()
+        {
+            if (dgAprobadas.RowCount > 0)
+            {
+                // Primero averigua si el registro existe:
+                bool existe = false;
+                int i;
+                for ( i = 0; i < dgAprobadas.RowCount; i++)
+                {
+                    for (int j = 0; j < dgCorrelativas.RowCount; j++)
+                    {
+                        if (dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() == dgCorrelativas.Rows[j].Cells[0].Value.ToString())
+                        {
+                            MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " esta en dgAprobada");
+                            existe = true;
+                            break; // debes salirte del ciclo si encuentras el registro, no es necesario seguir dentro
+                        }
+                    }                    
+                    existe = false;                  
+                   
+                }
+               
+                // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+                if (existe == false)
+                {
+
+                    if (dgCorrelativas.RowCount == 0)
+                    {
+                        MessageBox.Show("esta materia no tiene correlativas");
+
+                    }
+                    else
+                    {                        
+                        MessageBox.Show("Una de las materias correlativas no esta aprobada");
+                        throw new Exception();
+                        //MessageBox.Show("correlativa " + dgAprobadas.Rows[i].Cells["Nombre"].Value.ToString() + " no esta en dgAprobada");
+                    }                                     
+                    //dgAprobadas.Rows.Add(id_prod, nombre, cant);
+                }
+            }
+        }
+
         //FUNCION Q VALIDA REPETIDOS
         public Boolean ExisteEnLista(String Rol, DataGridView Dg)
         {
@@ -207,10 +258,39 @@ namespace GUI.UserControlSecretarioAcademico
             }
             return existe;
         }
+        //FUNCION Q VALIDA REPETIDOS
+        public Boolean ExisteEnListaAprobados(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["Nombre"].Value);
+                if (Rol == verificar)
+                {
+                    //labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Materia que intenta agregar ya esta aprobada o esta siendo cursada");
+                    throw new Exception("Materia repetida");
+                    break;
+                }
+                else
+                {
+                    existe = false;
+                    //labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
+        }
+
+        //FUNCION Q VALIDA REPETIDOS
+       
+        
+
 
         private void Button8_Click(object sender, EventArgs e)
         {
             CargarCorrelativas();
+
         }
         private void CargarCorrelativas()
         {
@@ -364,8 +444,10 @@ namespace GUI.UserControlSecretarioAcademico
         {
             try
             {
+                CargarCorrelativas();
                 TraerFechasInicioCursos();
                 TraerCuposMaxCurso();
+                
             }
 
             catch (Exception ex)
@@ -375,6 +457,14 @@ namespace GUI.UserControlSecretarioAcademico
 
             }
         }
+
+        private void BtnExisteCorrEnAprobadas_Click(object sender, EventArgs e)
+        {
+            ExisteEnDgAprobadas();
+        }
+
+        
+
 
 
         //private void ComboMaterias1_Click(object sender, EventArgs e)
