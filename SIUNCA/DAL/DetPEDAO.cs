@@ -30,7 +30,7 @@ namespace DAL
                 //MsgBox("error al traer correlativas");
                 MessageBox.Show("error al traer Detalles PE", ex.ToString());
                 //return null;
-                throw;
+                //throw;
             }
             finally
             {

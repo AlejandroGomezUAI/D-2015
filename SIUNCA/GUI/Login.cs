@@ -50,6 +50,7 @@ namespace GUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var usuario = new Usuario();
+            
             usuario.email = txtUsuario.Text;
             usuario.password = txtContraseña.Text;
             usuario.rol = cboRol.Text;
@@ -71,8 +72,16 @@ namespace GUI
             }
             else
             {
-                lblError.Visible = true;
-                lblError.Text = "Usuario o contraseña incorrecto";
+                if (resultadoUser == 2)
+                {
+                    frmSecretarioAcademico frmsa = new frmSecretarioAcademico();
+                    frmsa.Show();
+                }
+                else
+                {
+                    lblError.Visible = true;
+                    lblError.Text = "Usuario o contraseña incorrecto";
+                }
             }
         }
 
