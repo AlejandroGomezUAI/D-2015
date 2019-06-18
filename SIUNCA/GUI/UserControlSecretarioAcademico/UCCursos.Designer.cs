@@ -30,13 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ComboCuposMax = new System.Windows.Forms.ComboBox();
-            this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
-            this.dgAprobadas = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
@@ -44,15 +37,21 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ComboPEcorr = new System.Windows.Forms.ComboBox();
-            this.txtAño = new System.Windows.Forms.TextBox();
-            this.ComboCupos = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.ComboCarrera = new System.Windows.Forms.ComboBox();
+            this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dgAlumMat = new System.Windows.Forms.DataGridView();
+            this.dgCursoMat = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ComboCuposMax = new System.Windows.Forms.ComboBox();
+            this.ComboCarrera = new System.Windows.Forms.ComboBox();
+            this.ComboCupos = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAño = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -63,13 +62,16 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursoMat)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).BeginInit();
             this.SuspendLayout();
@@ -100,69 +102,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Asignar Cursos a materia";
             // 
-            // ComboCuposMax
-            // 
-            this.ComboCuposMax.Enabled = false;
-            this.ComboCuposMax.FormattingEnabled = true;
-            this.ComboCuposMax.Location = new System.Drawing.Point(310, 114);
-            this.ComboCuposMax.Name = "ComboCuposMax";
-            this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
-            this.ComboCuposMax.TabIndex = 41;
-            // 
-            // ComboFechasInicioCurso
-            // 
-            this.ComboFechasInicioCurso.FormattingEnabled = true;
-            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(239, 46);
-            this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
-            this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
-            this.ComboFechasInicioCurso.TabIndex = 39;
-            // 
-            // dgAprobadas
-            // 
-            this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAprobadas.Location = new System.Drawing.Point(453, 266);
-            this.dgAprobadas.Name = "dgAprobadas";
-            this.dgAprobadas.RowHeadersWidth = 57;
-            this.dgAprobadas.Size = new System.Drawing.Size(224, 141);
-            this.dgAprobadas.TabIndex = 33;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 20);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Carrera";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 20);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Cupos Valor Nuevo-Actuales";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Turno";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(174, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Fecha inicio cursada";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel4);
@@ -170,7 +109,7 @@
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.dgAlumMat);
+            this.groupBox1.Controls.Add(this.dgCursoMat);
             this.groupBox1.Controls.Add(this.btnConsultarCorrelativas);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Location = new System.Drawing.Point(15, 5);
@@ -237,47 +176,17 @@
             this.ComboPEcorr.Name = "ComboPEcorr";
             this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
             this.ComboPEcorr.TabIndex = 53;
+            this.ComboPEcorr.DropDownClosed += new System.EventHandler(this.ComboPEcorr_DropDownClosed);
             // 
-            // txtAño
+            // dgAprobadas
             // 
-            this.txtAño.Location = new System.Drawing.Point(260, 79);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(107, 26);
-            this.txtAño.TabIndex = 5;
-            // 
-            // ComboCupos
-            // 
-            this.ComboCupos.Enabled = false;
-            this.ComboCupos.FormattingEnabled = true;
-            this.ComboCupos.Location = new System.Drawing.Point(247, 114);
-            this.ComboCupos.Name = "ComboCupos";
-            this.ComboCupos.Size = new System.Drawing.Size(57, 28);
-            this.ComboCupos.TabIndex = 43;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.ComboCuposMax);
-            this.panel2.Controls.Add(this.ComboCarrera);
-            this.panel2.Controls.Add(this.ComboCupos);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtAño);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.ComboFechasInicioCurso);
-            this.panel2.Location = new System.Drawing.Point(409, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(386, 169);
-            this.panel2.TabIndex = 45;
-            // 
-            // ComboCarrera
-            // 
-            this.ComboCarrera.FormattingEnabled = true;
-            this.ComboCarrera.Location = new System.Drawing.Point(239, 13);
-            this.ComboCarrera.Name = "ComboCarrera";
-            this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
-            this.ComboCarrera.TabIndex = 11;
+            this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAprobadas.Location = new System.Drawing.Point(453, 266);
+            this.dgAprobadas.Name = "dgAprobadas";
+            this.dgAprobadas.RowHeadersWidth = 57;
+            this.dgAprobadas.Size = new System.Drawing.Size(224, 141);
+            this.dgAprobadas.TabIndex = 33;
             // 
             // button6
             // 
@@ -299,8 +208,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(212, 70);
             this.button4.TabIndex = 27;
-            this.button4.Text = "Asignar materia";
+            this.button4.Text = "Asignar curso";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button5
             // 
@@ -310,18 +220,18 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(191, 70);
             this.button5.TabIndex = 26;
-            this.button5.Text = "Quitar materia";
+            this.button5.Text = "Quitar curso";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // dgAlumMat
+            // dgCursoMat
             // 
-            this.dgAlumMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgAlumMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAlumMat.Location = new System.Drawing.Point(19, 266);
-            this.dgAlumMat.Name = "dgAlumMat";
-            this.dgAlumMat.RowHeadersWidth = 57;
-            this.dgAlumMat.Size = new System.Drawing.Size(409, 179);
-            this.dgAlumMat.TabIndex = 23;
+            this.dgCursoMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgCursoMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgCursoMat.Location = new System.Drawing.Point(19, 266);
+            this.dgCursoMat.Name = "dgCursoMat";
+            this.dgCursoMat.RowHeadersWidth = 57;
+            this.dgCursoMat.Size = new System.Drawing.Size(409, 179);
+            this.dgCursoMat.TabIndex = 23;
             // 
             // btnConsultarCorrelativas
             // 
@@ -333,6 +243,94 @@
             this.btnConsultarCorrelativas.TabIndex = 22;
             this.btnConsultarCorrelativas.Text = "Consultar aprobadas";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.ComboCuposMax);
+            this.panel2.Controls.Add(this.ComboCarrera);
+            this.panel2.Controls.Add(this.ComboCupos);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txtAño);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Location = new System.Drawing.Point(409, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(386, 222);
+            this.panel2.TabIndex = 45;
+            // 
+            // ComboCuposMax
+            // 
+            this.ComboCuposMax.Enabled = false;
+            this.ComboCuposMax.FormattingEnabled = true;
+            this.ComboCuposMax.Location = new System.Drawing.Point(310, 114);
+            this.ComboCuposMax.Name = "ComboCuposMax";
+            this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
+            this.ComboCuposMax.TabIndex = 41;
+            // 
+            // ComboCarrera
+            // 
+            this.ComboCarrera.FormattingEnabled = true;
+            this.ComboCarrera.Location = new System.Drawing.Point(239, 13);
+            this.ComboCarrera.Name = "ComboCarrera";
+            this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
+            this.ComboCarrera.TabIndex = 11;
+            // 
+            // ComboCupos
+            // 
+            this.ComboCupos.Enabled = false;
+            this.ComboCupos.FormattingEnabled = true;
+            this.ComboCupos.Location = new System.Drawing.Point(247, 114);
+            this.ComboCupos.Name = "ComboCupos";
+            this.ComboCupos.Size = new System.Drawing.Size(57, 28);
+            this.ComboCupos.TabIndex = 43;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(5, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Carrera";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(238, 20);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Cupos Valor Nuevo-Actuales";
+            // 
+            // txtAño
+            // 
+            this.txtAño.Location = new System.Drawing.Point(260, 150);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(107, 26);
+            this.txtAño.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 153);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Turno";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Fecha inicio cursada";
             // 
             // tabPage2
             // 
@@ -440,6 +438,35 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(239, 47);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 27);
+            this.dateTimePicker1.TabIndex = 44;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(239, 80);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(128, 27);
+            this.dateTimePicker2.TabIndex = 46;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 20);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Fecha fin cursada";
+            // 
             // UCCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,13 +476,13 @@
             this.Size = new System.Drawing.Size(854, 638);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgCursoMat)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAlumMat)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCorrelatividades)).EndInit();
@@ -478,7 +505,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dgAlumMat;
+        private System.Windows.Forms.DataGridView dgCursoMat;
         private System.Windows.Forms.Button btnConsultarCorrelativas;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ComboCuposMax;
@@ -489,7 +516,6 @@
         private System.Windows.Forms.TextBox txtAño;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox ComboFechasInicioCurso;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -500,5 +526,8 @@
         private System.Windows.Forms.ComboBox ComboMateriasCC;
         private System.Windows.Forms.ComboBox ComboCorrelativas;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label1;
     }
 }

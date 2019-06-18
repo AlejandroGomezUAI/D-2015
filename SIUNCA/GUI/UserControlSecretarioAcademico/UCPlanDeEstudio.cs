@@ -34,9 +34,10 @@ namespace GUI.UserControlSecretarioAcademico
             //ucPlanDeEstudio
             CargarCarreras();
             
+            //ucAsignarCorr
             CargarMateriasCC();
             
-            //ucAsignarCorr
+            //ucPlanDeEstudio
             //CargarPlanes();
             CargarMaterias();
         }
