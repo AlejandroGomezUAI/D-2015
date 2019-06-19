@@ -38,6 +38,49 @@ namespace DAL
             return resultado;
         }
 
+        public void Insertar(DTOCurso unDTOcurso, List<DTOCurso> listCurso)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaDeParametros = new List<Parametro>();
+            listaDeParametros.Add(new Parametro("Nombre", unDTOcurso.nombreCurso));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+
+
+                foreach (var item in listCurso)
+                {
+                    List<Parametro> listaParametrosCD = new List<Parametro>();
+
+                    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
+                    listaParametrosCD.Add(new Parametro("IdMateriaCC", item.IdMateriaCC));
+                    listaParametrosCD.Add(new Parametro("IdCarrera", item.IdCarrera));
+                    listaParametrosCD.Add(new Parametro("FechaInicio", item.FechaInicio));
+                    listaParametrosCD.Add(new Parametro("FechaFin", item.FechaFin));
+                    listaParametrosCD.Add(new Parametro("Turno", item.Turno));
+                    listaParametrosCD.Add(new Parametro("CuposMax", item.CuposMax));
+
+                    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+
+                    unaConexion.EjecutarSinResultado("INSERT INTO Curso (IdMateriaCC, IdCarrera, FechaInicio, FechaFin, Turno, CuposMax) VALUES (@IdMateriaCC, @IdCarrera, @FechaInicio, @FechaFin, @Turno, @CuposMax)", listaParametrosCD);
+                }
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception x)
+            {
+                unaConexion.TransaccionCancelar();
+                // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
+                //Interaction.MsgBox("error al insertar plan de estudio detalles");
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+
+        }
+
         public List<Curso> TraerCuposCurso(Curso uncurso)
         {
             List<Curso> resultado = new List<Curso>();

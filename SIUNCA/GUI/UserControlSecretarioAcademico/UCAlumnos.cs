@@ -463,7 +463,12 @@ namespace GUI.UserControlSecretarioAcademico
             ExisteEnDgAprobadas();
         }
 
-        
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

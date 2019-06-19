@@ -15,6 +15,9 @@ namespace GUI.UserControlSecretarioAcademico
 {
     public partial class UCCursos : UserControl
     {
+        List<DTOCurso> ListCurso = new List<DTOCurso>();
+        DTOCurso unDTOCurso = new DTOCurso();
+        Carrera UnaCarrera = new Carrera();
         public UCCursos()
         {
             InitializeComponent();
@@ -23,7 +26,7 @@ namespace GUI.UserControlSecretarioAcademico
             CargarMaterias2();
 
         }
-        List<Curso> ListCurso = new List<Curso>();
+
         private void CargarPlanes()
         {
             GestorPlanDeEstudio unGPE = new GestorPlanDeEstudio();
@@ -40,17 +43,12 @@ namespace GUI.UserControlSecretarioAcademico
             ComboCarrera.DisplayMember = "Nombre";
         }
 
-        private void Button6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             try
             {
-                //AGREGAR DTO CURSO
-                Curso unDetCurso = new Curso();
+                DTOCurso unDetCurso = new DTOCurso();
                 DTODetallesCorrPlan UnaMateria;
                 Carrera UnaCarrera;
 
@@ -60,14 +58,17 @@ namespace GUI.UserControlSecretarioAcademico
 
                 unDetCurso.IdMateriaCC = UnaMateria.IdMateriaCC;
                 unDetCurso.IdCarrera = UnaCarrera.IdCarrera;
+                unDetCurso.NombreMateria = UnaMateria.Nombre;
+                unDetCurso.NombreCarrera = UnaCarrera.Nombre;
                 //unDetCurso.Nombre = ((DTODetallesCorrPlan)ComboMaterias1.SelectedItem).Nombre;
                 //unDetCurso.CuposMax = int.Parse(ComboCuposMax.Text);
-                unDetCurso.CuposMax = 50;
+                unDetCurso.CuposMax = int.Parse(txtCuposMax.Text);
                 unDetCurso.FechaInicio = dateTimePicker1.Value;
                 unDetCurso.FechaFin = dateTimePicker2.Value;
+                unDetCurso.Turno = comboTurno.Text;
                 //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
-                //ExisteEnLista(ComboMaterias1.Text, dgAlumMat);
+                ExisteEnLista(ComboMaterias1.Text, dgCursoMat);
 
                 //traigo al dgAprobadas y verifico que la materia que quiero agregar no este "Aprobada"
                 //ConsultarAprobadas();
@@ -75,12 +76,30 @@ namespace GUI.UserControlSecretarioAcademico
 
                 //Valido que esten las correlativas aprobadas                
                 //ExisteEnDgAprobadas();
+                if (dateTimePicker1.Value.Date == dateTimePicker2.Value.Date)
+                {
+                    MessageBox.Show("Fecha de inicio no puede ser igual a fecha de finalizacion.");
+                    throw new Exception();
 
-
+                }
+                else if (dateTimePicker1.Value.Date <= DateTime.Now.Date)
+                {
+                    MessageBox.Show("Fecha de inicio de cursada no puede ser menor o igual a hoy.");
+                    throw new Exception();
+                }
+                else 
+                {
+                    if (dateTimePicker1.Value.Date > dateTimePicker2.Value.Date)
+                    {
+                        MessageBox.Show("Fecha de inicio no puede ser mayor a fecha de finalizacion.");
+                        throw new Exception();
+                    }
+                }
+                
                 ListCurso.Add(unDetCurso);
                 dgCursoMat.DataSource = null;
                 dgCursoMat.DataSource = ListCurso;
-                //PODRIA AGREGAR UN DTO CURSO CON NOMBRE MATERIA NOMBRE CARRERA
+
                 dgCursoMat.Columns.Remove("IdCurso");
                 //dgCursoMat.Columns.Remove("IdMateriaCC");
                 //dgCursoMat.Columns.Remove("IdAlumno_Materia");
@@ -106,6 +125,46 @@ namespace GUI.UserControlSecretarioAcademico
             }
          
         }
+        public Boolean ExisteEnLista(String Rol, DataGridView Dg)
+        {
+            Boolean existe = false;
+            foreach (DataGridViewRow row in Dg.Rows)
+            {
+                String verificar = Convert.ToString(row.Cells["NombreMateria"].Value);
+                if (Rol == verificar)
+                {
+                    //labelMensaje.Visible = true;
+                    //labelMensaje.Text = "Ya existe";
+                    existe = true;
+                    MessageBox.Show("Atención, ya se encuentra esa materia en el listado.","Aviso",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //throw new Exception("Numero de materia repetido");
+                    break;
+                }
+                else
+                {
+                    //labelMensaje.Visible = true;
+                    existe = false;
+                    //labelMensaje.Text = "Agregado";
+                }
+            }
+            return existe;
+        }
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            unDTOCurso.nombreCurso = comboNombreCurso.Text;
+
+            try
+            {
+                GestorCurso unGCurso = new GestorCurso();
+                GestorCurso.CrearCurso(unDTOCurso, ListCurso);
+                MessageBox.Show("Curso creado.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar curso.");
+            }
+        }
+
 
         private void ComboPEcorr_DropDownClosed(object sender, EventArgs e)
         {
@@ -121,6 +180,24 @@ namespace GUI.UserControlSecretarioAcademico
             ComboMaterias1.DataSource = unGDetPE.TraerListaPEDetalles(unPE2);
 
             ComboMaterias1.DisplayMember = "Nombre";
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            ListCurso.Remove((DTOCurso)dgCursoMat.CurrentRow.DataBoundItem);
+            dgCursoMat.DataSource = null;
+            dgCursoMat.DataSource = ListCurso;
+
+            dgCursoMat.Columns.Remove("IdCurso");
+            //dgCursoMat.Columns.Remove("IdMateriaCC");
+            //dgCursoMat.Columns.Remove("IdAlumno_Materia");
+            dgCursoMat.Columns.Remove("CreatedOn");
+            dgCursoMat.Columns.Remove("CreatedBy");
+            dgCursoMat.Columns.Remove("ChangedBy");
+            dgCursoMat.Columns.Remove("ChangedOn");
+
+            //dgCursoMat.Columns["Nombre"].HeaderText = "Materia seleccionada";
+            //dgCursoMat.Columns["NombreMateria2"].HeaderText = "Correlativa asignada";
         }
     }
 }

@@ -26,5 +26,19 @@ namespace BLL
             ListaCursos = unCursoDAO.TraerCuposCurso(uncurso);
             return ListaCursos;
         }
+
+        static public void CrearCurso(DTOCurso unDTOcurso, List<DTOCurso> listCurso)
+        {
+            // If
+            // End If
+
+            GuardarCurso(unDTOcurso, listCurso);
+        }
+
+        static private void GuardarCurso(DTOCurso unDTOcurso, List<DTOCurso> listCurso)
+        {
+            CursoDAO unCursoDAO = new CursoDAO();
+            unCursoDAO.Insertar(unDTOcurso, listCurso);
+        }
     }
 }

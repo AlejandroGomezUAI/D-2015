@@ -44,12 +44,14 @@
             this.dgCursoMat = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.ComboCuposMax = new System.Windows.Forms.ComboBox();
             this.ComboCarrera = new System.Windows.Forms.ComboBox();
             this.ComboCupos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtAño = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -62,9 +64,9 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtCuposMax = new System.Windows.Forms.TextBox();
+            this.comboTurno = new System.Windows.Forms.ComboBox();
+            this.comboNombreCurso = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,6 +106,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboNombreCurso);
             this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Controls.Add(this.dgAprobadas);
             this.groupBox1.Controls.Add(this.button6);
@@ -222,6 +225,7 @@
             this.button5.TabIndex = 26;
             this.button5.Text = "Quitar curso";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // dgCursoMat
             // 
@@ -241,12 +245,14 @@
             this.btnConsultarCorrelativas.Name = "btnConsultarCorrelativas";
             this.btnConsultarCorrelativas.Size = new System.Drawing.Size(111, 141);
             this.btnConsultarCorrelativas.TabIndex = 22;
-            this.btnConsultarCorrelativas.Text = "Consultar aprobadas";
+            this.btnConsultarCorrelativas.Text = "Consultar aprobadas (cursos)";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.comboTurno);
+            this.panel2.Controls.Add(this.txtCuposMax);
             this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dateTimePicker1);
@@ -255,13 +261,41 @@
             this.panel2.Controls.Add(this.ComboCupos);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtAño);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(409, 38);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(386, 222);
             this.panel2.TabIndex = 45;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(239, 80);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(128, 27);
+            this.dateTimePicker2.TabIndex = 46;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 20);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Fecha fin cursada";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(239, 47);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 27);
+            this.dateTimePicker1.TabIndex = 44;
             // 
             // ComboCuposMax
             // 
@@ -306,13 +340,6 @@
             this.label7.Size = new System.Drawing.Size(238, 20);
             this.label7.TabIndex = 17;
             this.label7.Text = "Cupos Valor Nuevo-Actuales";
-            // 
-            // txtAño
-            // 
-            this.txtAño.Location = new System.Drawing.Point(260, 150);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(107, 26);
-            this.txtAño.TabIndex = 5;
             // 
             // label6
             // 
@@ -438,34 +465,27 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // dateTimePicker1
+            // txtCuposMax
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(239, 47);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(128, 27);
-            this.dateTimePicker1.TabIndex = 44;
+            this.txtCuposMax.Location = new System.Drawing.Point(260, 116);
+            this.txtCuposMax.Name = "txtCuposMax";
+            this.txtCuposMax.Size = new System.Drawing.Size(100, 26);
+            this.txtCuposMax.TabIndex = 47;
             // 
-            // dateTimePicker2
+            // comboTurno
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(239, 80);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(128, 27);
-            this.dateTimePicker2.TabIndex = 46;
+            this.comboTurno.FormattingEnabled = true;
+            this.comboTurno.Location = new System.Drawing.Point(246, 150);
+            this.comboTurno.Name = "comboTurno";
+            this.comboTurno.Size = new System.Drawing.Size(121, 28);
+            this.comboTurno.TabIndex = 48;
             // 
-            // label1
+            // comboNombreCurso
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 20);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Fecha fin cursada";
+            this.comboNombreCurso.Location = new System.Drawing.Point(60, 38);
+            this.comboNombreCurso.Name = "comboNombreCurso";
+            this.comboNombreCurso.Size = new System.Drawing.Size(100, 26);
+            this.comboNombreCurso.TabIndex = 46;
             // 
             // UCCursos
             // 
@@ -477,6 +497,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
@@ -513,7 +534,6 @@
         private System.Windows.Forms.ComboBox ComboCupos;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtAño;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage2;
@@ -529,5 +549,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCuposMax;
+        private System.Windows.Forms.ComboBox comboTurno;
+        private System.Windows.Forms.TextBox comboNombreCurso;
     }
 }

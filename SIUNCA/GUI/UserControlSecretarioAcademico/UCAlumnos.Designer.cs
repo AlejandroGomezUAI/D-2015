@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ComboCuposMax = new System.Windows.Forms.ComboBox();
-            this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
             this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,10 +49,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
-            this.txtAño = new System.Windows.Forms.TextBox();
             this.ComboCupos = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ComboCarrera = new System.Windows.Forms.ComboBox();
+            this.ComboFechasInicioCurso = new System.Windows.Forms.ComboBox();
+            this.txtAño = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ComboNombre = new System.Windows.Forms.ComboBox();
@@ -131,15 +131,6 @@
             this.ComboCuposMax.Name = "ComboCuposMax";
             this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
             this.ComboCuposMax.TabIndex = 41;
-            // 
-            // ComboFechasInicioCurso
-            // 
-            this.ComboFechasInicioCurso.FormattingEnabled = true;
-            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(258, 55);
-            this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
-            this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
-            this.ComboFechasInicioCurso.TabIndex = 39;
-            this.ComboFechasInicioCurso.Click += new System.EventHandler(this.ComboFechasInicioCurso_Click);
             // 
             // dgAprobadas
             // 
@@ -325,13 +316,6 @@
             this.txtLegajo.Size = new System.Drawing.Size(95, 26);
             this.txtLegajo.TabIndex = 1;
             // 
-            // txtAño
-            // 
-            this.txtAño.Location = new System.Drawing.Point(279, 95);
-            this.txtAño.Name = "txtAño";
-            this.txtAño.Size = new System.Drawing.Size(107, 26);
-            this.txtAño.TabIndex = 5;
-            // 
             // ComboCupos
             // 
             this.ComboCupos.Enabled = false;
@@ -359,6 +343,22 @@
             this.ComboCarrera.Name = "ComboCarrera";
             this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
             this.ComboCarrera.TabIndex = 11;
+            // 
+            // ComboFechasInicioCurso
+            // 
+            this.ComboFechasInicioCurso.FormattingEnabled = true;
+            this.ComboFechasInicioCurso.Location = new System.Drawing.Point(258, 55);
+            this.ComboFechasInicioCurso.Name = "ComboFechasInicioCurso";
+            this.ComboFechasInicioCurso.Size = new System.Drawing.Size(128, 28);
+            this.ComboFechasInicioCurso.TabIndex = 39;
+            this.ComboFechasInicioCurso.Click += new System.EventHandler(this.ComboFechasInicioCurso_Click);
+            // 
+            // txtAño
+            // 
+            this.txtAño.Location = new System.Drawing.Point(279, 95);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(107, 26);
+            this.txtAño.TabIndex = 5;
             // 
             // button8
             // 
@@ -432,6 +432,7 @@
             this.button5.TabIndex = 26;
             this.button5.Text = "Quitar materia";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // dgAlumMat
             // 
