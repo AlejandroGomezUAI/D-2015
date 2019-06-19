@@ -475,6 +475,10 @@
             // comboTurno
             // 
             this.comboTurno.FormattingEnabled = true;
+            this.comboTurno.Items.AddRange(new object[] {
+            "Mañana",
+            "Tarde",
+            "Noche"});
             this.comboTurno.Location = new System.Drawing.Point(246, 150);
             this.comboTurno.Name = "comboTurno";
             this.comboTurno.Size = new System.Drawing.Size(121, 28);
