@@ -108,6 +108,7 @@ namespace DAL
                     //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
 
                     unaConexion.EjecutarSinResultado("INSERT INTO Alumno_MateriaCC (IdMateriaCC, LegajoAlumno, Estado) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
+                    //unaConexion.EjecutarSinResultado("INSERT INTO Curso (IdMateriaCC, IdCarrera) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
                 }
                 unaConexion.TransaccionAceptar();
             }
