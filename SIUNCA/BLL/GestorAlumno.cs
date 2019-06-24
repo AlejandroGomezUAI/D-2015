@@ -40,11 +40,11 @@ namespace BLL
             return ListaAlumno;
         }
 
-        public void AsignarAlumnoAMaterias(List<Alumno_MateriaCC> AlumnoMateriaDetalles)
+        public void AsignarAlumnoAMaterias(Alumno unAlumno, List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
             AlumnoDAO unAlumnoDAO = new AlumnoDAO();
 
-            unAlumnoDAO.GuardarAsignacionAlumnoAMaterias(AlumnoMateriaDetalles);
+            unAlumnoDAO.GuardarAsignacionAlumnoAMaterias(unAlumno, AlumnoMateriaDetalles);
         }
 
         public void Crear(object unAlumno)

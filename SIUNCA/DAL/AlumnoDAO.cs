@@ -83,8 +83,45 @@ namespace DAL
             }
             return resultado;
         }
-        public void GuardarAsignacionAlumnoAMaterias(List<Alumno_MateriaCC> AlumnoMateriaDetalles)
+        public void GuardarAsignacionAlumnoAMaterias(Alumno unAlumno, List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaDeParametros = new List<Parametro>();
+            listaDeParametros.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+
+
+                foreach (var item in AlumnoMateriaDetalles)
+                {
+                    List<Parametro> listaParametrosCD = new List<Parametro>();
+
+                    //listaParametrosCD.Add(new Parametro("IdDetallesDetMatPlanCorrPlan", IdDetallesDetMatPlanCorrPlan));
+                    listaParametrosCD.Add(new Parametro("IdMateriaCC", item.IdMateriaCC));
+                    listaParametrosCD.Add(new Parametro("LegajoAlumno", item.LegajoAlumno));
+                    listaParametrosCD.Add(new Parametro("Estado", item.Estado));
+
+
+                    //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
+
+                    unaConexion.EjecutarSinResultado("INSERT INTO Alumno_MateriaCC (IdMateriaCC, LegajoAlumno, Estado) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
+                }
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception x)
+            {
+                unaConexion.TransaccionCancelar();
+                // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
+                //Interaction.MsgBox("error al insertar plan de estudio detalles");
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+
         }
         public void Crear(object unAlumno)
         {

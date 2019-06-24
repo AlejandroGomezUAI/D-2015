@@ -156,7 +156,7 @@ namespace GUI.UserControlSecretarioAcademico
             try
             {
                 GestorCurso unGCurso = new GestorCurso();
-                GestorCurso.CrearCurso(unDTOCurso, ListCurso);
+                unGCurso.CrearCurso(unDTOCurso, ListCurso);
                 MessageBox.Show("Curso creado.");
             }
             catch (Exception ex)
