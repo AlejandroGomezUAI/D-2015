@@ -31,14 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboNombreCurso = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ComboPEcorr = new System.Windows.Forms.ComboBox();
-            this.dgAprobadas = new System.Windows.Forms.DataGridView();
+            this.dgConsultaCursos = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -69,7 +67,7 @@
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgConsultaCursos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursoMat)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -104,9 +102,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboNombreCurso);
             this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.dgAprobadas);
+            this.groupBox1.Controls.Add(this.dgConsultaCursos);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button5);
@@ -120,36 +117,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asignacion de cursos a materias";
             // 
-            // comboNombreCurso
-            // 
-            this.comboNombreCurso.Location = new System.Drawing.Point(60, 38);
-            this.comboNombreCurso.Name = "comboNombreCurso";
-            this.comboNombreCurso.Size = new System.Drawing.Size(100, 26);
-            this.comboNombreCurso.TabIndex = 46;
-            // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.btnExisteCorrEnAprobadas);
             this.panel4.Controls.Add(this.ComboMaterias1);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.ComboPEcorr);
-            this.panel4.Location = new System.Drawing.Point(19, 74);
+            this.panel4.Location = new System.Drawing.Point(19, 38);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(361, 133);
+            this.panel4.Size = new System.Drawing.Size(384, 200);
             this.panel4.TabIndex = 45;
-            // 
-            // btnExisteCorrEnAprobadas
-            // 
-            this.btnExisteCorrEnAprobadas.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnExisteCorrEnAprobadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExisteCorrEnAprobadas.Location = new System.Drawing.Point(230, 93);
-            this.btnExisteCorrEnAprobadas.Name = "btnExisteCorrEnAprobadas";
-            this.btnExisteCorrEnAprobadas.Size = new System.Drawing.Size(86, 33);
-            this.btnExisteCorrEnAprobadas.TabIndex = 37;
-            this.btnExisteCorrEnAprobadas.Text = "Buscar";
-            this.btnExisteCorrEnAprobadas.UseVisualStyleBackColor = false;
             // 
             // ComboMaterias1
             // 
@@ -186,23 +164,23 @@
             this.ComboPEcorr.TabIndex = 53;
             this.ComboPEcorr.DropDownClosed += new System.EventHandler(this.ComboPEcorr_DropDownClosed);
             // 
-            // dgAprobadas
+            // dgConsultaCursos
             // 
-            this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAprobadas.Location = new System.Drawing.Point(453, 266);
-            this.dgAprobadas.Name = "dgAprobadas";
-            this.dgAprobadas.RowHeadersWidth = 57;
-            this.dgAprobadas.Size = new System.Drawing.Size(224, 141);
-            this.dgAprobadas.TabIndex = 33;
+            this.dgConsultaCursos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgConsultaCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgConsultaCursos.Location = new System.Drawing.Point(409, 244);
+            this.dgConsultaCursos.Name = "dgConsultaCursos";
+            this.dgConsultaCursos.RowHeadersWidth = 57;
+            this.dgConsultaCursos.Size = new System.Drawing.Size(392, 201);
+            this.dgConsultaCursos.TabIndex = 33;
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.DodgerBlue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(498, 451);
+            this.button6.Location = new System.Drawing.Point(409, 510);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(296, 67);
+            this.button6.Size = new System.Drawing.Size(392, 57);
             this.button6.TabIndex = 28;
             this.button6.Text = "Guardar asignaciones";
             this.button6.UseVisualStyleBackColor = false;
@@ -214,7 +192,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Location = new System.Drawing.Point(19, 451);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(212, 70);
+            this.button4.Size = new System.Drawing.Size(212, 46);
             this.button4.TabIndex = 27;
             this.button4.Text = "Asignar curso";
             this.button4.UseVisualStyleBackColor = false;
@@ -226,7 +204,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button5.Location = new System.Drawing.Point(237, 451);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(191, 70);
+            this.button5.Size = new System.Drawing.Size(166, 46);
             this.button5.TabIndex = 26;
             this.button5.Text = "Quitar curso";
             this.button5.UseVisualStyleBackColor = false;
@@ -236,21 +214,21 @@
             // 
             this.dgCursoMat.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgCursoMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgCursoMat.Location = new System.Drawing.Point(19, 266);
+            this.dgCursoMat.Location = new System.Drawing.Point(19, 244);
             this.dgCursoMat.Name = "dgCursoMat";
             this.dgCursoMat.RowHeadersWidth = 57;
-            this.dgCursoMat.Size = new System.Drawing.Size(409, 179);
+            this.dgCursoMat.Size = new System.Drawing.Size(384, 201);
             this.dgCursoMat.TabIndex = 23;
             // 
             // btnConsultarCorrelativas
             // 
             this.btnConsultarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConsultarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(683, 266);
+            this.btnConsultarCorrelativas.Location = new System.Drawing.Point(409, 451);
             this.btnConsultarCorrelativas.Name = "btnConsultarCorrelativas";
-            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(111, 141);
+            this.btnConsultarCorrelativas.Size = new System.Drawing.Size(392, 45);
             this.btnConsultarCorrelativas.TabIndex = 22;
-            this.btnConsultarCorrelativas.Text = "Consultar aprobadas (cursos)";
+            this.btnConsultarCorrelativas.Text = "Consultar cursos";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
             this.btnConsultarCorrelativas.Click += new System.EventHandler(this.BtnConsultarCorrelativas_Click);
             // 
@@ -269,7 +247,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(409, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(386, 222);
+            this.panel2.Size = new System.Drawing.Size(392, 200);
             this.panel2.TabIndex = 45;
             // 
             // comboTurno
@@ -480,10 +458,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgConsultaCursos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCursoMat)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -500,12 +477,11 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnExisteCorrEnAprobadas;
         private System.Windows.Forms.ComboBox ComboMaterias1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ComboPEcorr;
-        private System.Windows.Forms.DataGridView dgAprobadas;
+        private System.Windows.Forms.DataGridView dgConsultaCursos;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -532,6 +508,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCuposMax;
         private System.Windows.Forms.ComboBox comboTurno;
-        private System.Windows.Forms.TextBox comboNombreCurso;
     }
 }

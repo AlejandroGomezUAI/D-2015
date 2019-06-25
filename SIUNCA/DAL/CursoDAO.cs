@@ -22,7 +22,7 @@ namespace DAL
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("IdMateriaCC", unaMateria.IdMateriaCC));
 
-                resultado = unaConexion.EjecutarTupla<Curso>("SELECT IdCurso, FechaInicio FROM Curso c INNER JOIN MateriaConCorrelativas mcc on mcc.IdMateriaCC = c.IdMateriaCC WHERE DATEDIFF(d, FechaInicio, GETDATE()) <> 0 and c.CuposMax > 0 and mcc.IdMateriaCC = (@IdMateriaCC)", listaParametrosCD);
+                resultado = unaConexion.EjecutarTupla<Curso>("SELECT IdCurso, FechaInicio, FechaFin, CuposMax, Turno FROM Curso c INNER JOIN MateriaConCorrelativas mcc on mcc.IdMateriaCC = c.IdMateriaCC WHERE DATEDIFF(d, FechaInicio, GETDATE()) <> 0 and c.CuposMax > 0 and mcc.IdMateriaCC = (@IdMateriaCC)", listaParametrosCD);
 
             }
             catch (Exception ex)

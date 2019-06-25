@@ -40,5 +40,10 @@ namespace BLL
             CursoDAO unCursoDAO = new CursoDAO();
             unCursoDAO.Insertar(unDTOcurso, listCurso);
         }
+
+        public object TraerListaCursos(DTODetallesCorrPlan unaMateria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -151,7 +151,7 @@ namespace GUI.UserControlSecretarioAcademico
         }
         private void Button6_Click(object sender, EventArgs e)
         {
-            unDTOCurso.nombreCurso = comboNombreCurso.Text;
+           // unDTOCurso.nombreCurso = comboNombreCurso.Text;
 
             try
             {
@@ -203,6 +203,29 @@ namespace GUI.UserControlSecretarioAcademico
         private void BtnConsultarCorrelativas_Click(object sender, EventArgs e)
         {
             //traigo los cursos de una materia
+            CargarCursosDeMateria();
+        }
+
+        private void CargarCursosDeMateria()
+        {
+            GestorCurso UnGCurso = new GestorCurso();
+            DTODetallesCorrPlan unaMateria = new DTODetallesCorrPlan();
+
+
+            unaMateria = (DTODetallesCorrPlan)ComboMaterias1.SelectedItem;
+
+            dgConsultaCursos.DataSource = null;
+            dgConsultaCursos.DataSource = UnGCurso.TraerFechasInicioCursos(unaMateria);
+
+            dgConsultaCursos.Columns.Remove("NombreCurso");
+            dgConsultaCursos.Columns.Remove("IdMateriaCC");
+            dgConsultaCursos.Columns.Remove("IdCarrera");
+
+            dgConsultaCursos.Columns.Remove("ChangedBy");
+            dgConsultaCursos.Columns.Remove("ChangedOn");
+            dgConsultaCursos.Columns.Remove("CreatedOn");
+            dgConsultaCursos.Columns.Remove("CreatedBy");
+
         }
     }
 }
