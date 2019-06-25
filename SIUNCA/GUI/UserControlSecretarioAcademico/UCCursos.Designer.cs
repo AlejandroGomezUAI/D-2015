@@ -257,14 +257,14 @@
             "Mañana",
             "Tarde",
             "Noche"});
-            this.comboTurno.Location = new System.Drawing.Point(246, 150);
+            this.comboTurno.Location = new System.Drawing.Point(239, 113);
             this.comboTurno.Name = "comboTurno";
-            this.comboTurno.Size = new System.Drawing.Size(121, 28);
+            this.comboTurno.Size = new System.Drawing.Size(128, 28);
             this.comboTurno.TabIndex = 48;
             // 
             // txtCuposMax
             // 
-            this.txtCuposMax.Location = new System.Drawing.Point(306, 116);
+            this.txtCuposMax.Location = new System.Drawing.Point(306, 147);
             this.txtCuposMax.Name = "txtCuposMax";
             this.txtCuposMax.Size = new System.Drawing.Size(61, 26);
             this.txtCuposMax.TabIndex = 47;
@@ -320,9 +320,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(5, 122);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(238, 20);
+            this.label7.Size = new System.Drawing.Size(134, 20);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Cupos Valor Nuevo-Actuales";
+            this.label7.Text = "Cupos maximos";
             // 
             // label6
             // 
