@@ -278,7 +278,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(34, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 135);
+            this.panel1.Size = new System.Drawing.Size(346, 135);
             this.panel1.TabIndex = 31;
             // 
             // label2
@@ -325,7 +325,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.panel2.Controls.Add(this.ComboObligatoriedad);
             this.panel2.Location = new System.Drawing.Point(34, 161);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(335, 148);
+            this.panel2.Size = new System.Drawing.Size(346, 148);
             this.panel2.TabIndex = 32;
             // 
             // label4
