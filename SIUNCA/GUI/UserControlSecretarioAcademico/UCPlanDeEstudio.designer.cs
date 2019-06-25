@@ -491,7 +491,6 @@ namespace GUI.UserControlSecretarioAcademico
             this.ComboMateriasCC.Name = "ComboMateriasCC";
             this.ComboMateriasCC.Size = new System.Drawing.Size(121, 28);
             this.ComboMateriasCC.TabIndex = 35;
-            this.ComboMateriasCC.SelectedIndexChanged += new System.EventHandler(this.ComboMateriasCC_SelectedIndexChanged);
             // 
             // ComboPEcorr
             // 

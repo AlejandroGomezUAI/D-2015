@@ -25,7 +25,7 @@ namespace DAL
             {
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO PlanDeEstudio (IdCarrera, Nombre, NombreCarrera) VALUES (@IdCarrera, @Nombre, @NombreCarrera)", listaDeParametros);
+                unaConexion.EjecutarSinResultado("INSERT INTO PlanDeEstudio (IdCarrera, Nombre) VALUES (@IdCarrera, @Nombre)", listaDeParametros);
 
                 int IdPlanDeEstudio = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdPlanDeEstudio) FROM PlanDeEstudio", new List<Parametro>());
 
@@ -44,7 +44,7 @@ namespace DAL
 
                     item.IdPlanDeEstudio = IdPlanDeEstudio;
 
-                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesPlanDeEstudio (IdPlanDeEstudio, IdMateriaCC, Obligatoriedad, NumeroMateria, NombreMateria, Año) VALUES(@IdPlanDeEstudio, @IdMateriaCC, @Obligatoriedad, @NumeroMateria, @NombreMateria, @Año)", listaParametrosPED);
+                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesPlanDeEstudio (IdPlanDeEstudio, IdMateriaCC, Obligatoriedad, NumeroMateria, Año) VALUES(@IdPlanDeEstudio, @IdMateriaCC, @Obligatoriedad, @NumeroMateria, @Año)", listaParametrosPED);
                 }
 
                 unaConexion.TransaccionAceptar();

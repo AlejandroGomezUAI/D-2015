@@ -31,6 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboNombreCurso = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnExisteCorrEnAprobadas = new System.Windows.Forms.Button();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
@@ -44,12 +45,12 @@
             this.dgCursoMat = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboTurno = new System.Windows.Forms.ComboBox();
+            this.txtCuposMax = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.ComboCuposMax = new System.Windows.Forms.ComboBox();
             this.ComboCarrera = new System.Windows.Forms.ComboBox();
-            this.ComboCupos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,9 +65,6 @@
             this.ComboMateriasCC = new System.Windows.Forms.ComboBox();
             this.ComboCorrelativas = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtCuposMax = new System.Windows.Forms.TextBox();
-            this.comboTurno = new System.Windows.Forms.ComboBox();
-            this.comboNombreCurso = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -121,6 +119,13 @@
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asignacion de cursos a materias";
+            // 
+            // comboNombreCurso
+            // 
+            this.comboNombreCurso.Location = new System.Drawing.Point(60, 38);
+            this.comboNombreCurso.Name = "comboNombreCurso";
+            this.comboNombreCurso.Size = new System.Drawing.Size(100, 26);
+            this.comboNombreCurso.TabIndex = 46;
             // 
             // panel4
             // 
@@ -247,6 +252,7 @@
             this.btnConsultarCorrelativas.TabIndex = 22;
             this.btnConsultarCorrelativas.Text = "Consultar aprobadas (cursos)";
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
+            this.btnConsultarCorrelativas.Click += new System.EventHandler(this.BtnConsultarCorrelativas_Click);
             // 
             // panel2
             // 
@@ -256,9 +262,7 @@
             this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.ComboCuposMax);
             this.panel2.Controls.Add(this.ComboCarrera);
-            this.panel2.Controls.Add(this.ComboCupos);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -267,6 +271,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(386, 222);
             this.panel2.TabIndex = 45;
+            // 
+            // comboTurno
+            // 
+            this.comboTurno.FormattingEnabled = true;
+            this.comboTurno.Items.AddRange(new object[] {
+            "Mañana",
+            "Tarde",
+            "Noche"});
+            this.comboTurno.Location = new System.Drawing.Point(246, 150);
+            this.comboTurno.Name = "comboTurno";
+            this.comboTurno.Size = new System.Drawing.Size(121, 28);
+            this.comboTurno.TabIndex = 48;
+            // 
+            // txtCuposMax
+            // 
+            this.txtCuposMax.Location = new System.Drawing.Point(306, 116);
+            this.txtCuposMax.Name = "txtCuposMax";
+            this.txtCuposMax.Size = new System.Drawing.Size(61, 26);
+            this.txtCuposMax.TabIndex = 47;
             // 
             // dateTimePicker2
             // 
@@ -297,15 +320,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(128, 27);
             this.dateTimePicker1.TabIndex = 44;
             // 
-            // ComboCuposMax
-            // 
-            this.ComboCuposMax.Enabled = false;
-            this.ComboCuposMax.FormattingEnabled = true;
-            this.ComboCuposMax.Location = new System.Drawing.Point(310, 114);
-            this.ComboCuposMax.Name = "ComboCuposMax";
-            this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
-            this.ComboCuposMax.TabIndex = 41;
-            // 
             // ComboCarrera
             // 
             this.ComboCarrera.FormattingEnabled = true;
@@ -313,15 +327,6 @@
             this.ComboCarrera.Name = "ComboCarrera";
             this.ComboCarrera.Size = new System.Drawing.Size(128, 28);
             this.ComboCarrera.TabIndex = 11;
-            // 
-            // ComboCupos
-            // 
-            this.ComboCupos.Enabled = false;
-            this.ComboCupos.FormattingEnabled = true;
-            this.ComboCupos.Location = new System.Drawing.Point(247, 114);
-            this.ComboCupos.Name = "ComboCupos";
-            this.ComboCupos.Size = new System.Drawing.Size(57, 28);
-            this.ComboCupos.TabIndex = 43;
             // 
             // label8
             // 
@@ -465,32 +470,6 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Asignación de correlativas";
             // 
-            // txtCuposMax
-            // 
-            this.txtCuposMax.Location = new System.Drawing.Point(260, 116);
-            this.txtCuposMax.Name = "txtCuposMax";
-            this.txtCuposMax.Size = new System.Drawing.Size(100, 26);
-            this.txtCuposMax.TabIndex = 47;
-            // 
-            // comboTurno
-            // 
-            this.comboTurno.FormattingEnabled = true;
-            this.comboTurno.Items.AddRange(new object[] {
-            "Mañana",
-            "Tarde",
-            "Noche"});
-            this.comboTurno.Location = new System.Drawing.Point(246, 150);
-            this.comboTurno.Name = "comboTurno";
-            this.comboTurno.Size = new System.Drawing.Size(121, 28);
-            this.comboTurno.TabIndex = 48;
-            // 
-            // comboNombreCurso
-            // 
-            this.comboNombreCurso.Location = new System.Drawing.Point(60, 38);
-            this.comboNombreCurso.Name = "comboNombreCurso";
-            this.comboNombreCurso.Size = new System.Drawing.Size(100, 26);
-            this.comboNombreCurso.TabIndex = 46;
-            // 
             // UCCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,9 +512,7 @@
         private System.Windows.Forms.DataGridView dgCursoMat;
         private System.Windows.Forms.Button btnConsultarCorrelativas;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox ComboCuposMax;
         private System.Windows.Forms.ComboBox ComboCarrera;
-        private System.Windows.Forms.ComboBox ComboCupos;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

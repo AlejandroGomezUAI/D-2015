@@ -199,5 +199,10 @@ namespace GUI.UserControlSecretarioAcademico
             //dgCursoMat.Columns["Nombre"].HeaderText = "Materia seleccionada";
             //dgCursoMat.Columns["NombreMateria2"].HeaderText = "Correlativa asignada";
         }
+
+        private void BtnConsultarCorrelativas_Click(object sender, EventArgs e)
+        {
+            //traigo los cursos de una materia
+        }
     }
 }
