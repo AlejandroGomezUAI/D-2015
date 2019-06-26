@@ -171,6 +171,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Seguridad\UCBackups.resx">
+      <DependentUpon>UCBackups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCBitacora.resx">
+      <DependentUpon>UCBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
+      <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
     </EmbeddedResource>

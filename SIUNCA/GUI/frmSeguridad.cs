@@ -1,4 +1,5 @@
 ﻿using GUI.UserControlSecretarioAcademico;
+using GUI.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,9 @@ namespace GUI
         UCPlanDeEstudio ucplandeestudio = new UCPlanDeEstudio();
         UCAlumnos ucalumnos = new UCAlumnos();
         UCCursos uccursos = new UCCursos();
-
+        UCPerfilesUsuarios ucperfilesusuarios = new UCPerfilesUsuarios();
+        UCBackups ucbackups = new UCBackups();
+        UCBitacora ucbitacora = new UCBitacora();
 
         public frmSeguridad()
         {
@@ -91,19 +94,7 @@ namespace GUI
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            moverSlider(btnPlanDeEstudio.Height, btnPlanDeEstudio.Top);
-
-            seleccionarUserControl(ucplandeestudio);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            moverSlider(btnMaterias.Height, btnMaterias.Top);
-
-            seleccionarUserControl(ucmaterias);
-        }
+        
         private void btnCursos_Click(object sender, EventArgs e)
         {
             moverSlider(btnCursos.Height, btnCursos.Top);
@@ -171,17 +162,30 @@ namespace GUI
 
         private void BtnPlanDeEstudio_Click(object sender, EventArgs e)
         {
+            moverSlider(btnCursos.Height, btnCursos.Top);
 
+            seleccionarUserControl(ucperfilesusuarios);
         }
 
         private void BtnMaterias_Click(object sender, EventArgs e)
         {
+            moverSlider(btnCursos.Height, btnCursos.Top);
 
+            seleccionarUserControl(ucbackups);
         }
 
         private void BtnCursos_Click_1(object sender, EventArgs e)
         {
+            moverSlider(btnCursos.Height, btnCursos.Top);
 
+            seleccionarUserControl(ucbitacora);
+        }
+
+        private void BtnAlumnos_Click_1(object sender, EventArgs e)
+        {
+            moverSlider(btnCursos.Height, btnCursos.Top);
+
+            seleccionarUserControl(uccursos);
         }
 
 
