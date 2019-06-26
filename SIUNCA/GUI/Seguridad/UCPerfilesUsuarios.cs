@@ -16,5 +16,10 @@ namespace GUI.Seguridad
         {
             InitializeComponent();
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
