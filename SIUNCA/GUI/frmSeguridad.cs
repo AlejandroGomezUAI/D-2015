@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.UserControlSecretarioAcademico;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GUI.UserControlSecretarioAcademico;
 
 namespace GUI
 {
-    public partial class frmSecretarioAcademico : Form
+    
+    public partial class frmSeguridad : Form
     {
 
         //variables para la funcion arrastrarForm(e, x, y)
@@ -24,7 +25,7 @@ namespace GUI
         UCCursos uccursos = new UCCursos();
 
 
-        public frmSecretarioAcademico()
+        public frmSeguridad()
         {
             InitializeComponent();
             seleccionarUserControl(ucplandeestudio);
@@ -43,7 +44,7 @@ namespace GUI
             }
             else
             {
-            this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Maximized;
             }
         }
 
@@ -53,8 +54,8 @@ namespace GUI
             this.WindowState = FormWindowState.Minimized;
         }
 
-    
-        
+
+
 
         /// <summary>
         /// Metodo para desilzar slider sobre el menu
@@ -164,6 +165,21 @@ namespace GUI
         }
 
         private void PanelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BtnPlanDeEstudio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnMaterias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCursos_Click_1(object sender, EventArgs e)
         {
 
         }
