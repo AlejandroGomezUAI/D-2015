@@ -58,7 +58,7 @@
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Size = new System.Drawing.Size(188, 44);
             this.btnAlumnos.TabIndex = 6;
-            this.btnAlumnos.Text = "Gestión Alumnos";
+            this.btnAlumnos.Text = "Gestión Usuarios";
             this.btnAlumnos.UseVisualStyleBackColor = false;
             this.btnAlumnos.Click += new System.EventHandler(this.BtnAlumnos_Click_1);
             // 
