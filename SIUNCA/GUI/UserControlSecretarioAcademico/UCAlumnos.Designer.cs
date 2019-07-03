@@ -31,7 +31,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ComboCuposMax = new System.Windows.Forms.ComboBox();
-            this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ComboPEcorr = new System.Windows.Forms.ComboBox();
+            this.dgAprobadas = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txtLegajo = new System.Windows.Forms.TextBox();
@@ -76,9 +76,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -130,16 +130,6 @@
             this.ComboCuposMax.Name = "ComboCuposMax";
             this.ComboCuposMax.Size = new System.Drawing.Size(57, 28);
             this.ComboCuposMax.TabIndex = 41;
-            // 
-            // dgAprobadas
-            // 
-            this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAprobadas.Location = new System.Drawing.Point(434, 161);
-            this.dgAprobadas.Name = "dgAprobadas";
-            this.dgAprobadas.RowHeadersWidth = 57;
-            this.dgAprobadas.Size = new System.Drawing.Size(371, 118);
-            this.dgAprobadas.TabIndex = 33;
             // 
             // label10
             // 
@@ -286,6 +276,16 @@
             this.ComboPEcorr.Size = new System.Drawing.Size(121, 28);
             this.ComboPEcorr.TabIndex = 53;
             this.ComboPEcorr.SelectedIndexChanged += new System.EventHandler(this.ComboPEcorr_SelectedIndexChanged);
+            // 
+            // dgAprobadas
+            // 
+            this.dgAprobadas.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgAprobadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAprobadas.Location = new System.Drawing.Point(434, 161);
+            this.dgAprobadas.Name = "dgAprobadas";
+            this.dgAprobadas.RowHeadersWidth = 57;
+            this.dgAprobadas.Size = new System.Drawing.Size(371, 118);
+            this.dgAprobadas.TabIndex = 33;
             // 
             // panel1
             // 
@@ -483,7 +483,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(846, 605);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Asignar Correlativas";
+            this.tabPage2.Text = "Alta de alumnos";
             // 
             // button2
             // 
@@ -584,10 +584,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAprobadas)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
