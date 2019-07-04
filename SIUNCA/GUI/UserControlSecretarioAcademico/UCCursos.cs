@@ -66,6 +66,8 @@ namespace GUI.UserControlSecretarioAcademico
                 unDetCurso.FechaInicio = dateTimePicker1.Value;
                 unDetCurso.FechaFin = dateTimePicker2.Value;
                 unDetCurso.Turno = comboTurno.Text;
+
+                unDetCurso.nombreCurso = UnaMateria.Nombre + " "+ unDetCurso.Turno;
                 //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
                 ExisteEnLista(ComboMaterias1.Text, dgCursoMat);
@@ -101,18 +103,19 @@ namespace GUI.UserControlSecretarioAcademico
                 dgCursoMat.DataSource = ListCurso;
 
                 dgCursoMat.Columns.Remove("IdCurso");
-                //dgCursoMat.Columns.Remove("IdMateriaCC");
-                //dgCursoMat.Columns.Remove("IdAlumno_Materia");
+                dgCursoMat.Columns.Remove("IdMateriaCC");
+                dgCursoMat.Columns.Remove("IdCarrera");
                 dgCursoMat.Columns.Remove("CreatedOn");
                 dgCursoMat.Columns.Remove("CreatedBy");
                 dgCursoMat.Columns.Remove("ChangedBy");
                 dgCursoMat.Columns.Remove("ChangedOn");
 
-                //dgAlumMat.Columns["LegajoAlumno"].HeaderText = "Legajo";
-                //dgAlumMat.Columns["NombreAlumno"].HeaderText = "Nombre Alumno";
-                //dgAlumMat.Columns["ApellidoAlumno"].HeaderText = "Apellido Alumno";
-                //dgAlumMat.Columns["NombreCarrera"].HeaderText = "Carrera";
-                //dgAlumMat.Columns["Nombre"].HeaderText = "Materia asignada";
+                dgCursoMat.Columns["NombreMateria"].HeaderText = "Materia";
+                dgCursoMat.Columns["NombreCarrera"].HeaderText = "Carrera";
+                dgCursoMat.Columns["CuposMax"].HeaderText = "Cupos Max";
+                dgCursoMat.Columns["FechaInicio"].HeaderText = "Fecha inicio";
+                dgCursoMat.Columns["FechaFin"].HeaderText = "Fecha fin";
+                dgCursoMat.Columns["NombreCurso"].HeaderText = "Nombre curso";
 
 
                 dgCursoMat.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
