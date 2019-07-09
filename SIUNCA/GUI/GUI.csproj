@@ -61,6 +61,12 @@
     <Compile Include="frmProfesor.designer.cs">
       <DependentUpon>frmProfesor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeguridad.Designer.cs">
+      <DependentUpon>frmSeguridad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\UCBackups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCBackups.Designer.cs">
+      <DependentUpon>UCBackups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCBitacora.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCBitacora.Designer.cs">
+      <DependentUpon>UCBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCPerfilesUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCPerfilesUsuarios.Designer.cs">
+      <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlProfesor\UCAsistencias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +156,9 @@
     <EmbeddedResource Include="frmProfesor.resx">
       <DependentUpon>frmProfesor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSeguridad.resx">
+      <DependentUpon>frmSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +171,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Seguridad\UCBackups.resx">
+      <DependentUpon>UCBackups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCBitacora.resx">
+      <DependentUpon>UCBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
+      <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
     </EmbeddedResource>

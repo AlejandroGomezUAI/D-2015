@@ -22,6 +22,8 @@ namespace GUI.UserControlSecretarioAcademico
         }
 
         List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
+        Alumno unAlumno = new Alumno();
+
         int resta = 0;
         int suma = 0;
 
@@ -33,7 +35,18 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void Button6_Click(object sender, EventArgs e)
         {
+             unAlumno.LegajoAlumno = int.Parse(txtLegajo.Text);
 
+            try
+            {
+                GestorAlumno unGAlumno = new GestorAlumno();
+                unGAlumno.AsignarAlumnoAMaterias(unAlumno, ListAlumnoMateriaCC);
+                MessageBox.Show("Asignacion de alumno a materias guardada.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar asginacion a materias.");
+            }
         }
         private void CargarPlanes()
         {
@@ -463,7 +476,12 @@ namespace GUI.UserControlSecretarioAcademico
             ExisteEnDgAprobadas();
         }
 
-        
+        private void Button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

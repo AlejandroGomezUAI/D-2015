@@ -34,9 +34,10 @@ namespace GUI.UserControlSecretarioAcademico
             //ucPlanDeEstudio
             CargarCarreras();
             
+            //ucAsignarCorr
             CargarMateriasCC();
             
-            //ucAsignarCorr
+            //ucPlanDeEstudio
             //CargarPlanes();
             CargarMaterias();
         }
@@ -314,8 +315,13 @@ namespace GUI.UserControlSecretarioAcademico
                     unDTO = (DTODetallesCorrPlan)ComboCorrelativas.SelectedItem;
                     unDTO.Nombre = ComboCorrelativas.Text;
 
+
+
                     unDTO2 = (DTODetallesCorrPlan)ComboMateriasCC.SelectedItem;
                     unDTO2.Nombre = ComboMateriasCC.Text;
+
+
+
 
                     unDMPCP.IdPlanDetalles = unDTO.IdPlanDetalles;
                     unDMPCP.IdPlanDetalles2 = unDTO2.IdPlanDetalles;
@@ -339,7 +345,15 @@ namespace GUI.UserControlSecretarioAcademico
                     dgCorrelatividades.Columns.Remove("NumeroMateria");
                     dgCorrelatividades.Columns.Remove("NumeroMateria2");
                     dgCorrelatividades.Columns.Remove("Obligatoriedad");
+                    dgCorrelatividades.Columns.Remove("IdMateriaCC");
+                    dgCorrelatividades.Columns.Remove("IdPlanDeEstudio");
+                    dgCorrelatividades.Columns.Remove("Año");
+                    dgCorrelatividades.Columns.Remove("NombrePlan");
                     dgCorrelatividades.Columns.Remove("CargaHoraria");
+                    dgCorrelatividades.Columns.Remove("CreatedOn");
+                    dgCorrelatividades.Columns.Remove("CreatedBy");
+                    dgCorrelatividades.Columns.Remove("ChangedBy");
+                    dgCorrelatividades.Columns.Remove("ChangedOn");
 
 
 
