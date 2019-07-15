@@ -67,6 +67,11 @@
     <Compile Include="frmSeguridad.Designer.cs">
       <DependentUpon>frmSeguridad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Idiomas\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +163,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeguridad.resx">
       <DependentUpon>frmSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
