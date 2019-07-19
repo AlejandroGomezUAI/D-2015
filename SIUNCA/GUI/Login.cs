@@ -13,7 +13,7 @@ using BLL;
 //Using necesarios para el idioma
 using System.Threading;
 using System.Globalization;
-using GUI.Idiomas;
+using GUI.Idiomas.Login;
 
 namespace GUI
 {
@@ -28,6 +28,15 @@ namespace GUI
             lblError.Visible = false;
             cboIdioma.SelectedIndex = 0;
             cboRol.SelectedIndex = 2;
+        }
+
+        public Login(string idioma = "Español")
+        {
+            InitializeComponent();
+            lblError.Visible = false;
+            cboIdioma.SelectedIndex = idioma == "Español" ? 0 : 1;
+            cboRol.SelectedIndex = 2;
+            cambiarIdioma(idioma);
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -46,11 +55,6 @@ namespace GUI
         {
             this.Close();
             Application.Exit();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace GUI
                 //frmsa.Show();
                 //###########################################################
                 //Este es el del profesor
-                frmProfesor frmp = new frmProfesor(gestorUsuario.username);
+                frmProfesor frmp = new frmProfesor(gestorUsuario.username, cboIdioma.Text);
                 frmp.Show();
                 this.Hide();
             }

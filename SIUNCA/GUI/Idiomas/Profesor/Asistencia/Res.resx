@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Asistencia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="btnCancelarAsist" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="btnGuardarAsist" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="btnModificarAsist" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="btnSelMateriaAsist" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="btnSelMateriaAsistencia" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="gbListaDeAlumnos" xml:space="preserve">
+    <value>Listado de alumnos</value>
+  </data>
+  <data name="gbListadoDeAlu" xml:space="preserve">
+    <value>Listado de alumnos</value>
+  </data>
+  <data name="gbSelDeMat" xml:space="preserve">
+    <value>Seleccion de materia</value>
+  </data>
+  <data name="gbSeleccionDeMateria" xml:space="preserve">
+    <value>Seleccion de materia</value>
+  </data>
+  <data name="lblFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
 </root>

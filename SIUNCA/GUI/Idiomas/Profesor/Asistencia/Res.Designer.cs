@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUI.Idiomas {
+namespace GUI.Idiomas.Profesor.Asistencia {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace GUI.Idiomas {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GUI.Idiomas.Res", typeof(Res).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GUI.Idiomas.Profesor.Asistencia.Res", typeof(Res).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,72 +63,90 @@ namespace GUI.Idiomas {
         /// <summary>
         ///   Busca una cadena traducida similar a Cancelar.
         /// </summary>
-        internal static string btnCancelar {
+        internal static string btnCancelarAsist {
             get {
-                return ResourceManager.GetString("btnCancelar", resourceCulture);
+                return ResourceManager.GetString("btnCancelarAsist", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Iniciar.
+        ///   Busca una cadena traducida similar a Guardar.
         /// </summary>
-        internal static string btnLogin {
+        internal static string btnGuardarAsist {
             get {
-                return ResourceManager.GetString("btnLogin", resourceCulture);
+                return ResourceManager.GetString("btnGuardarAsist", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Contraseña.
+        ///   Busca una cadena traducida similar a Modificar.
         /// </summary>
-        internal static string lblContraseña {
+        internal static string btnModificarAsist {
             get {
-                return ResourceManager.GetString("lblContraseña", resourceCulture);
+                return ResourceManager.GetString("btnModificarAsist", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Usuario o contraseña incorrecto.
+        ///   Busca una cadena traducida similar a Seleccionar.
         /// </summary>
-        internal static string lblError {
+        internal static string btnSelMateriaAsist {
             get {
-                return ResourceManager.GetString("lblError", resourceCulture);
+                return ResourceManager.GetString("btnSelMateriaAsist", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Idioma.
+        ///   Busca una cadena traducida similar a Seleccionar.
         /// </summary>
-        internal static string lblIdioma {
+        internal static string btnSelMateriaAsistencia {
             get {
-                return ResourceManager.GetString("lblIdioma", resourceCulture);
+                return ResourceManager.GetString("btnSelMateriaAsistencia", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Inicio de sesion.
+        ///   Busca una cadena traducida similar a Listado de alumnos.
         /// </summary>
-        internal static string lblInicioDeSesion {
+        internal static string gbListaDeAlumnos {
             get {
-                return ResourceManager.GetString("lblInicioDeSesion", resourceCulture);
+                return ResourceManager.GetString("gbListaDeAlumnos", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Rol.
+        ///   Busca una cadena traducida similar a Listado de alumnos.
         /// </summary>
-        internal static string lblRol {
+        internal static string gbListadoDeAlu {
             get {
-                return ResourceManager.GetString("lblRol", resourceCulture);
+                return ResourceManager.GetString("gbListadoDeAlu", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Usuario.
+        ///   Busca una cadena traducida similar a Seleccion de materia.
         /// </summary>
-        internal static string lblUsuario {
+        internal static string gbSelDeMat {
             get {
-                return ResourceManager.GetString("lblUsuario", resourceCulture);
+                return ResourceManager.GetString("gbSelDeMat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccion de materia.
+        /// </summary>
+        internal static string gbSeleccionDeMateria {
+            get {
+                return ResourceManager.GetString("gbSeleccionDeMateria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
+        /// </summary>
+        internal static string lblFecha {
+            get {
+                return ResourceManager.GetString("lblFecha", resourceCulture);
             }
         }
     }

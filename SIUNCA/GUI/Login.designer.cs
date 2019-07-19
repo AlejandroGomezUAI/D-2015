@@ -151,7 +151,7 @@
             this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(338, 148);
+            this.lblUsuario.Location = new System.Drawing.Point(94, 148);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(71, 20);
             this.lblUsuario.TabIndex = 2;
@@ -162,7 +162,7 @@
             this.lblContraseña.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(307, 220);
+            this.lblContraseña.Location = new System.Drawing.Point(94, 220);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(102, 20);
             this.lblContraseña.TabIndex = 3;
@@ -194,7 +194,7 @@
             this.lblRol.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRol.AutoSize = true;
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRol.Location = new System.Drawing.Point(373, 300);
+            this.lblRol.Location = new System.Drawing.Point(94, 300);
             this.lblRol.Name = "lblRol";
             this.lblRol.Size = new System.Drawing.Size(36, 20);
             this.lblRol.TabIndex = 6;
@@ -245,7 +245,7 @@
             this.cboIdioma.Items.AddRange(new object[] {
             "Español",
             "Ingles"});
-            this.cboIdioma.Location = new System.Drawing.Point(415, 41);
+            this.cboIdioma.Location = new System.Drawing.Point(415, 58);
             this.cboIdioma.Name = "cboIdioma";
             this.cboIdioma.Size = new System.Drawing.Size(75, 21);
             this.cboIdioma.TabIndex = 10;
@@ -256,7 +256,7 @@
             this.lblIdioma.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblIdioma.AutoSize = true;
             this.lblIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdioma.Location = new System.Drawing.Point(354, 41);
+            this.lblIdioma.Location = new System.Drawing.Point(412, 39);
             this.lblIdioma.Name = "lblIdioma";
             this.lblIdioma.Size = new System.Drawing.Size(55, 16);
             this.lblIdioma.TabIndex = 11;
@@ -284,7 +284,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();

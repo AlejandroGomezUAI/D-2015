@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using BIZ;
 using BIZ.DTOs;
 using BLL;
+using System.Threading;
+using System.Globalization;
+using GUI.Idiomas.Profesor.Asistencia;
+
 
 namespace GUI.UserControlProfesor
 {
@@ -18,10 +22,16 @@ namespace GUI.UserControlProfesor
         public UCAsistencias()
         {
             InitializeComponent();
-
             cargarCboMaterias();
-
             this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
+        }
+
+        public UCAsistencias(string idioma)
+        {
+            InitializeComponent();
+            cargarCboMaterias();
+            this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
+            cambiarIdioma(idioma);
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)
@@ -163,6 +173,36 @@ namespace GUI.UserControlProfesor
                     dgvRegistrarAsist.Rows[i].DefaultCellStyle.BackColor = Color.Red;
                     dgvRegistrarAsist.Rows[i].ReadOnly = true;
                 }
+            }
+        }
+
+        void IdiomaPorDefecto()
+        {
+            btnSelMateriaAsist.Text = Res.btnSelMateriaAsistencia;
+            lblFecha.Text = Res.lblFecha;
+            gbListaDeAlumnos.Text = Res.gbListaDeAlumnos;
+            gbSeleccionDeMateria.Text = Res.gbSeleccionDeMateria;
+            btnGuardarAsist.Text = Res.btnGuardarAsist;
+            btnCancelarAsist.Text = Res.btnCancelarAsist;
+            btnModificarAsist.Text = Res.btnModificarAsist;
+            gbListadoDeAlu.Text = Res.gbListadoDeAlu;
+            gbSelDeMat.Text = Res.gbSelDeMat;
+            btnSelMateriaAsistencia.Text = Res.btnSelMateriaAsistencia;
+        }
+
+        void cambiarIdioma(string idioma)
+        {
+            if (idioma == "Ingles")
+            {
+                //Selecciona el archivo Res.en-US.resx
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                IdiomaPorDefecto();
+            }
+            if (idioma == "Español")
+            {
+                //Selecciona el archivo Res.resx
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
+                IdiomaPorDefecto();
             }
         }
     }
