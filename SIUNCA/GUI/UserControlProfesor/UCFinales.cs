@@ -16,5 +16,10 @@ namespace GUI.UserControlProfesor
         {
             InitializeComponent();
         }
+
+        public UCFinales(string idioma)
+        {
+            InitializeComponent();
+        }
     }
 }

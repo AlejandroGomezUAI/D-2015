@@ -33,17 +33,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInicioDeSesion = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblContraseña = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblRol = new System.Windows.Forms.Label();
             this.cboRol = new System.Windows.Forms.ComboBox();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
+            this.cboIdioma = new System.Windows.Forms.ComboBox();
+            this.lblIdioma = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -102,15 +104,15 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label1
+            // lblInicioDeSesion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(183, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Inicio de sesion";
+            this.lblInicioDeSesion.AutoSize = true;
+            this.lblInicioDeSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInicioDeSesion.Location = new System.Drawing.Point(184, 85);
+            this.lblInicioDeSesion.Name = "lblInicioDeSesion";
+            this.lblInicioDeSesion.Size = new System.Drawing.Size(157, 24);
+            this.lblInicioDeSesion.TabIndex = 1;
+            this.lblInicioDeSesion.Text = "Inicio de sesion";
             // 
             // btnCancelar
             // 
@@ -140,31 +142,31 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(102, 33);
             this.btnLogin.TabIndex = 5;
-            this.btnLogin.Text = "Login";
+            this.btnLogin.Text = "Iniciar";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // label2
+            // lblUsuario
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(338, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Usuario";
+            this.lblUsuario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(94, 148);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(71, 20);
+            this.lblUsuario.TabIndex = 2;
+            this.lblUsuario.Text = "Usuario";
             // 
-            // label3
+            // lblContraseña
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(307, 220);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Contraseña";
+            this.lblContraseña.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblContraseña.AutoSize = true;
+            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña.Location = new System.Drawing.Point(94, 220);
+            this.lblContraseña.Name = "lblContraseña";
+            this.lblContraseña.Size = new System.Drawing.Size(102, 20);
+            this.lblContraseña.TabIndex = 3;
+            this.lblContraseña.Text = "Contraseña";
             // 
             // txtUsuario
             // 
@@ -187,16 +189,16 @@
             this.txtContraseña.Size = new System.Drawing.Size(321, 19);
             this.txtContraseña.TabIndex = 5;
             // 
-            // label4
+            // lblRol
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(373, 300);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Rol";
+            this.lblRol.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRol.AutoSize = true;
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(94, 300);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(36, 20);
+            this.lblRol.TabIndex = 6;
+            this.lblRol.Text = "Rol";
             // 
             // cboRol
             // 
@@ -232,9 +234,33 @@
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(142, 375);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(42, 16);
+            this.lblError.Size = new System.Drawing.Size(229, 16);
             this.lblError.TabIndex = 9;
-            this.lblError.Text = "Error";
+            this.lblError.Text = "Usuario o contraseña incorrecto";
+            // 
+            // cboIdioma
+            // 
+            this.cboIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboIdioma.FormattingEnabled = true;
+            this.cboIdioma.Items.AddRange(new object[] {
+            "Español",
+            "Ingles"});
+            this.cboIdioma.Location = new System.Drawing.Point(415, 58);
+            this.cboIdioma.Name = "cboIdioma";
+            this.cboIdioma.Size = new System.Drawing.Size(75, 21);
+            this.cboIdioma.TabIndex = 10;
+            this.cboIdioma.SelectedIndexChanged += new System.EventHandler(this.cboIdioma_SelectedIndexChanged);
+            // 
+            // lblIdioma
+            // 
+            this.lblIdioma.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblIdioma.AutoSize = true;
+            this.lblIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdioma.Location = new System.Drawing.Point(412, 39);
+            this.lblIdioma.Name = "lblIdioma";
+            this.lblIdioma.Size = new System.Drawing.Size(55, 16);
+            this.lblIdioma.TabIndex = 11;
+            this.lblIdioma.Text = "Idioma";
             // 
             // Login
             // 
@@ -242,21 +268,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(502, 598);
+            this.Controls.Add(this.lblIdioma);
+            this.Controls.Add(this.cboIdioma);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.panelFooter);
             this.Controls.Add(this.cboRol);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRol);
+            this.Controls.Add(this.lblInicioDeSesion);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblContraseña);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Login_MouseMove);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
@@ -269,19 +296,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInicioDeSesion;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.ComboBox cboRol;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.ComboBox cboIdioma;
+        private System.Windows.Forms.Label lblIdioma;
     }
 }

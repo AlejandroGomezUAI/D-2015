@@ -44,7 +44,7 @@ namespace GUI
             this.btnClose = new System.Windows.Forms.Button();
             this.panelHeader2 = new System.Windows.Forms.Panel();
             this.lblNombreProfesor = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblProfesor = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
@@ -202,7 +202,7 @@ namespace GUI
             // 
             this.panelHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.panelHeader2.Controls.Add(this.lblNombreProfesor);
-            this.panelHeader2.Controls.Add(this.label2);
+            this.panelHeader2.Controls.Add(this.lblProfesor);
             this.panelHeader2.Controls.Add(this.btnLogOut);
             this.panelHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader2.Location = new System.Drawing.Point(203, 30);
@@ -221,15 +221,15 @@ namespace GUI
             this.lblNombreProfesor.TabIndex = 7;
             this.lblNombreProfesor.Text = "nombre profesor";
             // 
-            // label2
+            // lblProfesor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Profesor: ";
+            this.lblProfesor.AutoSize = true;
+            this.lblProfesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfesor.Location = new System.Drawing.Point(26, 19);
+            this.lblProfesor.Name = "lblProfesor";
+            this.lblProfesor.Size = new System.Drawing.Size(87, 20);
+            this.lblProfesor.TabIndex = 6;
+            this.lblProfesor.Text = "Profesor: ";
             // 
             // btnLogOut
             // 
@@ -293,7 +293,7 @@ namespace GUI
         private UCParciales UCNotas;
         private System.Windows.Forms.Panel slideMenu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblProfesor;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblNombreProfesor;
         private System.Windows.Forms.Button btnRecuperatorios;

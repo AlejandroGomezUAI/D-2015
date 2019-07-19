@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using GUI.UserControlProfesor;
+using System.Threading;
+using System.Globalization;
+using GUI.Idiomas.Profesor;
 
 namespace GUI
 {
@@ -9,12 +12,16 @@ namespace GUI
         //asd
         //variables para la funcion arrastrarForm(e, x, y)
         int x = 0, y = 0;
+        //propiedad para guardar el idioma de forma temporal
+        public string _idioma { get; set; }
 
-        //instancias necesarias para el metodo seleccionaUserontrol(UserControl)
-        UCAsistencias ucasistencias = new UCAsistencias();
-        UCParciales ucparciales = new UCParciales();
-        UCRecuperatorios ucrecuperatorios = new UCRecuperatorios();
-        UCFinales ucfinales = new UCFinales();
+        //Necesarias para el metodo seleccionaUserontrol(UserControl),
+        //ahora se instancian en el constructor de la clase para pasarle el idioma
+        UCAsistencias ucasistencias; 
+        UCParciales ucparciales; 
+        UCRecuperatorios ucrecuperatorios; 
+        UCFinales ucfinales; 
+
 
         public frmProfesor()
         {
@@ -23,16 +30,32 @@ namespace GUI
             lblNombreProfesor.Visible = false;
         }
 
-        public frmProfesor(string nombreProfesor)
+        /// <summary>
+        /// Necesario para pasar por parametro el nombre del profesor y el idioma del form
+        /// </summary>
+        /// <param name="nombreProfesor"></param>
+        /// <param name="idioma">Es ocpional, no obligatorio</param>
+        public frmProfesor(string nombreProfesor, string idioma = "Español")
         {
             InitializeComponent();
+
+            ucasistencias = new UCAsistencias(idioma);
+            ucparciales = new UCParciales(idioma);
+            ucrecuperatorios = new UCRecuperatorios(idioma);
+            ucfinales = new UCFinales(idioma);
+
             seleccionarUserControl(ucasistencias);
             this.lblNombreProfesor.Text = nombreProfesor;
+            cambiarIdioma(idioma);
+            _idioma = idioma;
+
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -43,7 +66,7 @@ namespace GUI
             }
             else
             {
-            this.WindowState = FormWindowState.Maximized;
+                this.WindowState = FormWindowState.Maximized;
             }
         }
 
@@ -55,16 +78,16 @@ namespace GUI
 
 
         private void btnAsistencias_Click(object sender, EventArgs e)
-        {            
+        {
             moverSlider(btnAsistencias.Height, btnAsistencias.Top);
-           
+
             seleccionarUserControl(ucasistencias);
         }
 
         private void btnParciales_Click(object sender, EventArgs e)
-        {            
+        {
             moverSlider(btnParciales.Height, btnParciales.Top);
-            
+
             seleccionarUserControl(ucparciales);
         }
 
@@ -84,7 +107,7 @@ namespace GUI
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Login frmLogin = new Login();
+            Login frmLogin = new Login(_idioma);
             frmLogin.Show();
             this.Hide();
         }
@@ -99,11 +122,11 @@ namespace GUI
         {
             arrastrarForm(e, ref x, ref y);
         }
-        
+
 
         private void panelHeader1_MouseMove(object sender, MouseEventArgs e)
         {
-            arrastrarForm(e,ref x, ref y);
+            arrastrarForm(e, ref x, ref y);
         }
 
         /// <summary>
@@ -125,7 +148,7 @@ namespace GUI
         /// <param name="e">evento MouseEventArgs</param>
         /// <param name="x">valor por referencia del eje horizontal</param>
         /// <param name="y">valor por referencia del eje vertical</param>
-        public void arrastrarForm( MouseEventArgs e, ref int x, ref int y)
+        public void arrastrarForm(MouseEventArgs e, ref int x, ref int y)
         {
             if (e.Button != MouseButtons.Left)
             {
@@ -148,6 +171,31 @@ namespace GUI
         {
             panelContenedor.Controls.Clear();
             panelContenedor.Controls.Add(uc);
-        }        
+        }
+
+        void IdiomaPorDefecto()
+        {
+            lblProfesor.Text = Res.lblProfesor;
+            btnAsistencias.Text = Res.btnAsistencias;
+            btnFinales.Text = Res.btnFinales;
+            btnParciales.Text = Res.btnParciales;
+            btnRecuperatorios.Text = Res.btnRecuperatorios;
+        }
+
+        void cambiarIdioma(string idioma)
+        {
+            if (idioma == "Ingles")
+            {
+                //Selecciona el archivo Res.en-US.resx
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                IdiomaPorDefecto();
+            }
+            if (idioma == "Español")
+            {
+                //Selecciona el archivo Res.resx
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
+                IdiomaPorDefecto();
+            }
+        }
     }
 }
