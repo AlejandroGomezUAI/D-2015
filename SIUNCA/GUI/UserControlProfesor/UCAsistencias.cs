@@ -13,6 +13,7 @@ using BLL;
 using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Profesor.Asistencia;
+using Framework.D_2015.Idiomas;
 
 
 namespace GUI.UserControlProfesor
@@ -24,14 +25,8 @@ namespace GUI.UserControlProfesor
             InitializeComponent();
             cargarCboMaterias();
             this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
-        }
 
-        public UCAsistencias(string idioma)
-        {
-            InitializeComponent();
-            cargarCboMaterias();
-            this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
-            cambiarIdioma(idioma);
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)
@@ -42,7 +37,6 @@ namespace GUI.UserControlProfesor
         private void btnSelMateriaAsist_Click(object sender, EventArgs e)
         {
             cargarListaAlumnos();
-
         }
 
         private void btnGuardarAsist_Click(object sender, EventArgs e)
@@ -115,7 +109,6 @@ namespace GUI.UserControlProfesor
 
         void guardarRegistroAsistencia()
         {
-
             var listadoAsistencia = new List<Asistencia>();
 
             foreach (DataGridViewRow row in this.dgvRegistrarAsist.Rows)
@@ -176,7 +169,7 @@ namespace GUI.UserControlProfesor
             }
         }
 
-        void IdiomaPorDefecto()
+        void IdiomaPorDefecto(string val = null)
         {
             btnSelMateriaAsist.Text = Res.btnSelMateriaAsistencia;
             lblFecha.Text = Res.lblFecha;
@@ -188,22 +181,6 @@ namespace GUI.UserControlProfesor
             gbListadoDeAlu.Text = Res.gbListadoDeAlu;
             gbSelDeMat.Text = Res.gbSelDeMat;
             btnSelMateriaAsistencia.Text = Res.btnSelMateriaAsistencia;
-        }
-
-        void cambiarIdioma(string idioma)
-        {
-            if (idioma == "Ingles")
-            {
-                //Selecciona el archivo Res.en-US.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                IdiomaPorDefecto();
-            }
-            if (idioma == "Español")
-            {
-                //Selecciona el archivo Res.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
-                IdiomaPorDefecto();
-            }
         }
     }
 }
