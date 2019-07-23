@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using BIZ;
+using Framework.D_2015.Cache;
 
 namespace BLL
 {
@@ -19,24 +20,24 @@ namespace BLL
             var unUsuarioDAO = new UsuarioDAO();
             listaUsuario = unUsuarioDAO.trarTodo(usuario);
 
-            //Obtiene por medio de LINQ lo que viene de la BD para poder compararlos
+            //Obtiene por medio de LINQ lo que se cargo de la BD en la "listaUsuario" para poder compararlos
             //con los datos ingresados en los txtbox
-            var email = listaUsuario.Select(x => x.email).FirstOrDefault();
+            CacheUsuario.email = listaUsuario.Select(x => x.email).FirstOrDefault();
             var password = listaUsuario.Select(x => x.password).FirstOrDefault();
-            var rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
+            CacheUsuario.rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
 
-            //esta propiedad es para cargar el nombre del profesor en el rfmProfesor ni bien se logea
-            username = listaUsuario.Select(x => x.username).FirstOrDefault();
+            //Esta propiedad es estatica, carga el nombre del profesor que va a ser usada en frmProfesor ni bien se logea
+            CacheUsuario.username = listaUsuario.Select(x => x.username).FirstOrDefault();
 
             //rol profesor
             //if (email == usuario.email && password == usuario.password && rol == usuario.rol)
-            if (email == usuario.email && password == usuario.password && rol == "Profesor")
+            if (CacheUsuario.email == usuario.email && password == usuario.password && CacheUsuario.rol == "Profesor")
             {
                 return res;
             }
             else
             {
-                if (email == usuario.email && password == usuario.password && rol == "Administrativo")
+                if (CacheUsuario.email == usuario.email && password == usuario.password && CacheUsuario.rol == "Administrativo")
                 {
                     res = 2;
                     return res;

@@ -4,52 +4,31 @@ using GUI.UserControlProfesor;
 using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Profesor;
+using Framework.D_2015.Idiomas;
+using Framework.D_2015.Cache;
 
 namespace GUI
 {
     public partial class frmProfesor : Form
     {
-        //asd
         //variables para la funcion arrastrarForm(e, x, y)
         int x = 0, y = 0;
-        //propiedad para guardar el idioma de forma temporal
-        public string _idioma { get; set; }
 
-        //Necesarias para el metodo seleccionaUserontrol(UserControl),
-        //ahora se instancian en el constructor de la clase para pasarle el idioma
-        UCAsistencias ucasistencias; 
-        UCParciales ucparciales; 
-        UCRecuperatorios ucrecuperatorios; 
-        UCFinales ucfinales; 
-
+        //Instancias necesarias para el metodo seleccionaUserontrol(UserControl)
+        UCAsistencias ucasistencias = new UCAsistencias(Idioma.cacheIdioma);
+        UCParciales ucparciales = new UCParciales(Idioma.cacheIdioma);
+        UCRecuperatorios ucrecuperatorios = new UCRecuperatorios(Idioma.cacheIdioma);
+        UCFinales ucfinales = new UCFinales(Idioma.cacheIdioma);
 
         public frmProfesor()
         {
             InitializeComponent();
-            seleccionarUserControl(ucasistencias);
-            lblNombreProfesor.Visible = false;
-        }
-
-        /// <summary>
-        /// Necesario para pasar por parametro el nombre del profesor y el idioma del form
-        /// </summary>
-        /// <param name="nombreProfesor"></param>
-        /// <param name="idioma">Es ocpional, no obligatorio</param>
-        public frmProfesor(string nombreProfesor, string idioma = "Español")
-        {
-            InitializeComponent();
-
-            ucasistencias = new UCAsistencias(idioma);
-            ucparciales = new UCParciales(idioma);
-            ucrecuperatorios = new UCRecuperatorios(idioma);
-            ucfinales = new UCFinales(idioma);
 
             seleccionarUserControl(ucasistencias);
-            this.lblNombreProfesor.Text = nombreProfesor;
-            cambiarIdioma(idioma);
-            _idioma = idioma;
 
-            
+            this.lblNombreProfesor.Text = CacheUsuario.username;
+
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -70,48 +49,41 @@ namespace GUI
             }
         }
 
-
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-
         private void btnAsistencias_Click(object sender, EventArgs e)
         {
             moverSlider(btnAsistencias.Height, btnAsistencias.Top);
-
             seleccionarUserControl(ucasistencias);
         }
 
         private void btnParciales_Click(object sender, EventArgs e)
         {
             moverSlider(btnParciales.Height, btnParciales.Top);
-
             seleccionarUserControl(ucparciales);
         }
 
         private void btnRecuperatorios_Click(object sender, EventArgs e)
         {
             moverSlider(btnRecuperatorios.Height, btnRecuperatorios.Top);
-
             seleccionarUserControl(ucrecuperatorios);
         }
 
         private void btnFinales_Click(object sender, EventArgs e)
         {
             moverSlider(btnFinales.Height, btnFinales.Top);
-
             seleccionarUserControl(ucfinales);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            Login frmLogin = new Login(_idioma);
+            Login frmLogin = new Login();
             frmLogin.Show();
             this.Hide();
         }
-
 
         private void panelHeader2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -122,7 +94,6 @@ namespace GUI
         {
             arrastrarForm(e, ref x, ref y);
         }
-
 
         private void panelHeader1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -140,7 +111,6 @@ namespace GUI
             slideMenu.Height = height;
             slideMenu.Top = top;
         }
-
 
         /// <summary>
         /// Metodo para arrastrar el form desde el menu lateral y el header
@@ -173,29 +143,13 @@ namespace GUI
             panelContenedor.Controls.Add(uc);
         }
 
-        void IdiomaPorDefecto()
+        void IdiomaPorDefecto(string val = null)
         {
             lblProfesor.Text = Res.lblProfesor;
             btnAsistencias.Text = Res.btnAsistencias;
             btnFinales.Text = Res.btnFinales;
             btnParciales.Text = Res.btnParciales;
             btnRecuperatorios.Text = Res.btnRecuperatorios;
-        }
-
-        void cambiarIdioma(string idioma)
-        {
-            if (idioma == "Ingles")
-            {
-                //Selecciona el archivo Res.en-US.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                IdiomaPorDefecto();
-            }
-            if (idioma == "Español")
-            {
-                //Selecciona el archivo Res.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
-                IdiomaPorDefecto();
-            }
         }
     }
 }

@@ -14,6 +14,7 @@ using BLL;
 using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Login;
+using Framework.D_2015.Idiomas;
 
 namespace GUI
 {
@@ -26,17 +27,9 @@ namespace GUI
         {
             InitializeComponent();
             lblError.Visible = false;
-            cboIdioma.SelectedIndex = 0;
+            cboIdioma.SelectedIndex = Idioma.cacheIdioma == "Español" ? 0 : 1;
             cboRol.SelectedIndex = 2;
-        }
-
-        public Login(string idioma = "Español")
-        {
-            InitializeComponent();
-            lblError.Visible = false;
-            cboIdioma.SelectedIndex = idioma == "Español" ? 0 : 1;
-            cboRol.SelectedIndex = 2;
-            cambiarIdioma(idioma);
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -44,14 +37,7 @@ namespace GUI
             this.WindowState = FormWindowState.Minimized;
         }
 
-
         private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
             Application.Exit();
@@ -70,13 +56,7 @@ namespace GUI
 
             if (resultadoUser == 1)
             {
-                //###########################################################
-                //Este form es para el secretario academico
-                //frmSecretarioAcademico frmsa = new frmSecretarioAcademico();
-                //frmsa.Show();
-                //###########################################################
-                //Este es el del profesor
-                frmProfesor frmp = new frmProfesor(gestorUsuario.username, cboIdioma.Text);
+                frmProfesor frmp = new frmProfesor();
                 frmp.Show();
                 this.Hide();
             }
@@ -90,7 +70,6 @@ namespace GUI
                 else
                 {
                     lblError.Visible = true;
-                    //lblError.Text = "Usuario o contraseña incorrecto";
                 }
             }
         }
@@ -117,13 +96,14 @@ namespace GUI
 
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cambiarIdioma(cboIdioma.SelectedItem.ToString());
+            Idioma.cacheIdioma = cboIdioma.Text;
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
 
         /// <summary>
         /// El idioma por defecto es español, el archivo por defecto es Res.resx
         /// </summary>
-        void IdiomaPorDefecto()
+        void IdiomaPorDefecto(string val = null)
         {
             lblIdioma.Text = Res.lblIdioma;
             lblInicioDeSesion.Text = Res.lblInicioDeSesion;
@@ -132,23 +112,6 @@ namespace GUI
             lblRol.Text = Res.lblRol;
             lblError.Text = Res.lblError;
             btnLogin.Text = Res.btnLogin;
-            btnCancelar.Text = Res.btnCancelar;
-        }
-
-        void cambiarIdioma(string idioma)
-        {
-            if (idioma == "Ingles")
-            {
-                //Selecciona el archivo Res.en-US.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                IdiomaPorDefecto();
-            }
-            if (idioma == "Español")
-            {
-                //Selecciona el archivo Res.resx
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
-                IdiomaPorDefecto();
-            }
         }
 
         /// <summary>

@@ -64,6 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\CacheUsuario.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="Configuracion.vb" />
     <Compile Include="Funciones\Archivo.vb" />
@@ -71,6 +72,7 @@
     <Compile Include="Funciones\Fechas.vb" />
     <Compile Include="Funciones\Matematicas.vb" />
     <Compile Include="Funciones\Validadores.vb" />
+    <Compile Include="Idiomas\Idioma.vb" />
     <Compile Include="Persistencia\Conexion.vb" />
     <Compile Include="Persistencia\ConfiguracionDB.vb" />
     <Compile Include="Persistencia\IProveedorBD.vb" />
