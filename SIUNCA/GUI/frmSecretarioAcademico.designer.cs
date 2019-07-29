@@ -42,7 +42,7 @@ namespace GUI
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelHeader2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSecretarioAcademico = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
@@ -140,7 +140,7 @@ namespace GUI
             this.btnPlanDeEstudio.Name = "btnPlanDeEstudio";
             this.btnPlanDeEstudio.Size = new System.Drawing.Size(188, 50);
             this.btnPlanDeEstudio.TabIndex = 3;
-            this.btnPlanDeEstudio.Text = "Gestion Plan de estudio";
+            this.btnPlanDeEstudio.Text = "Gestión Plan de estudio";
             this.btnPlanDeEstudio.UseVisualStyleBackColor = false;
             this.btnPlanDeEstudio.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -202,7 +202,7 @@ namespace GUI
             // panelHeader2
             // 
             this.panelHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.panelHeader2.Controls.Add(this.label2);
+            this.panelHeader2.Controls.Add(this.lblSecretarioAcademico);
             this.panelHeader2.Controls.Add(this.button3);
             this.panelHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader2.Location = new System.Drawing.Point(203, 30);
@@ -211,15 +211,15 @@ namespace GUI
             this.panelHeader2.TabIndex = 2;
             this.panelHeader2.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelHeader2_Paint);
             // 
-            // label2
+            // lblSecretarioAcademico
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(660, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Aca iria si logeo un profesor o un administrativo (se logueo secretario academico" +
+            this.lblSecretarioAcademico.AutoSize = true;
+            this.lblSecretarioAcademico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecretarioAcademico.Location = new System.Drawing.Point(26, 19);
+            this.lblSecretarioAcademico.Name = "lblSecretarioAcademico";
+            this.lblSecretarioAcademico.Size = new System.Drawing.Size(660, 20);
+            this.lblSecretarioAcademico.TabIndex = 6;
+            this.lblSecretarioAcademico.Text = "Aca iria si logeo un profesor o un administrativo (se logueo secretario academico" +
     ")";
             // 
             // button3
@@ -280,7 +280,7 @@ namespace GUI
         private System.Windows.Forms.Button btnMaterias;
         private System.Windows.Forms.Panel slideMenu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSecretarioAcademico;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAlumnos;
         private System.Windows.Forms.Button btnCursos;

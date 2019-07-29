@@ -43,7 +43,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelMensaje = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnGuardarPE = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -235,7 +235,7 @@ namespace GUI.UserControlSecretarioAcademico
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.labelMensaje);
-            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.btnGuardarPE);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.button5);
@@ -257,17 +257,17 @@ namespace GUI.UserControlSecretarioAcademico
             this.labelMensaje.Text = "Mensaje validacion";
             this.labelMensaje.Visible = false;
             // 
-            // button6
+            // btnGuardarPE
             // 
-            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(575, 480);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(207, 98);
-            this.button6.TabIndex = 28;
-            this.button6.Text = "Guardar plan de estudio";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            this.btnGuardarPE.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnGuardarPE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardarPE.Location = new System.Drawing.Point(575, 480);
+            this.btnGuardarPE.Name = "btnGuardarPE";
+            this.btnGuardarPE.Size = new System.Drawing.Size(207, 98);
+            this.btnGuardarPE.TabIndex = 28;
+            this.btnGuardarPE.Text = "Guardar plan de estudio";
+            this.btnGuardarPE.UseVisualStyleBackColor = false;
+            this.btnGuardarPE.Click += new System.EventHandler(this.Button6_Click);
             // 
             // panel1
             // 
@@ -671,7 +671,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.TextBox txtNumeroMateria;
         private System.Windows.Forms.TextBox txtCargaHoraria;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGuardarPE;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dgPEMaterias;

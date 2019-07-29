@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.D_2015.Cache;
+using Framework.D_2015.Idiomas;
 using GUI.UserControlSecretarioAcademico;
+using GUI.Idiomas.SecretarioAcademico;
 
 namespace GUI
 {
@@ -28,6 +31,9 @@ namespace GUI
         {
             InitializeComponent();
             seleccionarUserControl(ucplandeestudio);
+            this.lblSecretarioAcademico.Text = CacheUsuario.username;
+
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -179,6 +185,21 @@ namespace GUI
         {
             panelContenedor.Controls.Clear();
             panelContenedor.Controls.Add(uc);
+        }
+
+
+        void IdiomaPorDefecto(string val = null)
+        {
+            btnPlanDeEstudio.Text = Res.btnPlanDeEstudio;
+            btnMaterias.Text = Res.btnMaterias;
+            btnCursos.Text = Res.btnCursos;
+            btnAlumnos.Text = Res.btnAlumnos;
+ 
+            //lblProfesor.Text = Res.lblProfesor;
+            //btnAsistencias.Text = Res.btnAsistencias;
+            //btnFinales.Text = Res.btnFinales;
+            //btnParciales.Text = Res.btnParciales;
+            //btnRecuperatorios.Text = Res.btnRecuperatorios;
         }
     }
 }

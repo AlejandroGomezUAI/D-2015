@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.resx</DependentUpon>
     </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +214,10 @@
     <EmbeddedResource Include="Idiomas\Profesor\Res.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.resx">
       <Generator>ResXFileCodeGenerator</Generator>

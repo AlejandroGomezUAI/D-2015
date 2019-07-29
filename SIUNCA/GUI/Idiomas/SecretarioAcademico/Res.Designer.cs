@@ -59,5 +59,41 @@ namespace GUI.Idiomas.SecretarioAcademico {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gestión Alumnos.
+        /// </summary>
+        internal static string btnAlumnos {
+            get {
+                return ResourceManager.GetString("btnAlumnos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gestión Cursos.
+        /// </summary>
+        internal static string btnCursos {
+            get {
+                return ResourceManager.GetString("btnCursos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gestión materias.
+        /// </summary>
+        internal static string btnMaterias {
+            get {
+                return ResourceManager.GetString("btnMaterias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gestión Plan de estudio.
+        /// </summary>
+        internal static string btnPlanDeEstudio {
+            get {
+                return ResourceManager.GetString("btnPlanDeEstudio", resourceCulture);
+            }
+        }
     }
 }
