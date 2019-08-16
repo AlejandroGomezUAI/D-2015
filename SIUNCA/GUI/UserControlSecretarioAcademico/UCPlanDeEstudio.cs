@@ -63,27 +63,8 @@ namespace GUI.UserControlSecretarioAcademico
             button5.Text = Res.button5;
             btnGuardarPE.Text = Res.btnGuardarPE;
             
-        }
+        }  
         
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CargarPlanes()
         {
@@ -164,10 +145,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void Button4_Click_1(object sender, EventArgs e)
         {
@@ -530,10 +508,6 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         
 

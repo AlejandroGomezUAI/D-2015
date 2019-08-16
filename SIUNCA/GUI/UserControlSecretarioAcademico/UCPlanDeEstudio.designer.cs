@@ -130,7 +130,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Size = new System.Drawing.Size(846, 605);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registrar Plan de estudio";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            //this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // dgPEMaterias
             // 
@@ -173,7 +173,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.lblCargaHoraria.Size = new System.Drawing.Size(121, 20);
             this.lblCargaHoraria.TabIndex = 17;
             this.lblCargaHoraria.Text = "Carga Horaria";
-            this.lblCargaHoraria.Click += new System.EventHandler(this.label7_Click);
+           // this.lblCargaHoraria.Click += new System.EventHandler(this.label7_Click);
             // 
             // lblAño
             // 
