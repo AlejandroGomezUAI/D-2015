@@ -33,7 +33,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgPEMaterias = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAsignarCorrelativas = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,7 +115,7 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.BackColor = System.Drawing.Color.SkyBlue;
             this.tabPage1.Controls.Add(this.dgPEMaterias);
             this.tabPage1.Controls.Add(this.btnConsultarCorrelativas);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnAsignarCorrelativas);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
@@ -153,17 +153,17 @@ namespace GUI.UserControlSecretarioAcademico
             this.btnConsultarCorrelativas.UseVisualStyleBackColor = false;
             this.btnConsultarCorrelativas.Click += new System.EventHandler(this.btnConsultarCorrelativas_Click);
             // 
-            // button1
+            // btnAsignarCorrelativas
             // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(470, 94);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(296, 84);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Asignar correlativas a una materia";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            this.btnAsignarCorrelativas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAsignarCorrelativas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAsignarCorrelativas.Location = new System.Drawing.Point(470, 94);
+            this.btnAsignarCorrelativas.Name = "btnAsignarCorrelativas";
+            this.btnAsignarCorrelativas.Size = new System.Drawing.Size(296, 84);
+            this.btnAsignarCorrelativas.TabIndex = 21;
+            this.btnAsignarCorrelativas.Text = "Asignar correlativas a una materia";
+            this.btnAsignarCorrelativas.UseVisualStyleBackColor = false;
+            this.btnAsignarCorrelativas.Click += new System.EventHandler(this.btnAsignarCorrelativas_Click_1);
             // 
             // label7
             // 
@@ -676,7 +676,7 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dgPEMaterias;
         private System.Windows.Forms.Button btnConsultarCorrelativas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAsignarCorrelativas;
         private System.Windows.Forms.ComboBox ComboObligatoriedad;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

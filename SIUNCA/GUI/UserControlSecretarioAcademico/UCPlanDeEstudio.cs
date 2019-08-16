@@ -291,7 +291,7 @@ namespace GUI.UserControlSecretarioAcademico
             //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
+        private void btnAsignarCorrelativas_Click_1(object sender, EventArgs e)
         {
             //frmCorrelativas.Show();
             //tabPage2.Show();
