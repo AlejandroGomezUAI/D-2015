@@ -123,6 +123,15 @@
   <data name="btnConsultarCorrelativas" xml:space="preserve">
     <value>Consultar correlativas</value>
   </data>
+  <data name="btnGuardarPE" xml:space="preserve">
+    <value>Guardar Plan de Estudio</value>
+  </data>
+  <data name="button4" xml:space="preserve">
+    <value>Agregar Materia</value>
+  </data>
+  <data name="button5" xml:space="preserve">
+    <value>Quitar Materia</value>
+  </data>
   <data name="lblAño" xml:space="preserve">
     <value>Año</value>
   </data>

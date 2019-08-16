@@ -79,6 +79,33 @@ namespace GUI.Idiomas.SecretarioAcademico.PlanDeEstudio {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Guardar Plan de Estudio.
+        /// </summary>
+        internal static string btnGuardarPE {
+            get {
+                return ResourceManager.GetString("btnGuardarPE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Agregar Materia.
+        /// </summary>
+        internal static string button4 {
+            get {
+                return ResourceManager.GetString("button4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Quitar Materia.
+        /// </summary>
+        internal static string button5 {
+            get {
+                return ResourceManager.GetString("button5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Año.
         /// </summary>
         internal static string lblAño {
