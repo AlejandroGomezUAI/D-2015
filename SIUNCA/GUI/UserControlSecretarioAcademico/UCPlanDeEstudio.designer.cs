@@ -34,10 +34,10 @@ namespace GUI.UserControlSecretarioAcademico
             this.dgPEMaterias = new System.Windows.Forms.DataGridView();
             this.btnConsultarCorrelativas = new System.Windows.Forms.Button();
             this.btnAsignarCorrelativas = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCargaHoraria = new System.Windows.Forms.Label();
+            this.lblAño = new System.Windows.Forms.Label();
+            this.lblObligatoriedad = new System.Windows.Forms.Label();
+            this.lblMatConCorr = new System.Windows.Forms.Label();
             this.ComboMaterias1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,12 +45,12 @@ namespace GUI.UserControlSecretarioAcademico
             this.labelMensaje = new System.Windows.Forms.Label();
             this.btnGuardarPE = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblNombrePlan = new System.Windows.Forms.Label();
+            this.lblCarrera = new System.Windows.Forms.Label();
             this.ComboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblNumeroMateria = new System.Windows.Forms.Label();
             this.txtNumeroMateria = new System.Windows.Forms.TextBox();
             this.txtCargaHoraria = new System.Windows.Forms.TextBox();
             this.txtAño = new System.Windows.Forms.TextBox();
@@ -116,10 +116,10 @@ namespace GUI.UserControlSecretarioAcademico
             this.tabPage1.Controls.Add(this.dgPEMaterias);
             this.tabPage1.Controls.Add(this.btnConsultarCorrelativas);
             this.tabPage1.Controls.Add(this.btnAsignarCorrelativas);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.lblCargaHoraria);
+            this.tabPage1.Controls.Add(this.lblAño);
+            this.tabPage1.Controls.Add(this.lblObligatoriedad);
+            this.tabPage1.Controls.Add(this.lblMatConCorr);
             this.tabPage1.Controls.Add(this.ComboMaterias1);
             this.tabPage1.Controls.Add(this.panel3);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -165,42 +165,42 @@ namespace GUI.UserControlSecretarioAcademico
             this.btnAsignarCorrelativas.UseVisualStyleBackColor = false;
             this.btnAsignarCorrelativas.Click += new System.EventHandler(this.btnAsignarCorrelativas_Click_1);
             // 
-            // label7
+            // lblCargaHoraria
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 251);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 20);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Carga Horaria";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.lblCargaHoraria.AutoSize = true;
+            this.lblCargaHoraria.Location = new System.Drawing.Point(57, 251);
+            this.lblCargaHoraria.Name = "lblCargaHoraria";
+            this.lblCargaHoraria.Size = new System.Drawing.Size(121, 20);
+            this.lblCargaHoraria.TabIndex = 17;
+            this.lblCargaHoraria.Text = "Carga Horaria";
+            this.lblCargaHoraria.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label6
+            // lblAño
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 219);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Año";
+            this.lblAño.AutoSize = true;
+            this.lblAño.Location = new System.Drawing.Point(57, 219);
+            this.lblAño.Name = "lblAño";
+            this.lblAño.Size = new System.Drawing.Size(41, 20);
+            this.lblAño.TabIndex = 16;
+            this.lblAño.Text = "Año";
             // 
-            // label5
+            // lblObligatoriedad
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 187);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Obligatoriedad";
+            this.lblObligatoriedad.AutoSize = true;
+            this.lblObligatoriedad.Location = new System.Drawing.Point(57, 187);
+            this.lblObligatoriedad.Name = "lblObligatoriedad";
+            this.lblObligatoriedad.Size = new System.Drawing.Size(126, 20);
+            this.lblObligatoriedad.TabIndex = 15;
+            this.lblObligatoriedad.Text = "Obligatoriedad";
             // 
-            // label3
+            // lblMatConCorr
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(412, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(227, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Materia (con correlatividad)";
+            this.lblMatConCorr.AutoSize = true;
+            this.lblMatConCorr.Location = new System.Drawing.Point(412, 60);
+            this.lblMatConCorr.Name = "lblMatConCorr";
+            this.lblMatConCorr.Size = new System.Drawing.Size(227, 20);
+            this.lblMatConCorr.TabIndex = 13;
+            this.lblMatConCorr.Text = "Materia (con correlatividad)";
             // 
             // ComboMaterias1
             // 
@@ -272,8 +272,8 @@ namespace GUI.UserControlSecretarioAcademico
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.lblNombrePlan);
+            this.panel1.Controls.Add(this.lblCarrera);
             this.panel1.Controls.Add(this.ComboBox3);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(34, 25);
@@ -281,23 +281,23 @@ namespace GUI.UserControlSecretarioAcademico
             this.panel1.Size = new System.Drawing.Size(346, 135);
             this.panel1.TabIndex = 31;
             // 
-            // label2
+            // lblNombrePlan
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 20);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Nombre del plan";
+            this.lblNombrePlan.AutoSize = true;
+            this.lblNombrePlan.Location = new System.Drawing.Point(3, 37);
+            this.lblNombrePlan.Name = "lblNombrePlan";
+            this.lblNombrePlan.Size = new System.Drawing.Size(139, 20);
+            this.lblNombrePlan.TabIndex = 12;
+            this.lblNombrePlan.Text = "Nombre del plan";
             // 
-            // label8
+            // lblCarrera
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 71);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 20);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Carrera";
+            this.lblCarrera.AutoSize = true;
+            this.lblCarrera.Location = new System.Drawing.Point(3, 71);
+            this.lblCarrera.Name = "lblCarrera";
+            this.lblCarrera.Size = new System.Drawing.Size(69, 20);
+            this.lblCarrera.TabIndex = 18;
+            this.lblCarrera.Text = "Carrera";
             // 
             // ComboBox3
             // 
@@ -318,7 +318,7 @@ namespace GUI.UserControlSecretarioAcademico
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.lblNumeroMateria);
             this.panel2.Controls.Add(this.txtNumeroMateria);
             this.panel2.Controls.Add(this.txtCargaHoraria);
             this.panel2.Controls.Add(this.txtAño);
@@ -328,14 +328,14 @@ namespace GUI.UserControlSecretarioAcademico
             this.panel2.Size = new System.Drawing.Size(346, 148);
             this.panel2.TabIndex = 32;
             // 
-            // label4
+            // lblNumeroMateria
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Numero De Materia";
+            this.lblNumeroMateria.AutoSize = true;
+            this.lblNumeroMateria.Location = new System.Drawing.Point(7, 110);
+            this.lblNumeroMateria.Name = "lblNumeroMateria";
+            this.lblNumeroMateria.Size = new System.Drawing.Size(164, 20);
+            this.lblNumeroMateria.TabIndex = 14;
+            this.lblNumeroMateria.Text = "Numero De Materia";
             // 
             // txtNumeroMateria
             // 
@@ -658,13 +658,13 @@ namespace GUI.UserControlSecretarioAcademico
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCarrera;
+        private System.Windows.Forms.Label lblCargaHoraria;
+        private System.Windows.Forms.Label lblAño;
+        private System.Windows.Forms.Label lblObligatoriedad;
+        private System.Windows.Forms.Label lblNumeroMateria;
+        private System.Windows.Forms.Label lblMatConCorr;
+        private System.Windows.Forms.Label lblNombrePlan;
         private System.Windows.Forms.ComboBox ComboBox3;
         private System.Windows.Forms.ComboBox ComboMaterias1;
         private System.Windows.Forms.TextBox txtAño;

@@ -59,5 +59,86 @@ namespace GUI.Idiomas.SecretarioAcademico.PlanDeEstudio {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asignar correlativas a una materia.
+        /// </summary>
+        internal static string btnAsignarCorrelativas {
+            get {
+                return ResourceManager.GetString("btnAsignarCorrelativas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Consultar correlativas.
+        /// </summary>
+        internal static string btnConsultarCorrelativas {
+            get {
+                return ResourceManager.GetString("btnConsultarCorrelativas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Año.
+        /// </summary>
+        internal static string lblAño {
+            get {
+                return ResourceManager.GetString("lblAño", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Carga Horaria.
+        /// </summary>
+        internal static string lblCargaHoraria {
+            get {
+                return ResourceManager.GetString("lblCargaHoraria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Carrera.
+        /// </summary>
+        internal static string lblCarrera {
+            get {
+                return ResourceManager.GetString("lblCarrera", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Materia (con correlatividad).
+        /// </summary>
+        internal static string lblMatConCorr {
+            get {
+                return ResourceManager.GetString("lblMatConCorr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre del Plan.
+        /// </summary>
+        internal static string lblNombrePlan {
+            get {
+                return ResourceManager.GetString("lblNombrePlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Numero de Materia.
+        /// </summary>
+        internal static string lblNumeroMateria {
+            get {
+                return ResourceManager.GetString("lblNumeroMateria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Obligatoriedad.
+        /// </summary>
+        internal static string lblObligatoriedad {
+            get {
+                return ResourceManager.GetString("lblObligatoriedad", resourceCulture);
+            }
+        }
     }
 }
