@@ -11,6 +11,7 @@ using Framework.D_2015.Cache;
 using Framework.D_2015.Idiomas;
 using GUI.UserControlSecretarioAcademico;
 using GUI.Idiomas.SecretarioAcademico;
+using GUI.Seguridad;
 
 namespace GUI
 {
@@ -25,6 +26,7 @@ namespace GUI
         UCPlanDeEstudio ucplandeestudio = new UCPlanDeEstudio();
         UCAlumnos ucalumnos = new UCAlumnos();
         UCCursos uccursos = new UCCursos();
+        UCPerfilesUsuarios ucperfilesusuarios = new UCPerfilesUsuarios();
 
 
         public frmSecretarioAcademico()
@@ -187,6 +189,12 @@ namespace GUI
             panelContenedor.Controls.Add(uc);
         }
 
+        private void BtnUSUARIOS_Click(object sender, EventArgs e)
+        {
+            moverSlider(btnMaterias.Height, btnMaterias.Top);
+
+            seleccionarUserControl(ucperfilesusuarios);
+        }
 
         void IdiomaPorDefecto(string val = null)
         {

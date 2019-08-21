@@ -21,5 +21,11 @@ namespace GUI.Seguridad
         {
 
         }
+
+        private void AdsdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCBitacora ucbit = new UCBitacora();
+            ucbit.Show();
+        }
     }
 }

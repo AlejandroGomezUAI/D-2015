@@ -45,6 +45,7 @@ namespace GUI
             this.lblSecretarioAcademico = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnUSUARIOS = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             this.panelHeader2.SuspendLayout();
@@ -54,6 +55,7 @@ namespace GUI
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMenu.Controls.Add(this.btnUSUARIOS);
             this.panelMenu.Controls.Add(this.btnAlumnos);
             this.panelMenu.Controls.Add(this.btnCursos);
             this.panelMenu.Controls.Add(this.label1);
@@ -245,6 +247,20 @@ namespace GUI
             this.panelContenedor.TabIndex = 8;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
+            // btnUSUARIOS
+            // 
+            this.btnUSUARIOS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnUSUARIOS.FlatAppearance.BorderSize = 0;
+            this.btnUSUARIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUSUARIOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUSUARIOS.Location = new System.Drawing.Point(0, 420);
+            this.btnUSUARIOS.Name = "btnUSUARIOS";
+            this.btnUSUARIOS.Size = new System.Drawing.Size(188, 44);
+            this.btnUSUARIOS.TabIndex = 7;
+            this.btnUSUARIOS.Text = "Gestion USUARIOS";
+            this.btnUSUARIOS.UseVisualStyleBackColor = false;
+            this.btnUSUARIOS.Click += new System.EventHandler(this.BtnUSUARIOS_Click);
+            // 
             // frmSecretarioAcademico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,6 +301,7 @@ namespace GUI
         private System.Windows.Forms.Button btnAlumnos;
         private System.Windows.Forms.Button btnCursos;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Button btnUSUARIOS;
     }
 }
 
