@@ -48,6 +48,13 @@ namespace BLL
                     return 0;
                 }
             }
+
+        }
+
+        public void guardarUsuario(Usuario usuario)
+        {
+            var unUsuarioDAO = new UsuarioDAO();
+            unUsuarioDAO.insertarUsuario(usuario);
         }
 
         public List<Usuario> TraerTodo()

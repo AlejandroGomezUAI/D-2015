@@ -170,7 +170,33 @@ namespace DAL
             return elUsuario;
         }
 
+        public void insertarUsuario(Usuario usuario)
+        {
+            var conexion = new Conexion("config.xml");
 
+            try
+            {
+                conexion.ConexionIniciar();
+                conexion.TransaccionIniciar();
 
+                var parametros = new List<Parametro>();
+                parametros.Add(new Parametro("username", usuario.username));
+                parametros.Add(new Parametro("password", usuario.password));
+                parametros.Add(new Parametro("email", usuario.email));
+                parametros.Add(new Parametro("rol", usuario.rol));
+
+                conexion.EjecutarSinResultado("INSERT INTO tbl_user (username, password, email, rol) VALUES (@username, @password, @email, @rol)", parametros);
+
+                conexion.TransaccionAceptar();
+            }
+            catch (Exception)
+            {
+                conexion.TransaccionCancelar();
+            }
+            finally
+            {
+                conexion.ConexionFinalizar();
+            }
+        }
     }
 }

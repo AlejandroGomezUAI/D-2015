@@ -154,6 +154,12 @@
     <Compile Include="Seguridad\UCPerfilesUsuarios.Designer.cs">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad\UCUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCUsuarios.Designer.cs">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlProfesor\UCAsistencias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCUsuarios.resx">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
