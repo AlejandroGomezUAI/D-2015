@@ -28,17 +28,17 @@ namespace BIZ
 
         
 
-        public int IdUsuario
-        {
-            get
-            {
-                return _idUsuario;
-            }
-            set
-            {
-                _idUsuario = value;
-            }
-        }
+        //public int IdUsuario
+        //{
+        //    get
+        //    {
+        //        return _idUsuario;
+        //    }
+        //    set
+        //    {
+        //        _idUsuario = value;
+        //    }
+        //}
 
         public Familia Perfil
         {
@@ -55,7 +55,7 @@ namespace BIZ
         public override bool Equals(object obj)
         {
             if (!(obj == null) && obj is Usuario)
-                return ((Usuario)obj).IdUsuario.Equals(this.IdUsuario);
+                return ((Usuario)obj).iduser.Equals(this.iduser);
             else
                 return false;
         }

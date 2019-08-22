@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using BIZ;
 using BLL;
 using BIZ.DTOs;
+using GUI.Idiomas.SecretarioAcademico.PlanDeEstudio;
+using System.Threading;
+using System.Globalization;
+using Framework.D_2015.Idiomas;
 
 namespace GUI.UserControlSecretarioAcademico
 {
@@ -40,27 +44,27 @@ namespace GUI.UserControlSecretarioAcademico
             //ucPlanDeEstudio
             //CargarPlanes();
             CargarMaterias();
+            Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+            
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        void IdiomaPorDefecto(string val = null)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
+            lblNombrePlan.Text = Res.lblNombrePlan;
+            lblCarrera.Text = Res.lblCarrera;
+            lblObligatoriedad.Text = Res.lblObligatoriedad;
+            lblAño.Text = Res.lblAño;
+            lblCargaHoraria.Text = Res.lblCargaHoraria;
+            lblNumeroMateria.Text = Res.lblNumeroMateria;
+            lblMatConCorr.Text = Res.lblMatConCorr;
+            btnAsignarCorrelativas.Text = Res.btnAsignarCorrelativas;
+            btnConsultarCorrelativas.Text = Res.btnConsultarCorrelativas;
+            button4.Text = Res.button4;
+            button5.Text = Res.button5;
+            btnGuardarPE.Text = Res.btnGuardarPE;
+            
+        }  
+        
 
         private void CargarPlanes()
         {
@@ -141,10 +145,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void Button4_Click_1(object sender, EventArgs e)
         {
@@ -291,7 +292,7 @@ namespace GUI.UserControlSecretarioAcademico
             //dgPEMaterias.Columns("IdMateriaCC").Visible = false;
         }
 
-        private void Button1_Click_1(object sender, EventArgs e)
+        private void btnAsignarCorrelativas_Click_1(object sender, EventArgs e)
         {
             //frmCorrelativas.Show();
             //tabPage2.Show();
@@ -507,10 +508,6 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
-        private void ComboMateriasCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-        }
 
         
 

@@ -94,6 +94,7 @@
     <Compile Include="Persistencia\Parametro.vb" />
     <Compile Include="Persistencia\ProveedorMySql.vb" />
     <Compile Include="Persistencia\ProveedorSql.vb" />
+    <Compile Include="Seguridad\Hash.vb" />
     <Compile Include="Serializadores\ISerializador.vb" />
     <Compile Include="Serializadores\Serializador.vb" />
   </ItemGroup>

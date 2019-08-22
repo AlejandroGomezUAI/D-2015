@@ -27,6 +27,7 @@ namespace GUI
         UCPerfilesUsuarios ucperfilesusuarios = new UCPerfilesUsuarios();
         UCBackups ucbackups = new UCBackups();
         UCBitacora ucbitacora = new UCBitacora();
+        UCUsuarios ucusuarios = new UCUsuarios();
 
         public frmSeguridad()
         {
@@ -185,7 +186,23 @@ namespace GUI
         {
             moverSlider(btnCursos.Height, btnCursos.Top);
 
-            seleccionarUserControl(uccursos);
+            seleccionarUserControl(ucusuarios);
+        }
+
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
 
 

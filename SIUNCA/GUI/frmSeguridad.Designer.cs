@@ -135,6 +135,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(28, 26);
             this.btnMinimizar.TabIndex = 3;
             this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click_1);
             // 
             // btnMaximizar
             // 
@@ -161,6 +162,7 @@
             this.btnClose.Size = new System.Drawing.Size(27, 25);
             this.btnClose.TabIndex = 2;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
             // panelContenedor
             // 
@@ -192,6 +194,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "LogOut";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // panelHeader1
             // 
@@ -220,6 +223,7 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(203, 729);
             this.panelMenu.TabIndex = 9;
+            this.panelMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseMove);
             // 
             // frmSeguridad
             // 

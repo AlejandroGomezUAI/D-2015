@@ -45,6 +45,9 @@
     <Compile Include="AsistenciaDAO.cs" />
     <Compile Include="CarreraDAO.cs" />
     <Compile Include="CursoDAO.cs" />
+    <Compile Include="DAOSeguridad\FamiliaDAO.cs" />
+    <Compile Include="DAOSeguridad\ICRUD.cs" />
+    <Compile Include="DAOSeguridad\PatenteDAO.cs" />
     <Compile Include="DetalleAlumnoMateriaDAO.cs" />
     <Compile Include="DetalleCorrelativaDAO.cs" />
     <Compile Include="DetPEDAO.cs" />

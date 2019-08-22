@@ -92,6 +92,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.resx</DependentUpon>
     </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Alumnos\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Cursos\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Materias\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Idiomas\SecretarioAcademico\Res.en-US.Designer.cs">
+      <DependentUpon>Res.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +153,12 @@
     </Compile>
     <Compile Include="Seguridad\UCPerfilesUsuarios.Designer.cs">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UCUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UCUsuarios.Designer.cs">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlProfesor\UCAsistencias.cs">
       <SubType>UserControl</SubType>
@@ -205,6 +241,34 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Alumnos\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Cursos\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Materias\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.en-US.resx" />
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\PlanDeEstudio\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Idiomas\SecretarioAcademico\Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UCPerfilesUsuarios.resx">
       <DependentUpon>UCPerfilesUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UCUsuarios.resx">
+      <DependentUpon>UCUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlProfesor\UCAsistencias.resx">
       <DependentUpon>UCAsistencias.cs</DependentUpon>
@@ -282,9 +349,7 @@
     <Content Include="Icons\icons8-maximizar-la-ventana-32.png" />
     <Content Include="Icons\icons8-minimize-window-32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Idiomas\SecretarioAcademico\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

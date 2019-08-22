@@ -15,10 +15,10 @@ namespace GUI
         int x = 0, y = 0;
 
         //Instancias necesarias para el metodo seleccionaUserontrol(UserControl)
-        UCAsistencias ucasistencias = new UCAsistencias(Idioma.cacheIdioma);
-        UCParciales ucparciales = new UCParciales(Idioma.cacheIdioma);
-        UCRecuperatorios ucrecuperatorios = new UCRecuperatorios(Idioma.cacheIdioma);
-        UCFinales ucfinales = new UCFinales(Idioma.cacheIdioma);
+        UCAsistencias ucasistencias = new UCAsistencias();
+        UCParciales ucparciales = new UCParciales();
+        UCRecuperatorios ucrecuperatorios = new UCRecuperatorios();
+        UCFinales ucfinales = new UCFinales();
 
         public frmProfesor()
         {

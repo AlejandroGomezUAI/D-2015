@@ -47,6 +47,8 @@
     <Compile Include="GestorDetallesAlumnoMateria.cs" />
     <Compile Include="GestorDetallesCorrelativa.cs" />
     <Compile Include="GestorDetMatPlanCorrPlan.cs" />
+    <Compile Include="GestoresSeguridad\GestorFamilia.cs" />
+    <Compile Include="GestoresSeguridad\GestorPatente.cs" />
     <Compile Include="GestorMateria.cs" />
     <Compile Include="GestorMateriaCC.cs" />
     <Compile Include="GestorPEDetalle.cs" />
