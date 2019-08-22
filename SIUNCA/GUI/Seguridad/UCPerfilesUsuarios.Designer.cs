@@ -38,21 +38,21 @@
             this.label12 = new System.Windows.Forms.Label();
             this.button18 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarioSinPatentes = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarioSinFamilias = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarioPatenteFamilia = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button17 = new System.Windows.Forms.Button();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.dgvPatentesUsuario = new System.Windows.Forms.DataGridView();
+            this.dgvFamiliasUsuario = new System.Windows.Forms.DataGridView();
             this.button15 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.dgvUsuariosGestion = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -117,12 +117,12 @@
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioSinPatentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioSinFamilias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioPatenteFamilia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatentesUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFamiliasUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGestion)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
@@ -207,21 +207,21 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.button18);
             this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.dataGridView7);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvUsuarioSinPatentes);
+            this.groupBox1.Controls.Add(this.dgvUsuarioSinFamilias);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dataGridView11);
+            this.groupBox1.Controls.Add(this.dgvUsuarioPatenteFamilia);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.button17);
-            this.groupBox1.Controls.Add(this.dataGridView10);
-            this.groupBox1.Controls.Add(this.dataGridView9);
+            this.groupBox1.Controls.Add(this.dgvPatentesUsuario);
+            this.groupBox1.Controls.Add(this.dgvFamiliasUsuario);
             this.groupBox1.Controls.Add(this.button15);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button14);
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.dataGridView8);
+            this.groupBox1.Controls.Add(this.dgvUsuariosGestion);
             this.groupBox1.Location = new System.Drawing.Point(16, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(823, 578);
@@ -248,6 +248,7 @@
             this.button19.TabIndex = 65;
             this.button19.Text = "Actualizar grilla";
             this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.Button19_Click);
             // 
             // label12
             // 
@@ -280,25 +281,25 @@
             this.button4.Text = "Agregar familia a usuario";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // dataGridView7
+            // dgvUsuarioSinPatentes
             // 
-            this.dataGridView7.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(557, 357);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.RowHeadersWidth = 57;
-            this.dataGridView7.Size = new System.Drawing.Size(258, 166);
-            this.dataGridView7.TabIndex = 60;
+            this.dgvUsuarioSinPatentes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarioSinPatentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarioSinPatentes.Location = new System.Drawing.Point(557, 357);
+            this.dgvUsuarioSinPatentes.Name = "dgvUsuarioSinPatentes";
+            this.dgvUsuarioSinPatentes.RowHeadersWidth = 57;
+            this.dgvUsuarioSinPatentes.Size = new System.Drawing.Size(258, 166);
+            this.dgvUsuarioSinPatentes.TabIndex = 60;
             // 
-            // dataGridView1
+            // dgvUsuarioSinFamilias
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(557, 87);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 57;
-            this.dataGridView1.Size = new System.Drawing.Size(258, 164);
-            this.dataGridView1.TabIndex = 59;
+            this.dgvUsuarioSinFamilias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarioSinFamilias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarioSinFamilias.Location = new System.Drawing.Point(557, 87);
+            this.dgvUsuarioSinFamilias.Name = "dgvUsuarioSinFamilias";
+            this.dgvUsuarioSinFamilias.RowHeadersWidth = 57;
+            this.dgvUsuarioSinFamilias.Size = new System.Drawing.Size(258, 164);
+            this.dgvUsuarioSinFamilias.TabIndex = 59;
             // 
             // label9
             // 
@@ -318,15 +319,15 @@
             this.label5.TabIndex = 57;
             this.label5.Text = "Familias usuario";
             // 
-            // dataGridView11
+            // dgvUsuarioPatenteFamilia
             // 
-            this.dataGridView11.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(277, 287);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.RowHeadersWidth = 57;
-            this.dataGridView11.Size = new System.Drawing.Size(265, 271);
-            this.dataGridView11.TabIndex = 56;
+            this.dgvUsuarioPatenteFamilia.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuarioPatenteFamilia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarioPatenteFamilia.Location = new System.Drawing.Point(277, 287);
+            this.dgvUsuarioPatenteFamilia.Name = "dgvUsuarioPatenteFamilia";
+            this.dgvUsuarioPatenteFamilia.RowHeadersWidth = 57;
+            this.dgvUsuarioPatenteFamilia.Size = new System.Drawing.Size(265, 271);
+            this.dgvUsuarioPatenteFamilia.TabIndex = 56;
             // 
             // label11
             // 
@@ -357,25 +358,25 @@
             this.button17.Text = "Quitar patente a usuario";
             this.button17.UseVisualStyleBackColor = false;
             // 
-            // dataGridView10
+            // dgvPatentesUsuario
             // 
-            this.dataGridView10.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Location = new System.Drawing.Point(6, 440);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.RowHeadersWidth = 57;
-            this.dataGridView10.Size = new System.Drawing.Size(258, 85);
-            this.dataGridView10.TabIndex = 52;
+            this.dgvPatentesUsuario.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvPatentesUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatentesUsuario.Location = new System.Drawing.Point(6, 440);
+            this.dgvPatentesUsuario.Name = "dgvPatentesUsuario";
+            this.dgvPatentesUsuario.RowHeadersWidth = 57;
+            this.dgvPatentesUsuario.Size = new System.Drawing.Size(258, 85);
+            this.dgvPatentesUsuario.TabIndex = 52;
             // 
-            // dataGridView9
+            // dgvFamiliasUsuario
             // 
-            this.dataGridView9.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Location = new System.Drawing.Point(6, 287);
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.RowHeadersWidth = 57;
-            this.dataGridView9.Size = new System.Drawing.Size(258, 85);
-            this.dataGridView9.TabIndex = 51;
+            this.dgvFamiliasUsuario.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvFamiliasUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFamiliasUsuario.Location = new System.Drawing.Point(6, 287);
+            this.dgvFamiliasUsuario.Name = "dgvFamiliasUsuario";
+            this.dgvFamiliasUsuario.RowHeadersWidth = 57;
+            this.dgvFamiliasUsuario.Size = new System.Drawing.Size(258, 85);
+            this.dgvFamiliasUsuario.TabIndex = 51;
             // 
             // button15
             // 
@@ -409,6 +410,7 @@
             this.button14.TabIndex = 48;
             this.button14.Text = "Cargar usuario seleccionado";
             this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // button5
             // 
@@ -421,15 +423,15 @@
             this.button5.Text = "Quitar familia a usuario";
             this.button5.UseVisualStyleBackColor = false;
             // 
-            // dataGridView8
+            // dgvUsuariosGestion
             // 
-            this.dataGridView8.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Location = new System.Drawing.Point(6, 64);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.RowHeadersWidth = 57;
-            this.dataGridView8.Size = new System.Drawing.Size(258, 187);
-            this.dataGridView8.TabIndex = 23;
+            this.dgvUsuariosGestion.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvUsuariosGestion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuariosGestion.Location = new System.Drawing.Point(6, 64);
+            this.dgvUsuariosGestion.Name = "dgvUsuariosGestion";
+            this.dgvUsuariosGestion.RowHeadersWidth = 57;
+            this.dgvUsuariosGestion.Size = new System.Drawing.Size(258, 187);
+            this.dgvUsuariosGestion.TabIndex = 23;
             // 
             // tabPage5
             // 
@@ -1073,12 +1075,12 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioSinPatentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioSinFamilias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarioPatenteFamilia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPatentesUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFamiliasUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosGestion)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
@@ -1125,22 +1127,22 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsuarioSinPatentes;
+        private System.Windows.Forms.DataGridView dgvUsuarioSinFamilias;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.DataGridView dgvUsuarioPatenteFamilia;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.DataGridView dataGridView10;
-        private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.DataGridView dgvPatentesUsuario;
+        private System.Windows.Forms.DataGridView dgvFamiliasUsuario;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.DataGridView dgvUsuariosGestion;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;

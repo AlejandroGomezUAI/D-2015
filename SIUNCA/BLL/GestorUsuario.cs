@@ -11,6 +11,7 @@ namespace BLL
 {
     public class GestorUsuario
     {
+        UsuarioDAO unUsuarioDAO = new UsuarioDAO();
         public string username { get; set; }
 
         public int traerUsuario(Usuario usuario)
@@ -48,5 +49,17 @@ namespace BLL
                 }
             }
         }
+
+        public List<Usuario> TraerTodo()
+        {
+            return unUsuarioDAO.TraerTodo();
+        }
+
+        public Usuario Login(Usuario unUsuario)
+        {
+            return unUsuarioDAO.Login(unUsuario);
+        }
+
+
     }
 }
