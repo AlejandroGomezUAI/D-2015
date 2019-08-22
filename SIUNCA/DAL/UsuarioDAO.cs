@@ -47,7 +47,7 @@ namespace DAL
             {
                 unaConexion.ConexionIniciar();
 
-                resultado = unaConexion.EjecutarTupla<Usuario>("SELECT username, password, email, rol FROM tbl_user", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<Usuario>("SELECT iduser, username, password, email, rol FROM tbl_user", new List<Parametro>());
             }
             catch (Exception ex)
             {
@@ -87,7 +87,8 @@ namespace DAL
                 listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
 
                 resultado = unaConexion.EjecutarTupla<Usuario>
-                    ("SELECT * FROM Usuario WHERE IdUsuario = (@IdUsuario) AND Contraseña = (@Contraseña)", listaParametros);
+                    //laquetepario juan!!! grande juan!ksldjaskldjalk
+                    ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
 
                 // Tomo el que debería ser el único usuario
                 //elUsuario = resultado.First;
@@ -97,7 +98,7 @@ namespace DAL
                 TraerTodasPatentes = unaConexion.EjecutarTupla<Patente>
                     ("SELECT * FROM Patente", new List<Parametro>());
 
-                // Traigo las relaciones con Patente que tiene el Usuario
+                // Traigo las relaciones con Patente que tiene el Usuario 
                 resultadoUsuarioPatente = unaConexion.EjecutarTupla<UsuarioPatente>
                     ("SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
 

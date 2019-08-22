@@ -60,11 +60,12 @@ namespace GUI.Seguridad
             {
                 // Cargo Usuario seleccionado en grilla
                 //unUsuario = dgvUsuariosGestion.CurrentRow.DataBoundItem;
+                unUsuario = new Usuario();
                 unUsuario = (Usuario)dgvUsuariosGestion.CurrentRow.DataBoundItem ;
                 // Logueo (traigo Perfil) del Usuario
                 unUsuario = UnGestorUsuario.Login(unUsuario);
 
-                CargarPermisosUsuario();
+                CargarPermisosUsuario(unUsuario);
             }
             catch (Exception ex)
             {
@@ -72,7 +73,7 @@ namespace GUI.Seguridad
             }
         }
 
-        public void CargarPermisosUsuario()
+        public void CargarPermisosUsuario(Usuario unUsuario)
         {
             List<Patente> PatentesFaltantes;
             List<Familia> FamiliasFaltantes;
@@ -93,18 +94,19 @@ namespace GUI.Seguridad
             dgvUsuarioPatenteFamilia.DataSource = miniLista.SelectMany(x => x.ListaCompleta).Distinct().ToList();
 
             // Llevo todas las Patentes existentes a PatentesFaltantes
+            PatentesFaltantes = new List<Patente>();
             PatentesFaltantes = unGestorPatente.TraerTodo();
 
             // Saco las Patentes que el Usuario ya tiene
-            //foreach (var item in unUsuario.Perfil.ListaCompleta)
-            //{
-            //    if (PatentesFaltantes.Contains(item))
-            //        PatentesFaltantes.RemoveAt(item);
-            //}
+            foreach (Patente item in unUsuario.Perfil.ListaCompleta)
+            {
+                if (PatentesFaltantes.Contains(item))
+                    PatentesFaltantes.Remove(item);
+            }
 
-            // Muestro Patentes que Usuario no tiene
-            dgvPatentesUsuario.DataSource = null;
-            dgvPatentesUsuario.DataSource = PatentesFaltantes;
+            // Muestro Patentes que Usuario no tiene esta bien el name del dg?LACONCHA
+            dgvUsuarioSinPatentes.DataSource = null;
+            dgvUsuarioSinPatentes.DataSource = PatentesFaltantes;
 
             // Llevo todas las Familias existentes a FamiliasFaltantes
             FamiliasFaltantes = unGestorFamilia.TraerTodo();
