@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BIZ;
 using BLL;
-using Framework.D_2015;
+using Framework.D_2015.Seguridad;
 
 
 namespace GUI.Seguridad
@@ -27,7 +27,7 @@ namespace GUI.Seguridad
             var usuario = new Usuario();
 
             usuario.username = txtUsername.Text;
-            usuario.password = txtPasword.Text;
+            usuario.password = Hash.getSHA256(txtPasword.Text);
             usuario.email = txtMail.Text;
             usuario.rol = cboRol.Text;
 

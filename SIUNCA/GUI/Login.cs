@@ -15,6 +15,7 @@ using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
+using Framework.D_2015.Seguridad;
 
 namespace GUI
 {
@@ -48,7 +49,7 @@ namespace GUI
             var usuario = new Usuario();
 
             usuario.email = txtUsuario.Text;
-            usuario.password = txtContraseña.Text;
+            usuario.password = Hash.getSHA256(txtContraseña.Text);
             usuario.rol = cboRol.Text;
 
             var gestorUsuario = new GestorUsuario();
