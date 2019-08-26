@@ -305,7 +305,7 @@ namespace GUI.Seguridad
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            // Cargo Patente seleccionada de la grilla
+            // agrego Patente seleccionada de la grilla
             Patente unaPatente = new Patente();
             unaPatente = (Patente)dgvFamiliaSinPatente.CurrentRow.DataBoundItem;
 
@@ -327,7 +327,7 @@ namespace GUI.Seguridad
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            // Cargo Patente seleccionada de la grilla
+            // quito Patente seleccionada de la grilla
             Patente unaPatente = new Patente();
             unaPatente = (Patente)dgvFamiliaPatente.CurrentRow.DataBoundItem;
 
