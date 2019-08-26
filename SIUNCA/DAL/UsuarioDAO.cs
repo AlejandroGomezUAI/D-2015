@@ -199,5 +199,58 @@ namespace DAL
                 conexion.ConexionFinalizar();
             }
         }
+
+        public void GuardarPermisos(Usuario unUsuario)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+
+                unaConexion.TransaccionIniciar();
+
+                List<Parametro> listaParametros = new List<Parametro>();
+
+
+                listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+
+                // Borro todos los Perfiles
+                unaConexion.EjecutarSinResultado("DELETE FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario); DELETE FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
+
+                // Asigno las Familias
+
+                foreach (var Item in unUsuario.Perfil.Lista)
+                {
+                    List<Parametro> listaParametros2 = new List<Parametro>();
+
+                    if (Item.GetType() == typeof(Familia))
+                    {
+                        listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+                        listaParametros2.Add(new Parametro("@IdFamilia", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioFamilia (IdUsuario, IdFamilia) VALUES (@IdUsuario, @IdFamilia)", listaParametros2);
+                    }
+                    else if (Item.GetType() == typeof(Patente))
+                    {
+                        listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+                        listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioPatente (IdUsuario, IdPatente) VALUES (@IdUsuario, @IdPatente)", listaParametros2);
+                    }
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                throw;
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
     }
 }

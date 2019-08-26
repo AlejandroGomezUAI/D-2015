@@ -376,7 +376,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(344, 34);
             this.button17.TabIndex = 54;
-            this.button17.Text = "Quitar patente a usuario";
+            this.button17.Text = " Quitar patente a usuario";
             this.button17.UseVisualStyleBackColor = false;
             this.button17.Click += new System.EventHandler(this.Button17_Click);
             // 
@@ -413,6 +413,7 @@
             this.button15.TabIndex = 50;
             this.button15.Text = "Descartar cambios";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // button6
             // 
@@ -425,6 +426,7 @@
             this.button6.TabIndex = 49;
             this.button6.Text = "Guardar cambios";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button14
             // 

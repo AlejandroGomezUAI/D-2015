@@ -170,7 +170,50 @@ namespace GUI.Seguridad
             dgvUsuarioSinFamilias.DataSource = FamiliasFaltantes;
         }
 
-       
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            // Para guardar todos los cambios
+            UnGestorUsuario.GuardarPermisos(unUsuario);
 
+            // Restauro Controles
+            //dgvUsuariosGestion.Enabled = true;
+            //btnActualizarGrilla.Enabled = true;
+            //btnCargarUsuario.Enabled = true;
+            //btnDescartarCambiosUsuario.Enabled = false;
+            //btnGuardarCambiosUsuario.Enabled = false;
+
+            dgvFamiliasUsuario.DataSource = null;
+            dgvPatentesUsuario.DataSource = null;
+            dgvUsuarioPatenteFamilia.DataSource = null;
+            dgvUsuarioSinFamilias.DataSource = null;
+            dgvUsuarioSinPatentes.DataSource = null;
+
+            dgvUsuariosGestion.DataSource = null;
+            dgvUsuariosGestion.DataSource = UnGestorUsuario.TraerTodo();
+        }
+
+        private void Button15_Click(object sender, EventArgs e)
+        {
+            {
+                // Restauro Controles y descarto cambios
+                unUsuario = null;
+
+                //dgvUsuariosGestion.Enabled = true;
+                //btnActualizarGrilla.Enabled = true;
+                //btnCargarUsuario.Enabled = true;
+                //btnDescartarCambiosUsuario.Enabled = false;
+                //btnGuardarCambiosUsuario.Enabled = false;
+
+                dgvFamiliasUsuario.DataSource = null;
+                dgvPatentesUsuario.DataSource = null;
+                dgvUsuarioPatenteFamilia.DataSource = null;
+                dgvUsuarioSinFamilias.DataSource = null;
+                dgvUsuarioSinPatentes.DataSource = null;
+
+                dgvUsuariosGestion.DataSource = null;
+                dgvUsuariosGestion.DataSource = UnGestorUsuario.TraerTodo();
+            }
+
+        }
     }
 }

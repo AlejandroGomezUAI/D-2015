@@ -67,6 +67,11 @@ namespace BLL
             return unUsuarioDAO.Login(unUsuario);
         }
 
+        public void GuardarPermisos(Usuario unUsuario)
+        {
+            unUsuarioDAO.GuardarPermisos(unUsuario);
+        }
+
 
     }
 }
