@@ -58,8 +58,7 @@ namespace GUI.Seguridad
 
             try
             {
-                // Cargo Usuario seleccionado en grilla
-                //unUsuario = dgvUsuariosGestion.CurrentRow.DataBoundItem;
+                // Cargo Usuario seleccionado en grilla                
                 unUsuario = new Usuario();
                 unUsuario = (Usuario)dgvUsuariosGestion.CurrentRow.DataBoundItem ;
                 // Logueo (traigo Perfil) del Usuario
@@ -71,6 +70,51 @@ namespace GUI.Seguridad
             {
                 throw;
             }
+        }
+
+
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            // Agregar Familia seleccionada de la grilla
+            Familia unaFamilia = new Familia();
+            unaFamilia = (Familia)dgvUsuarioSinFamilias.CurrentRow.DataBoundItem;
+
+            unUsuario.AgregarFamilia(unaFamilia);
+
+            CargarPermisosUsuario(unUsuario);
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            // Quitar Familia seleccionada de la grilla
+            Familia unaFamilia = new Familia();
+            unaFamilia = (Familia)dgvFamiliasUsuario.CurrentRow.DataBoundItem;
+
+            unUsuario.QuitarFamilia(unaFamilia);
+
+            CargarPermisosUsuario(unUsuario);
+        }
+
+        private void Button18_Click(object sender, EventArgs e)
+        {
+            // Agrego Patente seleccionada de la grilla
+            Patente unaPatente = new Patente();
+            unaPatente = (Patente)dgvUsuarioSinPatentes.CurrentRow.DataBoundItem;
+
+            unUsuario.AgregarPatente(unaPatente);
+
+            CargarPermisosUsuario(unUsuario);
+        }
+
+        private void Button17_Click(object sender, EventArgs e)
+        {
+            // quito Patente seleccionada de la grilla
+            Patente unaPatente = new Patente();
+            unaPatente = (Patente)dgvPatentesUsuario.CurrentRow.DataBoundItem;
+
+            unUsuario.QuitarPatente(unaPatente);
+
+            CargarPermisosUsuario(unUsuario);
         }
 
         public void CargarPermisosUsuario(Usuario unUsuario)
@@ -125,5 +169,8 @@ namespace GUI.Seguridad
             dgvUsuarioSinFamilias.DataSource = null;
             dgvUsuarioSinFamilias.DataSource = FamiliasFaltantes;
         }
+
+       
+
     }
 }
