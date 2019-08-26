@@ -68,5 +68,59 @@ namespace DAL.DAOSeguridad
             return TraerTodasFamilias;
         }
 
+        public void GuardarPermisos(Familia unaFamilia)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+
+                unaConexion.TransaccionIniciar();
+
+                List<Parametro> listaParametros = new List<Parametro>();
+
+                listaParametros.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+
+                // Borro todos los Perfiles que tenía la Familia
+
+                // unaConexion.EjecutarSinResultado("DELETE FROM FamiliaPatente WHERE IdFamilia = (@IdFamilia); DELETE FROM UsuarioFamilia WHERE IdFamilia = (@IdFamilia); DELETE FROM FamiliaFamilia WHERE IdFamilia = (@IdFamilia)", listaParametros)
+                unaConexion.EjecutarSinResultado("DELETE FROM FamiliaPatente WHERE IdFamilia = (@IdFamilia); DELETE FROM FamiliaFamilia WHERE IdFamilia = (@IdFamilia)", listaParametros);
+
+                // Asigno las Familias
+
+                foreach (var Item in unaFamilia.Lista)
+                {
+                    List<Parametro> listaParametros2 = new List<Parametro>();
+
+                    if (Item.GetType() == typeof(Familia))
+                    {
+                        listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+                        listaParametros2.Add(new Parametro("@IdFamiliaHijo", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO FamiliaFamilia (IdFamilia, IdFamiliaHijo) VALUES (@IdFamilia, @IdFamiliaHijo)", listaParametros2);
+                    }
+                    else if (Item.GetType() == typeof(Patente))
+                    {
+                        listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+                        listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdFamilia, @IdPatente)", listaParametros2);
+                    }
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                throw;
+            }
+
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+
     }
 }

@@ -16,5 +16,11 @@ namespace BLL.GestoresSeguridad
             return unaFamiliaDAO.TraerTodo();
         }
 
+        public void GuardarPermisos(Familia unaFamilia)
+        {
+            unaFamiliaDAO.GuardarPermisos(unaFamilia);
+        }
+
+
     }
 }
