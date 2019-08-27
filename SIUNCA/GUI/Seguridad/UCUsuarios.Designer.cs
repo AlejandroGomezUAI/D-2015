@@ -30,19 +30,23 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.cboRol = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.lblContraseña = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtPasword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPasword = new System.Windows.Forms.TextBox();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblRol = new System.Windows.Forms.Label();
-            this.cboRol = new System.Windows.Forms.ComboBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.dgUsuarios = new System.Windows.Forms.DataGridView();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -75,8 +79,89 @@
             this.tabPage1.Text = "Alta";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(498, 464);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // cboRol
+            // 
+            this.cboRol.FormattingEnabled = true;
+            this.cboRol.Items.AddRange(new object[] {
+            "Admin",
+            "Administrador",
+            "Profesor"});
+            this.cboRol.Location = new System.Drawing.Point(252, 380);
+            this.cboRol.Name = "cboRol";
+            this.cboRol.Size = new System.Drawing.Size(321, 21);
+            this.cboRol.TabIndex = 7;
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Location = new System.Drawing.Point(249, 364);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(23, 13);
+            this.lblRol.TabIndex = 6;
+            this.lblRol.Text = "Rol";
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Location = new System.Drawing.Point(249, 298);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(26, 13);
+            this.lblMail.TabIndex = 5;
+            this.lblMail.Text = "Mail";
+            // 
+            // lblContraseña
+            // 
+            this.lblContraseña.AutoSize = true;
+            this.lblContraseña.Location = new System.Drawing.Point(249, 236);
+            this.lblContraseña.Name = "lblContraseña";
+            this.lblContraseña.Size = new System.Drawing.Size(61, 13);
+            this.lblContraseña.TabIndex = 4;
+            this.lblContraseña.Text = "Contraseña";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(249, 172);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "Usuario";
+            // 
+            // txtMail
+            // 
+            this.txtMail.Location = new System.Drawing.Point(252, 314);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(321, 20);
+            this.txtMail.TabIndex = 2;
+            // 
+            // txtPasword
+            // 
+            this.txtPasword.Location = new System.Drawing.Point(252, 252);
+            this.txtPasword.Name = "txtPasword";
+            this.txtPasword.Size = new System.Drawing.Size(321, 20);
+            this.txtPasword.TabIndex = 1;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(252, 188);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(321, 20);
+            this.txtUsername.TabIndex = 0;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnEliminarUsuario);
+            this.tabPage2.Controls.Add(this.dgUsuarios);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -94,84 +179,23 @@
             this.tabPage3.Text = "Modificacion";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // txtUsername
+            // dgUsuarios
             // 
-            this.txtUsername.Location = new System.Drawing.Point(252, 188);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(321, 20);
-            this.txtUsername.TabIndex = 0;
+            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUsuarios.Location = new System.Drawing.Point(83, 122);
+            this.dgUsuarios.Name = "dgUsuarios";
+            this.dgUsuarios.Size = new System.Drawing.Size(674, 335);
+            this.dgUsuarios.TabIndex = 0;
             // 
-            // txtPasword
+            // btnEliminarUsuario
             // 
-            this.txtPasword.Location = new System.Drawing.Point(252, 252);
-            this.txtPasword.Name = "txtPasword";
-            this.txtPasword.Size = new System.Drawing.Size(321, 20);
-            this.txtPasword.TabIndex = 1;
-            // 
-            // txtMail
-            // 
-            this.txtMail.Location = new System.Drawing.Point(252, 314);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(321, 20);
-            this.txtMail.TabIndex = 2;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(249, 172);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lblUsuario.TabIndex = 3;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // lblContraseña
-            // 
-            this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Location = new System.Drawing.Point(249, 236);
-            this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(61, 13);
-            this.lblContraseña.TabIndex = 4;
-            this.lblContraseña.Text = "Contraseña";
-            // 
-            // lblMail
-            // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(249, 298);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(26, 13);
-            this.lblMail.TabIndex = 5;
-            this.lblMail.Text = "Mail";
-            // 
-            // lblRol
-            // 
-            this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(249, 364);
-            this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(23, 13);
-            this.lblRol.TabIndex = 6;
-            this.lblRol.Text = "Rol";
-            // 
-            // cboRol
-            // 
-            this.cboRol.FormattingEnabled = true;
-            this.cboRol.Items.AddRange(new object[] {
-            "Admin",
-            "Administrador",
-            "Profesor"});
-            this.cboRol.Location = new System.Drawing.Point(252, 380);
-            this.cboRol.Name = "cboRol";
-            this.cboRol.Size = new System.Drawing.Size(321, 21);
-            this.cboRol.TabIndex = 7;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(498, 464);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(682, 516);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarUsuario.TabIndex = 1;
+            this.btnEliminarUsuario.Text = "Eliminar";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
             // UCUsuarios
             // 
@@ -183,6 +207,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +228,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminarUsuario;
+        private System.Windows.Forms.DataGridView dgUsuarios;
     }
 }

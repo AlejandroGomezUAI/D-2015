@@ -51,6 +51,11 @@ namespace BLL
 
         }
 
+        public void eliminarUsuario(int idUsuario)
+        {
+            unUsuarioDAO.eliminar(idUsuario);
+        }
+
         public void guardarUsuario(Usuario usuario)
         {
             var unUsuarioDAO = new UsuarioDAO();

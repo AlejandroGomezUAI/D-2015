@@ -60,6 +60,32 @@ namespace DAL
 
             return resultado;
         }
+
+        public void eliminar(int idUsuario)
+        {
+            var conexion = new Conexion("Config.xml");
+
+            try
+            {
+                conexion.ConexionIniciar();
+                conexion.TransaccionIniciar();
+                var parametros = new List<Parametro>();
+                parametros.Add(new Parametro("iduser", idUsuario));
+
+                conexion.EjecutarSinResultado("DELETE FROM tbl_user WHERE iduser = @iduser", parametros);
+
+                conexion.TransaccionAceptar();
+            }
+            catch (Exception)
+            {
+                conexion.TransaccionCancelar();
+            }
+            finally
+            {
+                conexion.ConexionFinalizar();
+            }
+        }
+
         public Usuario Login(Usuario unUsuario)
         {
             Conexion unaConexion = new Conexion("config.xml");

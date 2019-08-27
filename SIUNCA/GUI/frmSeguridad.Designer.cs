@@ -181,6 +181,7 @@
             this.panelHeader2.Name = "panelHeader2";
             this.panelHeader2.Size = new System.Drawing.Size(858, 61);
             this.panelHeader2.TabIndex = 11;
+            this.panelHeader2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader2_MouseMove);
             // 
             // button3
             // 
@@ -207,6 +208,7 @@
             this.panelHeader1.Name = "panelHeader1";
             this.panelHeader1.Size = new System.Drawing.Size(858, 30);
             this.panelHeader1.TabIndex = 10;
+            this.panelHeader1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelHeader1_MouseMove);
             // 
             // panelMenu
             // 

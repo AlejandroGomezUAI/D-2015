@@ -18,8 +18,8 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             //Application.Run(new frmProfesor());
-            Application.Run(new frmSecretarioAcademico());
-            //Application.Run(new frmSeguridad());
+            //Application.Run(new frmSecretarioAcademico());
+            Application.Run(new frmSeguridad());
         }
     }
 }
