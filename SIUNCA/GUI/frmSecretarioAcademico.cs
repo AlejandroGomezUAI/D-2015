@@ -196,7 +196,7 @@ namespace GUI
             seleccionarUserControl(ucperfilesusuarios);
         }
 
-        void IdiomaPorDefecto(string val = null)
+        void IdiomaPorDefecto()
         {
             btnPlanDeEstudio.Text = Res.btnPlanDeEstudio;
             btnMaterias.Text = Res.btnMaterias;

@@ -169,7 +169,7 @@ namespace GUI.UserControlProfesor
             }
         }
 
-        void IdiomaPorDefecto(string val = null)
+        void IdiomaPorDefecto()
         {
             btnSelMateriaAsist.Text = Res.btnSelMateriaAsistencia;
             lblFecha.Text = Res.lblFecha;

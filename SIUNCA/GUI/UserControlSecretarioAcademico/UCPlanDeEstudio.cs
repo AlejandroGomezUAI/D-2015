@@ -48,7 +48,7 @@ namespace GUI.UserControlSecretarioAcademico
             
         }
 
-        void IdiomaPorDefecto(string val = null)
+        void IdiomaPorDefecto()
         {
             lblNombrePlan.Text = Res.lblNombrePlan;
             lblCarrera.Text = Res.lblCarrera;
