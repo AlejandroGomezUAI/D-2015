@@ -24,7 +24,26 @@ namespace GUI.Seguridad
         public UCPerfilesUsuarios()
         {
             InitializeComponent();
-           
+            //usuarios traer todo
+            dgvUsuariosGestion.DataSource = null;
+            dgvUsuariosGestion.DataSource = UnGestorUsuario.TraerTodo();
+            //familias traer todo
+            dgvFamilias.DataSource = null;
+            dgvFamilias.DataSource = unGestorFamilia.TraerTodo();
+            dgvAltaFamilias.DataSource = null;
+            dgvAltaFamilias.DataSource = unGestorFamilia.TraerTodo();
+            dgvBajaFamilias.DataSource = null;
+            dgvBajaFamilias.DataSource = unGestorFamilia.TraerTodo();
+            dgvModFamilias.DataSource = null;
+            dgvModFamilias.DataSource = unGestorFamilia.TraerTodo();
+            //patentes traer todo
+            dgvPatentes.DataSource = null;
+            dgvPatentes.DataSource = unGestorPatente.TraerTodo();
+            dgvBajaPatentes.DataSource = null;
+            dgvBajaPatentes.DataSource = unGestorPatente.TraerTodo();
+            dgvModPatente.DataSource = null;
+            dgvModPatente.DataSource = unGestorPatente.TraerTodo();
+
         }
        
 
@@ -39,6 +58,13 @@ namespace GUI.Seguridad
             ucbit.Show();
         }
 
+        /// /////////
+
+
+        // UC PERFILES USUARIO /////
+
+
+        /// /////////
         private void Button19_Click(object sender, EventArgs e)
         {           
 
@@ -222,8 +248,10 @@ namespace GUI.Seguridad
         /// /////////
 
 
-
         // UC FAMILIA /////
+
+
+        /// /////////
 
         Familia unaFamilia = new Familia();
         private void Button1_Click(object sender, EventArgs e)
@@ -369,10 +397,185 @@ namespace GUI.Seguridad
 
             unaFamilia = null;
         }
+        /// 
+        /// Alta FAMILIA
+        /// 
+        private void Button16_Click(object sender, EventArgs e)
+        {
+            Familia nuevaFamilia = new Familia();
 
-       
+            nuevaFamilia.Descripcion = txtDescripcionFamilia.Text;
+            nuevaFamilia.Id = int.Parse(txtIdFamilia.Text);
+
+            unGestorFamilia.Insertar(nuevaFamilia);
+
+            txtDescripcionFamilia.Text = "";
+            txtIdFamilia.Text = "";
+
+            dgvFamilias.DataSource = null;
+            dgvFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            //familias traer todo            
+            dgvAltaFamilias.DataSource = null;
+            dgvAltaFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+        /// 
+        /// Alta FAMILIA
+        /// 
+
+        /// 
+        /// BAJA FAMILIA
+        /// 
+        private void Button35_Click(object sender, EventArgs e)
+        {
+            unaFamilia = (Familia)dgvBajaFamilias.CurrentRow.DataBoundItem;
+
+            unGestorFamilia.Quitar(unaFamilia);
+
+            dgvFamilias.DataSource = null;
+            dgvFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+
+        private void Button36_Click(object sender, EventArgs e)
+        {
+            // familias traer todo
+            dgvBajaFamilias.DataSource = null;
+            dgvBajaFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+        /// 
+        /// BAJA FAMILIA
+        /// 
+
+        /// 
+        /// MOD FAMILIA
+        /// 
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            Familia unaFamilia = new Familia();
+
+            unaFamilia = (Familia)dgvModFamilias.CurrentRow.DataBoundItem;
+            unaFamilia.Descripcion = txtModDescripcionFamilia.Text;
+
+            unGestorFamilia.Modificar(unaFamilia);
+
+            txtModDescripcionFamilia.Text = "";
+
+            dgvFamilias.DataSource = null;
+            dgvFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+        
+        private void Button33_Click(object sender, EventArgs e)
+        {
+            // familias traer todo
+            dgvModFamilias.DataSource = null;
+            dgvModFamilias.DataSource = unGestorFamilia.TraerTodo();
+        }
+        /// 
+        /// MOD FAMILIA
+        /// 
+
         /// /////////
 
+
+        // UC PATENTE /////
+
+
+        /// /////////
+        /// 
+        /// 
+        /// Alta PATENTE
+        /// 
+
+        Patente unaPatente = new Patente();
+        private void Button32_Click(object sender, EventArgs e)
+        {
+            unaPatente.Id = int.Parse(txtIdPatente.Text);
+            unaPatente.Descripcion = txtDescripcionPatente.Text;
+
+            unGestorPatente.Insertar(unaPatente);
+
+            txtDescripcionPatente.Text = "";
+            txtIdPatente.Text = "";
+
+
+            dgvPatentes.DataSource = null;
+            dgvPatentes.DataSource = unGestorPatente.TraerTodo();
+        }
+
+        private void Button30_Click(object sender, EventArgs e)
+        {
+            dgvPatentes.DataSource = null;
+            dgvPatentes.DataSource = unGestorPatente.TraerTodo();
+        }
+        /// 
+        /// Alta PATENTE
+        ///
+
+        /// 
+        /// BAJA PATENTE
+        /// 
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            Patente unaPatente = new Patente();
+            DialogResult respuesta;
+            unaPatente = (Patente)dgvBajaPatentes.CurrentRow.DataBoundItem;
+            //MessageBox.Show("mensaje", "titulo", MessageBoxButtons.YesNo);
+            respuesta = MessageBox.Show("¿Estás seguro que querés borrar ésta patente? Se eliminarán todas las relaciones.", "Atencion", MessageBoxButtons.YesNo);
+            if (respuesta == DialogResult.Yes)
+            {
+                unGestorPatente.Quitar(unaPatente);
+            }
+            else
+            {
+
+            }               
+
+            dgvBajaPatentes.DataSource = null;
+            dgvBajaPatentes.DataSource = unGestorPatente.TraerTodo();
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            dgvBajaPatentes.DataSource = null;
+            dgvBajaPatentes.DataSource = unGestorPatente.TraerTodo();
+        }
+
+        /// 
+        /// BAJA PATENTE
+        /// 
+
+        /// 
+        /// MOD PATENTE
+        /// 
+
+        private void BtnModPatente_Click(object sender, EventArgs e)
+        {
+            unaPatente = (Patente)dgvModPatente.CurrentRow.DataBoundItem;
+            unaPatente.Descripcion = txtModDescPatente.Text;
+
+            unGestorPatente.Modificar(unaPatente);
+
+            txtModDescPatente.Text = "";
+
+            dgvModPatente.DataSource = null;
+            dgvModPatente.DataSource = unGestorPatente.TraerTodo();
+        }
+        
+        private void Button28_Click(object sender, EventArgs e)
+        {
+            dgvModPatente.DataSource = null;
+            dgvModPatente.DataSource = unGestorPatente.TraerTodo();
+        }
+
+        /// 
+        /// MOD PATENTE
+        /// 
+
+        /// /////////
 
     }
 }

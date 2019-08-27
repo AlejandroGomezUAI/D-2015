@@ -16,5 +16,20 @@ namespace BLL.GestoresSeguridad
             return unaPatenteDAO.TraerTodo();
         }
 
+        public void Insertar(Patente unaPatente)
+        {
+            unaPatenteDAO.Insertar(unaPatente);
+        }
+
+        public void Modificar(Patente unaPatente)
+        {
+            unaPatenteDAO.Modificar(unaPatente);
+        }
+        public void Quitar(Patente unaPatente)
+        {
+            unaPatenteDAO.Quitar(unaPatente);
+        }
+
+
     }
 }
