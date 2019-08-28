@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAL.DAOSeguridad
 {
@@ -58,7 +59,8 @@ namespace DAL.DAOSeguridad
 
             catch (Exception ex)
             {
-                return null;
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error traer familias");
             }
             finally
             {
@@ -66,6 +68,138 @@ namespace DAL.DAOSeguridad
             }
 
             return TraerTodasFamilias;
+        }
+
+        public void GuardarPermisos(Familia unaFamilia)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+
+                unaConexion.TransaccionIniciar();
+
+                List<Parametro> listaParametros = new List<Parametro>();
+
+                listaParametros.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+
+                // Borro todos los Perfiles que tenía la Familia
+
+                // unaConexion.EjecutarSinResultado("DELETE FROM FamiliaPatente WHERE IdFamilia = (@IdFamilia); DELETE FROM UsuarioFamilia WHERE IdFamilia = (@IdFamilia); DELETE FROM FamiliaFamilia WHERE IdFamilia = (@IdFamilia)", listaParametros)
+                unaConexion.EjecutarSinResultado("DELETE FROM FamiliaPatente WHERE IdFamilia = (@IdFamilia); DELETE FROM FamiliaFamilia WHERE IdFamilia = (@IdFamilia)", listaParametros);
+
+                // Asigno las Familias
+
+                foreach (var Item in unaFamilia.Lista)
+                {
+                    List<Parametro> listaParametros2 = new List<Parametro>();
+
+                    if (Item.GetType() == typeof(Familia))
+                    {
+                        listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+                        listaParametros2.Add(new Parametro("@IdFamiliaHijo", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO FamiliaFamilia (IdFamilia, IdFamiliaHijo) VALUES (@IdFamilia, @IdFamiliaHijo)", listaParametros2);
+                    }
+                    else if (Item.GetType() == typeof(Patente))
+                    {
+                        listaParametros2.Add(new Parametro("@IdFamilia", unaFamilia.Id));
+                        listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO FamiliaPatente (IdFamilia, IdPatente) VALUES (@IdFamilia, @IdPatente)", listaParametros2);
+                    }
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                throw;
+            }
+
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+        public void Insertar(Familia unaFamilia)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("Id", unaFamilia.Id));
+            listaParametros.Add(new Parametro("Descripcion", unaFamilia.Descripcion));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+                unaConexion.EjecutarSinResultado("INSERT INTO Familia (Id, Descripcion) VALUES (@Id, @Descripcion)", listaParametros);
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error insertar Familia");
+            }
+
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+        public void Quitar(Familia unaFamilia)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("IdFamilia", unaFamilia.Id));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+                // Acá borro todas las relaciones que tenga la Familia con otras Familias, Patentes, etc.
+                unaConexion.EjecutarSinResultado("DELETE FROM FamiliaPatente WHERE IdFamilia = (@IdFamilia); DELETE FROM UsuarioFamilia WHERE IdFamilia = (@IdFamilia); DELETE FROM FamiliaFamilia WHERE IdFamilia = (@IdFamilia) OR IdFamiliaHijo = (@IdFamilia); DELETE FROM Familia WHERE Id = (@IdFamilia)", listaParametros);
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error Quitar Familia");
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+        public void Modificar(Familia unaFamilia)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("IdFamilia", unaFamilia.Id));
+            listaParametros.Add(new Parametro("Descripcion", unaFamilia.Descripcion));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+                unaConexion.EjecutarSinResultado("UPDATE Familia SET Descripcion = (@Descripcion) WHERE Id = (@IdFamilia)", listaParametros);
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error Modificar Familia");
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
         }
 
     }

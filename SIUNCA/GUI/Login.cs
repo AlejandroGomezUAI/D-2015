@@ -15,6 +15,7 @@ using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
+using Framework.D_2015.Seguridad;
 
 namespace GUI
 {
@@ -48,7 +49,7 @@ namespace GUI
             var usuario = new Usuario();
 
             usuario.email = txtUsuario.Text;
-            usuario.password = txtContraseña.Text;
+            usuario.password = Hash.getSHA256(txtContraseña.Text);
             usuario.rol = cboRol.Text;
 
             var gestorUsuario = new GestorUsuario();
@@ -103,7 +104,7 @@ namespace GUI
         /// <summary>
         /// El idioma por defecto es español, el archivo por defecto es Res.resx
         /// </summary>
-        void IdiomaPorDefecto(string val = null)
+        void IdiomaPorDefecto()
         {
             lblIdioma.Text = Res.lblIdioma;
             lblInicioDeSesion.Text = Res.lblInicioDeSesion;

@@ -143,7 +143,7 @@ namespace GUI
             panelContenedor.Controls.Add(uc);
         }
 
-        void IdiomaPorDefecto(string val = null)
+        void IdiomaPorDefecto()
         {
             lblProfesor.Text = Res.lblProfesor;
             btnAsistencias.Text = Res.btnAsistencias;

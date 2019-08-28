@@ -51,6 +51,11 @@ namespace BLL
 
         }
 
+        public void eliminarUsuario(int idUsuario)
+        {
+            unUsuarioDAO.eliminar(idUsuario);
+        }
+
         public void guardarUsuario(Usuario usuario)
         {
             var unUsuarioDAO = new UsuarioDAO();
@@ -65,6 +70,11 @@ namespace BLL
         public Usuario Login(Usuario unUsuario)
         {
             return unUsuarioDAO.Login(unUsuario);
+        }
+
+        public void GuardarPermisos(Usuario unUsuario)
+        {
+            unUsuarioDAO.GuardarPermisos(unUsuario);
         }
 
 

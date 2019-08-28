@@ -47,7 +47,7 @@ namespace DAL
             {
                 unaConexion.ConexionIniciar();
 
-                resultado = unaConexion.EjecutarTupla<Usuario>("SELECT username, password, email, rol FROM tbl_user", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<Usuario>("SELECT iduser, username, password, email, rol FROM tbl_user", new List<Parametro>());
             }
             catch (Exception ex)
             {
@@ -60,6 +60,32 @@ namespace DAL
 
             return resultado;
         }
+
+        public void eliminar(int idUsuario)
+        {
+            var conexion = new Conexion("Config.xml");
+
+            try
+            {
+                conexion.ConexionIniciar();
+                conexion.TransaccionIniciar();
+                var parametros = new List<Parametro>();
+                parametros.Add(new Parametro("iduser", idUsuario));
+
+                conexion.EjecutarSinResultado("DELETE FROM tbl_user WHERE iduser = @iduser", parametros);
+
+                conexion.TransaccionAceptar();
+            }
+            catch (Exception)
+            {
+                conexion.TransaccionCancelar();
+            }
+            finally
+            {
+                conexion.ConexionFinalizar();
+            }
+        }
+
         public Usuario Login(Usuario unUsuario)
         {
             Conexion unaConexion = new Conexion("config.xml");
@@ -87,7 +113,8 @@ namespace DAL
                 listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
 
                 resultado = unaConexion.EjecutarTupla<Usuario>
-                    ("SELECT * FROM Usuario WHERE IdUsuario = (@IdUsuario) AND Contraseña = (@Contraseña)", listaParametros);
+                    //laquetepario juan!!! grande juan!ksldjaskldjalk
+                    ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
 
                 // Tomo el que debería ser el único usuario
                 //elUsuario = resultado.First;
@@ -97,7 +124,7 @@ namespace DAL
                 TraerTodasPatentes = unaConexion.EjecutarTupla<Patente>
                     ("SELECT * FROM Patente", new List<Parametro>());
 
-                // Traigo las relaciones con Patente que tiene el Usuario
+                // Traigo las relaciones con Patente que tiene el Usuario 
                 resultadoUsuarioPatente = unaConexion.EjecutarTupla<UsuarioPatente>
                     ("SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
 
@@ -198,5 +225,58 @@ namespace DAL
                 conexion.ConexionFinalizar();
             }
         }
+
+        public void GuardarPermisos(Usuario unUsuario)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+
+                unaConexion.TransaccionIniciar();
+
+                List<Parametro> listaParametros = new List<Parametro>();
+
+
+                listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+
+                // Borro todos los Perfiles
+                unaConexion.EjecutarSinResultado("DELETE FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario); DELETE FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
+
+                // Asigno las Familias
+
+                foreach (var Item in unUsuario.Perfil.Lista)
+                {
+                    List<Parametro> listaParametros2 = new List<Parametro>();
+
+                    if (Item.GetType() == typeof(Familia))
+                    {
+                        listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+                        listaParametros2.Add(new Parametro("@IdFamilia", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioFamilia (IdUsuario, IdFamilia) VALUES (@IdUsuario, @IdFamilia)", listaParametros2);
+                    }
+                    else if (Item.GetType() == typeof(Patente))
+                    {
+                        listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
+                        listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
+                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioPatente (IdUsuario, IdPatente) VALUES (@IdUsuario, @IdPatente)", listaParametros2);
+                    }
+                }
+
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                throw;
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
     }
 }

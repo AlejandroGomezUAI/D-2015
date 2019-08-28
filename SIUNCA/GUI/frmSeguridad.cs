@@ -205,8 +205,6 @@ namespace GUI
 
         }
 
-
-
         /// <summary>
         /// metodo para traer al panelcontenedor el usercontrol seleccionado en
         /// el menu lateral
