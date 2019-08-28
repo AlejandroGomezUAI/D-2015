@@ -40,9 +40,9 @@
             this.txtPasword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.dgUsuarios = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -94,7 +94,7 @@
             this.cboRol.FormattingEnabled = true;
             this.cboRol.Items.AddRange(new object[] {
             "Admin",
-            "Administrador",
+            "Administrativo",
             "Profesor"});
             this.cboRol.Location = new System.Drawing.Point(252, 380);
             this.cboRol.Name = "cboRol";
@@ -170,23 +170,6 @@
             this.tabPage2.Text = "Baja";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(843, 609);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Modificacion";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgUsuarios
-            // 
-            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgUsuarios.Location = new System.Drawing.Point(83, 122);
-            this.dgUsuarios.Name = "dgUsuarios";
-            this.dgUsuarios.Size = new System.Drawing.Size(674, 335);
-            this.dgUsuarios.TabIndex = 0;
-            // 
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Location = new System.Drawing.Point(682, 516);
@@ -196,6 +179,23 @@
             this.btnEliminarUsuario.Text = "Eliminar";
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
             this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
+            // 
+            // dgUsuarios
+            // 
+            this.dgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgUsuarios.Location = new System.Drawing.Point(83, 122);
+            this.dgUsuarios.Name = "dgUsuarios";
+            this.dgUsuarios.Size = new System.Drawing.Size(674, 335);
+            this.dgUsuarios.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(843, 609);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Modificacion";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // UCUsuarios
             // 
