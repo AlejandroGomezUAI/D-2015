@@ -41,6 +41,7 @@ namespace GUI
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -168,7 +169,9 @@ namespace GUI
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
+            Login frmLogin = new Login();
+            frmLogin.Show();
+            this.Hide();
         }
 
         private void PanelMenu_Paint(object sender, PaintEventArgs e)
