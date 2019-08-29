@@ -58,24 +58,22 @@ namespace GUI
 
             if (resultadoUser != null)
             {
+                Form forumulario = null;
+
                 switch (CacheUsuario.rol)
                 {
                     case "Profesor":
-                        var frmp = new frmProfesor();
-                        frmp.Show();
-                        this.Hide();
+                        forumulario = new frmProfesor();
                         break;
                     case "Administrativo":
-                        var frmsa = new frmSecretarioAcademico();
-                        frmsa.Show();
-                        this.Hide();
+                        forumulario = new frmSecretarioAcademico();
                         break;
                     case "Administrador":
-                        var frmseguridad = new frmSeguridad();
-                        frmseguridad.Show();
-                        this.Hide();
+                        forumulario = new frmSeguridad();
                         break;
                 }
+                forumulario.Show();
+                this.Hide();
             }
             else
             {
