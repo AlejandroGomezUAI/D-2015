@@ -93,7 +93,7 @@
             // 
             this.cboRol.FormattingEnabled = true;
             this.cboRol.Items.AddRange(new object[] {
-            "Admin",
+            "Administrador",
             "Administrativo",
             "Profesor"});
             this.cboRol.Location = new System.Drawing.Point(252, 380);

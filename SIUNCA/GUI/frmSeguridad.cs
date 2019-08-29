@@ -202,7 +202,9 @@ namespace GUI
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-
+            Login frmLogin = new Login();
+            frmLogin.Show();
+            this.Hide();
         }
 
         /// <summary>

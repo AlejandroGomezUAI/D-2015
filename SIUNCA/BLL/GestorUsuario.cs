@@ -12,43 +12,22 @@ namespace BLL
     public class GestorUsuario
     {
         UsuarioDAO unUsuarioDAO = new UsuarioDAO();
-        public string username { get; set; }
 
-        public int traerUsuario(Usuario usuario)
+        public Usuario traerUsuario(Usuario usuario)
         {
             var listaUsuario = new List<Usuario>();
-            var res = 1;
-            var unUsuarioDAO = new UsuarioDAO();
             listaUsuario = unUsuarioDAO.trarTodo(usuario);
 
-            //Obtiene por medio de LINQ lo que se cargo de la BD en la "listaUsuario" para poder compararlos
-            //con los datos ingresados en los txtbox
+            //Carga las variables cache por medio de linq, para poder usarlas a nivel global en el sistema,
+            //los datos se mantienen siempre y cuando el sistema no se cierre
+            CacheUsuario.username = listaUsuario.Select(x => x.username).FirstOrDefault();
             CacheUsuario.email = listaUsuario.Select(x => x.email).FirstOrDefault();
-            var password = listaUsuario.Select(x => x.password).FirstOrDefault();
             CacheUsuario.rol = listaUsuario.Select(x => x.rol).FirstOrDefault();
 
-            //Esta propiedad es estatica, carga el nombre del profesor que va a ser usada en frmProfesor ni bien se logea
-            CacheUsuario.username = listaUsuario.Select(x => x.username).FirstOrDefault();
-
-            //rol profesor
-            //if (email == usuario.email && password == usuario.password && rol == usuario.rol)
-            if (CacheUsuario.email == usuario.email && password == usuario.password && CacheUsuario.rol == "Profesor")
-            {
-                return res;
-            }
-            else
-            {
-                if (CacheUsuario.email == usuario.email && password == usuario.password && CacheUsuario.rol == "Administrativo")
-                {
-                    res = 2;
-                    return res;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-
+            //si devuelve null significa que se ingreso un dato incorrecto en el form login
+            var user = listaUsuario.Where(x => x.email == usuario.email && x.password == usuario.password && x.rol == usuario.rol).FirstOrDefault();
+            
+            return user;
         }
 
         public void eliminarUsuario(int idUsuario)

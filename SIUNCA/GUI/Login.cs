@@ -16,6 +16,7 @@ using System.Globalization;
 using GUI.Idiomas.Login;
 using Framework.D_2015.Idiomas;
 using Framework.D_2015.Seguridad;
+using Framework.D_2015.Cache;
 
 namespace GUI
 {
@@ -55,23 +56,30 @@ namespace GUI
             var gestorUsuario = new GestorUsuario();
             var resultadoUser = gestorUsuario.traerUsuario(usuario);
 
-            if (resultadoUser == 1)
+            if (resultadoUser != null)
             {
-                frmProfesor frmp = new frmProfesor();
-                frmp.Show();
-                this.Hide();
+                switch (CacheUsuario.rol)
+                {
+                    case "Profesor":
+                        var frmp = new frmProfesor();
+                        frmp.Show();
+                        this.Hide();
+                        break;
+                    case "Administrativo":
+                        var frmsa = new frmSecretarioAcademico();
+                        frmsa.Show();
+                        this.Hide();
+                        break;
+                    case "Administrador":
+                        var frmseguridad = new frmSeguridad();
+                        frmseguridad.Show();
+                        this.Hide();
+                        break;
+                }
             }
             else
             {
-                if (resultadoUser == 2)
-                {
-                    frmSecretarioAcademico frmsa = new frmSecretarioAcademico();
-                    frmsa.Show();
-                }
-                else
-                {
-                    lblError.Visible = true;
-                }
+                lblError.Visible = true;
             }
         }
 
