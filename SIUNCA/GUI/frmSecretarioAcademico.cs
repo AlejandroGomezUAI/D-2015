@@ -12,6 +12,8 @@ using Framework.D_2015.Idiomas;
 using GUI.UserControlSecretarioAcademico;
 using GUI.Idiomas.SecretarioAcademico;
 using GUI.Seguridad;
+using BLL;
+using BIZ;
 
 namespace GUI
 {
@@ -36,6 +38,30 @@ namespace GUI
             this.lblSecretarioAcademico.Text = CacheUsuario.username;
 
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+
+            var usuario = new Usuario();
+
+            usuario.iduser = CacheUsuario.iduser;
+            usuario.password = CacheUsuario.password;
+            
+            GestorUsuario unGestorUsuario = new GestorUsuario();
+           // var resultadoUser = unGestorUsuario.traerUsuario(usuario);            
+
+            // Logueo (traigo perfil) del Usuario
+            var resultadoUserPerfil = unGestorUsuario.Login(usuario);
+
+            // En base a las Id de las Patenteas voy validando la visibilidad de los controles
+            // porque .Validar devuelve un boolean.
+            // En este caso usé Id como Integer, pero podría usarse Strings cambiando la
+            // BD y los DTO en consecuencia
+            // Si tiene Patente 1 puede ver boton 1
+
+            // SI usuario TIENE ID 1 (de patente) button 3.visible=true
+            // button3.visible = usuarioSimulado.Perfil.Validar(1)
+
+            btnUSUARIOS.Visible = resultadoUserPerfil.Perfil.Validar(3);
+
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)

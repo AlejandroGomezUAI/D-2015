@@ -9,6 +9,8 @@
 
         Public Shared username As String
 
+        Public Shared password As String
+
         Public Shared email As String
 
         Public Shared rol As String

@@ -25,7 +25,7 @@ namespace DAL
 
             try
             {
-                resultado = con.EjecutarTupla<Usuario>(@"SELECT username, password, email, rol FROM tbl_user
+                resultado = con.EjecutarTupla<Usuario>(@"SELECT iduser, username, password, email, rol FROM tbl_user
                                                            WHERE email = @email and password = @password and rol =                                                @rol", listaParametrosCD);
 
                 return resultado;
@@ -113,7 +113,7 @@ namespace DAL
                 listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
 
                 resultado = unaConexion.EjecutarTupla<Usuario>
-                    //laquetepario juan!!! grande juan!ksldjaskldjalk
+                    //
                     ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
 
                 // Tomo el que debería ser el único usuario
