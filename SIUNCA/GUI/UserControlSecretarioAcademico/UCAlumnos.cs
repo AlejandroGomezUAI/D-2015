@@ -39,9 +39,18 @@ namespace GUI.UserControlSecretarioAcademico
 
             try
             {
-                GestorAlumno unGAlumno = new GestorAlumno();
-                unGAlumno.AsignarAlumnoAMaterias(unAlumno, ListAlumnoMateriaCC);
-                MessageBox.Show("Asignacion de alumno a materias guardada.");
+                if (dgAlumMat.RowCount > 0)
+                {
+                    GestorAlumno unGAlumno = new GestorAlumno();
+                    unGAlumno.AsignarAlumnoAMaterias(unAlumno, ListAlumnoMateriaCC);
+                    MessageBox.Show("Asignacion de alumno a materias guardada.");
+                    dgAlumMat.DataSource = null;
+                }
+                else
+                {
+                    MessageBox.Show("No hay materias seleccionadas");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -144,7 +153,7 @@ namespace GUI.UserControlSecretarioAcademico
                 unDetAlumnoMatCC.NombreCarrera = ComboCarrera.Text;
                 unDetAlumnoMatCC.ApellidoAlumno = ComboApellido.Text;
                 unDetAlumnoMatCC.NombreAlumno = ComboNombre.Text;
-                unDetAlumnoMatCC.Estado = "Desaprobado";
+                unDetAlumnoMatCC.Estado = "Cursando";
                 unDetAlumnoMatCC.LegajoAlumno = int.Parse(txtLegajo.Text);
                 //unDetAlumnoMatCC.Turno = ComboTurno.Text;
 
