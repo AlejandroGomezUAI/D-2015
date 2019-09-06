@@ -49,8 +49,10 @@ namespace BLL
       
 
 
-        public void Modificar(MateriaConCorrelativas unaMatera)
+        public void Modificar(DTODetallesCorrPlan unaMateria)
         {
+            MateriaConCorrelativaDAO UnaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            UnaMateriaCCDAO.Modificar(unaMateria);
         }
         public void Eliminar(MateriaConCorrelativas unAlumno)
         {
