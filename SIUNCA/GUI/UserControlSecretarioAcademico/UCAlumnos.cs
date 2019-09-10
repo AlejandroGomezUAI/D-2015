@@ -23,6 +23,7 @@ namespace GUI.UserControlSecretarioAcademico
 
         List<Alumno_MateriaCC> ListAlumnoMateriaCC = new List<Alumno_MateriaCC>();
         Alumno unAlumno = new Alumno();
+        GestorAlumno unGestorAlumno = new GestorAlumno();
 
         int resta = 0;
         int suma = 0;
@@ -30,7 +31,10 @@ namespace GUI.UserControlSecretarioAcademico
 
         private void UCAlumnos_Load(object sender, EventArgs e)
         {
-
+            comboSexo.Text = "Seleccione";
+            dgvModAlumno.DataSource = null;
+            dgvModAlumno.DataSource = unGestorAlumno.traerAlumnos();
+            RemoverColumnas();
         }
 
         private void Button6_Click(object sender, EventArgs e)
@@ -490,6 +494,71 @@ namespace GUI.UserControlSecretarioAcademico
 
         }
 
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNombre.Text != "" && txtApelldio.Text != "" && txtEmail.Text != "" && (comboSexo.Text == "Masculino" || comboSexo.Text == "Femenino"))
+                {
+                    unAlumno = (Alumno)dgvModAlumno.CurrentRow.DataBoundItem;
+                    unAlumno.Nombre = txtNombre.Text;
+                    unAlumno.Apellido = txtApelldio.Text;
+                    unAlumno.Email = txtEmail.Text;
+                    unAlumno.Sexo = comboSexo.Text;
+
+                    unGestorAlumno.Modificar(unAlumno);
+
+                    txtNombre.Text = "";
+                    txtApelldio.Text = "";
+                    txtEmail.Text = "";
+                    comboSexo.Text = "Seleccione";
+                    
+
+                    dgvModAlumno.DataSource = null;
+                    dgvModAlumno.DataSource = unGestorAlumno.traerAlumnos();
+                    RemoverColumnas();
+                    MessageBox.Show("Se modifico el alumno de legajo " + unAlumno.LegajoAlumno);
+                }
+                else
+                {
+                    txtNombre.Text = "";
+                    txtApelldio.Text = "";
+                    txtEmail.Text = "";
+                    comboSexo.Text = "Seleccione";
+                    MessageBox.Show("No se pudo modificar, verifique los datos ingresados");
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al modificar alumno");
+            }
+            
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            dgvModAlumno.DataSource = null;
+            dgvModAlumno.DataSource = unGestorAlumno.traerAlumnos();
+            RemoverColumnas();
+        }
+        private void RemoverColumnas()
+        {
+            dgvModAlumno.Columns.Remove("IdCarrera");
+            //dgvModAlumno.Columns.Remove("Asistencia");
+            //dgvModAlumno.Columns.Remove("Evaluacion");
+            dgvModAlumno.Columns.Remove("Promedio");
+            //dgvModAlumno.Columns.Remove("AlumnoMateria");
+
+            dgvModAlumno.Columns.Remove("CreatedOn");
+            dgvModAlumno.Columns.Remove("CreatedBy");
+            dgvModAlumno.Columns.Remove("ChangedBy");
+            dgvModAlumno.Columns.Remove("ChangedOn");
+
+            //dgvModAlumno.Columns["IdMateriaCC"].HeaderText = "Id materia";
+            //dgvModAlumno.Columns["Nombre"].HeaderText = "Nombre materia";
+        }
 
 
 
