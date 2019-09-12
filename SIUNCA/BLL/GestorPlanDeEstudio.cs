@@ -41,5 +41,11 @@ namespace BLL
             ListaCarrera = unaCarreraDAO.TraerTodo(UnAlumno, unaCarrera);
             return ListaCarrera;
         }
+
+        public void Modificar(DTODetallesCorrPlan unDTODMPCP)
+        {
+            PlanDeEstudioDAO unPEDAO = new PlanDeEstudioDAO();
+            unPEDAO.Modificar(unDTODMPCP);
+        }
     }
 }
