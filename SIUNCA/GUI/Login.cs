@@ -96,11 +96,6 @@ namespace GUI
             arrastrarForm(e, ref x, ref y);
         }
 
-        private void panelHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void cboIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             Idioma.cacheIdioma = cboIdioma.Text;
