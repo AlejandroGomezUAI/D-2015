@@ -59,8 +59,6 @@ namespace DAL
             }
         }
 
-
-        
         public List<DTODetallesCorrPlan> TraerTodo()
         {
             List<DTODetallesCorrPlan> resultado;
@@ -69,7 +67,39 @@ namespace DAL
             try
             {
                 //resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT m.IdMateriaCC, dpe.IdPlanDetalles, Nombre FROM MateriaConCorrelativas as m inner join DetallesPlanDeEstudio as dpe on m.IdMateriaCC = dpe.IdMateriaCC ", new List<Parametro>());
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas ", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas", new List<Parametro>());
+                // resultado = unaConexion.EjecutarTupla(Of MateriaConCorrelativas)("SELECT * FROM MateriaConCorrelativas", New List(Of Parametro))
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                // Dim log As New EventViewer("error", "SQL", "Error al traer los Clientes de la base de datos", ".", EventViewer.TipoEvento._Error)
+                //Interaction.MsgBox("error al traer materias con correlativas");
+                MessageBox.Show("Error al traer materias", ex.Message.ToString());
+                return null;
+                //throw new ApplicationException("ERROOOOORR TRAER MATERIAS", ex);
+            }
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
+        public List<DTODetallesCorrPlan> TraerTodo(int iduser)
+        {
+            List<DTODetallesCorrPlan> resultado;
+            Conexion unaConexion = new Conexion("config.xml");
+            unaConexion.ConexionIniciar();
+            try
+            {
+                List<Parametro> listaParametrosCD = new List<Parametro>();
+                listaParametrosCD.Add(new Parametro("iduser", iduser));
+                //resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT m.IdMateriaCC, dpe.IdPlanDetalles, Nombre FROM MateriaConCorrelativas as m inner join DetallesPlanDeEstudio as dpe on m.IdMateriaCC = dpe.IdMateriaCC ", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT matcc.IdMateriaCC, matcc.Nombre FROM Profesor AS pro INNER JOIN                                                           tbl_user AS usr
+                                                                             ON usr.iduser = pro.iduser INNER JOIN MateriaCC_Profesor AS matccpro
+                                                                             ON pro.Legajo = matccpro.Legajo INNER JOIN MateriaConCorrelativas AS                                          matcc
+                                                                             ON matccpro.IdMateriaCC = matcc.IdMateriaCC
+                                                                             WHERE pro.iduser = (@iduser) ", listaParametrosCD);
                 // resultado = unaConexion.EjecutarTupla(Of MateriaConCorrelativas)("SELECT * FROM MateriaConCorrelativas", New List(Of Parametro))
                 return resultado;
             }
