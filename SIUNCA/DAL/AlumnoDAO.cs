@@ -54,7 +54,30 @@ namespace DAL
                 con.ConexionFinalizar();
             }
 
+        }
 
+        public List<Alumno> traerTodo()
+        {
+            List<Alumno> resultado = new List<Alumno>();
+            var con = new Conexion("config.xml");
+            con.ConexionIniciar();
+
+            List<Parametro> listaParametrosCD = new List<Parametro>();           
+
+            try
+            {
+                resultado = con.EjecutarTupla<Alumno>(@"SELECT LegajoAlumno, Nombre, Apellido, Email, Sexo FROM Alumno", listaParametrosCD);
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error al traer alumnos" + ex);
+                return null;
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
 
         }
         public List<Alumno> TraerTodo(Alumno UnAlumno)
@@ -127,8 +150,38 @@ namespace DAL
         public void Crear(object unAlumno)
         {
         }
-        public void Modificar(object unAlumno)
+        public void Modificar(Alumno unAlumno)
         {
+
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
+            listaParametros.Add(new Parametro("Nombre", unAlumno.Nombre));
+            listaParametros.Add(new Parametro("Apellido", unAlumno.Apellido));
+            listaParametros.Add(new Parametro("Email", unAlumno.Email));
+            listaParametros.Add(new Parametro("Sexo", unAlumno.Sexo));
+
+
+            try
+                {
+                    unaConexion.ConexionIniciar();
+                    unaConexion.TransaccionIniciar();
+
+                    unaConexion.EjecutarSinResultado("UPDATE Alumno SET Nombre = (@Nombre), Apellido = (@Apellido), Email = (@Email), Sexo = (@Sexo) WHERE LegajoAlumno = (@LegajoAlumno)", listaParametros);
+                    unaConexion.TransaccionAceptar();
+                }
+                catch (Exception ex)
+                {
+                    unaConexion.TransaccionCancelar();
+                    MessageBox.Show("error modificando materia");
+                }
+
+                finally
+                {
+                    unaConexion.ConexionFinalizar();
+                }
+            
         }
         public void Eliminar(object unAlumno)
         {

@@ -62,6 +62,35 @@ namespace DAL
 
             
         }
+
+        public void Modificar(DTODetallesCorrPlan unDTODMPCP)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("IdPlanDeEstudio", unDTODMPCP.IdPlanDeEstudio));
+            listaParametros.Add(new Parametro("Nombre", unDTODMPCP.Nombre));    
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+
+                unaConexion.EjecutarSinResultado("UPDATE PlanDeEstudio SET Nombre = (@Nombre) WHERE IdPlanDeEstudio = (@IdPlanDeEstudio)", listaParametros);
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error modificando Plan");
+            }
+
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
         public List<DTODetallesCorrPlan> TraerTodo()
         {
             List<DTODetallesCorrPlan> resultado;

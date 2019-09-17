@@ -113,6 +113,35 @@ namespace DAL
                 unaConexion.ConexionFinalizar();
             }
         }
+
+        public void Modificar(DTODetallesCorrPlan unaMateria)
+        {
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("Id", unaMateria.IdMateriaCC));
+            listaParametros.Add(new Parametro("Nombre", unaMateria.Nombre));
+
+            try
+            {
+                unaConexion.ConexionIniciar();
+                unaConexion.TransaccionIniciar();
+
+                unaConexion.EjecutarSinResultado("UPDATE MateriaConCorrelativas SET Nombre = (@Nombre) WHERE IdMateriaCC = (@Id)", listaParametros);
+                unaConexion.TransaccionAceptar();
+            }
+            catch (Exception ex)
+            {
+                unaConexion.TransaccionCancelar();
+                MessageBox.Show("error modificando materia");
+            }
+
+            finally
+            {
+                unaConexion.ConexionFinalizar();
+            }
+        }
+
     }
 
 }

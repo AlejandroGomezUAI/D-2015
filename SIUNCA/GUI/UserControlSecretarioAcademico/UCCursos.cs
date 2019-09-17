@@ -230,5 +230,10 @@ namespace GUI.UserControlSecretarioAcademico
             dgConsultaCursos.Columns.Remove("CreatedBy");
 
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+          
+        }
     }
 }

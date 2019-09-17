@@ -20,7 +20,7 @@ namespace DAL
             unaConexion.ConexionIniciar();
             try
             {
-                resultado = unaConexion.EjecutarTupla<Materias>("SELECT IdMateria, Nombre FROM Materias", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<Materias>("SELECT IdMateriaCC, Nombre FROM Materias", new List<Parametro>());
                 return resultado;
             }
             catch (Exception ex)
