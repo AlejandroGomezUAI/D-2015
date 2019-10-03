@@ -67,6 +67,7 @@
     <Compile Include="Cache\CacheUsuario.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="Configuracion.vb" />
+    <Compile Include="DigitoVerificador\DigitoVerificador.vb" />
     <Compile Include="Funciones\Archivo.vb" />
     <Compile Include="Funciones\Cadenas.vb" />
     <Compile Include="Funciones\Fechas.vb" />
@@ -94,6 +95,7 @@
     <Compile Include="Persistencia\Parametro.vb" />
     <Compile Include="Persistencia\ProveedorMySql.vb" />
     <Compile Include="Persistencia\ProveedorSql.vb" />
+    <Compile Include="Seguridad\BackupSQL.vb" />
     <Compile Include="Seguridad\Hash.vb" />
     <Compile Include="Serializadores\ISerializador.vb" />
     <Compile Include="Serializadores\Serializador.vb" />

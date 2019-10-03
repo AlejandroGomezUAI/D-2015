@@ -30,6 +30,14 @@ namespace BLL
 
             return listaAlumnos;
         }
+        public List<Alumno> traerAlumnos()
+        {
+            var listaAlumnos = new List<Alumno>();
+            var unAlumnoDAO = new AlumnoDAO();
+            listaAlumnos = unAlumnoDAO.traerTodo();
+
+            return listaAlumnos;
+        }
 
 
         public List<Alumno> TraerAlumno(Alumno UnAlumno)
@@ -50,8 +58,10 @@ namespace BLL
         public void Crear(object unAlumno)
         {
         }
-        public void Modificar(object unAlumno)
+        public void Modificar(Alumno unAlumno)
         {
+            AlumnoDAO unAlumnoDAO = new AlumnoDAO();
+            unAlumnoDAO.Modificar(unAlumno);
         }
         public void Eliminar(object unAlumno)
         {

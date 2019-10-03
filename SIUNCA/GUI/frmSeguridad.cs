@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Framework.D_2015.Cache;
 
 namespace GUI
 {
@@ -32,7 +33,8 @@ namespace GUI
         public frmSeguridad()
         {
             InitializeComponent();
-            seleccionarUserControl(ucplandeestudio);
+            seleccionarUserControl(ucperfilesusuarios);
+            this.lblNombre.Text = CacheUsuario.username;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -40,17 +42,7 @@ namespace GUI
             this.Close();
         }
 
-        private void btnMaximizar_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+   
 
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -94,21 +86,35 @@ namespace GUI
             }
         }
 
-
-        
-        private void btnCursos_Click(object sender, EventArgs e)
+        private void BtnPlanDeEstudio_Click(object sender, EventArgs e)
         {
-            moverSlider(btnCursos.Height, btnCursos.Top);
+            moverSlider(btnPerfiles.Height, btnPerfiles.Top);
 
-            seleccionarUserControl(uccursos);
+            seleccionarUserControl(ucperfilesusuarios);
         }
 
-        private void btnAlumnos_Click(object sender, EventArgs e)
+        private void BtnMaterias_Click(object sender, EventArgs e)
         {
-            moverSlider(btnAlumnos.Height, btnAlumnos.Top);
+            moverSlider(btnBackups.Height, btnBackups.Top);
 
-            seleccionarUserControl(ucalumnos);
+            seleccionarUserControl(ucbackups);
         }
+
+        private void BtnCursos_Click_1(object sender, EventArgs e)
+        {
+            moverSlider(btnBitacora.Height, btnBitacora.Top);
+
+            seleccionarUserControl(ucbitacora);
+        }
+
+        private void BtnAlumnos_Click_1(object sender, EventArgs e)
+        {
+            moverSlider(btnGestionUsuarios.Height, btnGestionUsuarios.Top);
+
+            seleccionarUserControl(ucusuarios);
+        }
+
+
 
         private void panelHeader2_MouseMove(object sender, MouseEventArgs e)
         {
@@ -161,33 +167,7 @@ namespace GUI
 
         }
 
-        private void BtnPlanDeEstudio_Click(object sender, EventArgs e)
-        {
-            moverSlider(btnCursos.Height, btnCursos.Top);
-
-            seleccionarUserControl(ucperfilesusuarios);
-        }
-
-        private void BtnMaterias_Click(object sender, EventArgs e)
-        {
-            moverSlider(btnCursos.Height, btnCursos.Top);
-
-            seleccionarUserControl(ucbackups);
-        }
-
-        private void BtnCursos_Click_1(object sender, EventArgs e)
-        {
-            moverSlider(btnCursos.Height, btnCursos.Top);
-
-            seleccionarUserControl(ucbitacora);
-        }
-
-        private void BtnAlumnos_Click_1(object sender, EventArgs e)
-        {
-            moverSlider(btnCursos.Height, btnCursos.Top);
-
-            seleccionarUserControl(ucusuarios);
-        }
+       
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
@@ -205,6 +185,18 @@ namespace GUI
             Login frmLogin = new Login();
             frmLogin.Show();
             this.Hide();
+        }
+
+        private void BtnMaximizar_Click_1(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         /// <summary>

@@ -29,6 +29,7 @@ namespace GUI.UserControlSecretarioAcademico
         MateriaConCorrelativas UnaMateriaCC = new MateriaConCorrelativas();
         Carrera UnaCarrera = new Carrera();
         PlanDeEstudio unPlanDeEstudio = new PlanDeEstudio();
+        GestorPlanDeEstudio unGestorPE = new GestorPlanDeEstudio();
 
 
         public UCPlanDeEstudio()
@@ -45,6 +46,8 @@ namespace GUI.UserControlSecretarioAcademico
             //CargarPlanes();
             CargarMaterias();
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+
+
             
         }
 
@@ -76,6 +79,10 @@ namespace GUI.UserControlSecretarioAcademico
             ComboConsultaPlan.DataSource = null;
             ComboConsultaPlan.DataSource = unGPE.TraerListaPlanes();
             ComboConsultaPlan.DisplayMember = "Nombre";
+
+            //dgvModPE.DataSource = null;
+            //dgvModPE.DataSource = unGestorPE.TraerListaPlanes();
+            //RemoverColumnas();
         }
 
         private void CargarMateriasCC()
@@ -524,6 +531,75 @@ namespace GUI.UserControlSecretarioAcademico
         private void ComboConsultaPlan_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarMaterias2();
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtModNombre.Text != "" )
+                {
+                    unDTODMPCP = (DTODetallesCorrPlan)dgvModPE.CurrentRow.DataBoundItem;
+                    unDTODMPCP.Nombre = txtModNombre.Text;
+                    
+
+                    unGestorPE.Modificar(unDTODMPCP);
+
+                    txtModNombre.Text = "";
+                    
+
+
+                    dgvModPE.DataSource = null;
+                    dgvModPE.DataSource = unGestorPE.TraerListaPlanes();
+                    RemoverColumnas();
+                    MessageBox.Show("Se modifico el Plan " + unPlanDeEstudio.Nombre);
+                }
+                else
+                {
+                    txtModNombre.Text = "";                    
+                    MessageBox.Show("No se pudo modificar, verifique los datos ingresados");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al modificar Plan");
+            }
+        }
+
+        private void Button6_Click_1(object sender, EventArgs e)
+        {
+            dgvModPE.DataSource = null;
+            dgvModPE.DataSource = unGestorPE.TraerListaPlanes();
+            RemoverColumnas();
+        }
+        private void RemoverColumnas()
+        {
+            dgvModPE.Columns.Remove("IdDetallesDetMatPlanCorrPlan");
+            dgvModPE.Columns.Remove("IdPlanDetalles");
+            dgvModPE.Columns.Remove("IdPlanDetalles2");
+            dgvModPE.Columns.Remove("NumeroMateria");
+            dgvModPE.Columns.Remove("NumeroMateria2");
+            dgvModPE.Columns.Remove("NombreMateria2");
+            dgvModPE.Columns.Remove("Año");
+            dgvModPE.Columns.Remove("NombrePlan");
+            dgvModPE.Columns.Remove("CargaHoraria");
+            dgvModPE.Columns.Remove("Obligatoriedad");
+            dgvModPE.Columns.Remove("IdMateriaCC");
+
+            dgvModPE.Columns.Remove("CreatedOn");
+            dgvModPE.Columns.Remove("CreatedBy");
+            dgvModPE.Columns.Remove("ChangedBy");
+            dgvModPE.Columns.Remove("ChangedOn");
+
+            dgvModPE.Columns["IdPlanDeEstudio"].HeaderText = "Id del Plan";
+            //dgvModAlumno.Columns["Nombre"].HeaderText = "Nombre materia";
+        }
+
+        private void GroupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,12 +36,12 @@ namespace DAL
                 //                                            on alu.LegajoAlumno = asist.LegajoAlumno
                 //                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
 
-                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente as int)) as varchar) Ausente, CAST(SUM(CAST(asist.Presente as int)) as varchar) Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
-                                                            on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
-                                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
-                                                            on alu.LegajoAlumno = asist.LegajoAlumno
-                                                            where matcor.Nombre = @Nombre
-                                                            group by alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
+                resultado = con.EjecutarTupla<DTOAlumno>(@"SELECT alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente AS int))                                           AS varchar) Ausente, CAST(SUM(CAST(asist.Presente AS int)) AS varchar) Presente,                                                 almatcc.Estado, almatcc.IdMAteriaCC FROM Alumno                                                                                  AS alu inner join Alumno_MateriaCC AS almatcc
+                                                            ON alu.LegajoAlumno = almatcc.LegajoAlumno INNER JOIN MateriaConCorrelativas AS matcor
+                                                            ON almatcc.IdMAteriaCC = matcor.IdMateriaCC INNER JOIN Asistencia as asist
+                                                            ON alu.LegajoAlumno = asist.LegajoAlumno
+                                                            WHERE matcor.Nombre = @Nombre
+                                                            GROUP BY alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
@@ -54,7 +54,30 @@ namespace DAL
                 con.ConexionFinalizar();
             }
 
+        }
 
+        public List<Alumno> traerTodo()
+        {
+            List<Alumno> resultado = new List<Alumno>();
+            var con = new Conexion("config.xml");
+            con.ConexionIniciar();
+
+            List<Parametro> listaParametrosCD = new List<Parametro>();           
+
+            try
+            {
+                resultado = con.EjecutarTupla<Alumno>(@"SELECT LegajoAlumno, Nombre, Apellido, Email, Sexo FROM Alumno", listaParametrosCD);
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error al traer alumnos" + ex);
+                return null;
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
 
         }
         public List<Alumno> TraerTodo(Alumno UnAlumno)
@@ -127,8 +150,38 @@ namespace DAL
         public void Crear(object unAlumno)
         {
         }
-        public void Modificar(object unAlumno)
+        public void Modificar(Alumno unAlumno)
         {
+
+            Conexion unaConexion = new Conexion("config.xml");
+            List<Parametro> listaParametros = new List<Parametro>();
+
+            listaParametros.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
+            listaParametros.Add(new Parametro("Nombre", unAlumno.Nombre));
+            listaParametros.Add(new Parametro("Apellido", unAlumno.Apellido));
+            listaParametros.Add(new Parametro("Email", unAlumno.Email));
+            listaParametros.Add(new Parametro("Sexo", unAlumno.Sexo));
+
+
+            try
+                {
+                    unaConexion.ConexionIniciar();
+                    unaConexion.TransaccionIniciar();
+
+                    unaConexion.EjecutarSinResultado("UPDATE Alumno SET Nombre = (@Nombre), Apellido = (@Apellido), Email = (@Email), Sexo = (@Sexo) WHERE LegajoAlumno = (@LegajoAlumno)", listaParametros);
+                    unaConexion.TransaccionAceptar();
+                }
+                catch (Exception ex)
+                {
+                    unaConexion.TransaccionCancelar();
+                    MessageBox.Show("error modificando materia");
+                }
+
+                finally
+                {
+                    unaConexion.ConexionFinalizar();
+                }
+            
         }
         public void Eliminar(object unAlumno)
         {

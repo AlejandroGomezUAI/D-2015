@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSeguridad));
-            this.btnAlumnos = new System.Windows.Forms.Button();
-            this.btnCursos = new System.Windows.Forms.Button();
+            this.btnGestionUsuarios = new System.Windows.Forms.Button();
+            this.btnBitacora = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.slideMenu = new System.Windows.Forms.Panel();
-            this.btnMaterias = new System.Windows.Forms.Button();
-            this.btnPlanDeEstudio = new System.Windows.Forms.Button();
+            this.btnBackups = new System.Windows.Forms.Button();
+            this.btnPerfiles = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -43,38 +43,39 @@
             this.button3 = new System.Windows.Forms.Button();
             this.panelHeader1 = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.panelHeader2.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAlumnos
+            // btnGestionUsuarios
             // 
-            this.btnAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnAlumnos.FlatAppearance.BorderSize = 0;
-            this.btnAlumnos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnos.Location = new System.Drawing.Point(0, 273);
-            this.btnAlumnos.Name = "btnAlumnos";
-            this.btnAlumnos.Size = new System.Drawing.Size(188, 44);
-            this.btnAlumnos.TabIndex = 6;
-            this.btnAlumnos.Text = "Gestión Usuarios";
-            this.btnAlumnos.UseVisualStyleBackColor = false;
-            this.btnAlumnos.Click += new System.EventHandler(this.BtnAlumnos_Click_1);
+            this.btnGestionUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnGestionUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(0, 273);
+            this.btnGestionUsuarios.Name = "btnGestionUsuarios";
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(188, 44);
+            this.btnGestionUsuarios.TabIndex = 6;
+            this.btnGestionUsuarios.Text = "Gestión Usuarios";
+            this.btnGestionUsuarios.UseVisualStyleBackColor = false;
+            this.btnGestionUsuarios.Click += new System.EventHandler(this.BtnAlumnos_Click_1);
             // 
-            // btnCursos
+            // btnBitacora
             // 
-            this.btnCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnCursos.FlatAppearance.BorderSize = 0;
-            this.btnCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursos.Location = new System.Drawing.Point(0, 223);
-            this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(188, 44);
-            this.btnCursos.TabIndex = 5;
-            this.btnCursos.Text = "Bitacora";
-            this.btnCursos.UseVisualStyleBackColor = false;
-            this.btnCursos.Click += new System.EventHandler(this.BtnCursos_Click_1);
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnBitacora.FlatAppearance.BorderSize = 0;
+            this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBitacora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBitacora.Location = new System.Drawing.Point(0, 223);
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.Size = new System.Drawing.Size(188, 44);
+            this.btnBitacora.TabIndex = 5;
+            this.btnBitacora.Text = "Bitacora";
+            this.btnBitacora.UseVisualStyleBackColor = false;
+            this.btnBitacora.Click += new System.EventHandler(this.BtnCursos_Click_1);
             // 
             // label1
             // 
@@ -95,33 +96,33 @@
             this.slideMenu.Size = new System.Drawing.Size(15, 44);
             this.slideMenu.TabIndex = 2;
             // 
-            // btnMaterias
+            // btnBackups
             // 
-            this.btnMaterias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnMaterias.FlatAppearance.BorderSize = 0;
-            this.btnMaterias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaterias.Location = new System.Drawing.Point(0, 173);
-            this.btnMaterias.Name = "btnMaterias";
-            this.btnMaterias.Size = new System.Drawing.Size(188, 44);
-            this.btnMaterias.TabIndex = 4;
-            this.btnMaterias.Text = "Backups";
-            this.btnMaterias.UseVisualStyleBackColor = false;
-            this.btnMaterias.Click += new System.EventHandler(this.BtnMaterias_Click);
+            this.btnBackups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnBackups.FlatAppearance.BorderSize = 0;
+            this.btnBackups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackups.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackups.Location = new System.Drawing.Point(0, 173);
+            this.btnBackups.Name = "btnBackups";
+            this.btnBackups.Size = new System.Drawing.Size(188, 44);
+            this.btnBackups.TabIndex = 4;
+            this.btnBackups.Text = "Backups";
+            this.btnBackups.UseVisualStyleBackColor = false;
+            this.btnBackups.Click += new System.EventHandler(this.BtnMaterias_Click);
             // 
-            // btnPlanDeEstudio
+            // btnPerfiles
             // 
-            this.btnPlanDeEstudio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnPlanDeEstudio.FlatAppearance.BorderSize = 0;
-            this.btnPlanDeEstudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlanDeEstudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlanDeEstudio.Location = new System.Drawing.Point(0, 123);
-            this.btnPlanDeEstudio.Name = "btnPlanDeEstudio";
-            this.btnPlanDeEstudio.Size = new System.Drawing.Size(188, 43);
-            this.btnPlanDeEstudio.TabIndex = 3;
-            this.btnPlanDeEstudio.Text = "Perfiles usuarios";
-            this.btnPlanDeEstudio.UseVisualStyleBackColor = false;
-            this.btnPlanDeEstudio.Click += new System.EventHandler(this.BtnPlanDeEstudio_Click);
+            this.btnPerfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnPerfiles.FlatAppearance.BorderSize = 0;
+            this.btnPerfiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfiles.Location = new System.Drawing.Point(0, 123);
+            this.btnPerfiles.Name = "btnPerfiles";
+            this.btnPerfiles.Size = new System.Drawing.Size(188, 43);
+            this.btnPerfiles.TabIndex = 3;
+            this.btnPerfiles.Text = "Perfiles usuarios";
+            this.btnPerfiles.UseVisualStyleBackColor = false;
+            this.btnPerfiles.Click += new System.EventHandler(this.BtnPlanDeEstudio_Click);
             // 
             // btnMinimizar
             // 
@@ -149,6 +150,7 @@
             this.btnMaximizar.Size = new System.Drawing.Size(26, 26);
             this.btnMaximizar.TabIndex = 3;
             this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.BtnMaximizar_Click_1);
             // 
             // btnClose
             // 
@@ -175,6 +177,7 @@
             // panelHeader2
             // 
             this.panelHeader2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.panelHeader2.Controls.Add(this.lblNombre);
             this.panelHeader2.Controls.Add(this.button3);
             this.panelHeader2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader2.Location = new System.Drawing.Point(203, 30);
@@ -214,18 +217,28 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(82)))), ((int)(((byte)(204)))));
             this.panelMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelMenu.Controls.Add(this.btnAlumnos);
-            this.panelMenu.Controls.Add(this.btnCursos);
+            this.panelMenu.Controls.Add(this.btnGestionUsuarios);
+            this.panelMenu.Controls.Add(this.btnBitacora);
             this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.slideMenu);
-            this.panelMenu.Controls.Add(this.btnMaterias);
-            this.panelMenu.Controls.Add(this.btnPlanDeEstudio);
+            this.panelMenu.Controls.Add(this.btnBackups);
+            this.panelMenu.Controls.Add(this.btnPerfiles);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(203, 729);
             this.panelMenu.TabIndex = 9;
             this.panelMenu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseMove);
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(170, 19);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(74, 20);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "nombre ";
             // 
             // frmSeguridad
             // 
@@ -240,6 +253,7 @@
             this.Name = "frmSeguridad";
             this.Text = "frmSeguridad";
             this.panelHeader2.ResumeLayout(false);
+            this.panelHeader2.PerformLayout();
             this.panelHeader1.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
@@ -249,12 +263,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAlumnos;
-        private System.Windows.Forms.Button btnCursos;
+        private System.Windows.Forms.Button btnGestionUsuarios;
+        private System.Windows.Forms.Button btnBitacora;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel slideMenu;
-        private System.Windows.Forms.Button btnMaterias;
-        private System.Windows.Forms.Button btnPlanDeEstudio;
+        private System.Windows.Forms.Button btnBackups;
+        private System.Windows.Forms.Button btnPerfiles;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnMaximizar;
         private System.Windows.Forms.Button btnClose;
@@ -263,5 +277,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelHeader1;
         private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Label lblNombre;
     }
 }

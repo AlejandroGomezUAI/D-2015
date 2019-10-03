@@ -14,6 +14,7 @@ using System.Threading;
 using System.Globalization;
 using GUI.Idiomas.Profesor.Asistencia;
 using Framework.D_2015.Idiomas;
+using Framework.D_2015.Cache;
 
 
 namespace GUI.UserControlProfesor
@@ -45,20 +46,23 @@ namespace GUI.UserControlProfesor
         }
 
         /// <summary>
-        /// Carga el ComboBox con las materias registradas en la BD
+        /// Carga el ComboBox con las materias registradas en la BD correspondientes a cada profesor
+        /// usando el iduser del login
         /// </summary>
         void cargarCboMaterias()
         {
             var gestorMateriacc = new GestorMateriaCC();
-            var materiascc = gestorMateriacc.TraerListaMateriasCC();
+            var materiascc = gestorMateriacc.TraerListaMateriasCC(CacheUsuario.iduser);
 
             this.cboMateriaAsist.DataSource = null;
             this.cboMateriaAsist.DataSource = materiascc;
             this.cboMateriaAsist.DisplayMember = "Nombre";
+            this.cboMateriaAsist.ValueMember = "IdMateriaCC";
 
             this.cboMateriaRegAsist.DataSource = null;
             this.cboMateriaRegAsist.DataSource = materiascc;
             this.cboMateriaRegAsist.DisplayMember = "Nombre";
+            this.cboMateriaRegAsist.ValueMember = "IdMateriaCC";
         }
 
         /// <summary>

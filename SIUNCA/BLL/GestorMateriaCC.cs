@@ -22,7 +22,19 @@ namespace BLL
             ListaMateriasCC = unaMateriaCCDAO.TraerTodo();
             return ListaMateriasCC;
         }
-        
+
+        public List<DTODetallesCorrPlan> TraerListaMateriasCC(int iduser)
+        {
+            //List<MateriaConCorrelativas> ListaMateriasCC = new List<MateriaConCorrelativas>();
+            //MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            //ListaMateriasCC = unaMateriaCCDAO.TraerTodo();
+            //return ListaMateriasCC;
+            List<DTODetallesCorrPlan> ListaMateriasCC = new List<DTODetallesCorrPlan>();
+            MateriaConCorrelativaDAO unaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            ListaMateriasCC = unaMateriaCCDAO.TraerTodo(iduser);
+            return ListaMateriasCC;
+        }
+
         public List<DTODetallesCorrPlan> TraerListaMateriasCC(Carrera UnaCarrera)
         {
             List<DTODetallesCorrPlan> ListaMateriasCC = new List<DTODetallesCorrPlan>();
@@ -49,8 +61,10 @@ namespace BLL
       
 
 
-        public void Modificar(MateriaConCorrelativas unaMatera)
+        public void Modificar(DTODetallesCorrPlan unaMateria)
         {
+            MateriaConCorrelativaDAO UnaMateriaCCDAO = new MateriaConCorrelativaDAO();
+            UnaMateriaCCDAO.Modificar(unaMateria);
         }
         public void Eliminar(MateriaConCorrelativas unAlumno)
         {
