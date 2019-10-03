@@ -252,7 +252,7 @@ namespace GUI.Seguridad
                 txtStatus.AppendText("Restauracion de la Base de Datos " + backup.baseDatos + " fallido / " );
                 MessageBox.Show("Restauracion de la Base de Datos " + backup.baseDatos + " fallido", "Backup/Restore", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                MessageBox.Show("Error al realizar restore", ex.Message.ToString());
+                MessageBox.Show("Error al realizar restore, el archivo .bak debe llamarse igual a la base de datos.", ex.Message.ToString());
             }
 
         }

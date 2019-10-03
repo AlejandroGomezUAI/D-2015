@@ -39,8 +39,8 @@ Namespace Seguridad
             Dim con As New SqlConnection(cadenaConexion)
             con.Open()
 
-            Dim strQuery = "RESTORE DATABASE " & baseDatos & " FROM disk='" & ruta & "'"
-
+            ''Dim strQuery = "RESTORE DATABASE " & baseDatos & " FROM disk='" & ruta & "'"
+            Dim strQuery = "ALTER DATABASE " & baseDatos & " SET SINGLE_USER WITH ROLLBACK IMMEDIATE;  RESTORE DATABASE " & baseDatos & " FROM disk='" & ruta & "'"
             Dim cmd As SqlCommand
             cmd = New SqlCommand(strQuery, con)
             cmd.ExecuteNonQuery()
