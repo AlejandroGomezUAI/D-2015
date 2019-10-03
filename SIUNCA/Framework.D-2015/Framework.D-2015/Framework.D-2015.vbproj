@@ -67,6 +67,7 @@
     <Compile Include="Cache\CacheUsuario.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="Configuracion.vb" />
+    <Compile Include="DigitoVerificador\DigitoVerificador.vb" />
     <Compile Include="Funciones\Archivo.vb" />
     <Compile Include="Funciones\Cadenas.vb" />
     <Compile Include="Funciones\Fechas.vb" />

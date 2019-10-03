@@ -36,12 +36,12 @@ namespace DAL
                 //                                            on alu.LegajoAlumno = asist.LegajoAlumno
                 //                                            where matcor.Nombre = @Nombre ", listaParametrosCD);
 
-                resultado = con.EjecutarTupla<DTOAlumno>(@"select alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente as int)) as varchar) Ausente, CAST(SUM(CAST(asist.Presente as int)) as varchar) Presente, almatcc.Estado, almatcc.IdMAteriaCC from Alumno as alu inner join Alumno_MateriaCC as almatcc
-                                                            on alu.LegajoAlumno = almatcc.LegajoAlumno inner join MateriaConCorrelativas as matcor
-                                                            on almatcc.IdMAteriaCC = matcor.IdMateriaCC inner join Asistencia as asist
-                                                            on alu.LegajoAlumno = asist.LegajoAlumno
-                                                            where matcor.Nombre = @Nombre
-                                                            group by alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
+                resultado = con.EjecutarTupla<DTOAlumno>(@"SELECT alu.LegajoAlumno, alu.Nombre, alu.Apellido, CAST(SUM(CAST(asist.Ausente AS int))                                           AS varchar) Ausente, CAST(SUM(CAST(asist.Presente AS int)) AS varchar) Presente,                                                 almatcc.Estado, almatcc.IdMAteriaCC FROM Alumno                                                                                  AS alu inner join Alumno_MateriaCC AS almatcc
+                                                            ON alu.LegajoAlumno = almatcc.LegajoAlumno INNER JOIN MateriaConCorrelativas AS matcor
+                                                            ON almatcc.IdMAteriaCC = matcor.IdMateriaCC INNER JOIN Asistencia as asist
+                                                            ON alu.LegajoAlumno = asist.LegajoAlumno
+                                                            WHERE matcor.Nombre = @Nombre
+                                                            GROUP BY alu.LegajoAlumno, alu.Nombre, alu.Apellido, almatcc.Estado, almatcc.IdMAteriaCC", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
