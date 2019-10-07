@@ -22,11 +22,11 @@ namespace BLL
         //}
 
 
-        public List<DTOAlumno> traerAlumnos(string cboMateria)
+        public List<DTOAlumno> traerAlumnos(int IdMateriaCC)
         {
             var listaAlumnos = new List<DTOAlumno>();
             var unAlumnoDAO = new AlumnoDAO();
-            listaAlumnos = unAlumnoDAO.traerTodo(cboMateria);
+            listaAlumnos = unAlumnoDAO.traerTodo(IdMateriaCC);
 
             return listaAlumnos;
         }
