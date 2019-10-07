@@ -25,7 +25,7 @@ namespace GUI.UserControlProfesor
         {
             InitializeComponent();
             cargarCboMaterias();
-            this.lblFechaActual.Text = DateTime.Now.ToShortDateString();
+            lblFechaActual.Text = DateTime.Now.ToShortDateString();
 
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
         }
@@ -54,15 +54,15 @@ namespace GUI.UserControlProfesor
             var gestorMateriacc = new GestorMateriaCC();
             var materiascc = gestorMateriacc.TraerListaMateriasCC(CacheUsuario.iduser);
 
-            this.cboMateriaAsist.DataSource = null;
-            this.cboMateriaAsist.DataSource = materiascc;
-            this.cboMateriaAsist.DisplayMember = "Nombre";
-            this.cboMateriaAsist.ValueMember = "IdMateriaCC";
+            cboMateriaAsist.DataSource = null;
+            cboMateriaAsist.DataSource = materiascc;
+            cboMateriaAsist.ValueMember = "IdMateriaCC";
+            cboMateriaAsist.DisplayMember = "Nombre";
 
-            this.cboMateriaRegAsist.DataSource = null;
-            this.cboMateriaRegAsist.DataSource = materiascc;
-            this.cboMateriaRegAsist.DisplayMember = "Nombre";
-            this.cboMateriaRegAsist.ValueMember = "IdMateriaCC";
+            cboMateriaRegAsist.DataSource = null;
+            cboMateriaRegAsist.DataSource = materiascc;
+            cboMateriaRegAsist.ValueMember = "IdMateriaCC";
+            cboMateriaRegAsist.DisplayMember = "Nombre";
         }
 
         /// <summary>
@@ -72,17 +72,17 @@ namespace GUI.UserControlProfesor
         void cargarActaDeasistencias()
         {
             var gestorAlumno = new GestorAlumno();
-            var alumnos = gestorAlumno.traerAlumnos(this.cboMateriaAsist.Text);
+            var alumnos = gestorAlumno.traerAlumnos((int)cboMateriaAsist.SelectedValue);
 
-            this.dgvListadoAlumnos.DataSource = null;
-            this.dgvListadoAlumnos.DataSource = alumnos;
+            dgvListadoAlumnos.DataSource = null;
+            dgvListadoAlumnos.DataSource = alumnos;
 
             //oculta columna IdMateriaCC
-            this.dgvListadoAlumnos.Columns[6].Visible = false;
+            dgvListadoAlumnos.Columns[6].Visible = false;
             //Modifica el nombre de las columnas
-            this.dgvListadoAlumnos.Columns[0].HeaderText = "Legajo";
-            this.dgvListadoAlumnos.Columns[3].HeaderText = "Ausentes";
-            this.dgvListadoAlumnos.Columns[4].HeaderText = "Presentes";
+            dgvListadoAlumnos.Columns[0].HeaderText = "Legajo";
+            dgvListadoAlumnos.Columns[3].HeaderText = "Ausentes";
+            dgvListadoAlumnos.Columns[4].HeaderText = "Presentes";
 
             colorFilaActaDeAsistencia();
         }
@@ -93,20 +93,22 @@ namespace GUI.UserControlProfesor
         void cargarListaAlumnos()
         {
             var gestoralumno = new GestorAlumno();
-            var alumnos = gestoralumno.traerAlumnos(this.cboMateriaRegAsist.Text);
+            var alumnos = gestoralumno.traerAlumnos((int)cboMateriaRegAsist.SelectedValue);
 
-            this.dgvRegistrarAsist.DataSource = null;
-            this.dgvRegistrarAsist.DataSource = alumnos;
-
+            dgvRegistrarAsist.DataSource = null;
+            dgvRegistrarAsist.DataSource = alumnos;
 
             //Modifica el nombre de la columna LegajoAlumno
-            this.dgvRegistrarAsist.Columns[1].HeaderText = "Legajo";
+            dgvRegistrarAsist.Columns[1].HeaderText = "Legajo";
+
+            //Modificacion del orden de las columnas
+            dgvRegistrarAsist.Columns["Asistencia"].DisplayIndex = 3;
 
             //oculta columna Ausentes, Presentes,  Estado, IdMAteriaCC 
-            this.dgvRegistrarAsist.Columns[4].Visible = false;
-            this.dgvRegistrarAsist.Columns[5].Visible = false;
-            this.dgvRegistrarAsist.Columns[6].Visible = false;
-            this.dgvRegistrarAsist.Columns[7].Visible = false;
+            dgvRegistrarAsist.Columns[4].Visible = false;
+            dgvRegistrarAsist.Columns[5].Visible = false;
+            dgvRegistrarAsist.Columns[6].Visible = false;
+            dgvRegistrarAsist.Columns[7].Visible = false;
 
             colorFilaRegistrarAsistencia();
         }
@@ -122,16 +124,22 @@ namespace GUI.UserControlProfesor
                 asistencia.LegajoAlumno = (int)row.Cells["LegajoAlumno"].Value;
                 asistencia.IdMateriaCC = (int)row.Cells["IdMAteriaCC"].Value;
 
-                if (row.Cells["Asistencia"].Value.ToString() == "Presente")
+                if (row.Cells["Asistencia"].Value?.ToString() == null)
+                {
+                    asistencia.Presente = "0";
+                    asistencia.Ausente = "0";
+                }
+                else if (row.Cells["Asistencia"].Value.ToString() == "Presente")
                 {
                     asistencia.Presente = "1";
                     asistencia.Ausente = "0";
                 }
-                else
+                else if (row.Cells["Asistencia"].Value.ToString() == "Ausente")
                 {
                     asistencia.Presente = "0";
                     asistencia.Ausente = "1";
                 }
+                
 
                 asistencia.Fecha = DateTime.Today;
 
@@ -141,6 +149,8 @@ namespace GUI.UserControlProfesor
             var gestorAsistencia = new GestorAsistencia();
 
             gestorAsistencia.guardarAsistencia(listadoAsistencia);
+
+            MessageBox.Show("El registro de asistencias ha sido completado satisfactoriamente");
         }
 
         /// <summary>

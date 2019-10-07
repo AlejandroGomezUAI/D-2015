@@ -14,6 +14,6 @@ namespace BIZ.DTOs
         public string Ausente { get; set; }
         public string Presente { get; set; }
         public string Estado { get; set; }
-        public int IdMAteriaCC { get; set; }
+        public int IdMateriaCC { get; set; }
     }
 }
