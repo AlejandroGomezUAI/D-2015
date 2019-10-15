@@ -31,7 +31,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnFiltrar1 = new System.Windows.Forms.Button();
             this.cbEvento = new System.Windows.Forms.ComboBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.Label3 = new System.Windows.Forms.Label();
@@ -47,11 +52,6 @@
             this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoBitacora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnFiltrar1 = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.Button1 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -102,6 +102,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bitacora";
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button8.Location = new System.Drawing.Point(646, 396);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(142, 54);
+            this.button8.TabIndex = 40;
+            this.button8.Text = "Eliminar todo";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // Button1
+            // 
+            this.Button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Button1.Location = new System.Drawing.Point(646, 335);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(142, 55);
+            this.Button1.TabIndex = 39;
+            this.Button1.Text = "Volver";
+            this.Button1.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Location = new System.Drawing.Point(19, 172);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(208, 51);
+            this.btnAgregar.TabIndex = 38;
+            this.btnAgregar.Text = "Probar agregar Bitacora ";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnFiltrar);
@@ -120,6 +155,30 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrar.Location = new System.Drawing.Point(176, 195);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(159, 31);
+            this.btnFiltrar.TabIndex = 40;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // btnFiltrar1
+            // 
+            this.btnFiltrar1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFiltrar1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrar1.Location = new System.Drawing.Point(175, 106);
+            this.btnFiltrar1.Name = "btnFiltrar1";
+            this.btnFiltrar1.Size = new System.Drawing.Size(159, 31);
+            this.btnFiltrar1.TabIndex = 39;
+            this.btnFiltrar1.Text = "Filtrar";
+            this.btnFiltrar1.UseVisualStyleBackColor = false;
+            this.btnFiltrar1.Click += new System.EventHandler(this.btnFiltrar1_Click);
             // 
             // cbEvento
             // 
@@ -257,61 +316,6 @@
             this.Usuario.MinimumWidth = 7;
             this.Usuario.Name = "Usuario";
             this.Usuario.Width = 140;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Location = new System.Drawing.Point(19, 172);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(208, 51);
-            this.btnAgregar.TabIndex = 38;
-            this.btnAgregar.Text = "Probar agregar Bitacora ";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnFiltrar1
-            // 
-            this.btnFiltrar1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnFiltrar1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrar1.Location = new System.Drawing.Point(175, 106);
-            this.btnFiltrar1.Name = "btnFiltrar1";
-            this.btnFiltrar1.Size = new System.Drawing.Size(159, 31);
-            this.btnFiltrar1.TabIndex = 39;
-            this.btnFiltrar1.Text = "Filtrar";
-            this.btnFiltrar1.UseVisualStyleBackColor = false;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrar.Location = new System.Drawing.Point(176, 195);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(159, 31);
-            this.btnFiltrar.TabIndex = 40;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = false;
-            // 
-            // Button1
-            // 
-            this.Button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Button1.Location = new System.Drawing.Point(646, 335);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(142, 55);
-            this.Button1.TabIndex = 39;
-            this.Button1.Text = "Volver";
-            this.Button1.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button8.Location = new System.Drawing.Point(646, 396);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(142, 54);
-            this.button8.TabIndex = 40;
-            this.button8.Text = "Eliminar todo";
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // UCBitacora
             // 
