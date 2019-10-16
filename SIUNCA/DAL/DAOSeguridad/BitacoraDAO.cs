@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading.Tasks;
 
 namespace DAL.DAOSeguridad
@@ -27,7 +28,9 @@ namespace DAL.DAOSeguridad
             }
             catch (Exception ex)
             {
+                unaConexion.TransaccionCancelar();
                 //Interaction.MsgBox(ex.Message.ToString());
+                MessageBox.Show("Error al traer eventos", ex.ToString());
             }
 
             finally
@@ -62,6 +65,7 @@ namespace DAL.DAOSeguridad
             catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
+                MessageBox.Show("Error al traer bitacoras", ex.ToString());
                 //Interaction.MsgBox(ex.Message.ToString());
             }
             finally
@@ -93,12 +97,14 @@ namespace DAL.DAOSeguridad
                 unaConexion.ConexionIniciar();
                 unaConexion.TransaccionIniciar();
                 // unaConexion.EjecutarSinResultado("SELECT * FROM Bitacora WHERE idTipoBitacora = (@IdTipoBitacora) AND IdUsuario = (@IdUsuario) AND FechaHora BETWEEN (@FechaInicial) AND (@FechaFinal)", listaParametros)
-                resultado = unaConexion.EjecutarTupla<Bitacora2>("SELECT * FROM Bitacora WHERE idTipoBitacora = (@IdTipoBitacora) AND IdUsuario = (@IdUsuario)", listaParametros);
+                //resultado = unaConexion.EjecutarTupla<Bitacora2>("SELECT * FROM Bitacora WHERE idTipoBitacora = (@IdTipoBitacora) AND IdUsuario = (@IdUsuario)", listaParametros);
+                resultado = unaConexion.EjecutarTupla<Bitacora2>("SELECT * FROM Bitacora WHERE idTipoBitacora = (@IdTipoBitacora)AND IdUsuario = (@IdUsuario)AND FechaHora BETWEEN(@FechaInicial) AND(@FechaFinal)", listaParametros);
                 unaConexion.TransaccionAceptar();
             }
             catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
+                MessageBox.Show("Error al traer bitacoras", ex.ToString());
                 //Interaction.MsgBox(ex.Message.ToString());
             }
             finally
@@ -135,6 +141,7 @@ namespace DAL.DAOSeguridad
             catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
+                MessageBox.Show("Error al insertar bitacoras", ex.ToString());
                 //Interaction.MsgBox(ex.Message.ToString());
             }
             finally
@@ -164,6 +171,7 @@ namespace DAL.DAOSeguridad
             catch (Exception ex)
             {
                 unaConexion.TransaccionCancelar();
+                MessageBox.Show("Error al insertar bitacoras", ex.ToString());
                 //Interaction.MsgBox(ex.Message.ToString());
             }
             finally

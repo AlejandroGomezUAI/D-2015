@@ -20,6 +20,7 @@ namespace BIZ.Seguridad
 
         public bool Habilitado { get; set; }
 
+      
         public Int64 DigitoHorizontal { get; set; }
 
         public TipoBitacora TipoBitacora { get; set; }
