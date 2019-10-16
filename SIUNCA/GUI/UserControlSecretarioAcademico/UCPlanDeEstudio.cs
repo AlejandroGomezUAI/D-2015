@@ -14,6 +14,9 @@ using GUI.Idiomas.SecretarioAcademico.PlanDeEstudio;
 using System.Threading;
 using System.Globalization;
 using Framework.D_2015.Idiomas;
+using BLL.GestoresSeguridad;
+using Framework.D_2015.Cache;
+using BIZ.Seguridad;
 
 namespace GUI.UserControlSecretarioAcademico
 {
@@ -465,7 +468,11 @@ namespace GUI.UserControlSecretarioAcademico
         private void Button6_Click(object sender, EventArgs e)
         {
             // unPlanDeEstudio.HorasTotales = Total
-
+            GestorBitacora unGestorBitacora = new GestorBitacora();
+            TipoBitacora unTB = new TipoBitacora();
+            //unTB = "Agrega plan";
+            //unGestorBitacora.AgregarBitacora(CacheUsuario.iduser, unTB, DateTime.Now, "Todo ok");
+            //
 
             UnaCarrera = (Carrera)ComboBox3.SelectedItem;
             unPlanDeEstudio.IdCarrera = UnaCarrera.IdCarrera;
