@@ -469,9 +469,8 @@ namespace GUI.UserControlSecretarioAcademico
         {
             // unPlanDeEstudio.HorasTotales = Total
             GestorBitacora unGestorBitacora = new GestorBitacora();
-            TipoBitacora unTB = new TipoBitacora();
-            //unTB = "Agrega plan";
-            //unGestorBitacora.AgregarBitacora(CacheUsuario.iduser, unTB, DateTime.Now, "Todo ok");
+
+           
             //
 
             UnaCarrera = (Carrera)ComboBox3.SelectedItem;
@@ -489,7 +488,9 @@ namespace GUI.UserControlSecretarioAcademico
                 GestorPlanDeEstudio GestorPE = new GestorPlanDeEstudio();
                 GestorPE.CrearPlanDeEstudio(unPlanDeEstudio, PEDetalles);
                 MessageBox.Show("Se registró el Plan de estudio.");
-                //Interaction.MsgBox("Plan de estudio guardado.");
+
+                //Agrego una bitacora del registro del plan.
+                unGestorBitacora.AgregarBitacora1(CacheUsuario.iduser, 2, DateTime.Now, "Se registro un plan de estudio");
             }
             catch (Exception ex)
             {

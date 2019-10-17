@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Framework.D_2015.Seguridad;
 using System.Data.SqlClient;
+using BLL.GestoresSeguridad;
+using Framework.D_2015.Cache;
 
 namespace GUI.Seguridad
 {
@@ -52,6 +54,10 @@ namespace GUI.Seguridad
                     //txtStatus.AppendText("La prueba de conexion fue exitosa" + Constants.vbCrLf);
                     txtStatus.AppendText(" // La prueba de conexion fue exitosa // ");
                     conexion.Close();
+
+                    //agrego bitacota
+                    GestorBitacora unGestorBitacora = new GestorBitacora();
+                    unGestorBitacora.AgregarBitacora1(CacheUsuario.iduser, 1, DateTime.Now, "Se probó una conexion con la base");
                 }
                 catch (Exception ex)
                 {

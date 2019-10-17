@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using Framework.D_2015.Cache;
 
 namespace DAL.DAOSeguridad
 {

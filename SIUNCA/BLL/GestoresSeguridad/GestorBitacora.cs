@@ -1,6 +1,7 @@
 ﻿using BIZ;
 using BIZ.Seguridad;
 using DAL.DAOSeguridad;
+using Framework.D_2015.Cache;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,15 @@ namespace BLL.GestoresSeguridad
             // Comprobaciones
             unaBitacoraDAO.Insertar(unUsuario.iduser, unIdTipoBitacora, unaFechaHora, unMensaje);
         }
+
+        public void AgregarBitacora1(int unUsuario, int unIdTipoBitacora, DateTime unaFechaHora, string unMensaje)
+        {
+            BitacoraDAO unaBitacoraDAO = new BitacoraDAO();
+
+            // Comprobaciones
+            unaBitacoraDAO.Insertar(unUsuario, unIdTipoBitacora, unaFechaHora, unMensaje);
+        }
+
 
         public void AgregarBitacora(Bitacora2 unaBitacora)
         {
