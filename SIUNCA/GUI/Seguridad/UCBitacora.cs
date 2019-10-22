@@ -88,6 +88,5 @@ namespace GUI.Seguridad
             dgvBitacoras.DataSource = null;
             dgvBitacoras.DataSource = ListaBitacoras;
         }
-
     }
 }

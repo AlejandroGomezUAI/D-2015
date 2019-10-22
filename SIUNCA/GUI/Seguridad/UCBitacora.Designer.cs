@@ -48,19 +48,11 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.dtpFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
-            this.dgvBitacoras1 = new System.Windows.Forms.DataGridView();
-            this.IdBitacora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Evento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoBitacora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacoras)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBitacoras1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -91,7 +83,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvBitacoras);
-            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.button8);
             this.groupBox1.Controls.Add(this.Button1);
             this.groupBox1.Controls.Add(this.btnAgregar);
@@ -100,7 +91,6 @@
             this.groupBox1.Controls.Add(this.Label2);
             this.groupBox1.Controls.Add(this.dtpFechaInicial);
             this.groupBox1.Controls.Add(this.dtpFechaFinal);
-            this.groupBox1.Controls.Add(this.dgvBitacoras1);
             this.groupBox1.Location = new System.Drawing.Point(15, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(821, 593);
@@ -111,7 +101,7 @@
             // dgvBitacoras
             // 
             this.dgvBitacoras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBitacoras.Location = new System.Drawing.Point(19, 335);
+            this.dgvBitacoras.Location = new System.Drawing.Point(19, 302);
             this.dgvBitacoras.Name = "dgvBitacoras";
             this.dgvBitacoras.Size = new System.Drawing.Size(621, 239);
             this.dgvBitacoras.TabIndex = 41;
@@ -165,7 +155,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(373, 229);
+            this.groupBox2.Size = new System.Drawing.Size(373, 237);
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
@@ -174,7 +164,7 @@
             // 
             this.btnFiltrar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrar.Location = new System.Drawing.Point(176, 195);
+            this.btnFiltrar.Location = new System.Drawing.Point(207, 191);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(159, 31);
             this.btnFiltrar.TabIndex = 40;
@@ -186,7 +176,7 @@
             // 
             this.btnFiltrar1.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnFiltrar1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrar1.Location = new System.Drawing.Point(175, 106);
+            this.btnFiltrar1.Location = new System.Drawing.Point(206, 105);
             this.btnFiltrar1.Name = "btnFiltrar1";
             this.btnFiltrar1.Size = new System.Drawing.Size(159, 31);
             this.btnFiltrar1.TabIndex = 39;
@@ -197,16 +187,16 @@
             // cbEvento
             // 
             this.cbEvento.FormattingEnabled = true;
-            this.cbEvento.Location = new System.Drawing.Point(175, 160);
+            this.cbEvento.Location = new System.Drawing.Point(135, 158);
             this.cbEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cbEvento.Name = "cbEvento";
-            this.cbEvento.Size = new System.Drawing.Size(160, 28);
+            this.cbEvento.Size = new System.Drawing.Size(230, 28);
             this.cbEvento.TabIndex = 11;
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(32, 42);
+            this.Label1.Location = new System.Drawing.Point(8, 42);
             this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(111, 20);
@@ -216,7 +206,7 @@
             // Label3
             // 
             this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(32, 165);
+            this.Label3.Location = new System.Drawing.Point(8, 166);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(95, 20);
@@ -226,7 +216,7 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(32, 78);
+            this.Label4.Location = new System.Drawing.Point(8, 78);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(71, 20);
@@ -236,19 +226,19 @@
             // cbCriticidad
             // 
             this.cbCriticidad.FormattingEnabled = true;
-            this.cbCriticidad.Location = new System.Drawing.Point(175, 38);
+            this.cbCriticidad.Location = new System.Drawing.Point(135, 34);
             this.cbCriticidad.Margin = new System.Windows.Forms.Padding(4);
             this.cbCriticidad.Name = "cbCriticidad";
-            this.cbCriticidad.Size = new System.Drawing.Size(160, 28);
+            this.cbCriticidad.Size = new System.Drawing.Size(230, 28);
             this.cbCriticidad.TabIndex = 6;
             // 
             // cbUsuario
             // 
             this.cbUsuario.FormattingEnabled = true;
-            this.cbUsuario.Location = new System.Drawing.Point(175, 71);
+            this.cbUsuario.Location = new System.Drawing.Point(135, 70);
             this.cbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.cbUsuario.Name = "cbUsuario";
-            this.cbUsuario.Size = new System.Drawing.Size(160, 28);
+            this.cbUsuario.Size = new System.Drawing.Size(230, 28);
             this.cbUsuario.TabIndex = 8;
             // 
             // Label5
@@ -288,57 +278,6 @@
             this.dtpFechaFinal.Size = new System.Drawing.Size(339, 26);
             this.dtpFechaFinal.TabIndex = 30;
             // 
-            // dgvBitacoras1
-            // 
-            this.dgvBitacoras1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBitacoras1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdBitacora,
-            this.Evento,
-            this.TipoBitacora,
-            this.Usuario});
-            this.dgvBitacoras1.Location = new System.Drawing.Point(19, 335);
-            this.dgvBitacoras1.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvBitacoras1.Name = "dgvBitacoras1";
-            this.dgvBitacoras1.RowHeadersWidth = 57;
-            this.dgvBitacoras1.Size = new System.Drawing.Size(620, 239);
-            this.dgvBitacoras1.TabIndex = 29;
-            // 
-            // IdBitacora
-            // 
-            this.IdBitacora.HeaderText = "IdBitacora";
-            this.IdBitacora.MinimumWidth = 7;
-            this.IdBitacora.Name = "IdBitacora";
-            this.IdBitacora.Width = 140;
-            // 
-            // Evento
-            // 
-            this.Evento.HeaderText = "Evento";
-            this.Evento.MinimumWidth = 7;
-            this.Evento.Name = "Evento";
-            this.Evento.Width = 140;
-            // 
-            // TipoBitacora
-            // 
-            this.TipoBitacora.HeaderText = "TipoBitacora";
-            this.TipoBitacora.MinimumWidth = 7;
-            this.TipoBitacora.Name = "TipoBitacora";
-            this.TipoBitacora.Width = 140;
-            // 
-            // Usuario
-            // 
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.MinimumWidth = 7;
-            this.Usuario.Name = "Usuario";
-            this.Usuario.Width = 140;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 385);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(319, 131);
-            this.dataGridView1.TabIndex = 42;
-            // 
             // UCBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,8 +292,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacoras)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBitacoras1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,12 +317,6 @@
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.DateTimePicker dtpFechaInicial;
         internal System.Windows.Forms.DateTimePicker dtpFechaFinal;
-        internal System.Windows.Forms.DataGridView dgvBitacoras1;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn IdBitacora;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Evento;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn TipoBitacora;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridView dgvBitacoras;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
