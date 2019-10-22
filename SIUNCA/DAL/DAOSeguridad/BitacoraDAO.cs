@@ -21,7 +21,7 @@ namespace DAL.DAOSeguridad
             try
             {
                 unaConexion.ConexionIniciar();
-                resultado = unaConexion.EjecutarTupla<Bitacora2>("SELECT IdBitacora, IdUsuario, IdTipoBitacora, FechaHora, Mensaje FROM Bitacora", new List<Parametro>());
+                resultado = unaConexion.EjecutarTupla<Bitacora2>("SELECT Mensaje FROM Bitacora", new List<Parametro>());
                 foreach (var item in resultado)
                     cadenas.Add(item.Mensaje);
 
