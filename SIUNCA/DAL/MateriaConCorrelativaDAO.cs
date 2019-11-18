@@ -12,9 +12,15 @@ namespace DAL
 {
     public class MateriaConCorrelativaDAO
     {
+        private Conexion con;
+
+        public MateriaConCorrelativaDAO()
+        {
+            con = new Conexion("config.xml");
+        }
+
         public void Insertar(MateriaConCorrelativas UnaMateriaCC, List<DetallesCorrelativa> CorrelativasDetalles)
         {
-            Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
             //listaDeParametros.Add(new Parametro("Nombre", Convert.ToString(UnaMateriaCC.Nombre)));
             listaDeParametros.Add(new Parametro("Nombre", UnaMateriaCC.Nombre));
@@ -23,17 +29,16 @@ namespace DAL
 
             try
             {
-                unaConexion.ConexionIniciar();
-                unaConexion.TransaccionIniciar();
-                unaConexion.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas (Nombre) VALUES (@Nombre)", listaDeParametros);
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
+                con.EjecutarSinResultado("INSERT INTO MateriaConCorrelativas (Nombre) VALUES (@Nombre)", listaDeParametros);
 
-                int IdMateriaCC = unaConexion.EjecutarEscalar<int>("SELECT MAX(IdMateriaCC) FROM MateriaConCorrelativas", new List<Parametro>());
+                int IdMateriaCC = con.EjecutarEscalar<int>("SELECT MAX(IdMateriaCC) FROM MateriaConCorrelativas", new List<Parametro>());
 
 
                 foreach (var item in CorrelativasDetalles)
                 {
                     List<Parametro> listaParametrosCD = new List<Parametro>();
-
 
                     listaParametrosCD.Add(new Parametro("IdMateriaCC", IdMateriaCC));
                     listaParametrosCD.Add(new Parametro("IdMateria", item.IdMateria));
@@ -42,32 +47,31 @@ namespace DAL
 
                     item.IdMateriaCC = IdMateriaCC;
 
-                    unaConexion.EjecutarSinResultado("INSERT INTO DetallesCorrelativa (IdMateria, IdMateriaCC, NombreMateria, NombreMateriaCC) VALUES (@IdMateria, @IdMateriaCC, @NombreMateria, @NombreMateriaCC)", listaParametrosCD);
+                    con.EjecutarSinResultado("INSERT INTO DetallesCorrelativa (IdMateria, IdMateriaCC, NombreMateria, NombreMateriaCC) VALUES (@IdMateria, @IdMateriaCC, @NombreMateria, @NombreMateriaCC)", listaParametrosCD);
                 }
 
-                unaConexion.TransaccionAceptar();
+                con.TransaccionAceptar();
             }
             catch (Exception ex)
             {
-                unaConexion.TransaccionCancelar();
+                con.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
                 MessageBox.Show("error guardando correlatividad");
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 
         public List<DTODetallesCorrPlan> TraerTodo()
         {
             List<DTODetallesCorrPlan> resultado;
-            Conexion unaConexion = new Conexion("config.xml");
-            unaConexion.ConexionIniciar();
+            con.ConexionIniciar();
             try
             {
                 //resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT m.IdMateriaCC, dpe.IdPlanDetalles, Nombre FROM MateriaConCorrelativas as m inner join DetallesPlanDeEstudio as dpe on m.IdMateriaCC = dpe.IdMateriaCC ", new List<Parametro>());
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas", new List<Parametro>());
+                resultado = con.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT IdMateriaCC, Nombre FROM MateriaConCorrelativas", new List<Parametro>());
                 // resultado = unaConexion.EjecutarTupla(Of MateriaConCorrelativas)("SELECT * FROM MateriaConCorrelativas", New List(Of Parametro))
                 return resultado;
             }
@@ -81,21 +85,20 @@ namespace DAL
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 
         public List<DTODetallesCorrPlan> TraerTodo(int iduser)
         {
             List<DTODetallesCorrPlan> resultado;
-            Conexion unaConexion = new Conexion("config.xml");
-            unaConexion.ConexionIniciar();
+            con.ConexionIniciar();
             try
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("iduser", iduser));
                 //resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("SELECT m.IdMateriaCC, dpe.IdPlanDetalles, Nombre FROM MateriaConCorrelativas as m inner join DetallesPlanDeEstudio as dpe on m.IdMateriaCC = dpe.IdMateriaCC ", new List<Parametro>());
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT matcc.IdMateriaCC, matcc.Nombre FROM Profesor AS pro INNER JOIN                                                           tbl_user AS usr
+                resultado = con.EjecutarTupla<DTODetallesCorrPlan>(@"SELECT matcc.IdMateriaCC, matcc.Nombre FROM Profesor AS pro INNER JOIN                                                           tbl_user AS usr
                                                                              ON usr.iduser = pro.iduser INNER JOIN MateriaCC_Profesor AS matccpro
                                                                              ON pro.Legajo = matccpro.Legajo INNER JOIN MateriaConCorrelativas AS                                          matcc
                                                                              ON matccpro.IdMateriaCC = matcc.IdMateriaCC
@@ -113,15 +116,14 @@ namespace DAL
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
     
         public List<DTODetallesCorrPlan> TraerTodo(Carrera UnaCarrera)
         {
             List<DTODetallesCorrPlan> resultado;
-            Conexion unaConexion = new Conexion("config.xml");
-            unaConexion.ConexionIniciar();
+            con.ConexionIniciar();
             try
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
@@ -129,7 +131,7 @@ namespace DAL
 
                 listaParametrosCD.Add(new Parametro("Nombre", UnaCarrera.Nombre));
 
-                resultado = unaConexion.EjecutarTupla<DTODetallesCorrPlan>("Select m.Nombre, m.IdMateriaCC, d.IdPlanDetalles from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.Nombre = (@Nombre)", listaParametrosCD);
+                resultado = con.EjecutarTupla<DTODetallesCorrPlan>("Select m.Nombre, m.IdMateriaCC, d.IdPlanDetalles from MateriaConCorrelativas m Inner join detallesplandeestudio d on d.idmateriacc = m.idmateriacc Inner join plandeestudio p on d.idplandeestudio = p.idplandeestudio inner join carrera c on p.IdCarrera = c.IdCarrera where c.Nombre = (@Nombre)", listaParametrosCD);
                 return resultado;
             }
             catch (Exception ex)
@@ -140,13 +142,12 @@ namespace DAL
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 
         public void Modificar(DTODetallesCorrPlan unaMateria)
         {
-            Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
 
             listaParametros.Add(new Parametro("Id", unaMateria.IdMateriaCC));
@@ -154,21 +155,21 @@ namespace DAL
 
             try
             {
-                unaConexion.ConexionIniciar();
-                unaConexion.TransaccionIniciar();
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
 
-                unaConexion.EjecutarSinResultado("UPDATE MateriaConCorrelativas SET Nombre = (@Nombre) WHERE IdMateriaCC = (@Id)", listaParametros);
-                unaConexion.TransaccionAceptar();
+                con.EjecutarSinResultado("UPDATE MateriaConCorrelativas SET Nombre = (@Nombre) WHERE IdMateriaCC = (@Id)", listaParametros);
+                con.TransaccionAceptar();
             }
             catch (Exception ex)
             {
-                unaConexion.TransaccionCancelar();
+                con.TransaccionCancelar();
                 MessageBox.Show("error modificando materia");
             }
 
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 

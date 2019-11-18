@@ -11,9 +11,15 @@ namespace BLL
 {
     public class GestorAsistencia
     {
+        private AsistenciaDAO asistenciaDAO;
+
+        public GestorAsistencia()
+        {
+            asistenciaDAO = new AsistenciaDAO();
+        }
+
         public void guardarAsistencia(List<Asistencia> listadoAsistencia)
         {
-            var asistenciaDAO = new AsistenciaDAO();
             asistenciaDAO.guardarTodo(listadoAsistencia);
         }
     }

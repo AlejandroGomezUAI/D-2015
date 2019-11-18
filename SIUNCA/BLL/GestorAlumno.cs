@@ -12,20 +12,16 @@ namespace BLL
 {
     public class GestorAlumno
     {
-        //public List<Alumno> traerAlumnos()
-        //{        
-        //    List<Alumno> listaAlumnos = new List<Alumno>();
-        //    var unAlumnoDAO = new AlumnoDAO();
-        //    listaAlumnos = unAlumnoDAO.traerTodo();
+        private AlumnoDAO unAlumnoDAO;
 
-        //    return listaAlumnos;
-        //}
-
+        public GestorAlumno()
+        {
+            unAlumnoDAO = new AlumnoDAO();
+        }
 
         public List<DTOAlumno> traerAlumnos(int IdMateriaCC)
         {
             var listaAlumnos = new List<DTOAlumno>();
-            var unAlumnoDAO = new AlumnoDAO();
             listaAlumnos = unAlumnoDAO.traerTodo(IdMateriaCC);
 
             return listaAlumnos;
@@ -33,36 +29,32 @@ namespace BLL
         public List<Alumno> traerAlumnos()
         {
             var listaAlumnos = new List<Alumno>();
-            var unAlumnoDAO = new AlumnoDAO();
             listaAlumnos = unAlumnoDAO.traerTodo();
 
             return listaAlumnos;
         }
 
-
         public List<Alumno> TraerAlumno(Alumno UnAlumno)
         {
             List<Alumno> ListaAlumno = new List<Alumno>();
-            AlumnoDAO UnAlumnoDAO = new AlumnoDAO();
-            ListaAlumno = UnAlumnoDAO.TraerTodo(UnAlumno);
+            ListaAlumno = unAlumnoDAO.TraerTodo(UnAlumno);
             return ListaAlumno;
         }
 
         public void AsignarAlumnoAMaterias(Alumno unAlumno, List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
-            AlumnoDAO unAlumnoDAO = new AlumnoDAO();
-
             unAlumnoDAO.GuardarAsignacionAlumnoAMaterias(unAlumno, AlumnoMateriaDetalles);
         }
 
         public void Crear(object unAlumno)
         {
         }
+
         public void Modificar(Alumno unAlumno)
         {
-            AlumnoDAO unAlumnoDAO = new AlumnoDAO();
             unAlumnoDAO.Modificar(unAlumno);
         }
+
         public void Eliminar(object unAlumno)
         {
         }       
