@@ -11,11 +11,16 @@ namespace DAL
 {
     public class UsuarioDAO
     {
+        private Conexion con;
+
+        public UsuarioDAO()
+        {
+            con = new Conexion("Config.xml");
+        }
+
         public List<Usuario> trarTodo(Usuario usuario)
         {
             var resultado = new List<Usuario>();
-
-            var con = new Conexion("Config.xml");
             con.ConexionIniciar();
 
             List<Parametro> listaParametrosCD = new List<Parametro>();
@@ -39,15 +44,15 @@ namespace DAL
                 con.ConexionFinalizar();
             }
         }
+
         public List<Usuario> TraerTodo()
         {
-            Conexion unaConexion = new Conexion("config.xml");
             List<Usuario> resultado = new List<Usuario>();
             try
             {
-                unaConexion.ConexionIniciar();
+                con.ConexionIniciar();
 
-                resultado = unaConexion.EjecutarTupla<Usuario>("SELECT iduser, username, password, email, rol FROM tbl_user", new List<Parametro>());
+                resultado = con.EjecutarTupla<Usuario>("SELECT iduser, username, password, email, rol FROM tbl_user", new List<Parametro>());
             }
             catch (Exception ex)
             {
@@ -55,7 +60,7 @@ namespace DAL
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
 
             return resultado;
@@ -63,32 +68,29 @@ namespace DAL
 
         public void eliminar(int idUsuario)
         {
-            var conexion = new Conexion("Config.xml");
-
             try
             {
-                conexion.ConexionIniciar();
-                conexion.TransaccionIniciar();
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
                 var parametros = new List<Parametro>();
                 parametros.Add(new Parametro("iduser", idUsuario));
 
-                conexion.EjecutarSinResultado("DELETE FROM tbl_user WHERE iduser = @iduser", parametros);
+                con.EjecutarSinResultado("DELETE FROM tbl_user WHERE iduser = @iduser", parametros);
 
-                conexion.TransaccionAceptar();
+                con.TransaccionAceptar();
             }
             catch (Exception)
             {
-                conexion.TransaccionCancelar();
+                con.TransaccionCancelar();
             }
             finally
             {
-                conexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 
         public Usuario Login(Usuario unUsuario)
         {
-            Conexion unaConexion = new Conexion("config.xml");
             List<Usuario> resultado = new List<Usuario>();
             Usuario elUsuario = new Usuario();
 
@@ -107,12 +109,12 @@ namespace DAL
 
             try
             {
-                unaConexion.ConexionIniciar();
+                con.ConexionIniciar();
 
                 listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
                 listaParametros.Add(new Parametro("@Contraseña", unUsuario.password));
 
-                resultado = unaConexion.EjecutarTupla<Usuario>
+                resultado = con.EjecutarTupla<Usuario>
                     //
                     ("SELECT * FROM tbl_user WHERE iduser = (@IdUsuario) AND password = (@Contraseña)", listaParametros);
 
@@ -121,13 +123,12 @@ namespace DAL
                 elUsuario = resultado.First();
 
                 // Traigo todas las patentes
-                TraerTodasPatentes = unaConexion.EjecutarTupla<Patente>
+                TraerTodasPatentes = con.EjecutarTupla<Patente>
                     ("SELECT * FROM Patente", new List<Parametro>());
 
                 // Traigo las relaciones con Patente que tiene el Usuario 
-                resultadoUsuarioPatente = unaConexion.EjecutarTupla<UsuarioPatente>
+                resultadoUsuarioPatente = con.EjecutarTupla<UsuarioPatente>
                     ("SELECT * FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
-
 
                 foreach (var item in resultadoUsuarioPatente)
                 {
@@ -139,19 +140,16 @@ namespace DAL
                         PatentesAFamilias.Agregar(oo);
                 }
                 
-
-
-                TraerTodasFamilias = unaConexion.EjecutarTupla<Familia>
+                TraerTodasFamilias = con.EjecutarTupla<Familia>
                     ("SELECT * FROM Familia", listaParametros);
 
-                resultadoUsuarioFamilia = unaConexion.EjecutarTupla<UsuarioFamilia>
+                resultadoUsuarioFamilia = con.EjecutarTupla<UsuarioFamilia>
                     ("SELECT * FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario)", listaParametros);
 
-                TraerTodasFamiliaPatente = unaConexion.EjecutarTupla<FamiliaPatente>
+                TraerTodasFamiliaPatente = con.EjecutarTupla<FamiliaPatente>
                    ("SELECT * FROM FamiliaPatente", new List<Parametro>());
 
-                TraerTodasFamiliaFamilia = unaConexion.EjecutarTupla<FamiliaFamilia>(("SELECT * FROM FamiliaFamilia"), new List<Parametro>());
-
+                TraerTodasFamiliaFamilia = con.EjecutarTupla<FamiliaFamilia>(("SELECT * FROM FamiliaFamilia"), new List<Parametro>());
 
                 foreach (var item in TraerTodasFamiliaPatente)
                 {
@@ -161,7 +159,6 @@ namespace DAL
                     TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
                 }
 
-
                 foreach (var item in TraerTodasFamiliaFamilia)
                 {
                     // Guardo las relaciones de las Familias con las Familias Hijas
@@ -169,9 +166,6 @@ namespace DAL
                     // Agrego la Familia hija a la Familia
                     TraerTodasFamilias.Find(o => o.Id == item.IdFamilia).Agregar(mm);
                 }
-
-
-
 
                 foreach (var item in resultadoUsuarioFamilia)
                 {
@@ -199,12 +193,10 @@ namespace DAL
 
         public void insertarUsuario(Usuario usuario)
         {
-            var conexion = new Conexion("config.xml");
-
             try
             {
-                conexion.ConexionIniciar();
-                conexion.TransaccionIniciar();
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
 
                 var parametros = new List<Parametro>();
                 parametros.Add(new Parametro("username", usuario.username));
@@ -212,30 +204,27 @@ namespace DAL
                 parametros.Add(new Parametro("email", usuario.email));
                 parametros.Add(new Parametro("rol", usuario.rol));
 
-                conexion.EjecutarSinResultado("INSERT INTO tbl_user (username, password, email, rol) VALUES (@username, @password, @email, @rol)", parametros);
+                con.EjecutarSinResultado("INSERT INTO tbl_user (username, password, email, rol) VALUES (@username, @password, @email, @rol)", parametros);
 
-                conexion.TransaccionAceptar();
+                con.TransaccionAceptar();
             }
             catch (Exception)
             {
-                conexion.TransaccionCancelar();
+                con.TransaccionCancelar();
             }
             finally
             {
-                conexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 
         public void GuardarPermisos(Usuario unUsuario)
         {
-            Conexion unaConexion = new Conexion("config.xml");
-
-
             try
             {
-                unaConexion.ConexionIniciar();
+                con.ConexionIniciar();
 
-                unaConexion.TransaccionIniciar();
+                con.TransaccionIniciar();
 
                 List<Parametro> listaParametros = new List<Parametro>();
 
@@ -243,7 +232,7 @@ namespace DAL
                 listaParametros.Add(new Parametro("@IdUsuario", unUsuario.iduser));
 
                 // Borro todos los Perfiles
-                unaConexion.EjecutarSinResultado("DELETE FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario); DELETE FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
+                con.EjecutarSinResultado("DELETE FROM UsuarioFamilia WHERE IdUsuario = (@IdUsuario); DELETE FROM UsuarioPatente WHERE IdUsuario = (@IdUsuario)", listaParametros);
 
                 // Asigno las Familias
 
@@ -255,26 +244,26 @@ namespace DAL
                     {
                         listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
                         listaParametros2.Add(new Parametro("@IdFamilia", Item.Id));
-                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioFamilia (IdUsuario, IdFamilia) VALUES (@IdUsuario, @IdFamilia)", listaParametros2);
+                        con.EjecutarSinResultado("INSERT INTO UsuarioFamilia (IdUsuario, IdFamilia) VALUES (@IdUsuario, @IdFamilia)", listaParametros2);
                     }
                     else if (Item.GetType() == typeof(Patente))
                     {
                         listaParametros2.Add(new Parametro("@IdUsuario", unUsuario.iduser));
                         listaParametros2.Add(new Parametro("@IdPatente", Item.Id));
-                        unaConexion.EjecutarSinResultado("INSERT INTO UsuarioPatente (IdUsuario, IdPatente) VALUES (@IdUsuario, @IdPatente)", listaParametros2);
+                        con.EjecutarSinResultado("INSERT INTO UsuarioPatente (IdUsuario, IdPatente) VALUES (@IdUsuario, @IdPatente)", listaParametros2);
                     }
                 }
 
-                unaConexion.TransaccionAceptar();
+                con.TransaccionAceptar();
             }
             catch (Exception ex)
             {
-                unaConexion.TransaccionCancelar();
+                con.TransaccionCancelar();
                 throw;
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
         }
 

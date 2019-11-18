@@ -11,16 +11,20 @@ namespace DAL
 {
     public class AsistenciaDAO
     {
+        private Conexion con;
+
+        public AsistenciaDAO()
+        {
+            con = new Conexion("config.xml");
+        }
+
         public void guardarTodo(List<Asistencia> listadoAsistencia)
         {
-            var conexion = new Conexion("config.xml");
-
             try
             {
-                conexion.ConexionIniciar();
-                conexion.TransaccionIniciar();
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
 
-    
                 foreach (var item in listadoAsistencia)
                 {
                     var parametros = new List<Parametro>();
@@ -31,20 +35,18 @@ namespace DAL
                     parametros.Add(new Parametro("IdMateriaCC", item.IdMateriaCC));
                     parametros.Add(new Parametro("LegajoAlumno", item.LegajoAlumno));
 
-                    conexion.EjecutarSinResultado("INSERT INTO Asistencia (Ausente, Presente, Fecha, IdMateriaCC, LegajoAlumno) VALUES (@Ausente, @Presente, @Fecha, @IdMateriaCC, @LegajoAlumno)", parametros);
+                    con.EjecutarSinResultado("INSERT INTO Asistencia (Ausente, Presente, Fecha, IdMateriaCC, LegajoAlumno) VALUES (@Ausente, @Presente, @Fecha, @IdMateriaCC, @LegajoAlumno)", parametros);
                 }
-
-                conexion.TransaccionAceptar();
-
+                con.TransaccionAceptar();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error en AsistenciaDAO" + ex.Data);
-                conexion.TransaccionCancelar();
+                con.TransaccionCancelar();
             }
             finally
             {
-                conexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
 
         }

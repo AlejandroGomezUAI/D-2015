@@ -14,6 +14,9 @@ using GUI.Idiomas.SecretarioAcademico.PlanDeEstudio;
 using System.Threading;
 using System.Globalization;
 using Framework.D_2015.Idiomas;
+using BLL.GestoresSeguridad;
+using Framework.D_2015.Cache;
+using BIZ.Seguridad;
 
 namespace GUI.UserControlSecretarioAcademico
 {
@@ -465,7 +468,10 @@ namespace GUI.UserControlSecretarioAcademico
         private void Button6_Click(object sender, EventArgs e)
         {
             // unPlanDeEstudio.HorasTotales = Total
+            GestorBitacora unGestorBitacora = new GestorBitacora();
 
+           
+            //
 
             UnaCarrera = (Carrera)ComboBox3.SelectedItem;
             unPlanDeEstudio.IdCarrera = UnaCarrera.IdCarrera;
@@ -482,7 +488,9 @@ namespace GUI.UserControlSecretarioAcademico
                 GestorPlanDeEstudio GestorPE = new GestorPlanDeEstudio();
                 GestorPE.CrearPlanDeEstudio(unPlanDeEstudio, PEDetalles);
                 MessageBox.Show("Se registró el Plan de estudio.");
-                //Interaction.MsgBox("Plan de estudio guardado.");
+
+                //Agrego una bitacora del registro del plan.
+                unGestorBitacora.AgregarBitacora1(CacheUsuario.iduser, 2, DateTime.Now, "Se registro un plan de estudio");
             }
             catch (Exception ex)
             {

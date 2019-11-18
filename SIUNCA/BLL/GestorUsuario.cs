@@ -11,7 +11,12 @@ namespace BLL
 {
     public class GestorUsuario
     {
-        UsuarioDAO unUsuarioDAO = new UsuarioDAO();
+        private UsuarioDAO unUsuarioDAO;
+
+        public GestorUsuario()
+        {
+            unUsuarioDAO = new UsuarioDAO();
+        }
 
         public Usuario traerUsuario(Usuario usuario)
         {
@@ -39,7 +44,6 @@ namespace BLL
 
         public void guardarUsuario(Usuario usuario)
         {
-            var unUsuarioDAO = new UsuarioDAO();
             unUsuarioDAO.insertarUsuario(usuario);
         }
 
@@ -57,7 +61,6 @@ namespace BLL
         {
             unUsuarioDAO.GuardarPermisos(unUsuario);
         }
-
 
     }
 }

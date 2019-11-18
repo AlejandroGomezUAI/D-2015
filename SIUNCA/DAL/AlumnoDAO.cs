@@ -12,18 +12,18 @@ namespace DAL
 {
     public class AlumnoDAO
     {
-        //public List<Alumno> traerTodo()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private Conexion con;
+
+        public AlumnoDAO()
+        {
+            con = new Conexion("config.xml");
+        }
 
         public List<DTOAlumno> traerTodo(int IdMateriaCC)
         {
             List<DTOAlumno> resultado = new List<DTOAlumno>();
-            var con = new Conexion("config.xml");
             con.ConexionIniciar();
 
-           
             List<Parametro> listaParametrosCD = new List<Parametro>();
             listaParametrosCD.Add(new Parametro("IdMateriaCC", IdMateriaCC));
 
@@ -67,7 +67,6 @@ namespace DAL
         public List<Alumno> traerTodo()
         {
             List<Alumno> resultado = new List<Alumno>();
-            var con = new Conexion("config.xml");
             con.ConexionIniciar();
 
             List<Parametro> listaParametrosCD = new List<Parametro>();           
@@ -91,13 +90,12 @@ namespace DAL
         public List<Alumno> TraerTodo(Alumno UnAlumno)
         {
             List<Alumno> resultado = new List<Alumno>();
-            Conexion unaConexion = new Conexion("config.xml");
-            unaConexion.ConexionIniciar();
+            con.ConexionIniciar();
             try
             {
                 List<Parametro> listaParametrosCD = new List<Parametro>();
                 listaParametrosCD.Add(new Parametro("LegajoAlumno", UnAlumno.LegajoAlumno));
-                resultado = unaConexion.EjecutarTupla<Alumno>("SELECT Nombre, Apellido FROM Alumno WHERE LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
+                resultado = con.EjecutarTupla<Alumno>("SELECT Nombre, Apellido FROM Alumno WHERE LegajoAlumno = (@LegajoAlumno)", listaParametrosCD);
 
 
             }
@@ -110,20 +108,19 @@ namespace DAL
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
             return resultado;
         }
         public void GuardarAsignacionAlumnoAMaterias(Alumno unAlumno, List<Alumno_MateriaCC> AlumnoMateriaDetalles)
         {
-            Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaDeParametros = new List<Parametro>();
             listaDeParametros.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
 
             try
             {
-                unaConexion.ConexionIniciar();
-                unaConexion.TransaccionIniciar();
+                con.ConexionIniciar();
+                con.TransaccionIniciar();
 
 
                 foreach (var item in AlumnoMateriaDetalles)
@@ -138,20 +135,20 @@ namespace DAL
 
                     //item.IdDetallesDetMatPlanCorrPlan = IdDetallesDetMatPlanCorrPlan;
 
-                    unaConexion.EjecutarSinResultado("INSERT INTO Alumno_MateriaCC (IdMateriaCC, LegajoAlumno, Estado) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
+                    con.EjecutarSinResultado("INSERT INTO Alumno_MateriaCC (IdMateriaCC, LegajoAlumno, Estado) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
                     //unaConexion.EjecutarSinResultado("INSERT INTO Curso (IdMateriaCC, IdCarrera) VALUES (@IdMateriaCC, @LegajoAlumno, @Estado)", listaParametrosCD);
                 }
-                unaConexion.TransaccionAceptar();
+                con.TransaccionAceptar();
             }
             catch (Exception x)
             {
-                unaConexion.TransaccionCancelar();
+                con.TransaccionCancelar();
                 // EventViewer.RegistrarError("VB", "SQL", "ERROR AL PRODUCIR TRANSACCION", EventViewer.TipoEvento._Error)
                 //Interaction.MsgBox("error al insertar plan de estudio detalles");
             }
             finally
             {
-                unaConexion.ConexionFinalizar();
+                con.ConexionFinalizar();
             }
 
         }
@@ -160,8 +157,6 @@ namespace DAL
         }
         public void Modificar(Alumno unAlumno)
         {
-
-            Conexion unaConexion = new Conexion("config.xml");
             List<Parametro> listaParametros = new List<Parametro>();
 
             listaParametros.Add(new Parametro("LegajoAlumno", unAlumno.LegajoAlumno));
@@ -170,32 +165,28 @@ namespace DAL
             listaParametros.Add(new Parametro("Email", unAlumno.Email));
             listaParametros.Add(new Parametro("Sexo", unAlumno.Sexo));
 
-
             try
                 {
-                    unaConexion.ConexionIniciar();
-                    unaConexion.TransaccionIniciar();
+                    con.ConexionIniciar();
+                    con.TransaccionIniciar();
 
-                    unaConexion.EjecutarSinResultado("UPDATE Alumno SET Nombre = (@Nombre), Apellido = (@Apellido), Email = (@Email), Sexo = (@Sexo) WHERE LegajoAlumno = (@LegajoAlumno)", listaParametros);
-                    unaConexion.TransaccionAceptar();
+                    con.EjecutarSinResultado("UPDATE Alumno SET Nombre = (@Nombre), Apellido = (@Apellido), Email = (@Email), Sexo = (@Sexo) WHERE LegajoAlumno = (@LegajoAlumno)", listaParametros);
+                    con.TransaccionAceptar();
                 }
                 catch (Exception ex)
                 {
-                    unaConexion.TransaccionCancelar();
+                    con.TransaccionCancelar();
                     MessageBox.Show("error modificando materia");
                 }
 
                 finally
                 {
-                    unaConexion.ConexionFinalizar();
+                    con.ConexionFinalizar();
                 }
             
         }
         public void Eliminar(object unAlumno)
         {
         }
-
-
-
     }
 }
