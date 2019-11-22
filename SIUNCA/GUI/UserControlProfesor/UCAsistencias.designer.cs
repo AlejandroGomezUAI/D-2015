@@ -38,9 +38,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblFechaActual = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.btnModificarAsist = new System.Windows.Forms.Button();
             this.btnGuardarAsist = new System.Windows.Forms.Button();
-            this.btnCancelarAsist = new System.Windows.Forms.Button();
             this.gbListadoDeAlu = new System.Windows.Forms.GroupBox();
             this.dgvRegistrarAsist = new System.Windows.Forms.DataGridView();
             this.Asistencia = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -135,9 +133,7 @@
             // 
             this.tabPage2.Controls.Add(this.lblFechaActual);
             this.tabPage2.Controls.Add(this.lblFecha);
-            this.tabPage2.Controls.Add(this.btnModificarAsist);
             this.tabPage2.Controls.Add(this.btnGuardarAsist);
-            this.tabPage2.Controls.Add(this.btnCancelarAsist);
             this.tabPage2.Controls.Add(this.gbListadoDeAlu);
             this.tabPage2.Controls.Add(this.gbSelDeMat);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -166,16 +162,6 @@
             this.lblFecha.TabIndex = 13;
             this.lblFecha.Text = "Fecha";
             // 
-            // btnModificarAsist
-            // 
-            this.btnModificarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarAsist.Location = new System.Drawing.Point(530, 409);
-            this.btnModificarAsist.Name = "btnModificarAsist";
-            this.btnModificarAsist.Size = new System.Drawing.Size(75, 23);
-            this.btnModificarAsist.TabIndex = 12;
-            this.btnModificarAsist.Text = "Modificar";
-            this.btnModificarAsist.UseVisualStyleBackColor = true;
-            // 
             // btnGuardarAsist
             // 
             this.btnGuardarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -186,16 +172,6 @@
             this.btnGuardarAsist.Text = "Guardar";
             this.btnGuardarAsist.UseVisualStyleBackColor = true;
             this.btnGuardarAsist.Click += new System.EventHandler(this.btnGuardarAsist_Click);
-            // 
-            // btnCancelarAsist
-            // 
-            this.btnCancelarAsist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarAsist.Location = new System.Drawing.Point(633, 409);
-            this.btnCancelarAsist.Name = "btnCancelarAsist";
-            this.btnCancelarAsist.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelarAsist.TabIndex = 10;
-            this.btnCancelarAsist.Text = "Cancelar";
-            this.btnCancelarAsist.UseVisualStyleBackColor = true;
             // 
             // gbListadoDeAlu
             // 
@@ -291,13 +267,11 @@
         private System.Windows.Forms.ComboBox cboMateriaAsist;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnGuardarAsist;
-        private System.Windows.Forms.Button btnCancelarAsist;
         private System.Windows.Forms.GroupBox gbListadoDeAlu;
         private System.Windows.Forms.DataGridView dgvRegistrarAsist;
         private System.Windows.Forms.GroupBox gbSelDeMat;
         private System.Windows.Forms.Button btnSelMateriaAsist;
         private System.Windows.Forms.ComboBox cboMateriaRegAsist;
-        private System.Windows.Forms.Button btnModificarAsist;
         private System.Windows.Forms.DataGridViewComboBoxColumn Asistencia;
         private System.Windows.Forms.Label lblFechaActual;
         private System.Windows.Forms.Label lblFecha;

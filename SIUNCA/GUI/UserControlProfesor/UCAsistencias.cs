@@ -28,6 +28,8 @@ namespace GUI.UserControlProfesor
             lblFechaActual.Text = DateTime.Now.ToShortDateString();
 
             Idioma.cambiarIdioma(Idioma.cacheIdioma, IdiomaPorDefecto);
+
+            validarBtnGuardarAsistencia();
         }
 
         private void btnSelMateriaAsistencia_Click(object sender, EventArgs e)
@@ -38,6 +40,8 @@ namespace GUI.UserControlProfesor
         private void btnSelMateriaAsist_Click(object sender, EventArgs e)
         {
             cargarListaAlumnos();
+
+            validarBtnGuardarAsistencia();
         }
 
         private void btnGuardarAsist_Click(object sender, EventArgs e)
@@ -190,11 +194,26 @@ namespace GUI.UserControlProfesor
             gbListaDeAlumnos.Text = Res.gbListaDeAlumnos;
             gbSeleccionDeMateria.Text = Res.gbSeleccionDeMateria;
             btnGuardarAsist.Text = Res.btnGuardarAsist;
-            btnCancelarAsist.Text = Res.btnCancelarAsist;
-            btnModificarAsist.Text = Res.btnModificarAsist;
+            //btnCancelarAsist.Text = Res.btnCancelarAsist;
+            //btnModificarAsist.Text = Res.btnModificarAsist;
             gbListadoDeAlu.Text = Res.gbListadoDeAlu;
             gbSelDeMat.Text = Res.gbSelDeMat;
             btnSelMateriaAsistencia.Text = Res.btnSelMateriaAsistencia;
         }
+
+        void validarBtnGuardarAsistencia()
+        {
+            if (dgvRegistrarAsist.DataSource == null)
+            {
+                btnGuardarAsist.Enabled = false;
+            }
+            else
+            {
+                //Activa o desactiva btnguardarasist
+                var gestorAsistencia = new GestorAsistencia();
+                btnGuardarAsist.Enabled = gestorAsistencia.validarFecha((int)cboMateriaRegAsist.SelectedValue);
+            }  
+        }
+
     }
 }

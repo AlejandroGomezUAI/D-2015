@@ -48,7 +48,35 @@ namespace DAL
             {
                 con.ConexionFinalizar();
             }
+        }
 
+        public List<Asistencia> traerUltimaFecha(int idMateria)
+        {
+            List<Asistencia> resultado = new List<Asistencia>();
+            var parametros = new List<Parametro>();
+
+            try
+            {
+                con.ConexionIniciar();
+
+                parametros.Add(new Parametro("IdMateriaCC", idMateria));
+
+                resultado = con.EjecutarTupla<Asistencia>(@"SELECT TOP 1 IdAsistencia, Ausente, Presente, Fecha, IdMateriaCC, LegajoAlumno 
+                                                            FROM asistencia 
+                                                            WHERE IdMateriaCC = (@IdMateriaCC) 
+                                                            ORDER BY Fecha DESC", parametros);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en AsistenciaDAO" + ex.Data);
+                return null;
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
         }
     }
 }
