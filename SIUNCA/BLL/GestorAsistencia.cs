@@ -22,5 +22,26 @@ namespace BLL
         {
             asistenciaDAO.guardarTodo(listadoAsistencia);
         }
+
+        public bool validarFecha(int idMateria)
+        {
+            var resultadoFecha = asistenciaDAO.traerUltimaFecha(idMateria).FirstOrDefault();
+             
+            if (resultadoFecha != null)  
+            {
+                if (resultadoFecha.Fecha == DateTime.Today)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
