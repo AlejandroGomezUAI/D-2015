@@ -67,6 +67,11 @@ namespace GUI.UserControlProfesor
             cboMateriaRegAsist.DataSource = materiascc;
             cboMateriaRegAsist.ValueMember = "IdMateriaCC";
             cboMateriaRegAsist.DisplayMember = "Nombre";
+
+            cboSelModAsistencia.DataSource = null;
+            cboSelModAsistencia.DataSource = materiascc;
+            cboSelModAsistencia.ValueMember = "IdMateriaCC";
+            cboSelModAsistencia.DisplayMember = "Nombre";
         }
 
         /// <summary>
@@ -213,6 +218,121 @@ namespace GUI.UserControlProfesor
                 var gestorAsistencia = new GestorAsistencia();
                 btnGuardarAsist.Enabled = gestorAsistencia.validarFecha((int)cboMateriaRegAsist.SelectedValue);
             }  
+        }
+
+        private void btnSelModAsistencia_Click(object sender, EventArgs e)
+        {
+            cargarActaDeasistenciasModificar();
+        }
+
+        void cargarActaDeasistenciasModificar()
+        {
+            var gestorAlumno = new GestorAlumno();
+            var alumnos = gestorAlumno.traerAlumnos((int)cboSelModAsistencia.SelectedValue);
+
+            dgvListadoAlumnosModificar.DataSource = null;
+            dgvListadoAlumnosModificar.DataSource = alumnos;
+
+            //Modifica el nombre de la columna LegajoAlumno
+            dgvListadoAlumnosModificar.Columns[0].HeaderText = "Legajo";
+
+            //oculta las columnas
+            dgvListadoAlumnosModificar.Columns[3].Visible = false;
+            dgvListadoAlumnosModificar.Columns[4].Visible = false;
+            dgvListadoAlumnosModificar.Columns[5].Visible = false;
+            dgvListadoAlumnosModificar.Columns[6].Visible = false;
+
+        }
+
+        private void dgvListadoAlumnosModificar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CacheAsistencia.LegajoAlumno = (int)dgvListadoAlumnosModificar.Rows[e.RowIndex].Cells["LegajoAlumno"].Value;
+            CacheAsistencia.IdMateriaCC = (int)dgvListadoAlumnosModificar.Rows[e.RowIndex].Cells["IdMateriaCC"].Value;
+            
+            cargarListadoAsistenciaDeAlumno(CacheAsistencia.LegajoAlumno, CacheAsistencia.IdMateriaCC);
+            agregarStringDeAsistencia();
+        }
+
+        /// <summary>
+        /// le agrega al campo Asistencia1 del dgv "Presente" o "Ausente"
+        /// </summary>
+        void agregarStringDeAsistencia()
+        {
+            for (int i = 0; i < dgvListadoAsistenciaModificar.Rows.Count; i++)
+            {
+                var presente = Convert.ToInt32(dgvListadoAsistenciaModificar.Rows[i].Cells["Presente"].Value.ToString());
+                var ausente = Convert.ToInt32(dgvListadoAsistenciaModificar.Rows[i].Cells["Ausente"].Value.ToString());
+
+                if (presente == 1 && ausente == 0)
+                {
+                    dgvListadoAsistenciaModificar.Rows[i].Cells["Asistencia1"].Value = "Presente";
+                }
+                else
+                {
+                    dgvListadoAsistenciaModificar.Rows[i].Cells["Asistencia1"].Value = "Ausente";
+                }
+            }
+        }
+
+        void cargarListadoAsistenciaDeAlumno(int LegajoAlumno, int IdMateriaCC)
+        {
+            var gestorAsistencia = new GestorAsistencia();
+            var asistencias = gestorAsistencia.traerAsistencias(LegajoAlumno, IdMateriaCC);
+
+            dgvListadoAsistenciaModificar.DataSource = null;
+            dgvListadoAsistenciaModificar.DataSource = asistencias;
+
+            //Modificacion del orden de las columnas
+            dgvListadoAsistenciaModificar.Columns["Asistencia1"].DisplayIndex = 2;
+
+            //oculta las columnas
+            dgvListadoAsistenciaModificar.Columns[1].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[3].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[4].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[5].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[6].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[7].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[8].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[9].Visible = false;
+            dgvListadoAsistenciaModificar.Columns[10].Visible = false;
+        }
+
+        private void dgvListadoAsistenciaModificar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CacheAsistencia.IdAsistencia = Convert.ToInt32(dgvListadoAsistenciaModificar.Rows[e.RowIndex].Cells["IdAsistencia"].Value);
+
+            var ausente = Convert.ToInt32(dgvListadoAsistenciaModificar.Rows[e.RowIndex].Cells["Ausente"].Value);
+            var presente = Convert.ToInt32(dgvListadoAsistenciaModificar.Rows[e.RowIndex].Cells["Presente"].Value);
+
+            if (ausente == 0 && presente == 1)
+            {
+                cboModificarAsistencia.SelectedIndex = 1;
+            }
+            else
+            {
+                cboModificarAsistencia.SelectedIndex = 0;
+            }
+        }
+
+        private void btnModificarAsistencia_Click(object sender, EventArgs e)
+        {
+            var asistencia = cboModificarAsistencia.SelectedIndex;
+
+            var gestorAsistencia = new GestorAsistencia();
+            gestorAsistencia.modificarAsistencia(asistencia, CacheAsistencia.IdAsistencia);
+
+            DialogResult res = MessageBox.Show($"La asistencia del alumno sera modificada a {cboModificarAsistencia.SelectedItem.ToString()}", "Modificacion", MessageBoxButtons.OKCancel);
+
+            if (res == DialogResult.OK)
+            {
+                //refresca el dgvListadoAsistenciaModificar para que se vea la modificacion realizada por el usuario
+                cargarListadoAsistenciaDeAlumno(CacheAsistencia.LegajoAlumno, CacheAsistencia.IdMateriaCC);
+                agregarStringDeAsistencia();
+            }
+            else
+            {
+                MessageBox.Show("La modificacion ha sido cancelada");
+            }
         }
 
     }
