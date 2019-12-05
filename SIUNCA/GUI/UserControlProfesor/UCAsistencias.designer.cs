@@ -45,6 +45,17 @@
             this.gbSelDeMat = new System.Windows.Forms.GroupBox();
             this.btnSelMateriaAsist = new System.Windows.Forms.Button();
             this.cboMateriaRegAsist = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnModificarAsistencia = new System.Windows.Forms.Button();
+            this.cboModificarAsistencia = new System.Windows.Forms.ComboBox();
+            this.dgvListadoAsistenciaModificar = new System.Windows.Forms.DataGridView();
+            this.Asistencia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvListadoAlumnosModificar = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSelModAsistencia = new System.Windows.Forms.Button();
+            this.cboSelModAsistencia = new System.Windows.Forms.ComboBox();
             this.TCAsistencias.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbListaDeAlumnos.SuspendLayout();
@@ -54,12 +65,19 @@
             this.gbListadoDeAlu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarAsist)).BeginInit();
             this.gbSelDeMat.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoAsistenciaModificar)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoAlumnosModificar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TCAsistencias
             // 
             this.TCAsistencias.Controls.Add(this.tabPage1);
             this.TCAsistencias.Controls.Add(this.tabPage2);
+            this.TCAsistencias.Controls.Add(this.tabPage3);
             this.TCAsistencias.Location = new System.Drawing.Point(3, 3);
             this.TCAsistencias.Name = "TCAsistencias";
             this.TCAsistencias.SelectedIndex = 0;
@@ -235,6 +253,123 @@
             this.cboMateriaRegAsist.Size = new System.Drawing.Size(148, 21);
             this.cboMateriaRegAsist.TabIndex = 1;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(845, 457);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Modificar asistencia";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnModificarAsistencia);
+            this.groupBox3.Controls.Add(this.cboModificarAsistencia);
+            this.groupBox3.Controls.Add(this.dgvListadoAsistenciaModificar);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Location = new System.Drawing.Point(241, 245);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(562, 198);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Asistencias del alumno  seleccionado";
+            // 
+            // btnModificarAsistencia
+            // 
+            this.btnModificarAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificarAsistencia.Location = new System.Drawing.Point(435, 123);
+            this.btnModificarAsistencia.Name = "btnModificarAsistencia";
+            this.btnModificarAsistencia.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarAsistencia.TabIndex = 12;
+            this.btnModificarAsistencia.Text = "Modificar";
+            this.btnModificarAsistencia.UseVisualStyleBackColor = true;
+            this.btnModificarAsistencia.Click += new System.EventHandler(this.btnModificarAsistencia_Click);
+            // 
+            // cboModificarAsistencia
+            // 
+            this.cboModificarAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboModificarAsistencia.FormattingEnabled = true;
+            this.cboModificarAsistencia.Items.AddRange(new object[] {
+            "Presente",
+            "Ausente"});
+            this.cboModificarAsistencia.Location = new System.Drawing.Point(400, 19);
+            this.cboModificarAsistencia.Name = "cboModificarAsistencia";
+            this.cboModificarAsistencia.Size = new System.Drawing.Size(148, 21);
+            this.cboModificarAsistencia.TabIndex = 2;
+            // 
+            // dgvListadoAsistenciaModificar
+            // 
+            this.dgvListadoAsistenciaModificar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListadoAsistenciaModificar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Asistencia1});
+            this.dgvListadoAsistenciaModificar.Location = new System.Drawing.Point(25, 19);
+            this.dgvListadoAsistenciaModificar.Name = "dgvListadoAsistenciaModificar";
+            this.dgvListadoAsistenciaModificar.Size = new System.Drawing.Size(360, 173);
+            this.dgvListadoAsistenciaModificar.TabIndex = 0;
+            this.dgvListadoAsistenciaModificar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoAsistenciaModificar_CellClick);
+            // 
+            // Asistencia1
+            // 
+            this.Asistencia1.HeaderText = "Asistencia";
+            this.Asistencia1.Name = "Asistencia1";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvListadoAlumnosModificar);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox2.Location = new System.Drawing.Point(244, 14);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(559, 225);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seleccion de alumno";
+            // 
+            // dgvListadoAlumnosModificar
+            // 
+            this.dgvListadoAlumnosModificar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListadoAlumnosModificar.Location = new System.Drawing.Point(22, 19);
+            this.dgvListadoAlumnosModificar.Name = "dgvListadoAlumnosModificar";
+            this.dgvListadoAlumnosModificar.Size = new System.Drawing.Size(360, 200);
+            this.dgvListadoAlumnosModificar.TabIndex = 0;
+            this.dgvListadoAlumnosModificar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListadoAlumnosModificar_CellClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSelModAsistencia);
+            this.groupBox1.Controls.Add(this.cboSelModAsistencia);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(41, 14);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(197, 225);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccion de materia";
+            // 
+            // btnSelModAsistencia
+            // 
+            this.btnSelModAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelModAsistencia.Location = new System.Drawing.Point(58, 149);
+            this.btnSelModAsistencia.Name = "btnSelModAsistencia";
+            this.btnSelModAsistencia.Size = new System.Drawing.Size(75, 23);
+            this.btnSelModAsistencia.TabIndex = 1;
+            this.btnSelModAsistencia.Text = "Seleccionar";
+            this.btnSelModAsistencia.UseVisualStyleBackColor = true;
+            this.btnSelModAsistencia.Click += new System.EventHandler(this.btnSelModAsistencia_Click);
+            // 
+            // cboSelModAsistencia
+            // 
+            this.cboSelModAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboSelModAsistencia.FormattingEnabled = true;
+            this.cboSelModAsistencia.Location = new System.Drawing.Point(22, 19);
+            this.cboSelModAsistencia.Name = "cboSelModAsistencia";
+            this.cboSelModAsistencia.Size = new System.Drawing.Size(148, 21);
+            this.cboSelModAsistencia.TabIndex = 1;
+            // 
             // UCAsistencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +387,12 @@
             this.gbListadoDeAlu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistrarAsist)).EndInit();
             this.gbSelDeMat.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoAsistenciaModificar)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoAlumnosModificar)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,5 +416,16 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Asistencia;
         private System.Windows.Forms.Label lblFechaActual;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnModificarAsistencia;
+        private System.Windows.Forms.ComboBox cboModificarAsistencia;
+        private System.Windows.Forms.DataGridView dgvListadoAsistenciaModificar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asistencia1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvListadoAlumnosModificar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSelModAsistencia;
+        private System.Windows.Forms.ComboBox cboSelModAsistencia;
     }
 }

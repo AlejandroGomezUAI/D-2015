@@ -78,5 +78,61 @@ namespace DAL
                 con.ConexionFinalizar();
             }
         }
+
+        public List<Asistencia> traerAsistenciasAlumno(int legajoAlumno, int idMateriaCC)
+        {
+            List<Asistencia> resultado = new List<Asistencia>();
+            var parametros = new List<Parametro>();
+
+            try
+            {
+                con.ConexionIniciar();
+
+                parametros.Add(new Parametro("LegajoAlumno", legajoAlumno));
+                parametros.Add(new Parametro("IdMateriaCC", idMateriaCC));
+
+                resultado = con.EjecutarTupla<Asistencia>(@"SELECT IdAsistencia, Fecha, Ausente, Presente, IdMateriaCC, LegajoAlumno 
+                                                            FROM Asistencia 
+                                                            WHERE IdMateriaCC = @IdMateriaCC AND LegajoAlumno = @LegajoAlumno", parametros);
+
+                return resultado;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en AsistenciaDAO" + ex.Data);
+                return null;
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
+        }
+
+        public void guardarModificacionAsistencia(int presente, int ausente, int idasistencia)
+        {
+            var parametros = new List<Parametro>();
+
+            try
+            {
+                con.ConexionIniciar();
+
+                parametros.Add(new Parametro("Presente", presente.ToString()));
+                parametros.Add(new Parametro("Ausente", ausente.ToString()));
+                parametros.Add(new Parametro("IdAsistencia", idasistencia));
+
+                con.EjecutarSinResultado(@"UPDATE Asistencia SET Ausente = @Presente, presente = @Ausente
+                                           WHERE IdAsistencia = @IdAsistencia ", parametros);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en AsistenciaDAO" + ex.Data);
+            }
+            finally
+            {
+                con.ConexionFinalizar();
+            }
+        }
     }
 }

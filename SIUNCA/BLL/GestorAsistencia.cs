@@ -43,5 +43,29 @@ namespace BLL
                 return false;
             }
         }
+
+        public List<Asistencia> traerAsistencias(int legajoAlumno, int idMateriaCC)
+        {
+            return asistenciaDAO.traerAsistenciasAlumno(legajoAlumno, idMateriaCC);
+        }
+
+        public void modificarAsistencia(int asistencia, int idasistencia)
+        {
+            var presente = 0;
+            var ausente = 0;
+
+            if (asistencia == 1)
+            {
+                presente = 1;
+                ausente = 0;
+                asistenciaDAO.guardarModificacionAsistencia(presente, ausente, idasistencia);
+            }
+            else
+            {
+                presente = 0;
+                ausente = 1;
+                asistenciaDAO.guardarModificacionAsistencia(presente, ausente, idasistencia);
+            }
+        }
     }
 }
